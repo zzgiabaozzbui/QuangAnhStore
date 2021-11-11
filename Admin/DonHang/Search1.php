@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json; charset=UTF-8");
-$conn = new mysqli("localhost", "root", "", "qldienthoai", 3306);
+$conn = new mysqli("localhost", "root", "", "qldt", 3306);
 if (isset($_POST["action"])){
 $searchname = $_POST["searchname"];
 $stmt = $conn->prepare("SELECT d.MaDH,d.TenDonHang,d.MaKH,d.Masanpham,d.ThoiGianDat,d.soLuongDH,d.PhuongThucThanhToan,d.DiaChi,d.ThanhTien,d.TrangThai

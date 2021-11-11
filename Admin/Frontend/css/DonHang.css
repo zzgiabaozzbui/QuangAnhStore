@@ -56,7 +56,7 @@ a {
     margin: 0 10px 0 12px;
 } */
 .check-box-index {
-    height: 43px;
+    height: 53px;
 }
 /* .main-app .container-content .tab-content .container-top .ct-ngay .ngay {
     display: flex;
@@ -99,6 +99,7 @@ a {
     align-items: center;
     justify-content: center;
     padding: 14px;
+    height: 61px;
 }
 
 #customers .check-box-index {

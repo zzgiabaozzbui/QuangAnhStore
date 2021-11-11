@@ -1,7 +1,7 @@
 <?php
 //select.php  
 $output = '';
-$connect = mysqli_connect("localhost", "root", "", "qldienthoai", 3306);
+$connect = mysqli_connect("localhost", "root", "", "qldt", 3306);
 
 if ($connect == true) {
    $query = "CALL Proc_Get_DemDonHang()";

@@ -22,6 +22,9 @@
             ?>
         </div>
         <div class="container-content">
+            <?php
+            require "../Shared_Element/Name.php";
+            ?>
 
 
             <div class="container-title">
@@ -35,7 +38,7 @@
             </div>
             <div class="tab-content">
                 <?php
-                $conn = mysqli_connect("localhost", "root", "", "qldienthoai");
+                $conn = mysqli_connect("localhost", "root", "", "qldt");
 
 
                 if ($conn == true) {

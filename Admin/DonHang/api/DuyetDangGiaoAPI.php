@@ -2,7 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['MaDH'];
 
-    $conn = new mysqli("localhost", "root", "", "qldienthoai", 3306);
+    $conn = new mysqli("localhost", "root", "", "qldt", 3306);
 
     if ($conn) {
         $query = "UPDATE  donhang d SET d.TrangThai = 'Giao hàng thành công',d.NgayGiaoHang = CURDATE() WHERE d.MaDH = '" . $id . "'";

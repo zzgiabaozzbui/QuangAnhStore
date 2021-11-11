@@ -1,7 +1,7 @@
 <div class="container-top">
 <div class="ct-search">
         <form method="POST">
-            <input type="text" name="txtSearchHome" id="txtSearchHome" onchange="layDuLieu()" placeholder="Search.." value="<?php echo isset($_POST['txtSearchHome']) ? $_POST['txtSearchHome'] : '' ?>">
+            <input type="text" name="txtSearchHome" id="txtSearchHome" onchange="layDuLieu()" placeholder="Tìm kiếm..." value="<?php echo isset($_POST['txtSearchHome']) ? $_POST['txtSearchHome'] : '' ?>">
         </form>
     </div>
 </div>
