@@ -1,0 +1,248 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 97.5%;
+    padding: 0 0 0 28px;
+}
+
+body {
+    padding: 12px;
+}
+
+h2 {
+    margin: 0 0px 0px 32px;
+}
+
+#customers td,
+#customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#customers .cencer-icon .icon {
+    font-size: 20px;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+#customers .cencer-icon {
+    text-align: center;
+    width: 50px;
+
+}
+
+/* .main-app .container-content .tab-content .container-top .ct-ngay {
+    display: flex;
+    align-items: center;
+    margin-left: 20%;
+}
+.main-app .container-content .tab-content .container-top .ct-ngay .container-combobox  {
+    display: flex;
+    align-items: baseline;
+}
+#cboNgay {
+    width: 100px;
+    height: 30px;
+    margin: 0 10px 0 12px;
+} */
+.check-box-index {
+    height: 43px;
+}
+/* .main-app .container-content .tab-content .container-top .ct-ngay .ngay {
+    display: flex;
+    align-items: baseline;
+    font-weight: 600;
+}
+
+.main-app .container-content .tab-content .container-top .ct-ngay .ngay-left {
+    margin-right: 17px;
+}
+
+.main-app .container-content .tab-content .container-top .ct-ngay .ngay-left input {
+    width: 144px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+    padding-right: 6px;
+    margin-left: 6px;
+}
+
+.main-app .container-content .tab-content .container-top .ct-ngay .ngay-right input {
+    width: 144px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+    padding-right: 6px;
+    margin-left: 6px;   
+} */
+
+#chk-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#customers .check-box-indexs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+}
+
+#customers .check-box-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.main-app .container-content .tab-content {
+    margin: 28px 0 0 28px;
+    flex: 1;
+}
+
+#customers .cencer-icon a {
+    text-decoration: none;
+}
+
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #0066ff;
+    color: white;
+}
+
+.container-table {}
+
+/* search */
+input[type=text] {
+    width: 312px;
+    float: left;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    border: none;
+    font-size: 17px;
+    border-radius: 8px;
+}
+
+input[type=text] {
+    border: 1px solid #ccc;
+}
+
+.container-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-top #date-ngaydau {
+    width: 144px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1 px solid #ccc;
+    padding-left: 10px;
+}
+
+.container-top .ct-button #btnCheck {
+    width: 70px;
+    height: 26px;
+    margin: 8px 8px 0 0;
+    background-color: #0066ff;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.container-top .ct-button #btnCheck:disabled {
+    background-color: #ccc;
+}
+
+.container-top .ct-button #btnDelete {
+    width: 70px;
+    height: 26px;
+    margin: 8px 42px 0 0;
+    background-color: #0066ff;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.container-top .ct-button #btnDelete:disabled {
+    background-color: #ccc;
+}
+
+.container-top .ct-button #btnDaGiao {
+    width: 70px;
+    height: 26px;
+    margin: 8px 42px 0 0;
+    background-color: #0066ff;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.container-top .ct-button #btnDaGiao:disabled {
+    background-color: #ccc;
+}
+
+.container-top .ct-search input {
+    margin: 0px 0px 8px 2px;
+}
+
+.text-cencter {
+    text-align: center !important;
+
+}
+
+.text-right {
+    text-align: right;
+
+}
+
+.size-td {
+    width: 150px;
+}
+
+/* thu */
+li {
+    background-color: #0066ff;
+    color: #fff;
+}
+
+#sideBar {
+    background-color: #0066ff;
+}
+
+.main-app .container-sidebar #sideBar {
+    background-color: #0066ff;
+}
+
+li p {
+    color: #fff;
+}
+
+li i {
+    color: #fff;
+}
+
+/* end thu */
