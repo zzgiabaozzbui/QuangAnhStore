@@ -1,0 +1,129 @@
+.main{
+    display: flex;
+    height: 100vh;
+}
+.container-web{
+    flex: 1;
+    height: 100vh;
+}
+
+.div--bton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+.btnS{
+    background-image: url(https://img.icons8.com/ios-filled/2x/save.png);
+    background-size: 40px;
+    background-position: 5% 80%;
+    background-repeat:no-repeat ;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left:0px;
+    padding: 10px 50px 10px 60px;
+    background-color: rgba(255, 255, 255, 0.88);
+    border: none;
+    border-radius: 0px;
+    color: black;
+    font-size: 18px;
+    margin: auto 10px 0px 10px;
+}
+.btnD{
+    background-image: url("https://img.icons8.com/external-kiranshastry-solid-kiranshastry/2x/external-delete-multimedia-kiranshastry-solid-kiranshastry.png");
+    background-size: 40px;
+    background-position: 5% 80%;
+    background-repeat:no-repeat ;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left:0px;
+    padding: 10px 40px 10px 55px;
+    background-color: rgba(255, 255, 255, 0.88);
+    border: none;
+    border-radius: 0px;
+    color: black;
+    font-size: 18px;
+    margin: auto 10px 0px 10px;
+}
+.mainup{
+    background: linear-gradient( -45deg, #23a6d5,#23d5ab);
+    /* border-radius: 2%; */
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 92%;
+    color: white;
+    margin: 5px;
+    padding-top: 10px;
+    position: relative;
+}
+.mainf{
+    
+    height: 300px;
+    padding-top: 20px;
+}
+
+
+
+.inpu{
+    background: rgba(231, 231, 231, 0.397);
+    background-position: left;
+    background-size: 22px;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    font-size: 15px;
+    border-color: #FFEB3B;
+    background-repeat: no-repeat;
+    padding:5px 8px 5px 25px;
+    outline: none;
+    margin: 10px auto 30px auto;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 40px;
+    border-radius: 5px;
+}
+.inpu::placeholder{
+    color: white;
+}
+.inpu:focus{
+    border-color: rgba(3, 7, 113, 0.71);
+}
+.inpu>option{
+    color: black;
+}
+.tbl{
+    font-family: 'Times New Roman', Times, serif;
+    width:100%;
+    table-layout: fixed;
+}
+
+.tbl>tr>td{
+    padding: 12px 5px;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 13px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+.lbl{
+    padding-left: 15%;
+    padding-bottom: 20px;
+}
+.sex{
+    margin-left: 40px;
+    
+}
+.tit{
+    background-image: url("https://img.icons8.com/external-bearicons-glyph-bearicons/2x/ffffff/external-User-essential-collection-bearicons-glyph-bearicons.png");
+    background-position: 25% 64%;
+    background-size: 90px;
+    background-repeat: no-repeat;
+    height: 100px;
+    margin: 10px auto;
+}
+.hupdate{
+    padding-left: 36%;
+    padding-top: 43px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}

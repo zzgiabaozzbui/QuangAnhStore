@@ -1,0 +1,78 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Roboto, -apple-system, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+     Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+     
+}
+.main{
+    display: flex;
+}
+.main .container-web{
+    background-color: white;
+    flex: 1; 
+    position: relative;
+    overflow: hidden;
+}
+.table  tbody td img{
+    width: 80px;
+    
+}
+.phanTrang{
+    display: flex;
+    justify-content: center;
+}
+.phanTrang a{
+    padding: 2px 7px;
+    border: 1px solid black;
+    margin: 0 2px;
+    text-decoration: none;
+}
+.table{
+    width: 90% !important;
+    margin-left: 40px;
+}
+.action{
+    background-color: darkgray;
+    color: white;
+}
+form.example input[type=text] {
+    padding: 5px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    
+  }
+  
+  /* Style the submit button */
+  form.example button {
+    float: left;
+    width: 20%;
+    padding: 5px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #0b7dda;
+  }
+  
+  /* Clear floats */
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  th{
+      text-align: center;
+  }
+

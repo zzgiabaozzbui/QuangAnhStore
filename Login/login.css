@@ -1,0 +1,65 @@
+.login__tk{
+    color: aliceblue;
+    margin: auto 10px;
+}
+.login__title{
+    color: rgb(255, 253, 253);
+    font-size: 25px;
+    margin: 10px auto;
+}
+.login__i{
+    width: 60px;
+    height: 60px ;
+    border-radius: 100%;
+}
+.login__txttk{
+    margin-left: 0px;
+}
+.login__btnLogin{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;;
+    font-size: 20px;
+    border: none;
+    background-image: linear-gradient(to right,#f0465f94,#3aabf1a8);;
+    margin-top: 40px;
+    padding: 10px;
+    width: 40%;
+    border-radius: 40px;
+}
+.login__txttk{
+    color: white;
+    width: 100%;
+    border-color: rgb(127, 250, 199);
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    font-size: 12px;
+    background-repeat: no-repeat;
+    padding: 5px 10px 5px 8px;
+    outline: none;
+    background: none;
+}
+.login__txttk::placeholder{
+    color: rgb(201, 199, 199);
+}
+.login__txttk:focus{
+    border-bottom-color: rgb(255, 204, 127);
+    transition: 2s;
+}
+#cborp{
+    margin-top: 5px;
+}
+.rp{
+    color: white;
+}
+.forge{
+    color: white;
+    font-size: 10px;
+}
+.lblcbo{
+    color: white;
+    font-size: 12px;
+    padding-left: 0px;
+    padding-right: 30%;
+    padding-bottom: 5px;
+}

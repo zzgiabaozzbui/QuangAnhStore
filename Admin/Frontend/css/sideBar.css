@@ -1,0 +1,143 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Roboto, -apple-system, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+     Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+     
+}
+
+#sideBar{
+    z-index: 1;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 250px;
+    min-width: 60px;
+    /* background: linear-gradient(#6dd5fa,#ffffff,#2980b9); */
+    border: 1px solid whitesmoke;
+    /* box-shadow: 5px 0 5px -5px #333; */
+    border-right:1px solid #d1d1d1 ;
+    display: block;
+}
+#sideBar header{
+    text-align: center;
+    font-size: 20px;
+}
+#sideBar .menu{
+   margin-top:5px; 
+}
+#sideBar>.logo{
+    padding-top: 15px;
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    border-bottom:1px solid #d1d1d1 ;
+}
+.logo--name{
+    font-size: 25px;
+    display: block;
+    margin-left: 60px;
+    color: rgb(38, 217, 248);
+    font-family: 'Times New Roman', Times, serif;
+}
+/* #sideBar ul{
+    margin-top: 20px;
+    background-color: white;
+} */
+#sideBar ul a{
+    text-decoration: none;
+}
+#sideBar ul a i{
+    margin: 0 21px 0 10px;
+    font-size: 21px;
+}
+#sideBar ul li{
+    padding: 15px 10px;
+    width: 210px;
+    height: 52px;
+    /* border-bottom: 1px solid black;
+    border-top: 1px solid rgba(255, 255, 255,.1) ; */
+    color: #72777a;
+    display: flex;
+    overflow: hidden;
+}
+#sideBar ul li:hover>i{
+    transform: scale(1.2);
+}
+#sideBar ul i:hover{
+    /* transform: scale(1.2); */
+    font: bold;
+}
+#sideBar ul p:hover{
+    /* transform: scale(1.2); */
+    font: bold;
+    color: black;
+}
+ul .action-sideBar{
+    background-color: aqua;
+    color: white !important;
+}
+ul .action-sideBar:hover{
+    margin-left: 0 !important;
+}
+.logo{
+    background-image: url("../img/Avatar/logo2.png");
+    display: block;
+    text-align: center;
+    position: relative;
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+/* .logo img{
+    
+    height: 100px;
+    display: inline-block;
+    line-height: 100px;
+    margin-left: -30px;
+} */
+.logo p{
+   display: inline-block;
+   line-height: 100px;
+   color: black;
+   font-weight: 100px;
+   font-size: 16px;
+}
+.open{
+    display: block;
+}
+
+
+
+/* Animation */
+@keyframes up {
+    from{
+        display: block;
+        width: 60px;
+        left: 0;
+    }
+    to{
+        display: none;
+        width: 250px;
+    }
+    
+}
+@keyframes dow {
+    from{
+        display: none;
+        width: 250px;
+    }
+    to{
+        display: block;
+        width: 60px;
+    }
+    
+}
