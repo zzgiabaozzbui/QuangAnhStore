@@ -223,26 +223,3 @@ input[type=text] {
     width: 150px;
 }
 
-/* thu */
-li {
-    background-color: #0066ff;
-    color: #fff;
-}
-
-#sideBar {
-    background-color: #0066ff;
-}
-
-.main-app .container-sidebar #sideBar {
-    background-color: #0066ff;
-}
-
-li p {
-    color: #fff;
-}
-
-li i {
-    color: #fff;
-}
-
-/* end thu */
