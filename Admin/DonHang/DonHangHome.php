@@ -46,7 +46,7 @@
                     $result = mysqli_query($conn, $query);
                     if (mysqli_num_rows($result) > 0) {
                         echo "<table id='customers'><thead>";
-                        echo "<th class='text-cencter'>Mã hóa đơn</th><th>Tên khách hàng</th><th class='text-cencter'>Số điện thoại</th><th class='text-cencter'>Email</th><th>Lưu ý</th><th class='text-cencter'>Ngày đặt hàng</th><th>Phương thức thanh toán</th><th>Địa chỉ</th><th class='text-cencter' >Thành tiền</th><th class='text-cencter' >Trạng thái</th><th class='text-cencter' >Xem chi tiết</th>";
+                        echo "<th class='text-cencter'>Mã hóa đơn</th><th>Tên khách hàng</th><th class='text-cencter'>Số điện thoại</th><th class='text-cencter'>Email</th><th>Lưu ý</th><th class='text-cencter'>Ngày đặt hàng</th><th>Phương thức thanh toán</th><th>Địa chỉ</th><th class='text-cencter' >Thành tiền</th><th class='text-cencter' >Trạng thái</th><th class='text-cencter' >Xem</th>";
                         echo "</thead>";
                         while ($row = mysqli_fetch_assoc($result)) {
 
@@ -57,13 +57,14 @@
                             echo "<td class='text-right size-td'>" . $row["Email"] . "</td>";
                            
                             echo "<td class='text-right'>" . $row["Luuy"] . "</td>";
-                            $date = $row["Ngaydat"];
-                            echo "<td>" .  date("d/m/Y", strtotime($date)) . "</td>";
+                            $date = $row["Ngaydat"];  
+                        
+                            echo "<td>" .date(" d-m-Y s:i:H", strtotime($date)) . "</td>";
                             echo "<td>" . $row["Thanhtoan"] . "</td>";
                             echo "<td>" . $row["Diachi"] . "</td>";
-                            echo "<td>" . $row["ThanhTien"] . "</td>";
+                            echo "<td>" . number_format($row["ThanhTien"]) . "đ</td>";
                             echo "<td>" . $row["Trangthai"] . "</td>";
-                            echo "<td class='text-cencter'> Xem </td>";
+                            echo "<td class='text-cencter'> <ti class= 'ti-eye'> </ti> </td>";
                             echo "</tr>";
                         }
                         echo "</table>";
@@ -84,7 +85,6 @@
 
         <script rel="text/javascript" src="../Frontend/js/jquery-3.6.0.min.js"></script>
         <script rel="text/javascript" src="../Frontend/js/navbar.js"></script>
-        <script rel="text/javascript" src="../Frontend/js/moment.js"></script>
 </body>
 
 </html>

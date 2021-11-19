@@ -21,7 +21,7 @@
             <th class='text-cencter'>Địa chỉ nhận hàng</th>
             <th class='text-cencter'>Thành tiền</th>
             <th class='text-cencter'>Trạng thái</th>
-            <td class='text-cencter'> Xem </td>
+            <th class='text-cencter'> Xem </th>
         </thead>
         <tbody class="customer-home"></tbody>
     </table>
