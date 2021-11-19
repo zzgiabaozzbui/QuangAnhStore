@@ -33,7 +33,7 @@ $(document).ready(() => {
             {
                 indexTotal: '0',
                 name: 'Đang giao',
-                iconItem: 'ti-shopping-cart-full',
+                iconItem: 'fas fa-shipping-fast',
                 link: 'DangGiao.php'
             },
             {

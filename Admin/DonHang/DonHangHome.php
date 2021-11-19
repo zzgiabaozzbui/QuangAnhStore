@@ -85,6 +85,7 @@
 
         <script rel="text/javascript" src="../Frontend/js/jquery-3.6.0.min.js"></script>
         <script rel="text/javascript" src="../Frontend/js/navbar.js"></script>
+        
 </body>
 
 </html>
