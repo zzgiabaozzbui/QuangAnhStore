@@ -43,13 +43,7 @@
             
         }
         
-        @media screen and (max-width: 830px)
-        {
-            section 
-            {
-                overflow-y: scroll;
-            }
-        }
+        
     </style>
 </head>
 <body >
@@ -90,18 +84,7 @@
         </section>
     
     </main>
-    <section class="aboutSection">
-    <div class="container aboutContent">
- 
-       <h1>About</h1>
- 
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt asperiores libero suscipit in sit exercitationem ad blanditiis. Reiciendis vero sed ipsam delectus in! Fuga omnis recusandae adipisci odio libero ipsa. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt asperiores libero suscipit in sit exercitationem ad blanditiis. Reiciendis vero sed ipsam delectus in! Fuga omnis recusandae adipisci odio.</p>
- 
- 
-       <button class="home">Home</button>
- 
-    </div>
-   </section>
+    
     <?php
         
         require_once("datbase.php");
