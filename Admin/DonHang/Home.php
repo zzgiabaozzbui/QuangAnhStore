@@ -8,22 +8,23 @@
 
 
 <div class="container-table duyet">
+    </table>
     <table id='customers'>
         <thead>
             <th class='text-cencter'>Mã hóa đơn</th>
-            <th>Tên đơn hàng</th>
-            <th class='text-cencter'>Mã khách hàng</th>
-            <th class='text-cencter'>Mã sản phầm</th>
-            <th>Ngày đặt</th>
-            <th class='text-cencter'>Số lượng</th>
-            <th>Phương thức thanh toán</th>
-            <th>Địa chỉ nhận hàng</th>
+            <th>Tên khách hàng</th>
+            <th class='text-cencter'>SDT</th>
+            <th class='text-cencter'>Email</th>
+            <th class='text-cencter'>Lưu ý</th>
+            <th class='text-cencter'>Ngày đặt hàng</th>
+            <th class='text-cencter'>Phương thức thanh toán</th>
+            <th class='text-cencter'>Địa chỉ nhận hàng</th>
             <th class='text-cencter'>Thành tiền</th>
-            <th>Trạng thái</th>
+            <th class='text-cencter'>Trạng thái</th>
+            <td class='text-cencter'> Xem </td>
         </thead>
         <tbody class="customer-home"></tbody>
     </table>
-  
 
 
 </div>

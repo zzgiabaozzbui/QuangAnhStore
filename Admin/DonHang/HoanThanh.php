@@ -11,17 +11,17 @@
     <table id='customers'>
         <thead>
         <th class='text-cencter'>Mã hóa đơn</th>
-        <th>Tên đơn hàng</th>
-        <th class='text-cencter'>Mã khách hàng</th>
-        <th class='text-cencter'>Mã sản phầm</th>
-        <th>Ngày đặt hàng</th>
-        <th>Ngày vận chuyển</th>
-        <th>Ngày giao hàng</th>
-         <th class='text-cencter'>Số lượng</th>
-         <th>Phương thức thanh toán</th>
-         <th>Địa chỉ nhận hàng</th>
-         <th class='text-cencter'>Thành tiền</th>
-         <th>Trạng thái</th>
+            <th>Tên khách hàng</th>
+            <th class='text-cencter'>SDT</th>
+            <th class='text-cencter'>Email</th>
+            <th class='text-cencter'>Lưu ý</th>
+            <th class='text-cencter size-d' >Ngày đặt hàng</th>
+            <th class='text-cencter'>Ngày vận chuyển</th>
+            <th class='text-cencter'>Ngày giao hàng</th>
+            <th class='text-cencter'>Phương thức thanh toán</th>
+            <th class='text-cencter'>Địa chỉ nhận hàng</th>
+            <th class='text-cencter'>Thành tiền</th>
+            <th class='text-cencter'>Trạng thái</th>
         </thead>
         <tbody class="customer-hoanthanh"></tbody>
     </table>

@@ -10,9 +10,7 @@
         </form>
     </div>
 </div>
-
-
-<div class="container-table duyet">
+<div class="container-table daxacnhan">
     <table id='customers'>
         <thead>
             <th class='check-box-indexs'><input type='checkbox' id='' name='' value=''> </th>
@@ -27,6 +25,9 @@
             <th class='text-cencter'>Thành tiền</th>
             <th class='text-cencter'>Trạng thái</th>
         </thead>
-        <tbody class="customer-choxacnhan"></tbody>
+        <tbody class="customer-daxacnhan"></tbody>
     </table>
+
+
+
 </div>
