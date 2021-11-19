@@ -105,6 +105,27 @@
             echo "Connect error:" . mysqli_connect_error();
         }
     }
+    function Bieudo(){
+        // Lệnh chỉ lấy ngày tháng năm:
+        // $querySelectKey= "select ID,HoTen,GioiTinh,Date_format(NgaySinh,'%Y-%m-%d') as NgaySinh,
+        // QueQuan,TrinhDoHocVan from tblsinhvien ;
+        $query = "SELECT Quyen, MaNV AS size_status FROM quantri WHERE 1 ";
+        $conn = mysqli_connect("localhost","root","","qldt");
+        if($conn == true){
+            //Step3
+            $result = mysqli_query($conn,$query);
+            if(mysqli_num_rows($result)>0){
+                
+                return $result;
+            }
+            else{
+                echo "Data is empty";
+            }
+        }
+        else{
+            echo "Connect error:" . mysqli_connect_error();
+        }    
+    }
     function SelectAll($id){
         $table_name = "tbl_Main";
         // Lệnh chỉ lấy ngày tháng năm:

@@ -23,7 +23,7 @@ h2 {
 #customers th {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: center;
+
 }
 
 #customers .cencer-icon .icon {
@@ -58,6 +58,7 @@ a {
 .check-box-index {
     height: 53px;
 }
+
 /* .main-app .container-content .tab-content .container-top .ct-ngay .ngay {
     display: flex;
     align-items: baseline;
@@ -166,11 +167,15 @@ input[type=text] {
     border: 1 px solid #ccc;
     padding-left: 10px;
 }
+.container-top .ct-button {
+
+    
+}
 
 .container-top .ct-button #btnCheck {
     width: 70px;
     height: 26px;
-    margin: 8px 8px 0 0;
+    margin:0 54px 0 0 ;
     background-color: #0066ff;
     color: #fff;
     border-radius: 4px;
@@ -180,29 +185,36 @@ input[type=text] {
     background-color: #ccc;
 }
 
-.container-top .ct-button #btnDelete {
-    width: 70px;
-    height: 26px;
-    margin: 8px 42px 0 0;
-    background-color: #0066ff;
-    color: #fff;
-    border-radius: 4px;
-}
 
-.container-top .ct-button #btnDelete:disabled {
-    background-color: #ccc;
-}
+
 
 .container-top .ct-button #btnDaGiao {
     width: 70px;
     height: 26px;
-    margin: 8px 42px 0 0;
+    margin: 8px 44px 0 0;
     background-color: #0066ff;
     color: #fff;
     border-radius: 4px;
 }
 
+.size-d {
+    width: 172px;
+}
+
 .container-top .ct-button #btnDaGiao:disabled {
+    background-color: #ccc;
+}
+
+.container-top .ct-button #btnDaChuanBi {
+    width: 96px;
+    height: 26px;
+    margin: 8px 48px 0 0;
+    background-color: #0066ff;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.container-top .ct-button #btnDaChuanBi:disabled {
     background-color: #ccc;
 }
 
@@ -223,4 +235,3 @@ input[type=text] {
 .size-td {
     width: 150px;
 }
-

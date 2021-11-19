@@ -1,18 +1,20 @@
 <div class="container-top">
-    <div class="ct-search">
+<div class="ct-search">
         <form method="POST">
-            <input type="text" name="txtSearch1" id="txtSearch1" onchange="layDuLieu()" placeholder="Tìm kiếm..." value="<?php echo isset($_POST['txtSearch1']) ? $_POST['txtSearch1'] : '' ?>">
+            <input type="text" name="txtSearch3" id="txtSearch3" onchange="layDuLieu()" placeholder="Tìm kiếm..." value="<?php echo isset($_POST['txtSearch3']) ? $_POST['txtSearch3'] : '' ?>">
         </form>
     </div>
+
     <div class="ct-button">
         <form id="form-data" method="post">
-            <button id="btnCheck" disabled>Xác nhận</button>
+            <button id="btnDaChuanBi" disabled>Đã nhận hàng</button>
+
         </form>
     </div>
 </div>
 
 
-<div class="container-table duyet">
+<div class="container-table chuanbi">
     <table id='customers'>
         <thead>
             <th class='check-box-indexs'><input type='checkbox' id='' name='' value=''> </th>
@@ -27,6 +29,6 @@
             <th class='text-cencter'>Thành tiền</th>
             <th class='text-cencter'>Trạng thái</th>
         </thead>
-        <tbody class="customer-choxacnhan"></tbody>
+        <tbody class="customer-chuanbi"></tbody>
     </table>
 </div>

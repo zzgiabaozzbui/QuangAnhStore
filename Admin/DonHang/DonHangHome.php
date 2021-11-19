@@ -42,26 +42,29 @@
 
 
                 if ($conn == true) {
-                    $query = "SELECT d.MaDH,d.TenDonHang,d.MaKH,d.Masanpham,d.ThoiGianDat,d.soLuongDH,d.PhuongThucThanhToan,d.DiaChi,d.ThanhTien,d.TrangThai FROM donhang d";
+                    $query = "SELECT h.Mahoadon,h.Ten, h.SDT,h.Email,h.Luuy,h.Ngaydat,h.Thanhtoan,h.Diachi,h.ThanhTien,h.Trangthai FROM hoadon h";
                     $result = mysqli_query($conn, $query);
                     if (mysqli_num_rows($result) > 0) {
                         echo "<table id='customers'><thead>";
-                        echo "<th class='text-cencter'>Mã hóa đơn</th><th>Tên đơn hàng</th><th class='text-cencter'>Mã khách hàng</th><th class='text-cencter'>Mã sản phầm</th><th>Ngày đặt hàng</th><th class='text-cencter'>Số lượng</th><th>Phương thức thanh toán</th><th>Địa chỉ nhận hàng</th><th class='text-cencter' >Thành tiền</th><th>Trạng thái</th>";
+                        echo "<th class='text-cencter'>Mã hóa đơn</th><th>Tên khách hàng</th><th class='text-cencter'>Số điện thoại</th><th class='text-cencter'>Email</th><th>Lưu ý</th><th class='text-cencter'>Ngày đặt hàng</th><th>Phương thức thanh toán</th><th>Địa chỉ</th><th class='text-cencter' >Thành tiền</th><th class='text-cencter' >Trạng thái</th><th class='text-cencter' >Xem</th>";
                         echo "</thead>";
                         while ($row = mysqli_fetch_assoc($result)) {
 
                             echo "<tr>";
-                            echo "<td class='text-cencter'>" . $row["MaDH"] . "</td>";
-                            echo "<td>" . $row["TenDonHang"] . "</td>";
-                            echo "<td class='text-right size-td'>" . $row["MaKH"] . "</td>";
-                            echo "<td class='text-right size-td'>" . $row["Masanpham"] . "</td>";
-                            $date = $row["ThoiGianDat"];
-                            echo "<td>" .  date("d/m/Y", strtotime($date)) . "</td>";
-                            echo "<td class='text-right'>" . $row["soLuongDH"] . "</td>";
-                            echo "<td>" . $row["PhuongThucThanhToan"] . "</td>";
-                            echo "<td>" . $row["DiaChi"] . "</td>";
-                            echo "<td class='text-right'>" . $row["ThanhTien"] . "</td>";
-                            echo "<td>" . $row["TrangThai"] . "</td>";
+                            echo "<td class='text-cencter'>" . $row["Mahoadon"] . "</td>";
+                            echo "<td>" . $row["Ten"] . "</td>";
+                            echo "<td class='text-right size-td'>" . $row["SDT"] . "</td>";
+                            echo "<td class='text-right size-td'>" . $row["Email"] . "</td>";
+                           
+                            echo "<td class='text-right'>" . $row["Luuy"] . "</td>";
+                            $date = $row["Ngaydat"];  
+                        
+                            echo "<td>" .date(" d-m-Y s:i:H", strtotime($date)) . "</td>";
+                            echo "<td>" . $row["Thanhtoan"] . "</td>";
+                            echo "<td>" . $row["Diachi"] . "</td>";
+                            echo "<td>" . number_format($row["ThanhTien"]) . "đ</td>";
+                            echo "<td>" . $row["Trangthai"] . "</td>";
+                            echo "<td class='text-cencter'> <ti class= 'ti-eye'> </ti> </td>";
                             echo "</tr>";
                         }
                         echo "</table>";
@@ -82,7 +85,7 @@
 
         <script rel="text/javascript" src="../Frontend/js/jquery-3.6.0.min.js"></script>
         <script rel="text/javascript" src="../Frontend/js/navbar.js"></script>
-        <script rel="text/javascript" src="../Frontend/js/moment.js"></script>
+        
 </body>
 
 </html>

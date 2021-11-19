@@ -14,20 +14,26 @@ $(document).ready(() => {
             {
                 indexTotal: '0',
                 name: 'Chờ xét duyệt , xác nhận',
-                iconItem: 'ti-search',
+                iconItem: 'ti-bookmark-alt',
                 link: 'Duyet.php'
             },
             {
                 indexTotal: '0',
-                name: 'Đã hủy',
-                iconItem: 'ti-back-right',
-                link: 'Huy.php'
+                name: 'Đã xác nhận',
+                iconItem: 'ti-check-box',
+                link: 'Daxacnhan.php'
+            },
+            {
+                indexTotal: '0',
+                name: 'Đã chuẩn bị',
+                iconItem: 'ti-package',
+                link: 'Chuanbi.php'
             },
 
             {
                 indexTotal: '0',
                 name: 'Đang giao',
-                iconItem: 'ti-shopping-cart-full',
+                iconItem: 'fas fa-shipping-fast',
                 link: 'DangGiao.php'
             },
             {
@@ -36,7 +42,7 @@ $(document).ready(() => {
                 iconItem: 'ti-check',
                 link: 'HoanThanh.php'
             },
-            
+
         ];
 
         var list = $('.container-header').html('');
@@ -93,9 +99,10 @@ $(document).ready(() => {
         let tab = $(e.currentTarget);
         let data = tab.data('data');
         var duyetAPIs = "DuyetAPI.php";
+        var ChuanBiAPIs = "ChuanbiAPI.php";
         var HoanThanhAPIs = "HoanThanhAPI.php";
         var HomeAPIs = "HomeAPI.php";
-        var HuyAPIs = "HuyAPI.php";
+        var DaxacnhanAPIs = "DaxacnhanAPI.php";
         var DangGiaoAPIs = "DangGiaoAPI.php";
         var Search1 = "Search.php";
         var aa = $('.ct-search').find('input');
@@ -103,23 +110,29 @@ $(document).ready(() => {
         $('.tab-content').load(data.link, function () {
             if (data.link == 'Duyet.php') {
                 document.getElementById('1').onclick = getDataChoXacNhan(duyetAPIs);
-                document.getElementById('btnCheck').onclick = chuyenDataSangDangGiao;
-                document.getElementById('btnDelete').onclick = chuyenDataSangHuy;
+                document.getElementById('btnCheck').onclick = chuyenData;
                 getDataChoXacNhan(duyetAPIs);
             }
             if (data.link == 'DangGiao.php') {
-                document.getElementById('3').onclick = getDataChoDangGiao(DangGiaoAPIs);
-                document.getElementById('btnDaGiao').onclick = chuyenDataSangHoanThanh;
+                document.getElementById('4').onclick = getDataChoDangGiao(DangGiaoAPIs);
+                document.getElementById('btnDaGiao').onclick = chuyenData;
 
             }
-            if (data.link == 'Huy.php') {
-                document.getElementById('2').onclick = getDataChoHuy(HuyAPIs);
+            if (data.link == 'Daxacnhan.php') {
+
+                document.getElementById('2').onclick = getDataChoDaXacNhan(DaxacnhanAPIs);
+                document.getElementById('btnCheck').onclick = chuyenData;
+                getDataChoXacNhan(DaxacnhanAPIs);
             }
             if (data.link == 'HoanThanh.php') {
-                document.getElementById('2').onclick = getDataChoHoanThanh(HoanThanhAPIs);
+                document.getElementById('5').onclick = getDataChoHoanThanh(HoanThanhAPIs);
             }
             if (data.link == 'Home.php') {
                 document.getElementById('0').onclick = getDataChoHome(HomeAPIs);
+            }
+            if (data.link == 'Chuanbi.php') {
+                document.getElementById('3').onclick = getDataChoDaChuanBi(ChuanBiAPIs);
+                document.getElementById('btnDaChuanBi').onclick = chuyenData;
             }
         })
 
@@ -153,17 +166,17 @@ $(document).ready(() => {
 
                         var tableRow = document.createElement('tr');
                         tableRow.innerHTML = `
-                    <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.MaDH}')"> </td>
-                    <td class='text-cencter'>${value.MaDH}</td>
-                    <td>${value.TenDonHang}</td>
-                    <td class='text-right size-td'>${value.MaKH}</td>
-                    <td class='text-right size-td'>${value.Masanpham}</td>
-                    <td>${value.ThoiGianDat.split('-').reverse().join('/')}</td>
-                    <td class='text-right'>${value.soLuongDH}</td>
-                    <td>${value.PhuongThucThanhToan}</td>
-                    <td>${value.DiaChi}</td>
-                    <td class='text-right'>${value.ThanhTien}</td>
-                    <td>${value.TrangThai}</td>
+                    <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.Mahoadon}')"> </td>
+                    <td class='text-cencter'>${value.Mahoadon}</td>
+                    <td>${value.Ten}</td>
+                    <td class='text-right size-td'>${value.SDT}</td>
+                    <td class='text-right size-td'>${value.Email}</td>
+                    <td class='text-right size-td'>${value.Luuy}</td>
+                    <td>${value.Ngaydat.split(' ')[0].split('-').reverse().join('-') + ' ' + value.Ngaydat.split(' ')[1].split(':').reverse().join(':') }</td>
+                    <td>${value.Thanhtoan}</td>
+                    <td>${value.Diachi}</td>
+                    <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
+                    <td>${value.Trangthai}</td>
                     `;
                         tableBodyDOM.appendChild(tableRow);
                     });
@@ -191,7 +204,7 @@ $(document).ready(() => {
                 success: function (data) {
                     danhsach = data;
                     // load Table danh sach cho xac nhan
-                    var tableBodyDOM = document.querySelector('.customer-huy');
+                    var tableBodyDOM = document.querySelector('.customer-daxacnhan');
 
                     $(tableBodyDOM).html('');
                     danhsach.forEach(function (value) {
@@ -199,17 +212,17 @@ $(document).ready(() => {
 
                         var tableRow = document.createElement('tr');
                         tableRow.innerHTML = `
-                    <td class='text-cencter'>${value.MaDH}</td>
-                    <td>${value.TenDonHang}</td>
-                    <td class='text-right size-td'>${value.MaKH}</td>
-                    <td class='text-right size-td'>${value.Masanpham}</td>
-                    <td>${value.ThoiGianDat.split('-').reverse().join('/')}</td>
-                    <td>${value.NgayHuy.split('-').reverse().join('/')}</td>
-                    <td class='text-right'>${value.soLuongDH}</td>
-                    <td>${value.PhuongThucThanhToan}</td>
-                    <td>${value.DiaChi}</td>
-                    <td class='text-right'>${value.ThanhTien}</td>
-                    <td>${value.TrangThai}</td>
+                        <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.Mahoadon}')"> </td>
+                        <td class='text-cencter'>${value.Mahoadon}</td>
+                        <td>${value.Ten}</td>
+                        <td class='text-right size-td'>${value.SDT}</td>
+                        <td class='text-right size-td'>${value.Email}</td>
+                        <td class='text-right size-td'>${value.Luuy}</td>
+                        <td>${value.Ngaydat.split(' ')[0].split('-').reverse().join('-') + ' ' + value.Ngaydat.split(' ')[1].split(':').reverse().join(':') }</td>
+                        <td>${value.Thanhtoan}</td>
+                        <td>${value.Diachi}</td>
+                        <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
+                        <td>${value.Trangthai}</td>
                     `;
                         tableBodyDOM.appendChild(tableRow);
                     });
@@ -237,7 +250,7 @@ $(document).ready(() => {
                 success: function (data) {
                     danhsach = data;
                     // load Table danh sach cho dang giao
-                    var tableBodyDOM = document.querySelector('.customer-dang-giao');
+                    var tableBodyDOM = document.querySelector('.customer-chuanbi');
                     $(tableBodyDOM).html('');
 
                     danhsach.forEach(function (value) {
@@ -245,18 +258,17 @@ $(document).ready(() => {
 
                         var tableRow = document.createElement('tr');
                         tableRow.innerHTML = `
-                    <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.MaDH}')"> </td>
-                    <td class='text-cencter'>${value.MaDH}</td>
-                    <td>${value.TenDonHang}</td>
-                    <td class='text-right size-td'>${value.MaKH}</td>
-                    <td class='text-right size-td'>${value.Masanpham}</td>
-                    <td>${value.ThoiGianDat.split('-').reverse().join('/')}</td>
-                    <td>${value.NgayVanChuyen.split('-').reverse().join('/')}</td>
-                    <td class='text-right'>${value.soLuongDH}</td>
-                    <td>${value.PhuongThucThanhToan}</td>
-                    <td>${value.DiaChi}</td>
-                    <td class='text-right'>${value.ThanhTien}</td>
-                    <td>${value.TrangThai}</td>
+                        <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.Mahoadon}')"> </td>
+                        <td class='text-cencter'>${value.Mahoadon}</td>
+                        <td>${value.Ten}</td>
+                        <td class='text-right size-td'>${value.SDT}</td>
+                        <td class='text-right size-td'>${value.Email}</td>
+                        <td class='text-right size-td'>${value.Luuy}</td>
+                        <td>${value.Ngaydat.split(' ')[0].split('-').reverse().join('-') + ' ' + value.Ngaydat.split(' ')[1].split(':').reverse().join(':') }</td>
+                        <td>${value.Thanhtoan}</td>
+                        <td>${value.Diachi}</td>
+                        <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
+                        <td>${value.Trangthai}</td>
                     `;
                         tableBodyDOM.appendChild(tableRow);
                     });
@@ -284,6 +296,52 @@ $(document).ready(() => {
                 success: function (data) {
                     danhsach = data;
                     // load Table danh sach cho xac nhan
+                    var tableBodyDOM = document.querySelector('.customer-dang-giao');
+
+                    $(tableBodyDOM).html('');
+                    danhsach.forEach(function (value) {
+                        value.checked = false;
+                        var tableRow = document.createElement('tr');
+                        tableRow.innerHTML = `
+                        <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.Mahoadon}')"> </td>
+                    <td class='text-cencter'>${value.Mahoadon}</td>
+                    <td>${value.Ten}</td>
+                    <td class='text-right size-td'>${value.SDT}</td>
+                    <td class='text-right size-td'>${value.Email}</td>
+                    <td class='text-right size-td'>${value.Luuy}</td>
+                    <td>${value.Ngaydat.split(' ')[0].split('-').reverse().join('-') + ' ' + value.Ngaydat.split(' ')[1].split(':').reverse().join(':') }</td>
+                    <td>${value.NgayVanChuyen.split(' ')[0].split('-').reverse().join('-')}</td>
+                    <td>${value.Thanhtoan}</td>
+                    <td>${value.Diachi}</td>
+                    <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
+                    <td>${value.Trangthai}</td>
+                        `;
+                        tableBodyDOM.appendChild(tableRow);
+                    });
+
+                }
+            });
+
+
+        }, 500)
+
+    })
+
+    $('.tab-content').on('keyup', '#txtSearch5', function (e) {
+        var counts = setTimeout(function () {
+
+            clearTimeout(counts);
+            var searchname = $("#txtSearch5").val();
+            $.ajax({
+                url: "Search5.php",
+                method: "post",
+                data: {
+                    action: "text",
+                    searchname: searchname
+                },
+                success: function (data) {
+                    danhsach = data;
+                    // load Table danh sach cho xac nhan
                     var tableBodyDOM = document.querySelector('.customer-hoanthanh');
 
                     $(tableBodyDOM).html('');
@@ -291,18 +349,18 @@ $(document).ready(() => {
                         value.checked = false;
                         var tableRow = document.createElement('tr');
                         tableRow.innerHTML = `
-                        <td class='text-cencter'>${value.MaDH}</td>
-                        <td>${value.TenDonHang}</td>
-                        <td class='text-right size-td'>${value.MaKH}</td>
-                        <td class='text-right size-td'>${value.Masanpham}</td>
-                        <td>${value.ThoiGianDat.split('-').reverse().join('/')}</td>
-                        <td>${value.NgayVanChuyen.split('-').reverse().join('/')}</td>
-                        <td>${value.NgayGiaoHang.split('-').reverse().join('/')}</td>
-                        <td class='text-right'>${value.soLuongDH}</td>
-                        <td>${value.PhuongThucThanhToan}</td>
-                        <td>${value.DiaChi}</td>
-                        <td class='text-right'>${value.ThanhTien}</td>
-                        <td>${value.TrangThai}</td>
+                    <td class='text-cencter'>${value.Mahoadon}</td>
+                    <td>${value.Ten}</td>
+                    <td class='text-right size-td'>${value.SDT}</td>
+                    <td class='text-right size-td'>${value.Email}</td>
+                    <td class='text-right size-td'>${value.Luuy}</td>
+                    <td>${value.Ngaydat.split(' ')[0].split('-').reverse().join('-') + ' ' + value.Ngaydat.split(' ')[1].split(':').reverse().join(':') }</td>
+                    <td>${value.NgayVanChuyen.split(' ')[0].split('-').reverse().join('-')}</td>
+                    <td>${value.NgayGiaoHang.split(' ')[0].split('-').reverse().join('-')}</td>
+                    <td>${value.Thanhtoan}</td>
+                    <td>${value.Diachi}</td>
+                    <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
+                    <td>${value.Trangthai}</td>
                         `;
                         tableBodyDOM.appendChild(tableRow);
                     });
@@ -318,7 +376,7 @@ $(document).ready(() => {
         var counts = setTimeout(function () {
 
             clearTimeout(counts);
-           
+
 
             var searchname = $("#txtSearchHome").val();
             $.ajax({
@@ -339,17 +397,18 @@ $(document).ready(() => {
 
                         var tableRow = document.createElement('tr');
                         tableRow.innerHTML = `
-                    <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.MaDH}')"> </td>
-                    <td class='text-cencter'>${value.MaDH}</td>
-                    <td>${value.TenDonHang}</td>
-                    <td class='text-right size-td'>${value.MaKH}</td>
-                    <td class='text-right size-td'>${value.Masanpham}</td>
-                    <td>${value.ThoiGianDat.split('-').reverse().join('/')}</td>
-                    <td class='text-right'>${value.soLuongDH}</td>
-                    <td>${value.PhuongThucThanhToan}</td>
-                    <td>${value.DiaChi}</td>
-                    <td class='text-right'>${value.ThanhTien}</td>
-                    <td>${value.TrangThai}</td>
+                        <td class='text-cencter'>${value.Mahoadon}</td>
+                        <td>${value.Ten}</td>
+                        <td class='text-right size-td'>${value.SDT}</td>
+                        <td class='text-right size-td'>${value.Email}</td>
+                        <td class='text-right size-td'>${value.Luuy}</td>
+                        <td>${value.Ngaydat.split(' ')[0].split('-').reverse().join('-') + ' ' + value.Ngaydat.split(' ')[1].split(':').reverse().join(':') }</td>
+                        <td>${value.Thanhtoan}</td>
+                        <td>${value.Diachi}</td>
+                        <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
+                        <td>${value.Trangthai}</td>
+                        <td>Xem</td>
+
                     `;
                         tableBodyDOM.appendChild(tableRow);
                     });
@@ -382,26 +441,25 @@ $(document).ready(() => {
 
                 $(tableBodyDOM).html('');
                 danhsach.forEach(function (value) {
-                    value.checked = false;
                     var tableRow = document.createElement('tr');
                     tableRow.innerHTML = `
-                    <td class='text-cencter'>${value.MaDH}</td>
-                    <td>${value.TenDonHang}</td>
-                    <td class='text-right size-td'>${value.MaKH}</td>
-                    <td class='text-right size-td'>${value.Masanpham}</td>
-                    <td>${value.ThoiGianDat.split('-').reverse().join('/')}</td>
-                    <td>${value.NgayVanChuyen.split('-').reverse().join('/')}</td>
-                    <td>${value.NgayGiaoHang.split('-').reverse().join('/')}</td>
-                    <td class='text-right'>${value.soLuongDH}</td>
-                    <td>${value.PhuongThucThanhToan}</td>
-                    <td>${value.DiaChi}</td>
-                    <td class='text-right'>${value.ThanhTien}</td>
-                    <td>${value.TrangThai}</td>
+                    <td class='text-cencter'>${value.Mahoadon}</td>
+                    <td>${value.Ten}</td>
+                    <td class='text-right size-td'>${value.SDT}</td>
+                    <td class='text-right size-td'>${value.Email}</td>
+                    <td class='text-right size-td'>${value.Luuy}</td>
+                    <td>${value.Ngaydat.split(' ')[0].split('-').reverse().join('-') + ' ' + value.Ngaydat.split(' ')[1].split(':').reverse().join(':') }</td>
+                    <td>${value.NgayVanChuyen.split(' ')[0].split('-').reverse().join('-')}</td>
+                    <td>${value.NgayGiaoHang.split(' ')[0].split('-').reverse().join('-')}</td>
+                    <td>${value.Thanhtoan}</td>
+                    <td>${value.Diachi}</td>
+                    <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
+                    <td>${value.Trangthai}</td>
                     `;
                     tableBodyDOM.appendChild(tableRow);
                 });
 
-                $('#4 .total').text()
+                $('#5 .total').text()
             },
             fail: function () {
                 alert('Kết nối thất bại');
@@ -431,22 +489,64 @@ $(document).ready(() => {
 
                     var tableRow = document.createElement('tr');
                     tableRow.innerHTML = `
-                    <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.MaDH}')"> </td>
-                    <td class='text-cencter'>${value.MaDH}</td>
-                    <td>${value.TenDonHang}</td>
-                    <td class='text-right size-td'>${value.MaKH}</td>
-                    <td class='text-right size-td'>${value.Masanpham}</td>
-                    <td>${value.ThoiGianDat.split('-').reverse().join('/')}</td>
-                    <td class='text-right'>${value.soLuongDH}</td>
-                    <td>${value.PhuongThucThanhToan}</td>
-                    <td>${value.DiaChi}</td>
-                    <td class='text-right'>${value.ThanhTien}</td>
-                    <td>${value.TrangThai}</td>
+                    <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.Mahoadon}')"> </td>
+                    <td class='text-cencter'>${value.Mahoadon}</td>
+                    <td>${value.Ten}</td>
+                    <td class='text-right size-td'>${value.SDT}</td>
+                    <td class='text-right size-td'>${value.Email}</td>
+                    <td class='text-right size-td'>${value.Luuy}</td>
+                    <td>${value.Ngaydat.split(' ')[0].split('-').reverse().join('-') + ' ' + value.Ngaydat.split(' ')[1].split(':').reverse().join(':') }</td>
+                    <td>${value.Thanhtoan}</td>
+                    <td>${value.Diachi}</td>
+                    <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
+                    <td>${value.Trangthai}</td>
                     `;
                     tableBodyDOM.appendChild(tableRow);
                 });
 
                 $('#1 .total').text()
+            },
+            fail: function () {
+                alert('Kết nối thất bại');
+            }
+        });
+    }
+
+    //lấy data đã chuẩn bị
+    function getDataChoDaChuanBi(ChuanBiAPIs) {
+        $.ajax({
+            url: ChuanBiAPIs,
+            method: "POST",
+            data: {},
+            headers: "application/json; charset=utf-8",
+            success: function (data) {
+                danhsach = data;
+                // load Table danh sach cho xac nhan
+                var tableBodyDOM = document.querySelector('.customer-chuanbi');
+
+                $(tableBodyDOM).html('');
+                danhsach.forEach(function (value) {
+                    value.checked = false;
+
+                    var tableRow = document.createElement('tr');
+                    tableRow.innerHTML = `
+                    <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.Mahoadon}')"> </td>
+                    <td class='text-cencter'>${value.Mahoadon}</td>
+                    <td>${value.Ten}</td>
+                    <td class='text-right size-td'>${value.SDT}</td>
+                    <td class='text-right size-td'>${value.Email}</td>
+                    <td class='text-right size-td'>${value.Luuy}</td>
+                    <td>${value.Ngaydat.split(' ')[0].split('-').reverse().join('-') + ' ' + value.Ngaydat.split(' ')[1].split(':').reverse().join(':') }</td>
+                  
+                    <td>${value.Thanhtoan}</td>
+                    <td>${value.Diachi}</td>
+                    <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
+                    <td>${value.Trangthai}</td>
+                    `;
+                    tableBodyDOM.appendChild(tableRow);
+                });
+
+                $('#3 .total').text()
             },
             fail: function () {
                 alert('Kết nối thất bại');
@@ -472,16 +572,17 @@ $(document).ready(() => {
 
                     var tableRow = document.createElement('tr');
                     tableRow.innerHTML = `
-                    <td class='text-cencter'>${value.MaDH}</td>
-                    <td>${value.TenDonHang}</td>
-                    <td class='text-right size-td'>${value.MaKH}</td>
-                    <td class='text-right size-td'>${value.Masanpham}</td>
-                    <td>${value.ThoiGianDat.split('-').reverse().join('/')}</td>
-                    <td class='text-right'>${value.soLuongDH}</td>
-                    <td>${value.PhuongThucThanhToan}</td>
-                    <td>${value.DiaChi}</td>
-                    <td class='text-right'>${value.ThanhTien}</td>
-                    <td>${value.TrangThai}</td>
+                    <td class='text-cencter'>${value.Mahoadon}</td>
+                    <td>${value.Ten}</td>
+                    <td class='text-right size-td'>${value.SDT}</td>
+                    <td class='text-right size-td'>${value.Email}</td>
+                    <td class='text-right size-td'>${value.Luuy}</td>
+                    <td>${value.Ngaydat.split(' ')[0].split('-').reverse().join('-') + ' ' + value.Ngaydat.split(' ')[1].split(':').reverse().join(':') }</td>
+                    <td>${value.Thanhtoan}</td>
+                    <td>${value.Diachi}</td>
+                    <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
+                    <td>${value.Trangthai}</td>
+                    <td>Xem</td>
                     `;
                     tableBodyDOM.appendChild(tableRow);
                 });
@@ -495,16 +596,17 @@ $(document).ready(() => {
     }
 
     //lấy data hủy đơn hàng
-    function getDataChoHuy(HuyAPIs) {
+    function getDataChoDaXacNhan(DaxacnhanAPIs) {
+
         $.ajax({
-            url: HuyAPIs,
+            url: DaxacnhanAPIs,
             method: "POST",
             data: {},
             headers: "application/json; charset=utf-8",
             success: function (data) {
                 danhsach = data;
                 // load Table danh sach cho huy
-                var tableBodyDOM = document.querySelector('.customer-huy');
+                var tableBodyDOM = document.querySelector('.customer-daxacnhan');
 
                 $(tableBodyDOM).html('');
                 danhsach.forEach(function (value) {
@@ -512,17 +614,17 @@ $(document).ready(() => {
 
                     var tableRow = document.createElement('tr');
                     tableRow.innerHTML = `
-                    <td class='text-cencter'>${value.MaDH}</td>
-                    <td>${value.TenDonHang}</td>
-                    <td class='text-right size-td'>${value.MaKH}</td>
-                    <td class='text-right size-td'>${value.Masanpham}</td>
-                    <td>${value.ThoiGianDat.split('-').reverse().join('/')}</td>
-                    <td>${value.NgayHuy.split('-').reverse().join('/')}</td>
-                    <td class='text-right'>${value.soLuongDH}</td>
-                    <td>${value.PhuongThucThanhToan}</td>
-                    <td>${value.DiaChi}</td>
-                    <td class='text-right'>${value.ThanhTien}</td>
-                    <td>${value.TrangThai}</td>
+                    <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.Mahoadon}')"> </td>
+                    <td class='text-cencter'>${value.Mahoadon}</td>
+                    <td>${value.Ten}</td>
+                    <td class='text-right size-td'>${value.SDT}</td>
+                    <td class='text-right size-td'>${value.Email}</td>
+                    <td class='text-right size-td'>${value.Luuy}</td>
+                    <td>${value.Ngaydat.split(' ')[0].split('-').reverse().join('-') + ' ' + value.Ngaydat.split(' ')[1].split(':').reverse().join(':') }</td>
+                    <td>${value.Thanhtoan}</td>
+                    <td>${value.Diachi}</td>
+                    <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
+                    <td>${value.Trangthai}</td>
                     `;
                     tableBodyDOM.appendChild(tableRow);
                 });
@@ -554,20 +656,19 @@ $(document).ready(() => {
 
                     var tableRow = document.createElement('tr');
                     tableRow.innerHTML = `
-                    <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.MaDH}')"> </td>
-                    <td class='text-cencter'>${value.MaDH}</td>
-                    <td>${value.TenDonHang}</td>
-                    <td class='text-right size-td'>${value.MaKH}</td>
-                    <td class='text-right size-td'>${value.Masanpham}</td>
-                    
-
-                    <td>${value.ThoiGianDat.split('-').reverse().join('/')}</td>
-                    <td>${value.NgayVanChuyen.split('-').reverse().join('/')}</td>
-                    <td class='text-right'>${value.soLuongDH}</td>
-                    <td>${value.PhuongThucThanhToan}</td>
-                    <td>${value.DiaChi}</td>
-                    <td class='text-right'>${value.ThanhTien}</td>
-                    <td>${value.TrangThai}</td>
+                    <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.Mahoadon}')"> </td>
+                    <td class='text-cencter'>${value.Mahoadon}</td>
+                    <td>${value.Ten}</td>
+                    <td class='text-right size-td'>${value.SDT}</td>
+                    <td class='text-right size-td'>${value.Email}</td>
+                    <td class='text-right size-td'>${value.Luuy}</td>
+                    <td>${value.Ngaydat.split(' ')[0].split('-').reverse().join('-') + ' ' + value.Ngaydat.split(' ')[1].split(':').reverse().join(':') }</td>
+                    <td>${value.NgayVanChuyen.split(' ')[0].split('-').reverse().join('-')}</td>
+                  
+                    <td>${value.Thanhtoan}</td>
+                    <td>${value.Diachi}</td>
+                    <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
+                    <td>${value.Trangthai}</td>
                     `;
                     tableBodyDOM.appendChild(tableRow);
                 });
@@ -591,15 +692,15 @@ $(document).ready(() => {
             let data = JSON.parse(dataJson);
             $('#0 .total').text(data.Tong)
             $('#1 .total').text(data.Checks)
-            $('#2 .total').text(data.Huy)
-            $('#3 .total').text(data.DangGiao)
-            $('#4 .total').text(data.HoanThanh)
+            $('#2 .total').text(data.Daxacnhan)
+            $('#3 .total').text(data.Dachuanbi)
+            $('#4 .total').text(data.DangGiao)
+            $('#5 .total').text(data.HoanThanh)
         },
         fail: function () {
             alert('Kết nối thất bại');
         }
     });
-
 
 
     // buttom
@@ -611,6 +712,7 @@ $(document).ready(() => {
         $('#btnCheck').prop('disabled', !countCheck);
         $('#btnDelete').prop('disabled', !countCheck);
         $('#btnDaGiao').prop('disabled', !countCheck);
+        $('#btnDaChuanBi').prop('disabled', !countCheck);
 
     })
 
@@ -623,22 +725,23 @@ $(document).ready(() => {
         $('#btnCheck').prop('disabled', !countCheckAll);
         $('#btnDelete').prop('disabled', !countCheckAll);
         $('#btnDaGiao').prop('disabled', !countCheckAll);
+        $('#btnDaChuanBi').prop('disabled', !countCheckAll);
 
     })
 
 })
 
-function changeCheck(MaDH) {
+function changeCheck(Mahoadon) {
     var item = danhsach.find(function (value) {
-        return value.MaDH == MaDH;
+        return value.Mahoadon == Mahoadon;
     });
     item.checked = !item.checked;
 }
 // chuyển data sang đang giao
-function chuyenDataSangDangGiao() {
+function chuyenData() {
     console.log(1);
     danhsach.forEach(function (value) {
-        console.log(value.MaDH + " " + value.checked)
+        console.log(value.Mahoadon + " " + value.checked);
         if (value.checked) {
             var formData = new FormData(document.getElementById('form-data'));
             var xhttp = new XMLHttpRequest();
@@ -648,54 +751,9 @@ function chuyenDataSangDangGiao() {
                 }
             }
 
-            xhttp.open('POST', 'api/DuyetXacNhanAPI.php', false);
-            formData.append('MaDH', value.MaDH);
+            xhttp.open('POST', 'TrangthaiAPI.php', false);
+            formData.append('Mahoadon', value.Mahoadon);
             xhttp.send(formData);
         }
     });
-}
-
-// chuyển data sang hoan thanh
-function chuyenDataSangHoanThanh() {
-    console.log(1);
-    danhsach.forEach(function (value) {
-        console.log(value.MaDH + " " + value.checked)
-        if (value.checked) {
-            var formData = new FormData(document.getElementById('form-data'));
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.responseText);
-                }
-            }
-
-            xhttp.open('POST', 'api/DuyetDangGiaoAPI.php', false);
-            formData.append('MaDH', value.MaDH);
-            xhttp.send(formData);
-        }
-    });
-}
-// chuyển data sang huy
-function chuyenDataSangHuy() {
-    console.log(1);
-    danhsach.forEach(function (value) {
-        console.log(value.MaDH + " " + value.checked)
-        if (value.checked) {
-            var formData = new FormData(document.getElementById('form-data'));
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.responseText);
-                }
-            }
-
-            xhttp.open('POST', 'api/HuyAPI.php', false);
-            formData.append('MaDH', value.MaDH);
-            xhttp.send(formData);
-        }
-    });
-}
-
-function layDuLieu() {
-    txtSearch = document.getElementById('txtSearch').value;
 }
