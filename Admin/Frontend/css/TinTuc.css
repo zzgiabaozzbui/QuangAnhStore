@@ -1,0 +1,91 @@
+.main-app {
+    display: flex;
+}
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-app .container-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+}
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+}
+.main-app .container-content .container-title {
+    margin: 14px 0 0 0;
+}
+.main-app .container-content .container-item {
+    margin:  0 0 0 50px;
+}
+.main-app .container-content .container-item .container-top {
+    display: flex;
+    flex-direction: column;
+}
+.container-top .ct-button #btnThem {
+    width: 70px;
+    height: 26px;
+    margin: 8px 44px 0 0;
+    background-color:#0B7DDA;
+    
+    border-radius: 4px;
+}
+.container-top .ct-button #btnThem a{
+    color: #fff;
+    text-decoration: none;
+
+}
+
+input[type=text] {
+    width: 312px;
+    float: left;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    border: none;
+    font-size: 17px;
+    border-radius: 8px;
+}
+.check-box-indexs {
+    width: 42px;
+}
+.check-box-indexs input {
+    margin: 4px 0 0 0px;
+}
+input[type=text] {
+    border: 1px solid #ccc;
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 97.5%;
+    padding: 0 0 0 28px;
+}
+#customers td,
+#customers th {
+    border-bottom: 2px solid #ddd;
+    padding: 8px;
+
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    /* background-color: #0066ff; */
+    color:#000;
+}
+.size-img {
+background-size: cover;
+width: 104px;
+height: auto;
+
+}
+
+
