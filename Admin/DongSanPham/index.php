@@ -22,11 +22,11 @@
             margin: 5px 0;
         }
         .btnAdd .Add{
-            background-color: #28a745;
+            background-color: #0b7dda;
             color: white;
             padding: 4px 10px;
             margin-left: 45px;
-            
+            border-radius: 5px;
         }
         .btnAdd a:hover,
         .phanTrang a:hover
