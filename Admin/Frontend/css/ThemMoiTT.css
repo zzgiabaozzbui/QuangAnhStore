@@ -1,0 +1,50 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main .container-app {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #ccc;
+    width: 1000px;
+    height: 850px;
+    border-radius: 15px;
+} 
+form input{
+    width: 780px ;
+}
+form .txtTieuDe {
+
+    height: 44px;
+}
+form .txtTomTat {
+    height: 84px;
+}
+form .txtNoiDung {
+    height: 166px;
+}
+form .fileUpload {
+    height: 47px;
+}
+
+
+.main .container-web {
+    background-color: whitesmoke;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+form {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+
+.moRong {
+    height: 20px;
+}
+
