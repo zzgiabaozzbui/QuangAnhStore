@@ -39,7 +39,6 @@
                     </div>
                     <form id="form-data" method="post">
                     <div class="ct-button">
-                       
                             <button type="button" id="btnThem">Thêm mới</button>
                             <button type="button" id="btnXoa" disabled >Xóa</button>
                         </div>
