@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($conn) {
         $query = "DELETE FROM tbltintuc WHERE MaTinTuc in (". $id .")";
+        echo $query;
    $result = mysqli_query($conn, $query);
         echo $result;
     } else {

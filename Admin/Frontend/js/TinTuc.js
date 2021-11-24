@@ -1,4 +1,5 @@
 var danhsach = [];
+var danhsachSua = [];
 
 function getData() {
     $.ajax({
@@ -23,8 +24,8 @@ function getData() {
         <td class='text-right size-td'>${value.TieuDe}</td>
         <td class='text-right'>${value.NgayDangTin.split(' ')[0].split('-').reverse().join('-')}</td>
         <td class='text-right size-td'>${value.TomTat}</td>
-        <td class='tc'><a><i class='icon ti-pencil-alt'> </i></a></td>
-        <td ><a><i class='icon ti-trash'> </i></a></td>
+        <td class='tc'  id='btnUpdate'><a><i class='icon ti-pencil-alt'> </i></a></td>
+        <td ><a id='btnDelete'><i class='icon ti-trash'> </i></a></td>
         <td ><a><i class='icon ti-eye'> </i></a></td>
         `;
                 tableBodyDOM.appendChild(tableRow);
@@ -35,7 +36,173 @@ function getData() {
         }
     });
 }
+
+function getDataSua(ma) {
+
+    $.ajax({
+        url: "DataAPI.php",
+        method: "POST",
+        data: {
+            ma: ma
+        },
+        headers: "application/json; charset=utf-8",
+        success: function (dataJson) {
+            danhsachSua.data = [];
+            let data = JSON.parse(dataJson);
+            let item = data[0];
+
+            $('#txtTieuDe').val(item.TieuDe);
+            $('#txtTomTat').val(item.TomTat);
+            $('#txtNoiDung').val(item.NoiDung);
+            $('#dateNgayDang').val(item.NgayDangTin);
+            $('#txtTacGia').val(item.TacGia);
+            
+        },
+        fail: function () {
+            alert('Kết nối thất bại');
+        }
+    });
+    
+}
 getData();
+$(document).on('click', '#btnUpdate', function (e) {
+    let $btn = $(e.currentTarget);
+    let row = $btn.closest('tr');
+    let index = row.index();
+    var ma = danhsach[index].MaTinTuc;
+
+    $.ajax({
+        url: "SuaTT.php",
+        method: "POST",
+        data: {},
+        headers: "application/json; charset=utf-8",
+        success: function (dataJson) {
+            $.when($(dataJson).dialog({
+                width: 1250,
+                height: 870,
+                modal: true,
+                close: function () {
+                    $(this).html('');
+                }
+            })).then(dlg => {
+                getDataSua(ma);
+            })
+        },
+        fail: function () {
+            alert('Kết nối thất bại');
+        }
+    });
+    $(document).on('click', '#btnLuu', function (e) {
+
+        $('<div>', {
+            text: 'Bạn thực sự muốn sửa !'
+        }).dialog({
+            title: 'Cảnh báo',
+            modal: true,
+            buttons: [{
+                    text: 'Xóa',
+                    id: 'btnCheckXoa',
+                    click: function () {
+                        SuaDuLieu (index);
+                        $(this).dialog('close');
+                        $('#container-Sua').dialog('close');
+                        
+    
+                    }
+                },
+                {
+                    text: 'Không',
+                    id: 'btnCheckKhong',
+                    click: function (e) {
+                        $(this).dialog('close');
+    
+                    }
+                }
+            ]
+        })
+
+        
+    
+    
+    })
+
+})
+
+
+
+$(document).on('click', '#btnDelete', function (e) {
+
+    let $btn = $(e.currentTarget);
+    let row = $btn.closest('tr');
+    let index = row.index();
+
+    $('<div>', {
+        text: 'Bạn thực sự muốn xóa !'
+    }).dialog({
+        title: 'Cảnh báo',
+        modal: true,
+        buttons: [{
+                text: 'Xóa',
+                id: 'btnCheckXoa',
+                click: function () {
+                    Xoa1Dong(index);
+                    $(this).dialog('close');
+
+                }
+            },
+            {
+                text: 'Không',
+                id: 'btnCheckKhong',
+                click: function (e) {
+                    $(this).dialog('close');
+
+                }
+            }
+        ]
+    })
+})
+
+function SuaDuLieu (index) {
+    var ma = danhsach[index].MaTinTuc;
+    var fileUpload = document.querySelector('.fileUpload').value;
+    var TieuDe = $("#txtTieuDe").val();
+    var TomTat = $("#txtTomTat").val();
+    var NoiDung = $("#txtNoiDung").val();
+    var NgayDang = $("#dateNgayDang").val();
+    var TacGia = $("#txtTacGia").val();
+    if (TieuDe == "" || TomTat == "" || NoiDung == "" || TacGia == "" || fileUpload == "" || NgayDang == null) {
+        alert('Bạn nhập thiếu thông tin!');
+    } else {
+        var a = new FormData();
+        a.append('ma', ma)
+        a.append('TieuDe', TieuDe)
+        a.append('TomTat', TomTat)
+        a.append('NoiDung', NoiDung)
+        a.append('NgayDang', NgayDang)
+        a.append('TacGia', TacGia)
+        a.append('fileUpload', file)
+        $.ajax({
+            url: "SuaAPI.php",
+            method: "post",
+            dataType: 'text',
+            contentType: false,
+            processData: false,
+            enctype: "multipart/form-data",
+            data: a,
+            success: function (data) {
+                if (data) {
+                    getData();    
+                    alert('Sửa dữ liệu thành công!');
+                    
+                } else {
+                    alert('Sửa dữ liệu thất bại!');
+
+                }
+            }
+        });
+    }
+    
+}
 
 // document.getElementById('btnXoa').onclick = XoaData;
 $(document).on('click', '#btnXoa', function (e) {
@@ -64,6 +231,32 @@ $(document).on('click', '#btnXoa', function (e) {
         ]
     })
 })
+
+function Xoa1Dong(index) {
+    var ma = danhsach[index].MaTinTuc;
+    $.ajax({
+        url: "XoaAPI.php",
+        method: "POST",
+        data: {
+            ma: ma
+        },
+        headers: "application/json; charset=utf-8",
+        success: function (dataJson) {
+            getData();
+        },
+        fail: function () {
+            alert('Kết nối thất bại');
+        }
+    });
+
+}
+// Sua dữ liệu tin tức
+
+
+$(document).on('change', '#fileUpload', function (e) {
+    file = e.target.files[0]
+})
+//END
 
 function Xoa() {
     var DS = danhsach.filter(x => x.checked);
@@ -179,6 +372,7 @@ $(document).ready(() => {
             }
         });
     })
+
 })
 
 
