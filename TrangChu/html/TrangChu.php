@@ -493,6 +493,12 @@
 
         <div class="container-content">
             <div class="container-sale">
+            <button class="flash__sale__next__btn">
+                    <i class="fas ti-angle-right"></i>
+                </button>
+                <button class="flash__sale__prev__btn">
+                    <i class="fas ti-angle-left"></i>
+                </button>
                 <div class="sale-herder">
                     <div class="flash__sale__box__left">
                         <img src="../../Admin/Frontend/img/Flash Sale/1.PNG" alt="" class="img-hearder-sale">
@@ -523,12 +529,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="flash__sale__next__btn">
-                    <i class="fas ti-angle-right"></i>
-                </button>
-                <button class="flash__sale__prev__btn">
-                    <i class="fas ti-angle-left"></i>
-                </button>
+                
                 <div class="row flash__sale__product__list__wrapper">
                     <div class="box-products">
                         <div class="list-product list-product-Sale">
