@@ -1,260 +1,302 @@
-function renderItem() {
-    var arr = [
-        {
-            img : '../img/Featured phone/1/2.jpg',
-            text : 'Samsung Galaxy Z Fold3 5G',
-            price : '29.990.000 ₫',
-            promotion : 'Voucher lên đời đến 6 triệu cho chủ sở hữu Note 20/Note 20 Ultra ',
-        },
-        {
-            img : '../img/Featured phone/1/3.webp',
-            text : 'iPhone 11 I Chính hãng VN/A',
-            price : '29.990.000 ₫',
-            promotion : '[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh',
-        },
-        {
-            img : '../img/Featured phone/1/4.webp',
-            text : 'Samsung Galaxy Note 20 Ultra 5G',
-            price : '26.390.000 ₫',
-            promotion : 'Ưu đãi đối tác 2 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/4.webp',
-            text : 'Samsung Galaxy Note 20 Ultra 5G',
-            price : '26.390.000 ₫',
-            promotion : 'Ưu đãi đối tác 2 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/4.webp',
-            text : 'Samsung Galaxy Note 20 Ultra 5G',
-            price : '26.390.000 ₫',
-            promotion : 'Ưu đãi đối tác 2 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-        {
-            img : '../img/Featured phone/1/5.jpg',
-            text : 'Xiaomi Mi 11 Lite 5G',
-            price: '50.990.000 ₫',
-            promotion : 'Ưu đãi đối tác 5 triệu',
-        },
-    ];
+var danhsach = [];
+var danhsachphukien = [];
+var DanhsachIMGTinTuc = [];
+var DanhsachSale = [];
+function getDataItem() {
+    let i = 0;
+    var list = $('.list-product-dienthoai');
     
-    var list = $('.list-product');
-    var i = 0;
-    arr.forEach((x, i) => {
-        var $item = $('<div>', {
-            id: i,
-            class: 'item-product'
-        }).appendTo(list);
-        var $boxImg = $('<div>', {
-            class: 'item-product__box-img'
-        }).appendTo($item);
-        var $a = $('<a>', {
-            href: '#'
-        }).appendTo($boxImg);
-        var $Aimg1 = $('<img>', {
-           src : x.img
-        }).appendTo($a);
 
-        var $boxName =  $('<div>', {
-            class: 'item-product__box-name'
-        }).appendTo($item);
+    $.ajax({
+        url: "API/DataItemAPI.php",
+        method: "POST",
+        data: {
+        },
+        headers: "application/json; charset=utf-8",
+        success: function (data) {
+           
+            danhsach = data;
+            danhsach.forEach(function (value) {
+                var a = '../../Admin/Frontend/'+ value.HinhAnh;
+                var $item = $('<div>', {
+                    id: i++,
+                    class: 'item-product'
+                }).appendTo(list);
+                var $boxImg = $('<div>', {
+                    class: 'item-product__box-img'
+                }).appendTo($item);
+                var $a = $('<a>', {
+                    href: '#'
+                }).appendTo($boxImg);
+                var $Aimg1 = $('<img>', {
+                    id : 'size-img',
+                   src :a
+                }).appendTo($a);
+        
+                var $boxName =  $('<div>', {
+                    class: 'item-product__box-name'
+                }).appendTo($item);
+        
+                var $aName = $('<a>', {
+                    class : 'lblTenSP',
+                    href: '#', text: value.TenSP
+                }).appendTo($boxName);
+        
+                var pName =  $('<p>', {
+                }).appendTo($aName);
+                var $boxprice =  $('<div>', {
+                    class: 'item-product__box-price'
+                }).appendTo($item);
+        
+                var pPrice =  $('<p>',  {
+                    class : 'special-price',text: new Intl.NumberFormat().format(value.Gia)+'đ'
+                }).appendTo($boxprice);
+        
+                var $boxPromotion =  $('<div>', {
+                    class: 'promotion'
+                }).appendTo($item);
+        
+                var pPromotion =  $('<p>',  {
+                    class : 'gift-cont',text: 'aa'
+                }).appendTo($boxPromotion);
+                var $boxprice =  $('<div>', {
+                    class: 'item-product__box-raiting'
+                }).appendTo($item);
+                // var box_raiting = $ ('<div>',{
+                //     class: 'item-product__box-raiting'
+                // }).appendTo($item);
+                var icon1 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+                var icon2 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+                var icon3 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+                var icon4 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+                var icon5 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
 
-        var $aName = $('<a>', {
-            href: '#', text: x.text
-        }).appendTo($boxName);
-
-        var pName =  $('<p>', {
-        }).appendTo($aName);
-        var $boxprice =  $('<div>', {
-            class: 'item-product__box-price'
-        }).appendTo($item);
-
-        var pPrice =  $('<p>',  {
-            class : 'special-price',text: x.price
-        }).appendTo($boxprice);
-
-        var $boxPromotion =  $('<div>', {
-            class: 'promotion'
-        }).appendTo($item);
-
-        var pPromotion =  $('<p>',  {
-            class : 'gift-cont',text: x.promotion
-        }).appendTo($boxPromotion);
-        var $boxprice =  $('<div>', {
-            class: 'item-product__box-raiting'
-        }).appendTo($item);
-    })
-    
+             })
+            
+        },
+        fail: function () {
+            alert('Kết nối thất bại');
+        }
+    });   
 }
-renderItem();
+getDataItem();
+function getDataItemSale() {
+    let i = 0;
+    var list = $('.list-product-Sale');
+    
+
+    $.ajax({
+        url: "API/DataItemSaleAPI.php",
+        method: "POST",
+        data: {
+        },
+        headers: "application/json; charset=utf-8",
+        success: function (data) {
+           
+            danhsach = data;
+            danhsach.forEach(function (value) {
+                var a = '../../Admin/Frontend/'+ value.HinhAnh;
+                var $item = $('<div>', {
+                    id: i++,
+                    class: 'item-product'
+                }).appendTo(list);
+                var $boxImg = $('<div>', {
+                    class: 'item-product__box-img'
+                }).appendTo($item);
+                var $a = $('<a>', {
+                    href: '#'
+                }).appendTo($boxImg);
+                var $Aimg1 = $('<img>', {
+                    id : 'size-img',
+                   src :a
+                }).appendTo($a);
+        
+                var $boxName =  $('<div>', {
+                    class: 'item-product__box-name'
+                }).appendTo($item);
+        
+                var $aName = $('<a>', {
+                    class : 'lblTenSP',
+                    href: '#', text: value.TenSP
+                }).appendTo($boxName);
+        
+                var pName =  $('<p>', {
+                }).appendTo($aName);
+                var $boxprice =  $('<div>', {
+                    class: 'item-product__box-price'
+                }).appendTo($item);
+        
+                var pPrice =  $('<p>',  {
+                    class : 'special-price',text: new Intl.NumberFormat().format(value.Gia)+'đ'
+                }).appendTo($boxprice);
+        
+                var $boxPromotion =  $('<div>', {
+                    class: 'promotion'
+                }).appendTo($item);
+        
+                var pPromotion =  $('<p>',  {
+                    class : 'gift-cont',text: 'aa'
+                }).appendTo($boxPromotion);
+                var $boxprice =  $('<div>', {
+                    class: 'item-product__box-raiting'
+                }).appendTo($item);
+                var icon1 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+                var icon2 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+                var icon3 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+                var icon4 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+                var icon5 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+
+             })
+            
+        },
+        fail: function () {
+            alert('Kết nối thất bại');
+        }
+    });   
+}
+getDataItemSale();
+function getDataItemPhuKien() {
+    let i = 0;
+    var list = $('.list-product-phukien');
+
+    $.ajax({
+        url: "API/DataItemPhuKienAPI.php",
+        method: "POST",
+        data: {
+        },
+        headers: "application/json; charset=utf-8",
+        success: function (data) {
+           
+            danhsachphukien = data;
+            danhsachphukien.forEach(function (value) {
+                var a = '../../Admin/Frontend/'+ value.Hinhanh;
+                var $item = $('<div>', {
+                    id: i++,
+                    class: 'item-product size-item'
+                }).appendTo(list);
+                var $boxImg = $('<div>', {
+                    class: 'item-product__box-img'
+                }).appendTo($item);
+                var $a = $('<a>', {
+                    href: '#'
+                }).appendTo($boxImg);
+                var $Aimg1 = $('<img>', {
+                    id : 'size-img',
+                   src :a
+                }).appendTo($a);
+        
+                var $boxName =  $('<div>', {
+                    class: 'item-product__box-name'
+                }).appendTo($item);
+        
+                var $aName = $('<a>', {
+                    class : 'lblTenSP',
+                    href: '#', text: value.Tenphukien
+                }).appendTo($boxName);
+        
+                var pName =  $('<p>', {
+                }).appendTo($aName);
+                var $boxprice =  $('<div>', {
+                    class: 'item-product__box-price'
+                }).appendTo($item);
+        
+                var pPrice =  $('<p>',  {
+                    class : 'special-price',text: new Intl.NumberFormat().format(value.Gia)+'đ'
+                }).appendTo($boxprice);
+        
+                var $boxPromotion =  $('<div>', {
+                    class: 'promotion'
+                }).appendTo($item);
+        
+                var pPromotion =  $('<p>',  {
+                    class : 'gift-cont',text: 'aa'
+                }).appendTo($boxPromotion);
+                var $boxprice =  $('<div>', {
+                    class: 'item-product__box-raiting'
+                }).appendTo($item);
+                // var box_raiting = $ ('<div>',{
+                //     class: 'item-product__box-raiting'
+                // }).appendTo($item);
+                var icon1 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+                var icon2 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+                var icon3 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+                var icon4 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+                var icon5 = $('<i>',{
+                    class: 'icon_star ti-star'
+                }).appendTo($boxprice);
+
+             })
+            
+        },
+        fail: function () {
+            alert('Kết nối thất bại');
+        }
+    });   
+}
+getDataItemPhuKien();
+function getDataIMGTinTuc() {
+    let i = 0;
+    var listIMG = $('.c-3');
+
+    $.ajax({
+        url: "API/DataIMGTinTucAPI.php",
+        method: "POST",
+        data: {
+        },
+        headers: "application/json; charset=utf-8",
+        success: function (data) {
+           
+            DanhsachIMGTinTuc = data;
+            DanhsachIMGTinTuc.forEach(function (value) {
+                var a = '../../Admin/Frontend/'+ value.HinhAnh;
+                var $item = $('<div>', {
+                    id: i++,
+                    class: 'slide__ads__wrapper tablet__disable'
+                }).appendTo(listIMG);
+                var $a = $('<a>', {
+                    href: '#'
+                }).appendTo($item);
+                var $img = $('<img>', {
+                     src :a
+                }).appendTo($a);
+             })
+            
+        },
+        fail: function () {
+            alert('Kết nối thất bại');
+        }
+    });   
+}
+getDataIMGTinTuc();
+
 
 var NextBtn = document.querySelector('.slider__top__next__btn')
 var PrevtBtn = document.querySelector('.slider__top__prev__btn')
@@ -296,7 +338,7 @@ setInterval(function () {
             SlideWrapper.style = `transform: translateX(${positionX}px);`
             break
     }
-}, 500)
+}, 3000)
 // Button Slider
 NextBtn.addEventListener('click', function () {
     Handle(1)
@@ -320,38 +362,21 @@ function Handle($number) {
     }
 }
 // // Flash Sale Slider
-var FNextBtn = document.querySelector('.flash__sale__next__btn')
-var FPrevBtn = document.querySelector('.flash__sale__prev__btn')
-var FPrdoductList = document.querySelector('.flash__sale__product__list')
-var FPrdoductIem = document.querySelectorAll('.flash__sale__product')
-var Fl = 238
+var FPrdoductList = document.querySelector('.list-product')
+var FPrdoductIem = document.querySelectorAll('.list-product')
+var Fl = 239;
 var Findex = 0
 var FPositionX = 0
-FNextBtn.addEventListener('click', function () {
-    FHandle(1)
-})
-FPrevBtn.addEventListener('click', function () {
-    FHandle(-1)
-})
+$(document).on('click', '.flash__sale__next__btn', function (e) { 
 
-function FHandle(Fnumber) {
-    if (Fnumber == 1) {
-        if (Findex > 10) return
-        console.log('Next')
-        FPositionX = FPositionX - Fl
-        FPrdoductList.style = `transform: translateX(${FPositionX}px)`
-        Findex++
-        console.log('Findex', Findex)
-    }
-    if (Fnumber == -1) {
-        if (Findex <= 0) return
-        console.log('Prev')
-        FPositionX = FPositionX + Fl
-        FPrdoductList.style = `transform: translateX(${FPositionX}px)`
-        Findex--
-        console.log('Findex', Findex)
-    }
-}
+    FHandle(1);
+
+})
+$(document).on('click', '.flash__sale__prev__btn', function (e) { 
+
+    FHandle(-1);
+
+})
 
 
 function FHandle(Fnumber) {
@@ -359,16 +384,42 @@ function FHandle(Fnumber) {
         if (Findex > 10) return
         console.log('Next')
         FPositionX = FPositionX - Fl
-        FPrdoductList.style = `transform: translateX(${FPositionX}px)`
-        Findex++
-        console.log('Findex', Findex)
+        FPrdoductList.style = `transform: translateX(${FPositionX}px)`;
+        Findex++;
+        console.log('Findex', Findex);
     }
     if (Fnumber == -1) {
         if (Findex <= 0) return
         console.log('Prev')
         FPositionX = FPositionX + Fl
-        FPrdoductList.style = `transform: translateX(${FPositionX}px)`
-        Findex--
-        console.log('Findex', Findex)
+        FPrdoductList.style = `transform: translateX(${FPositionX}px)`;
+        Findex--;
+        console.log('Findex', Findex);
     }
 }
+
+// Count down
+var days = document.querySelector('#day')
+var hours = document.querySelector('#hour')
+var minutes = document.querySelector('#minutes')
+var seconds = document.querySelector('#sec')
+var CurrentYear = new Date().getFullYear()
+var CurrentMonth = new Date().getMonth()
+var CurrentDay = new Date().getDate()
+console.log(CurrentYear)
+console.log(CurrentMonth)
+console.log(CurrentDay)
+var currentTime = new Date(CurrentYear,CurrentMonth,CurrentDay)
+var EndFlashSaleDay = new Date(CurrentYear,CurrentMonth,CurrentDay+2)
+setInterval(function(){
+    var currentTime = new Date()
+    var SecondNow = Math.floor((EndFlashSaleDay - currentTime)/1000)
+    var s = Math.floor((EndFlashSaleDay - currentTime)/1000%60)
+    var m = Math.floor((EndFlashSaleDay - currentTime)/1000/60%60)
+    var h =  Math.floor((EndFlashSaleDay - currentTime)/1000/60/60%24)
+    var d =  Math.floor((EndFlashSaleDay - currentTime)/1000/60/60/24)
+    days.innerHTML = d < 10 ? '0'+ d : d
+    hours.innerHTML = h < 10 ? '0'+ h : h
+    minutes.innerHTML = m < 10 ? '0'+ m : m
+    seconds.innerHTML = s < 10 ? '0'+ s : s
+},1000)

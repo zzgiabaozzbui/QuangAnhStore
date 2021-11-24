@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="../font/themify-icons/themify-icons.css">
+   
+   
     <link rel="stylesheet" href="../css/HeaderStyle.css">
-    <link rel="stylesheet" href="../css/tablet.css">
+    <!-- <link rel="stylesheet" href="../css/tablet.css"> -->
     <title>Document</title>
 </head>
 
@@ -20,7 +22,7 @@
         <div class="header__background">
             <!-- Điện thoại -->
             <div class="smartphone__header__logo">
-                <a href=""><img src="./assets/img/zalo suopprt/cellphones.png" alt=""></a>
+                <a href=""><img src="../../Admin/Frontend/img/zalo suopprt/cellphones.png" alt=""></a>
             </div>
 
 
@@ -29,13 +31,8 @@
                 <input type="text" name="" id="" placeholder="Bạn cần tìm gì?">
             </div>
             <div class="smartphone__header__location">
-                <i class="ti-location-pin"></i>
-                <div class="smartphone__header__location__desc">
-                    <p>Xem giá tại</p>
-                    <p>
-                        Hồ Chí Minh
-                    </p>
-                </div>
+                
+                
                 <i class="fas ti-angle-down"></i>
             </div>
             <div class="smartphone__shopping__cart">
@@ -63,16 +60,6 @@
                     <input type="text" name="" id="" placeholder="Bạn cần tìm gì?">
                 </div>
                 <div class="tablet__header__top__right">
-                    <div class="tablet__header__location">
-                        <i class="ti-location-pin"></i>
-                        <div class="tablet__header__location__desc">
-                            <p>Xem giá tại</p>
-                            <p>
-                                Hồ Chí Minh
-                            </p>
-                        </div>
-                        <i class="fas ti-angle-down"></i>
-                    </div>
                     <div class="tablet__shopping__cart">
                         <i class="ti-bag"></i>
                         <p>Giỏ hàng</p>
@@ -102,64 +89,8 @@
                 <div class="header__logo__img">
                     <a href=""><img src="../img/Desktop logo/1.png" alt=""></a>
                 </div>
-
-
-
-
-                <!-- Location Sotre -->
-                <div class="header__location__wrapper">
-                    <div class="header__location__icon">
-                        <i class="ti-location-pin"></i>
-                    </div>
-                    <div class="header__location__desc">
-                        <span class="header__location__desc__1st">Xem giá tại</span>
-                        <span class="header__location__desc__2nd">
-                            <p class="header__location__desc__2nd__text"> Hồ Chí Minh</p>
-                            <i class="ti-angle-down header__location__desc__2nd__icon"></i>
-                        </span>
-                    </div>
-                </div>
-                <!-- Submenu Location Store -->
-                <div class="header__location__submenu">
-                    <ul class="header__location__submenu__list">
-                        <li class="header__location__submenu__item">
-                            <a href="" class="header__location__submenu__item__link">
-                                <i class="fas fa-map-marker-alt header__location__submenu__item__link__icon"></i>
-                                <p class="header__location__submenu__item__link__text">Hồ Chí Minh</p>
-                            </a>
-                        </li>
-                        <li class="header__location__submenu__item">
-                            <a href="" class="header__location__submenu__item__link">
-                                <i class="fas fa-map-marker-alt header__location__submenu__item__link__icon"></i>
-                                <p class="header__location__submenu__item__link__text">Hà Nội</p>
-                            </a>
-                        </li>
-                        <li class="header__location__submenu__item">
-                            <a href="" class="header__location__submenu__item__link">
-                                <i class="fas fa-map-marker-alt header__location__submenu__item__link__icon"></i>
-                                <p class="header__location__submenu__item__link__text">Bình Dương</p>
-                            </a>
-                        </li>
-                        <li class="header__location__submenu__item">
-                            <a href="" class="header__location__submenu__item__link">
-                                <i class="fas fa-map-marker-alt header__location__submenu__item__link__icon"></i>
-                                <p class="header__location__submenu__item__link__text">Hải Dương</p>
-                            </a>
-                        </li>
-                        <li class="header__location__submenu__item">
-                            <a href="" class="header__location__submenu__item__link">
-                                <i class="fas fa-map-marker-alt header__location__submenu__item__link__icon"></i>
-                                <p class="header__location__submenu__item__link__text">Hải Phòng</p>
-                            </a>
-                        </li>
-                        <li class="header__location__submenu__item">
-                            <a href="" class="header__location__submenu__item__link">
-                                <i class="fas fa-map-marker-alt header__location__submenu__item__link__icon"></i>
-                                <p class="header__location__submenu__item__link__text">Bắc Ninh</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+    
+                
                 <!-- Submenu modal -->
                 <div class="header__location__submenu__modal"></div>
                 <!-- Search bar -->
@@ -195,8 +126,8 @@
                                 <a href="" class="header__navbar__item__link">
                                     <i class="ti-location-pin"></i>
                                     <div class="header__navbar__item__link__desc__wrapper">
-                                        <p>Cửa hàng</p>
-                                        <p>gần bạn</p>
+                                        <p>Thông tin</p>
+                                        <p>cửa hàng</p>
                                     </div>
                                 </a>
                             </div>

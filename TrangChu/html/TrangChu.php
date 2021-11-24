@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/HomeStyle.css">
-    <link rel="stylesheet" href="../font/fontawesome-free-5.15.4/fontawesome-free-5.15.4-web/css/all.css">
+
     <link rel="stylesheet" href="../font/themify-icons/themify-icons.css">
 
     <title>Nhóm 3 Điện thoại</title>
     <?php
-    require "../Layout/LayoutHeader.php";
+    require "../html/Header.php";
     ?>
 </head>
 
@@ -474,15 +474,7 @@
 
                 </div>
                 <div class="c-3">
-                    <div class="slide__ads__wrapper tablet__disable">
-                        <a href=""><img src="../../Admin/Frontend/img/Slide/Ads/1.webp" alt=""></a>
-                    </div>
-                    <div class="slide__ads__wrapper tablet__disable">
-                        <a href=""><img src="../../Admin/Frontend/img/Slide/Ads/2.webp" alt=""></a>
-                    </div>
-                    <div class="slide__ads__wrapper tablet__disable">
-                        <a href=""><img src="../../Admin/Frontend/img/Slide//Ads/3.webp" alt=""></a>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -498,11 +490,93 @@
             </div>
         </div>
 
+
         <div class="container-content">
+            <div class="container-sale">
+                <div class="sale-herder">
+                    <div class="flash__sale__box__left">
+                        <img src="../../Admin/Frontend/img/Flash Sale/1.PNG" alt="" class="img-hearder-sale">
+
+                    </div>
+                    <div class="flash__sale__box__tablet">
+                        <div class="coutdown">
+                            <h1 class="coutdown__title">
+                                Kết thúc sau :
+                            </h1>
+
+                            <div class="time">
+                                <h1 id="day"></h1>
+                            </div>
+                            <span>:</span>
+                            <div class="time">
+                                <h1 id="hour"></h1>
+                            </div>
+                            <span>:</span>
+                            <div class="time">
+                                <h1 id="minutes"></h1>
+                            </div>
+                            <span>:</span>
+                            <div class="time">
+                                <h1 id="sec"></h1>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <button class="flash__sale__next__btn">
+                    <i class="fas ti-angle-right"></i>
+                </button>
+                <button class="flash__sale__prev__btn">
+                    <i class="fas ti-angle-left"></i>
+                </button>
+                <div class="row flash__sale__product__list__wrapper">
+                    <div class="box-products">
+                        <div class="list-product list-product-Sale">
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
             <div class="product-Home-dienthoai block-products">
                 <div class="box-title">
                     <a href="#">
                         <h2>ĐIỆN THOẠI</h2>
+                    </a>
+                    <div class="box-list-item">
+                        <a href="#" class="item">Samsung</a>
+                        <a href="#" class="item">Apple</a>
+                        <a href="#" class="item">Xiaomi</a>
+                        <a href="#" class="item">OPPO</a>
+                        <a href="#" class="item">Vsmart</a>
+                        <a href="#" class="item">Realmi</a>
+                        <a href="#" class="item">Nokia</a>
+                        <a href="#" class="item">ASUS</a>
+                        <a href="#" class="item">Vivo</a>
+                        <a href="#" class="item">Xem tất cả</a>
+                    </div>
+                </div>
+
+
+                <div class="box-products">
+                    <div class="list-product list-product-dienthoai">
+
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="product-Home-phukien block-products">
+                <div class="box-title">
+                    <a href="#">
+                        <h2>Phụ kiện</h2>
                     </a>
                     <div class="box-list-item">
                         <a href="#" class="item">Apple</a>
@@ -518,8 +592,8 @@
                     </div>
                 </div>
                 <div class="box-products">
-                    <div class="list-product">
-                        
+                    <div class="list-product list-product-phukien">
+
 
                     </div>
 
@@ -549,6 +623,17 @@
     <script rel="text/javascript" src="../js/Home.js"></script>
 </body>
 
+<footer>
+    <div class="container-footer">
+        <div class="content-footer">
+            <?php
+            require './Footer.php';
+            ?>
+
+        </div>
+
+
+    </div>
 
 </footer>
 
