@@ -10,7 +10,7 @@
      <link rel="stylesheet" href="../css/HeaderStyle.css">
     <link rel="stylesheet" href="../css/tablet.css">
     <!-- Content-body -->
-    <link rel="stylesheet" href="../css/ChiTietDienThoai.css">
+    <link rel="stylesheet" href="../css/ChiTietDienThoai.css?version=1">
     <!-- Footer -->
     <link rel="stylesheet" href="../css/FooterStyle.css">
     <title>Document</title>
