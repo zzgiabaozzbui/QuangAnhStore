@@ -70,7 +70,7 @@
             padding: 0;
         }
         .nav--right{
-            padding: 0;
+            height: 73px;
         }
         #text1{
             color: white;
@@ -84,7 +84,9 @@
             text-align: center;
             font-weight: bold;
             font-size: 30px;
-            margin-bottom: 20px;
+            position: relative;
+
+            bottom: 25px;
         }
     </style>
     
@@ -111,19 +113,25 @@
                     </div>
                 </a>
                 <a id="2" class="item--nav">
-                    <div class="nav--left">
-
+                <div class="nav--left">
+                        <b id="text1">Doanh thu phụ kiện :</b>
                     </div>
+                    
                     <div class="nav--right">
-
+                        <canvas id="myCanvas2" width="70px" height="70px"></canvas>
+                        <b class="textmoney">70M</b>
+                        
                     </div>
                 </a>
                 <a id="3" class="item--nav">
-                    <div class="nav--left">
-
+                <div class="nav--left">
+                        <b id="text1">Tổng doanh thu :</b>
                     </div>
+                    
                     <div class="nav--right">
-
+                        <canvas id="myCanvas3" width="70px" height="70px"></canvas>
+                        <b class="textmoney">70M</b>
+                        
                     </div>
                 </a>
                 
@@ -140,8 +148,56 @@
     </div>
 </body>
 <script>
-    //Canvas tròn
+    //Canvas tròn của a1
     var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    
+    
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(255,255,255,0.5)';//Đặt màu đường
+    ctx.lineWidth = 7; //Độ rộng
+    ctx.arc(35,35,25,0,2*Math.PI);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgb(255,255,255)';//Đặt màu đường
+    ctx.lineWidth = 6; //Độ rộng
+    ctx.arc(35,35,25,1.5*Math.PI,0.3*2*Math.PI);
+    ctx.stroke();
+
+    //Chữ trong canvas
+    ctx.font = '18px bold Arial';
+    
+    ctx.fillStyle = 'White';
+    ctx.fillText('60%', 20, 40);
+
+
+    //Canvas tròn của a2
+    var c = document.getElementById("myCanvas2");
+    var ctx = c.getContext("2d");
+    
+    
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(255,255,255,0.5)';//Đặt màu đường
+    ctx.lineWidth = 7; //Độ rộng
+    ctx.arc(35,35,25,0,2*Math.PI);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgb(255,255,255)';//Đặt màu đường
+    ctx.lineWidth = 6; //Độ rộng
+    ctx.arc(35,35,25,1.5*Math.PI,0.3*2*Math.PI);
+    ctx.stroke();
+
+    //Chữ trong canvas
+    ctx.font = '18px bold Arial';
+
+    ctx.fillStyle = 'White';
+    ctx.fillText('60%', 20, 40);
+
+
+    //Canvas tròn của a3
+    var c = document.getElementById("myCanvas3");
     var ctx = c.getContext("2d");
     
     
