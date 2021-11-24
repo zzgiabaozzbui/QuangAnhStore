@@ -4,7 +4,6 @@
 .container-web{
     flex: 1;
     height: 100vh;
-    
 }
 
 h3{
@@ -22,7 +21,7 @@ h3{
     padding-top: 10px;
     position: relative;
 }
-.sear{
+.sear{ 
     padding-bottom: 5px;
     padding-left: 5px;
 }

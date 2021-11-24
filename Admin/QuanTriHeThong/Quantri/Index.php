@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="../../Frontend/font/themify-icons/themify-icons.css">
         <link rel="stylesheet" href="./css/Index.css">
     </head>
+    <style>
+        
+    </style>
     <body >
         
         <div class="main">
