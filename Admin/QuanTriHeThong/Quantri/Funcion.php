@@ -33,6 +33,8 @@
         if ($index=="0") {
             $quyen="Quản trị";
         } else if ($index=="1"){
+            $quyen="Quản lý";
+        }else if ($index=="2"){
             $quyen="Nhân viên";
         }
         return $quyen;
@@ -106,10 +108,7 @@
         }
     }
     function Bieudo(){
-        // Lệnh chỉ lấy ngày tháng năm:
-        // $querySelectKey= "select ID,HoTen,GioiTinh,Date_format(NgaySinh,'%Y-%m-%d') as NgaySinh,
-        // QueQuan,TrinhDoHocVan from tblsinhvien ;
-        $query = "SELECT Quyen, MaNV AS size_status FROM quantri WHERE 1 ";
+        $query = "SELECT MaDong as Quyen , Gia AS size_status FROM sanpham WHERE 1 ";
         $conn = mysqli_connect("localhost","root","","qldt");
         if($conn == true){
             //Step3

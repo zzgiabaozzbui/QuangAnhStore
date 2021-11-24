@@ -77,12 +77,12 @@
             if(menuList.style.width=="250px")
             {
                 menuList.style.animation = 'up linear 0.2s 1 forwards';
-                menuList.style.width="60px"
+                menuList.style.width="60px";
             }     
             else
             { 
                 menuList.style.animation = 'dow linear 0.2s 1 forwards';
-                menuList.style.width="250px"
+                menuList.style.width="250px";
                 
             }
                   
