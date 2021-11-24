@@ -19,7 +19,8 @@ body{
 }
 .table  tbody td img{
     width: 80px;
-    
+    height: 80px;
+    background-size: cover;
 }
 .phanTrang{
     display: flex;
