@@ -15,10 +15,12 @@ function show(){
             var formStatusVar = [];
             //Chiều cao cột
             var total = []; 
+            var total2 = []; 
 
             for (var i in data) {
                 formStatusVar.push(data[i].Quyen);
                 total.push(data[i].size_status);
+                total2.push(data[i].size_status);
             }
 
             var options = {
@@ -28,7 +30,7 @@ function show(){
                 },
                 scales: {
                     xAxes: [{
-                        // //chiều rộng cột
+                        //chiều rộng cột
                         barPercentage: 0.5,
                     }],
                     yAxes: [{
@@ -44,12 +46,20 @@ function show(){
                 labels: formStatusVar,
                 datasets: [
                     {
-                        label: 'Thống kê doanh thu',
+                        label: 'Thống kê điện thoại',
                         backgroundColor: '#17cbd1',
                         borderColor: '#46d5f1',
                         hoverBackgroundColor: '#0ec2b6',
                         hoverBorderColor: '#42f5ef',
                         data: total
+                    },
+                    {
+                        label: 'Thống kê phụ kiện',
+                        backgroundColor: '#FE0066',
+                        borderColor: '#FE0066',
+                        hoverBackgroundColor: '#FE0098',
+                        hoverBorderColor: '#FE0098',
+                        data: total2
                     }
                 ]
             };

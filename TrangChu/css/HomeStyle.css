@@ -525,15 +525,41 @@
 .main .container-content .block-products .box-products .list-product .size-item {
     height: 428px;
 }
+/* .item-product__sticker-percent {
+    background-color: #e70a19;
+    position: relative;
+    height: 25px;
+    width: 80px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    left: -7%;
+    top: -226px;
+    
+
+} */
+/* .item-product__sticker-percent p {
+    align-items: center;
+    color: #fff;
+    padding: 3px 0 0 32px;
+}
+.item-product__sticker-percent::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #cd0f1d;
+    position: absolute;
+    top: 22px;
+} */
 
 /* Sale */
 .main .container-sale {
     width: 1200px;
     height: 484px;
+    position: relative;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background: linear-gradient( 
-        180deg, #2d068d, #ad12cb );
+    background: linear-gradient( 180deg, #2d068d, #ad12cb );
 }
 .main .container-sale .sale-herder {
     width: 1200px;
@@ -654,8 +680,8 @@ margin: 0 0 0 16px;
 .flash__sale__next__btn{
     border: none;
     position: absolute;
-    top: 77%;
-    right: 354px;
+    top: 48%;
+    right: 0px;
     width: 30px;
     height: 60px;
     border-top-left-radius: 45px;
@@ -682,8 +708,8 @@ margin: 0 0 0 16px;
 .flash__sale__prev__btn{
     border: none;
     position: absolute;
-    top:  77%;
-    left: 356px;
+    top:  48%;
+    left: 0px;
     width: 30px;
     height: 60px;
     border-top-right-radius: 45px;

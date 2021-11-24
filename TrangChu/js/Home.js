@@ -2,6 +2,28 @@ var danhsach = [];
 var danhsachphukien = [];
 var DanhsachIMGTinTuc = [];
 var DanhsachSale = [];
+var randompPromotion = [{
+    items : 'Tặng phiếu mua hàng 2.1 triệu đồng và 1 km khác'
+},{
+    items : 'Giảm 1 triệu khi thanh toán qua ví Moca, thẻ tín dụng ACB, mPos, VIB, BIDV, Shinhan, Standard Charter'
+} ,{
+    items : '[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ và 1 km khác'
+} ,{
+    items : 'Tặng Sim Mobifone C90N 4GB/Ngày'
+} ,{
+    items : 'Mua kèm dịch vụ bảo hành Apple Care giá tốt'
+} ,{
+    items : 'Nhận gói 6 tháng Apple Music miễn phí'
+} ,{
+    items : 'Ưu đãi 15% khi mua kèm điện thoại/Máy tính bảng Samsung từ 6 triệu trở lên'
+} ,{
+    items : '[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 300.000đ'
+} ,{
+    items : 'Mua Office Home & Student 2019 kèm Macbook chỉ còn 1,990,000'
+} ,
+];
+ var randomMonth = randompPromotion[Math.floor(Math.random() * randompPromotion.length)];
+
 function getDataItem() {
     let i = 0;
     var list = $('.list-product-dienthoai');
@@ -32,6 +54,13 @@ function getDataItem() {
                     id : 'size-img',
                    src :a
                 }).appendTo($a);
+                
+                var $sticker_percent = $('<div>', {
+                    class: 'item-product__sticker-percent'
+                }).appendTo($item);
+                var iconSticker = $('<p>', {
+                  text : '5%'
+                }).appendTo($sticker_percent);
         
                 var $boxName =  $('<div>', {
                     class: 'item-product__box-name'
@@ -57,7 +86,7 @@ function getDataItem() {
                 }).appendTo($item);
         
                 var pPromotion =  $('<p>',  {
-                    class : 'gift-cont',text: 'aa'
+                    class : 'gift-cont',text: ''
                 }).appendTo($boxPromotion);
                 var $boxprice =  $('<div>', {
                     class: 'item-product__box-raiting'
@@ -71,15 +100,15 @@ function getDataItem() {
                 var icon2 = $('<i>',{
                     class: 'icon_star ti-star'
                 }).appendTo($boxprice);
-                var icon3 = $('<i>',{
-                    class: 'icon_star ti-star'
-                }).appendTo($boxprice);
-                var icon4 = $('<i>',{
-                    class: 'icon_star ti-star'
-                }).appendTo($boxprice);
-                var icon5 = $('<i>',{
-                    class: 'icon_star ti-star'
-                }).appendTo($boxprice);
+                // var icon3 = $('<i>',{
+                //     class: 'icon_star ti-star'
+                // }).appendTo($boxprice);
+                // var icon4 = $('<i>',{
+                //     class: 'icon_star ti-star'
+                // }).appendTo($boxprice);
+                // var icon5 = $('<i>',{
+                //     class: 'icon_star ti-star'
+                // }).appendTo($boxprice);
 
              })
             
@@ -120,6 +149,12 @@ function getDataItemSale() {
                     id : 'size-img',
                    src :a
                 }).appendTo($a);
+                var $sticker_percent = $('<div>', {
+                    class: 'item-product__sticker-percent'
+                }).appendTo($item);
+                var iconSticker = $('<p>', {
+                  
+                }).appendTo($sticker_percent);
         
                 var $boxName =  $('<div>', {
                     class: 'item-product__box-name'
@@ -204,6 +239,12 @@ function getDataItemPhuKien() {
                     id : 'size-img',
                    src :a
                 }).appendTo($a);
+                var $sticker_percent = $('<div>', {
+                    class: 'item-product__sticker-percent'
+                }).appendTo($item);
+                var iconSticker = $('<p>', {
+                  
+                }).appendTo($sticker_percent);
         
                 var $boxName =  $('<div>', {
                     class: 'item-product__box-name'
