@@ -55,16 +55,23 @@ function ChangeData($query,$tilte)
         
         echo "<script>";
         echo "alert('Bạn đã ".$tilte." thành công!');";
-        echo "window.location.href='index.php';";
+        // echo "window.location.href='index.php';";
         echo "</script>";  
        
     }
     else{
         echo "<script>";
         echo "alert('Bạn đã ".$tilte." thất bại');";
-        echo "window.location.href='index.php';";
+        // echo "window.location.href='index.php';";
         echo  "</script>";
     }
+    
+    
+}
+function ChangeDataNoTitle($query)
+{
+    $conn= mysqli_connect("localhost","root","",DATABASE);
+    $result= mysqli_query($conn,$query);
     
     
 }
