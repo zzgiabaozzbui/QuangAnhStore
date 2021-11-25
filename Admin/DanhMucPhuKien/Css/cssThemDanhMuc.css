@@ -1,0 +1,141 @@
+.main
+{
+    display: flex;
+}
+.Content
+{
+    flex: 1;
+    margin: 0px 20px;
+}
+.header
+{
+    margin-top: 20px;
+    height: 90px;
+    margin-right: 40px;
+    margin-left: 40px;
+    background-color: #E6E6FA;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+.header-content 
+{
+    font-family: Comic Sans MS;
+    font-size: 36px;
+    text-align: center;
+    padding-top: 16px;          
+}
+.text-header 
+{
+    margin-top: 40px;
+    line-height: 90px;
+    display: flex;
+}
+.body 
+{
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: hotpink;
+    margin-right: 40px;
+    margin-left: 40px;
+    border-radius: 30px;
+    padding: 12px 0px;
+}
+.footer
+{
+    margin-right: 40px;
+    margin-left: 40px;
+    border-radius: 30px;
+    display: flex;
+    background-color: #AFEEEE;
+    padding: 16px 0px;
+    justify-content: center;
+    
+}
+.input
+{
+    font-size: 15px;
+    padding: 16px;
+    width: 500px;
+}
+.row
+{
+    margin: 20px 20px;
+}
+.nav
+{
+    display: flex;
+    margin-top: 16px;
+}
+.back
+{
+    flex :1;
+    text-align: center;
+
+}
+.link-back
+{
+    width: 92px;  
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    font-size: 38px;
+    padding: 5px 30px 10px 30px;
+    background-color: #00FF33;
+    border-radius: 6px;
+    border: 1.60px solid black;
+    margin-right: 400px;
+    
+}
+.icon--back
+{
+    color : black;
+    line-height:40px;
+    margin-top: 10px;
+    font-size: 30px;
+}
+.btn-Save
+{
+    
+    display: inline-block;
+    font-size: 36px;
+    padding: 12px 30px 11px 30px;
+    background-color: #FFFF00;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1.60px solid black;
+    margin-left: 400px;
+}
+.save 
+{
+   
+    flex :1;
+    text-align: center;
+}
+.infoText
+{
+    font-size: 20px;
+   display: inline;
+   padding-left: 4px;
+   color: gray;
+}
+.input-file
+{
+    font-size: 15px;
+    font-family:Arial, Helvetica, sans-serif;
+    padding-left: 4px;
+    cursor: pointer;
+    
+}
+.getfile 
+{
+    display: flex;
+}
+.rowGetFile
+{
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
