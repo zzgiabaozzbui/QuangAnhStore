@@ -1,0 +1,223 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+.header
+{
+    background-color: red;
+    height: 64px;
+}
+i
+{
+    font-size: 24px;
+    margin-right: 10px;
+}
+.content__title
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 24px auto;
+    width: 600px;
+    justify-content: space-between;
+}
+.back
+{
+    color: red;
+   text-decoration: none;
+   margin-top: 2px;
+}
+h1
+{
+    font-size: 24px;
+}
+.content__bill__title, .payment--online__title
+{
+    width: 600px;
+    text-align: center;
+    margin: 40px auto 10px auto;
+}
+.content__bill__list, .payment--online
+{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 600px;
+}
+.bill__img
+{
+    width: 140px;
+    height: 140px;
+    padding: 20px;
+}
+.content__bill__item__box
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;   
+}
+.bill__item__text
+{
+    padding: 30px 0px 20px 10px;
+}
+.item__name
+{
+    padding: 10px 0px 0px 10px;
+}
+.item__cost, .item__num
+{
+    padding: 10px 0px 0px 20px;
+    color: red;
+}
+.totalcost, .billID
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: auto;
+    width: 600px;
+    padding: 16px;
+    justify-content: space-between;
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
+}
+.payment--online__list
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: col;
+    margin: 24px auto;
+    width: 600px;
+}
+.img__icon
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin: 0px 20px;
+}
+.payment--online__content
+{
+    padding: 10px 0px;
+}
+.payment--online__content__text
+{
+    display: flex;
+    font-size: 18px;
+    padding: 20px;
+}
+.rdo--payment
+{
+    margin-top: 19px;
+    display: inline-block;
+}
+h3
+{
+    margin-top: 12px;
+}
+.payment--online__content__hide
+{
+    font-size: 18px;
+    padding: 10px 0px 10px 40px;
+    display: none;
+    
+}
+.hide__title
+{
+    padding: 10px 0px;
+}
+
+.btnSuccess
+{
+    width: 600px;
+    text-align: center;
+    margin: 40px auto 80px auto;
+}
+.btn--success
+{
+    height: 60px;
+    width: 100%;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: #228B22;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.text--success
+{
+    padding: 14px;
+    display: block;
+}
+.mess__title
+{
+    position: relative;
+    font-size: 26px;
+    color: red;
+    background-color:#FFE4B5;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-weight: bolder;
+    padding: 60px 40px 40px 40px;
+}
+.mess__box
+{
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    
+}
+.mess--close
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px 0px 6px 12px;
+    background-color: red;
+    color: white;
+    border-top-right-radius: 20px;
+    cursor: pointer;
+    border-bottom-left-radius: 8px;
+}
+.mess
+{
+    
+    width: 700px;
+    text-align: center;
+    margin: 90px auto 80px auto;
+    border-radius: 30px;
+    border: 8px solid black;
+    font-family: 'Rubik Mono One', sans-serif;
+    box-shadow: 10px 10px 5px grey;
+}
+.mess__text
+{
+    font-size: 17px;
+    padding: 40px 80px;
+    background-color: #f4e2d8;
+    text-align: justify;
+
+}
+.mess__thanks
+{
+    font-size: 18px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+   
+    background-color: #66FF99;
+    color: green;
+    padding: 30px;
+}
+.hide
+{
+    display: none;
+}

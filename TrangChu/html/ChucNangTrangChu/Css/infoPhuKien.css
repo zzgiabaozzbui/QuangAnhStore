@@ -1,0 +1,270 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+.header
+{
+    background-color: red;
+    height: 64px;
+}
+.content__header__name
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding:16px 0px;
+    margin: auto;
+    width: 1200px;
+}
+.content__header
+{
+    
+    border-bottom: 1px solid #D1D5DB;
+}
+h1
+{
+    font-size: 22px;
+    margin:0px 10px 0px 0px;
+}
+p
+{
+    margin-top: 4px;
+}
+.content__body
+{
+    width: 1200px;
+    padding-top: 20px;
+    margin: auto;
+}
+.content__body__box
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+}
+.box__image
+{
+    margin-top: 20px;
+    padding: 20px;
+    border: solid 1px #D1D5DB;
+    border-radius: 20px;
+    margin-right: 20px;
+    height: 100%;
+    
+}
+.content__image 
+{
+    width: 360px;
+    height: 360px;
+ 
+}
+.box__info__buy
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 1;
+    margin-right: 20px;
+    font-family: sans-serif;
+}
+.box__info__status1
+{
+    font-size: 20px;
+    color: red;
+    border: 1px solid red;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    border-radius: 50px;
+    background-color:bisque;
+    margin-top: 10px;
+}
+.box__info__cost
+{
+    font-size: 24px;
+    color: red;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.box__info__status2__manufacturer_warranty
+{
+    border: solid 1px #D1D5DB;
+    font-size: 16px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.box__info__text
+{
+    
+    padding: 16px 0px 16px 24px;
+}
+.box__info__title 
+{
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 16px 0px 16px 20px;
+    background-color: lightgray;
+}
+.box__info__title__first
+{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-weight: bold;
+    margin: -1px;
+}
+i
+{
+    margin-right: 10px;
+    font-size: 20px;
+}
+.box__buy 
+{
+    margin: 10px 0px;
+}
+.btnBuy
+{
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #32CD32;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+.btnBuyNow
+{
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+.box__des 
+{
+    border: solid 1px #D1D5DB;
+    margin-bottom: 20px;
+    border-radius: 20px;
+
+}
+.box__des__gift 
+{
+    flex: 1;
+}
+.box__des__title
+{
+    font-size: 24px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+    padding: 20px;
+    color: blue;
+    background-color: lightskyblue;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: -1px;
+}
+.box__des__text
+{
+    font-size: 18px;
+    padding: 20px 30px;
+   
+}
+.box__gift 
+{
+    border: solid 1px #D1D5DB;
+    border-radius: 20px;
+}
+.box__gift__title
+{
+    background-color: #FEE2E2;
+    padding: 20px;
+    font-size: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-weight: bold;
+    margin: -1px;
+    color: red;
+}
+.box__gift__text
+{
+    padding: 20px;
+    font-size: 16px;
+    font-family: sans-serif;
+   
+}
+.gift_text
+{
+    margin: 4px 0px 12px 0px;
+}
+.similar__title
+{
+    width: 1200px;
+    margin: auto;
+    margin-top: 30px;
+}
+.similar
+{
+    margin-top: 50px;
+    border-top: 1px solid #D1D5DB;
+    border-bottom: 1px solid #D1D5DB;
+    margin-bottom: 80px;
+}
+.similar__list
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding:16px 0px;
+    margin: auto;
+    width: 1200px;
+    flex-wrap: nowrap;
+}
+a
+{
+    text-decoration: none;
+}
+.similar__item
+{
+   flex-basis: 20%;
+   border: 1px solid #D1D5DB;
+   border-radius: 20px;
+   padding: 10px 4px;
+   margin-right: 10px;
+   margin-bottom: 10px;
+}
+.similar__item__img
+{
+    text-align: center;
+    padding: 10px 10px 0px 10px;
+}
+.similar__img
+{
+    width: 90%;
+}
+.similar__item__name, .similar__item__cost
+{
+    width: 80%;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bolder;
+    
+}
+.similar__item__name
+{
+    color: black;
+    height: 75px;
+    padding: auto;
+}
+.similar__item__cost
+{
+    color: red;
+    
+}
