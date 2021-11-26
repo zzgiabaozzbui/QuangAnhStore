@@ -22,7 +22,7 @@
         $Anh='';
         $Gia='';
         $NSX='';
-
+        
         include './connect.php';
             $query="Select * from chitietphukien where Maphukien = '".$ID."'";
             $result=mysqli_query($conn,$query);

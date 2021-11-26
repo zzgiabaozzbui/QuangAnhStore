@@ -178,7 +178,7 @@
                 $selectHD="select * from hoadon where ten=N'".$hoTen."' and email='".$Email."'and ngaydat='".$ngayDat."' and sdt='".$SDT."' order by Mahoadon desc limit 1"; 
 
                 
-                $resuiltHD=ChangeData($queryInsertHD,'đặt hàng');
+                $resuiltHD=ChangeDataNoReturn($queryInsertHD,'đặt hàng');
                 $resultSelectHD=selectItem($selectHD);
                 $queryInsertCTHD="insert into chitiethoadon values ('".$resultSelectHD[0]['Mahoadon']."','".$maSP."',".$soLuong.")";
                 $resuiltCTHD=ChangeDataNoTitle($queryInsertCTHD);

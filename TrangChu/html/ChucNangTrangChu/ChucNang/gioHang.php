@@ -11,7 +11,7 @@
 <body>
     <?php 
          global $ID;
-         $ID='manhhlunn';
+         $ID='dinhthang';
         $TenSP="";
         $Anh="";
         $Gia="";

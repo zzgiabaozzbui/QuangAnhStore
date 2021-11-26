@@ -119,10 +119,13 @@
                                                    
                             </div>
                             <div class="Product-btn">
-                            <button  class="btnBuy_Cart" >
-                                <i class="ti-shopping-cart-full"></i>
-                                Thêm vào giỏ hàng
+                                <form action="" method="post">
+                                <button type="submit" class="btnBuy_Cart" name="btnAdd_Cart">
+                                    <i class="ti-shopping-cart-full"></i>
+                                    Thêm vào giỏ hàng
                             </button>
+                                </form>                         
+                                
                             <button type="reset" class="btnBuy_Cart" onclick="location.href='ThemVaoGioHang.php?MaSP=<?php echo $maSP; ?>'">
                                 Mua ngay
                             </button>              
@@ -268,6 +271,15 @@
                 ?>                  
             </div>
         </div>
+        <?php
+            if($_SERVER["REQUEST_METHOD"]=== 'POST' and isset($_POST['btnAdd_Cart']))
+            {
+                $tenTK="dinhthang";
+                $queryInsertCart="insert into giohang values('".$tenTK."','".$maSP."',1,'".$Gia."')";
+                echo $queryInsertCart;
+                $resuiltInsertCart=ChangeDataNoReturn($queryInsertCart,"thêm giỏ hàng");
+            }
+        ?>
             <!-- Chi tiết cấu hình -->
             <div id="modal" class="">
             <div class="product-config-modal js_modal">
