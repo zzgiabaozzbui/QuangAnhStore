@@ -89,7 +89,7 @@ function ChangeDataNoReturn($query,$tilte)
 }
 function ChangeDataNoTitle($query)
 {
-    $conn= mysqli_connect("localhost","root","",DATABASE);
+    $conn= mysqli_connect("localhost","root","","qldt");
     $result= mysqli_query($conn,$query);
     
     
