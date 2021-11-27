@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert staff</title>
-    <link rel="stylesheet" href="../../Frontend/css/sideBar.css?version=1">
+    <link rel="stylesheet" href="../../Frontend/css/sideBar.css">
     <link rel="stylesheet" href="../../Frontend/font/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="./css/insert.css">
         
@@ -31,8 +31,7 @@
                             THÊM NHÂN VIÊN
                         </h4>
                     </div>
-                    
-                    <form class="mainf" action="#" method="POST">
+                    <form class="mainf" method="POST" enctype="multipart/form-data">
                         <table class="tbl" >
                             <tr>
                                 <td class="lbl">Tài khoản:</td>
@@ -102,7 +101,12 @@
                                     <input class="inpu"  type="text" name="txtdc" id="txtdc" placeholder="Nhập địa chỉ" size="25" style="width: 170px;background-image: url(https://img.icons8.com/material-sharp/2x/ffffff/address.png); background-position: left;background-size: 25px;">
                                 </td>
                             </tr>
-                            <tr></tr>
+                            <tr>
+                                <td class="lbl">Hình ảnh:</td>
+                                <td >
+                                <input class="form-control" type="file" name="fileUpload" value="">
+                                </td>
+                            </tr>
                         </table>
                         <div class="div--bton">
                             <div>

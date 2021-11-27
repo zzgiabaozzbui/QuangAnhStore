@@ -10,7 +10,21 @@
         <link rel="stylesheet" href="./css/Index.css">
     </head>
     <style>
-        
+        .container-web{
+    flex: 1;
+    height: 100vh;
+}
+        .divmain{
+    background: linear-gradient( -45deg, #23a6d5,#23d5ab);
+    /* border-radius: 2%; */
+    max-width: 100%;
+    max-height: 92%;
+    height: 100vh;
+    color: white;
+    margin: 0px;
+    padding-top: 10px;
+    position: relative;
+}
     </style>
     <body >
         

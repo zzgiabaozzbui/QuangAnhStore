@@ -42,7 +42,13 @@
     
     
 
+    function im($link){
+        if($link==NULL){
+            return "<img src='../../Frontend/img/quantri/user.png' style='width: 50px; border-radius: 100%;'>";
 
+        }else
+        return "<img src=".$link." style='width: 50px; border-radius: 100%;'>";
+    }
     function Table1($result,$table_name){
         $table_name1 = "$table_name"."1";
         echo "<div id='".$table_name."' class='tbl-header ' >";
@@ -57,6 +63,7 @@
             <th>Số điện thoại </th>
             <th>Quyền </th>
             <th >Trạng thái </th>
+            <th >Ảnh </th>
             <th >Chi tiết </th>";
         
             echo "</tr>";
@@ -77,6 +84,7 @@
                 echo "<td>" . $row["Sdt"] . "</td>";
                 echo "<td>" . show_quyen($row["Quyen"]) . "</td>";
                 echo "<td >".show_tt($row["Trangthai"])."</td>";
+                echo "<td >".im($row["img"])."</td>";
                 
                 echo "<td >
                     <a href='Update.php?ID=".$row["MaNV"]."'>
@@ -125,6 +133,9 @@
             echo "Connect error:" . mysqli_connect_error();
         }    
     }
+
+
+
     function SelectAll($id){
         $table_name = "tbl_Main";
         // Lệnh chỉ lấy ngày tháng năm:
@@ -149,16 +160,16 @@
     }
     function Select(){
         $table_name = "tbl_Main";
-        $query = "SELECT MaNV, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt, Quyen, Trangthai FROM quantri ";
+        $query = "SELECT MaNV, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt, Quyen, Trangthai,img FROM quantri ";
         conect($query,$table_name);    
     }
     function SearchByName(){
         $table_name ="tbl_search";
         $key = $_POST['txtSearch'];
         if($key==''){
-            $query = "SELECT MaNV, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt, Quyen, Trangthai FROM quantri";
+            $query = "SELECT MaNV, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt, Quyen, Trangthai,img FROM quantri";
         }else{
-            $query = "SELECT MaNV, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt, Quyen, Trangthai FROM quantri where fullname like N'%".$key."%'";
+            $query = "SELECT MaNV, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt, Quyen, Trangthai,img FROM quantri where fullname like N'%".$key."%'";
         }
         echo "<script type='text/javascript'>";
         echo " var txtSearch = document.getElementById('txtSearch'); txtSearch.value = '".$key."'";
@@ -168,6 +179,10 @@
         
     }
     
+
+
+
+
     function Update($id,$tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$quyen,$tt){
         $tit="";
         if ($tk=="") {
@@ -199,12 +214,21 @@
             $tit="Vui lòng chọn trạng thái của tài khoản!!!";
             md($tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$quyen,$tt);
         }else{
+            $linkAnh = "../../Frontend/img/quantri/";
+            if ($_FILES['fileUpload']['error'] > 0) {
+                $link = "../../Frontend/img/quantri/user.png";
+            } else {
+                //Copy ảnh và lấy link tương đối
+                move_uploaded_file($_FILES['fileUpload']['tmp_name'], $linkAnh . $_FILES['fileUpload']['name']);
+                $link = $linkAnh . $_FILES['fileUpload']['name'];
+            }
+
             $tit="";
             //Step1
             $conn = mysqli_connect("localhost","root","",DATABASE);
             if($conn == true){
                 //step2
-                $query = "UPDATE quantri SET Tendangnhap= '".$tk."',Matkhau='".$mk."',fullname='".$name."',Gioitinh ='.$sex.',Email ='".$email."',Diachi='".$dc."',Ngaysinh='".$date."',Sdt='".$sdt."',Quyen='.$quyen.',Trangthai='.$tt.' WHERE MaNV= ".$id."";
+                $query = "UPDATE quantri SET Tendangnhap= '".$tk."',Matkhau='".$mk."',fullname='".$name."',Gioitinh ='.$sex.',Email ='".$email."',Diachi='".$dc."',Ngaysinh='".$date."',Sdt='".$sdt."',Quyen='.$quyen.',Trangthai='.$tt.',img='".$link."' WHERE MaNV= ".$id."";
                 // echo $query;
                 //Step3
                 $result = mysqli_query($conn,$query);
@@ -265,7 +289,6 @@
             md($tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$quyen,$tt);
         } else if($name=="") {
             $tit = "Vui lòng không để trống họ và tên của nhân viên!!!";
-        
             md($tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$quyen,$tt);
         }else if($sex=="") {
             $tit="Vui lòng không để trống giới tính của nhân viên!!!";
@@ -289,12 +312,21 @@
             $tit="Vui lòng chọn trạng thái của tài khoản!!!";
             md($tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$quyen,$tt);
         }else{
+            $linkAnh = "../../Frontend/img/quantri/";
+            if ($_FILES['fileUpload']['error'] > 0) {
+                $link = "../../Frontend/img/quantri/user.png";
+            } else {
+                //Copy ảnh và lấy link tương đối
+                move_uploaded_file($_FILES['fileUpload']['tmp_name'], $linkAnh . $_FILES['fileUpload']['name']);
+                $link = $linkAnh . $_FILES['fileUpload']['name'];
+            }
+
             $tit="";
             echo "<script type='text/javascript'>";
             echo "alert('Một nhân viên mới sẽ được thêm vào !!!');";
             echo "</script>";
             //step2
-            $query = "INSERT INTO quantri VALUES( NULL,'".$tk."','".$mk."','".$name."','.$sex.','".$email."','".$dc."','".$date."','".$sdt."','.$quyen.','.$tt.')";
+            $query = "INSERT INTO quantri VALUES( NULL,'".$tk."','".$mk."','".$name."','.$sex.','".$email."','".$dc."','".$date."','".$sdt."','.$quyen.','.$tt.','.$link.')";
             //Step1
             $conn = mysqli_connect("localhost","root","",DATABASE);
             if($conn == true){

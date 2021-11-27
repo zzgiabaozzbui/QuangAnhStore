@@ -20,7 +20,13 @@
     
     
 
+    function im($link){
+        if($link==NULL){
+            return "<img src='../../Frontend/img/khachhang/user.png' style='width: 50px; border-radius: 100%;'>";
 
+        }else
+        return "<img src=".$link." style='width: 50px; border-radius: 100%;'>";
+    }
     function Table1($result,$table_name){
         $table_name1 = "$table_name"."1";
         echo "<div id='".$table_name."' class='tbl-header ' >";
@@ -34,6 +40,7 @@
             <th>Giới tính </th>
             <th>Số điện thoại </th>
             <th >Trạng thái </th>
+            <th >Ảnh </th>
             <th >Chi tiết </th>";
         
             echo "</tr>";
@@ -53,6 +60,7 @@
                 echo "<td>" . show_sex($row["Gioitinh"]) . "</td>";
                 echo "<td>" . $row["Sdt"] . "</td>";
                 echo "<td >".show_tt($row["Trangthai"])."</td>";
+                echo "<td >".im($row["img"])."</td>";
                 
                 echo "<td >
                     <a href='Update.php?ID=".$row["MaKH"]."'>
@@ -107,16 +115,16 @@
     }
     function Select(){
         $table_name = "tbl_Main";
-        $query = "SELECT MaKH, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt,  Trangthai FROM khachhang ";
+        $query = "SELECT MaKH, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt,  Trangthai,img FROM khachhang ";
         conect($query,$table_name);    
     }
     function SearchByName(){
         $table_name ="tbl_search";
         $key = $_POST['txtSearch'];
         if($key==''){
-            $query = "SELECT MaKH, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt,  Trangthai FROM khachhang";
+            $query = "SELECT MaKH, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt,  Trangthai,img FROM khachhang";
         }else{
-            $query = "SELECT MaKH, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt,  Trangthai FROM khachhang where fullname like N'%".$key."%'";
+            $query = "SELECT MaKH, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt,  Trangthai,img FROM khachhang where fullname like N'%".$key."%'";
         }
         echo "<script type='text/javascript'>";
         echo " var txtSearch = document.getElementById('txtSearch'); txtSearch.value = '".$key."'";
@@ -154,12 +162,20 @@
             $tit="Vui lòng chọn trạng thái của tài khoản!!!";
             md($tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$tt);
         }else{
+            $linkAnh = "../../Frontend/img/khachhang/";
+            if ($_FILES['fileUpload']['error'] > 0) {
+                $link = "../../Frontend/img/khachhang/user.png";
+            } else {
+                //Copy ảnh và lấy link tương đối
+                move_uploaded_file($_FILES['fileUpload']['tmp_name'], $linkAnh . $_FILES['fileUpload']['name']);
+                $link = $linkAnh . $_FILES['fileUpload']['name'];
+            }
             $tit="";
             //Step1
             $conn = mysqli_connect("localhost","root","",DATABASE);
             if($conn == true){
                 //step2
-                $query = "UPDATE khachhang SET Tendangnhap= '".$tk."',Matkhau='".$mk."',fullname='".$name."',Gioitinh ='.$sex.',Email ='".$email."',Diachi='".$dc."',Ngaysinh='".$date."',Sdt='".$sdt."',Trangthai='.$tt.' WHERE MaKH= ".$id."";
+                $query = "UPDATE khachhang SET Tendangnhap= '".$tk."',Matkhau='".$mk."',fullname='".$name."',Gioitinh ='.$sex.',Email ='".$email."',Diachi='".$dc."',Ngaysinh='".$date."',Sdt='".$sdt."',Trangthai='.$tt.',img='".$link."'  WHERE MaKH= ".$id."";
                 // echo $query;
                 //Step3
                 $result = mysqli_query($conn,$query);
@@ -240,12 +256,20 @@
             $tit="Vui lòng chọn trạng thái của tài khoản!!!";
             md($tk,$mk,$name,$sex,$email,$sdt,$dc,$date,$tt);
         }else{
+            $linkAnh = "../../Frontend/img/khachhang/";
+            if ($_FILES['fileUpload']['error'] > 0) {
+                $link = "../../Frontend/img/khachhang/user.png";
+            } else {
+                //Copy ảnh và lấy link tương đối
+                move_uploaded_file($_FILES['fileUpload']['tmp_name'], $linkAnh . $_FILES['fileUpload']['name']);
+                $link = $linkAnh . $_FILES['fileUpload']['name'];
+            }
             $tit="";
             echo "<script type='text/javascript'>";
             echo "alert('Một khách hàng mới sẽ được thêm vào !!!');";
             echo "</script>";
             //step2
-            $query = "INSERT INTO khachhang VALUES( NULL,'".$tk."','".$mk."','".$name."','.$sex.','".$email."','".$sdt."','".$dc."','".$date."','.$tt.')";
+            $query = "INSERT INTO khachhang VALUES( NULL,'".$tk."','".$mk."','".$name."','.$sex.','".$email."','".$sdt."','".$dc."','".$date."','.$tt.','.$link.')";
             echo $query;
             //Step1
             $conn = mysqli_connect("localhost","root","",DATABASE);
