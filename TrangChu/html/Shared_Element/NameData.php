@@ -1,2 +1,2 @@
 <?php
-const DATABASE="qldt_web";
+const DATABASE="qldt";
