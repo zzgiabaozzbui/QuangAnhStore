@@ -5,11 +5,7 @@ var index = 1;
 $(document).on('click', '.page-item', function (e) {
     var h = $(e.currentTarget).data('index');
     let item = $(e.currentTarget);
-
-
     index = h;
-
-
     getData(index, per_page)
     if (index < 2) {
         $('.page-item-first').hide();
@@ -238,7 +234,6 @@ $(document).on('click', '#btnUpdate', function (e) {
         }
     });
     $(document).on('click', '#btnLuu', function (e) {
-
         $('<div>', {
             text: 'Bạn thực sự muốn sửa !'
         }).dialog({
@@ -265,10 +260,6 @@ $(document).on('click', '#btnUpdate', function (e) {
                 }
             ]
         })
-
-
-
-
     })
 
 })
@@ -276,11 +267,9 @@ $(document).on('click', '#btnUpdate', function (e) {
 
 
 $(document).on('click', '#btnDelete', function (e) {
-
     let $btn = $(e.currentTarget);
     let row = $btn.closest('tr');
     let index = row.index();
-
     $('<div>', {
         text: 'Bạn thực sự muốn xóa !'
     }).dialog({
