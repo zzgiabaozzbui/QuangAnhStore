@@ -1,7 +1,7 @@
 <?php
 function selectListItems($query)
 {
-    $conn= mysqli_connect("localhost","root","",DATABASE);
+    $conn= mysqli_connect("localhost","root","","qldt");
     $result= mysqli_query($conn,$query);
     $data=[];
     while($rows=mysqli_fetch_array($result))
@@ -13,7 +13,7 @@ function selectListItems($query)
 }
 function selectItem($query)
 {
-    $conn= mysqli_connect("localhost","root","",DATABASE);
+    $conn= mysqli_connect("localhost","root","","qldt");
     $result= mysqli_query($conn,$query);
     $data=[];
     while($rows=mysqli_fetch_array($result))
@@ -25,7 +25,7 @@ function selectItem($query)
 }
 function Change_Refresh($query,$tilte)
 {
-    $conn= mysqli_connect("localhost","root","",DATABASE);
+    $conn= mysqli_connect("localhost","root","","qldt");
     $result= mysqli_query($conn,$query);
     if($result==true)
     {
@@ -47,7 +47,7 @@ function Change_Refresh($query,$tilte)
 }
 function ChangeData($query,$tilte)
 {
-    $conn= mysqli_connect("localhost","root","",DATABASE);
+    $conn= mysqli_connect("localhost","root","","qldt");
     $result= mysqli_query($conn,$query);
     if($result==true)
     {
@@ -64,6 +64,33 @@ function ChangeData($query,$tilte)
         echo "window.location.href='index.php';";
         echo  "</script>";
     }
+    
+    
+}
+function ChangeDataNoReturn($query,$tilte)
+{
+    $conn= mysqli_connect("localhost","root","","qldt");
+    $result= mysqli_query($conn,$query);
+    if($result==true)
+    {
+        
+        echo "<script>";
+        echo "alert('Bạn đã ".$tilte." thành công!');";
+        echo "</script>";  
+       
+    }
+    else{
+        echo "<script>";
+        echo "alert('Bạn đã ".$tilte." thất bại');";
+        echo  "</script>";
+    }
+    
+    
+}
+function ChangeDataNoTitle($query)
+{
+    $conn= mysqli_connect("localhost","root","",DATABASE);
+    $result= mysqli_query($conn,$query);
     
     
 }

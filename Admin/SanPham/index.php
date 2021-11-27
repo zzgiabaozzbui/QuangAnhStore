@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Frontend//css/SanPham.css?version=2">
+    <link rel="stylesheet" href="../Frontend/css/SanPham.css?version=2">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -16,17 +16,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title>Document</title>
     <style>
         .btnAdd{
             margin: 5px 0;
+            display: inline-block;
         }
+        #Form_excel button,
         .btnAdd .Add{
             background-color: #0b7dda;
             color: white;
-            padding: 4px 10px;
-            margin-left: 42px;
+            padding: 4px 10px;            
             border-radius: 5px;
+        }
+        .btnAdd .Add{
+            margin-left: 42px;
         }
         table tr td a:hover{
             text-decoration: none;
@@ -38,6 +44,12 @@
         }
         th,td{
             text-align: center;
+        }
+        #Form_excel{
+            display: inline-block;
+        }
+        #Form_excel button{
+            border: none;
         }
     </style>
 </head>
@@ -61,6 +73,12 @@
             <div class="btnAdd">
             <a class="Add" href="ThemMoiSP.php">Thêm mới</a>
             </div>
+            <form action="Excel.php" method="post" id="Form_excel">
+                <button name="btnExcel" type="submit">
+                <i class="far fa-file-excel"></i>    
+                Xuất excel
+            </button>
+    </form>
             <form action="" method="post">
                 <table id="tblSP" class="table">
                     <thead>
@@ -255,5 +273,7 @@
             ?>
         </div>
     </div>
+
+       
 </body>
 </html>
