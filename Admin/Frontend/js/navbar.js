@@ -126,9 +126,12 @@ $(document).ready(() => {
             }
             if (data.link == 'HoanThanh.php') {
                 document.getElementById('5').onclick = getDataChoHoanThanh(HoanThanhAPIs);
+                // document.getElementById('btnXuat').onclick = Export;
+                // document.getElementById('btnXuat').onclick = darta; 
             }
             if (data.link == 'Home.php') {
                 document.getElementById('0').onclick = getDataChoHome(HomeAPIs);
+
             }
             if (data.link == 'Chuanbi.php') {
                 document.getElementById('3').onclick = getDataChoDaChuanBi(ChuanBiAPIs);
@@ -443,6 +446,7 @@ $(document).ready(() => {
                 danhsach.forEach(function (value) {
                     var tableRow = document.createElement('tr');
                     tableRow.innerHTML = `
+                    <td class='check-box-index'><input type='checkbox' name='' value='' onclick="changeCheck('${value.Mahoadon}')"> </td>
                     <td class='text-cencter'>${value.Mahoadon}</td>
                     <td>${value.Ten}</td>
                     <td class='text-right size-td'>${value.SDT}</td>
@@ -756,4 +760,22 @@ function chuyenData() {
             xhttp.send(formData);
         }
     });
+}
+
+
+function darta() {
+    var DS = danhsach.filter(x => x.checked);
+    var ma = DS[0].Mahoadon;
+    $.ajax({
+        url: "export.php",
+        method: "POST",
+        data: {
+            ma: ma
+        },
+        headers: "application/json; charset=utf-8",
+        success: function (dataJson) {
+           
+        }
+    });
+
 }

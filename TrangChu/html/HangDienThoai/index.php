@@ -1,5 +1,5 @@
 <?php 
-        require_once "../Header.php";
+        require_once "../../html/Header.php";
         require_once "../Shared_Element/DB.php"
     ?>
 <!DOCTYPE html>
@@ -361,6 +361,7 @@
         ?>
     <!-- Footer -->
     <?php 
+        
         require_once "../Footer.php";
     ?>
 </body>

@@ -407,10 +407,10 @@
                     <div class="slider">
                         <div class="slider__top">
                             <div class="slider__top__next__btn">
-                                <i class="fas fa-angle-right"></i>
+                                <i class="fas ti-angle-right"></i>
                             </div>
                             <div class="slider__top__prev__btn">
-                                <i class="fas fa-angle-left"></i>
+                                <i class="fas ti-angle-left"></i>
                             </div>
                             <!-- PC -->
                             <a href="">
@@ -580,15 +580,12 @@
                         <h2>Phụ kiện</h2>
                     </a>
                     <div class="box-list-item">
-                        <a href="#" class="item">Apple</a>
-                        <a href="#" class="item">Samsung</a>
-                        <a href="#" class="item">Xiaomi</a>
-                        <a href="#" class="item">OPPO</a>
-                        <a href="#" class="item">Vsmart</a>
-                        <a href="#" class="item">Realmi</a>
-                        <a href="#" class="item">Nokia</a>
-                        <a href="#" class="item">ASUS</a>
-                        <a href="#" class="item">Vivo</a>
+                        <a href="#" class="item">Loa Tivi | Soundbar
+                        </a>
+                        <a href="#" class="item">Loa Bluetooth</a>
+                        <a href="#" class="item">Tai nghe</a>
+                        <a href="#" class="item">Tai nghe chụp tai</a>
+                        <a href="#" class="item">Tai nghe không dây</a>
                         <a href="#" class="item">Xem tất cả</a>
                     </div>
                 </div>

@@ -6,7 +6,6 @@
 body{
     font-family: Roboto, -apple-system, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
      Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-     
 }
 
 #sideBar{
@@ -23,6 +22,7 @@ body{
     /* box-shadow: 5px 0 5px -5px #333; */
     border-right:1px solid #d1d1d1 ;
     display: block;
+    
 }
 #sideBar header{
     text-align: center;
@@ -69,8 +69,10 @@ body{
     display: flex;
     overflow: hidden;
 }
+
 #sideBar ul li:hover>i{
     transform: scale(1.2);
+ 
 }
 #sideBar ul i:hover{
     /* transform: scale(1.2); */
@@ -141,3 +143,5 @@ ul .action-sideBar:hover{
     }
     
 }
+
+

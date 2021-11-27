@@ -1,11 +1,77 @@
 var danhsach = [];
 var danhsachSua = [];
 
-function getData() {
+var index = 1;
+$(document).on('click', '.page-item', function (e) {
+    var h = $(e.currentTarget).data('index');
+    let item = $(e.currentTarget);
+    index = h;
+    getData(index, per_page)
+    if (index < 2) {
+        $('.page-item-first').hide();
+    } else {
+        $('.page-item-first').show();
+    }
+    if (h == sumTrang) {
+        $('.page-item-last').hide();
+    } else {
+        $('.page-item-last').show();
+    }
+
+$('.page-item').removeClass('active')
+item.addClass('active')
+
+
+})
+$(document).on('click', '.page-item-first', function (e) { 
+    getData(1, per_page);
+    
+$('.page-item').removeClass('active')
+    $('.page-item').first().addClass('active')
+
+})
+$(document).on('click', '.page-item-last', function (e) { 
+    getData(sumTrang, per_page);
+    $('.page-item').removeClass('active')
+    $('.page-item').last().addClass('active')
+})
+$(document).on('click', '.page-item-next', function (e) { 
+    if (index== sumTrang){
+        alert ('Bạn đã ở trang cuối');
+    }
+    else {
+        ++index;
+        getData(index, per_page);
+        
+       
+
+    }
+  
+})
+$(document).on('click', '.page-item-prev', function (e) { 
+     
+    if (index== 1){
+        alert ('Bạn đã ở trang đầu');
+    }
+    else {
+        index-= 1;
+    getData(index, per_page);
+
+    }
+
+})
+
+
+
+function getData(index, per_page) {
+
     $.ajax({
         url: 'TinTucAPI.php',
         method: "POST",
-        data: {},
+        data: {
+            index: index,
+            per_page: per_page
+        },
         headers: "application/json; charset=utf-8",
         success: function (data) {
             danhsach = data;
@@ -37,13 +103,88 @@ function getData() {
     });
 }
 
+var sumTrang;
+var per_page = 2;
+getData(index, per_page);
+
+function loaw(per_page) {
+    $.ajax({
+        url: 'CoutRowTT.php',
+        method: "POST",
+        data: {
+            per_page: per_page
+        },
+        headers: "application/json; charset=utf-8",
+        success: function (data) {
+            sumTrang = data;
+            console.log(data);
+            if (data <= 1) {
+                $('#pagination').hide();
+            } else {
+                $('#pagination').show();
+                $('#pagination').empty();
+                var tr = $('#pagination');
+                var First = $('<li>', {
+                    class: 'page-item-first'
+                }).appendTo(tr);
+                var aItems = $('<a>', {
+                    class: 'page-link',
+                    text: 'First'
+                    
+                }).appendTo(First);
+                var Prev = $('<li>', {
+                    class: 'page-item-prev'
+                }).appendTo(tr);
+                var aItems = $('<a>', {
+                    class: 'page-link',
+                    text: 'Prev'
+                    
+                }).appendTo(Prev);
+                for (let k = 1; k <= data; k++) {
+                    var liItem = $('<li>', {
+                        class: 'page-item'
+                    }).appendTo(tr);
+                    var aItem = $('<a>', {
+                        class: 'page-link',
+                        text: k
+                    }).appendTo(liItem);
+                    liItem.attr('data-index', k).appendTo($('#pagination'))
+                }
+                var Next = $('<li>', {
+                    class: 'page-item-next'
+                }).appendTo(tr);
+                var aItems = $('<a>', {
+                    class: 'page-link',
+                    text: 'Next'
+                    
+                }).appendTo(Next);
+                var Last = $('<li>', {
+                    class: 'page-item-last'
+                }).appendTo(tr);
+                var aItems = $('<a>', {
+                    class: 'page-link',
+                    text: 'Last'
+                }).appendTo(Last);
+
+
+                $('.page-item-first').hide()
+                $('.page-item').first().addClass('active')
+            }
+        }
+    });
+
+
+
+}
+loaw(per_page);
+
 function getDataSua(ma) {
 
     $.ajax({
         url: "DataAPI.php",
         method: "POST",
         data: {
-            ma: ma
+            ma: ma,
         },
         headers: "application/json; charset=utf-8",
         success: function (dataJson) {
@@ -56,15 +197,15 @@ function getDataSua(ma) {
             $('#txtNoiDung').val(item.NoiDung);
             $('#dateNgayDang').val(item.NgayDangTin);
             $('#txtTacGia').val(item.TacGia);
-            
+
         },
         fail: function () {
             alert('Kết nối thất bại');
         }
     });
-    
+
 }
-getData();
+
 $(document).on('click', '#btnUpdate', function (e) {
     let $btn = $(e.currentTarget);
     let row = $btn.closest('tr');
@@ -93,7 +234,6 @@ $(document).on('click', '#btnUpdate', function (e) {
         }
     });
     $(document).on('click', '#btnLuu', function (e) {
-
         $('<div>', {
             text: 'Bạn thực sự muốn sửa !'
         }).dialog({
@@ -103,11 +243,11 @@ $(document).on('click', '#btnUpdate', function (e) {
                     text: 'Xóa',
                     id: 'btnCheckXoa',
                     click: function () {
-                        SuaDuLieu (index);
+                        SuaDuLieu(index);
                         $(this).dialog('close');
                         $('#container-Sua').dialog('close');
-                        
-    
+
+
                     }
                 },
                 {
@@ -115,15 +255,11 @@ $(document).on('click', '#btnUpdate', function (e) {
                     id: 'btnCheckKhong',
                     click: function (e) {
                         $(this).dialog('close');
-    
+
                     }
                 }
             ]
         })
-
-        
-    
-    
     })
 
 })
@@ -131,11 +267,9 @@ $(document).on('click', '#btnUpdate', function (e) {
 
 
 $(document).on('click', '#btnDelete', function (e) {
-
     let $btn = $(e.currentTarget);
     let row = $btn.closest('tr');
     let index = row.index();
-
     $('<div>', {
         text: 'Bạn thực sự muốn xóa !'
     }).dialog({
@@ -147,7 +281,6 @@ $(document).on('click', '#btnDelete', function (e) {
                 click: function () {
                     Xoa1Dong(index);
                     $(this).dialog('close');
-
                 }
             },
             {
@@ -162,7 +295,7 @@ $(document).on('click', '#btnDelete', function (e) {
     })
 })
 
-function SuaDuLieu (index) {
+function SuaDuLieu(index) {
     var ma = danhsach[index].MaTinTuc;
     var fileUpload = document.querySelector('.fileUpload').value;
     var TieuDe = $("#txtTieuDe").val();
@@ -191,9 +324,9 @@ function SuaDuLieu (index) {
             data: a,
             success: function (data) {
                 if (data) {
-                    getData();    
+                    getData(index, per_page);
                     alert('Sửa dữ liệu thành công!');
-                    
+
                 } else {
                     alert('Sửa dữ liệu thất bại!');
 
@@ -201,10 +334,9 @@ function SuaDuLieu (index) {
             }
         });
     }
-    
+
 }
 
-// document.getElementById('btnXoa').onclick = XoaData;
 $(document).on('click', '#btnXoa', function (e) {
     $('<div>', {
         text: 'Bạn thực sự muốn xóa !'
@@ -242,7 +374,7 @@ function Xoa1Dong(index) {
         },
         headers: "application/json; charset=utf-8",
         success: function (dataJson) {
-            getData();
+            getData(index, per_page);
         },
         fail: function () {
             alert('Kết nối thất bại');
@@ -269,7 +401,7 @@ function Xoa() {
         },
         headers: "application/json; charset=utf-8",
         success: function (dataJson) {
-            getData();
+            getData(index, per_page);
         },
         fail: function () {
             alert('Kết nối thất bại');

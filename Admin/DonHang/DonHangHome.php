@@ -18,13 +18,15 @@
     <div class="main-app">
         <div class="container-sidebar">
             <?php
-            require "../Shared_Element/sideBar.php";
+            require "../../Admin/Shared_Element/sideBar.php";
             ?>
         </div>
         <div class="container-content">
             <?php
             require "../Shared_Element/Name.php";
+            
             ?>
+           
 
 
             <div class="container-title">

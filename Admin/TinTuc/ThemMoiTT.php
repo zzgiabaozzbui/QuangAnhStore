@@ -4,7 +4,7 @@
     </div>
 
     <div class="container-content">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="usr">Tiêu đề</label>
                 <input required type="text" class="form-control txtTieuDe" value="<?php echo isset($_POST['txtTieuDe']) ? $_POST['txtTieuDe'] : '' ?>" name="txtTieuDe" id="txtTieuDe">
@@ -29,7 +29,7 @@
                 <label for="usr">Hình ảnh</label>
                 <input required class="form-control fileUpload" type="file" name="fileUpload" value="<?php echo isset($_FILES['fileUpload']) ? $_FILES['fileUpload'] : '' ?>" id="fileUpload">
             </div>
-            <button type="submit" id="btnAdd" name="btnAdd">Thêm mới</button>
+            <button type="buttom" id="btnAdd" name="btnAdd">Thêm mới</button>
             <a href="index.php">Quay lại</a>
         </form>
     </div>

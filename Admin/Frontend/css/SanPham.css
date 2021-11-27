@@ -78,3 +78,6 @@ form.example input[type=text] {
       text-align: center;
   }
 
+#Form_excel{
+    display: inline-block;
+}
