@@ -119,14 +119,14 @@
                                                    
                             </div>
                             <div class="Product-btn">
-                                <form action="" method="post">
+                                <form action="ThongTinChiTiet.php?MaSP=<?php echo $maSP;?>" method="post">
                                 <button type="submit" class="btnBuy_Cart" name="btnAdd_Cart">
                                     <i class="ti-shopping-cart-full"></i>
                                     Thêm vào giỏ hàng
                             </button>
                                 </form>                         
                                 
-                            <button type="reset" class="btnBuy_Cart" onclick="location.href='ThemVaoGioHang.php?MaSP=<?php echo $maSP; ?>'">
+                            <button class="btnBuy_Cart" onclick="location.href='ThemVaoGioHang.php?MaSP=<?php echo $maSP; ?>'">
                                 Mua ngay
                             </button>              
                             </div>
@@ -276,8 +276,8 @@
             {
                 $tenTK="dinhthang";
                 $queryInsertCart="insert into giohang values('".$tenTK."','".$maSP."',1,'".$Gia."')";
-                echo $queryInsertCart;
                 $resuiltInsertCart=ChangeDataNoReturn($queryInsertCart,"thêm giỏ hàng");
+                             
             }
         ?>
             <!-- Chi tiết cấu hình -->
