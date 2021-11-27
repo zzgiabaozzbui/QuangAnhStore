@@ -9,13 +9,20 @@ html {
     display: flex;
     flex-direction: column;
     flex: 1;
- 
 }
 .main-app .container-content .container-item .container-top #form-data  .ct-button {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+}
+.main-app .container-content {
+    display: flex;
+    flex-direction: column;
+}
+.main-app .container-content .container-phantrang {
+    display: flex;
+    justify-content: center;
 }
 h2 {
     display: flex;
@@ -28,6 +35,7 @@ h2 {
 }
 .main-app .container-content .container-item {
     margin:  0 0 0 50px;
+    flex: 1;
 }
 .main-app .container-content .container-item .container-top {
     display: flex;

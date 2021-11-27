@@ -8,13 +8,22 @@ var randompPromotion = [{
     items : 'Giảm 1 triệu khi thanh toán qua ví Moca, thẻ tín dụng ACB, mPos, VIB, BIDV, Shinhan, Standard Charter'
 } ,{
     items : '[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ và 1 km khác'
-} ,{
+},{
+    items:'Nhận gói 6 tháng Apple Music miễn phí và 1 km khác'
+} 
+
+,{
     items : 'Tặng Sim Mobifone C90N 4GB/Ngày'
 } ,{
     items : 'Mua kèm dịch vụ bảo hành Apple Care giá tốt'
 } ,{
     items : 'Nhận gói 6 tháng Apple Music miễn phí'
-} ,{
+},
+{
+    items:'Nhận gói 6 tháng Apple Music miễn phí và 2 km khác'
+}  
+
+,{
     items : 'Ưu đãi 15% khi mua kèm điện thoại/Máy tính bảng Samsung từ 6 triệu trở lên'
 } ,{
     items : '[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 300.000đ'
@@ -22,7 +31,36 @@ var randompPromotion = [{
     items : 'Mua Office Home & Student 2019 kèm Macbook chỉ còn 1,990,000'
 } ,
 ];
- var randomMonth = randompPromotion[Math.floor(Math.random() * randompPromotion.length)];
+var DanhsachGiaCu = [{
+    items : '4.490.000 ₫'
+},{
+    items : '650.000 ₫'
+} ,{
+    items : '3.690.000 ₫'
+},{
+    items:'3.690.000 ₫'
+} 
+
+,{
+    items : '4.690.000 ₫'
+} ,{
+    items : '9.690.000 ₫'
+} ,{
+    items : '43.690.000 ₫'
+},
+{
+    items:'5.690.000 ₫'
+}  
+
+,{
+    items : '6.690.000 ₫'
+} ,{
+    items : '2.690.000 ₫'
+} ,{
+    items : '3.690.000 ₫'
+} ,
+];
+
 
 function getDataItem() {
     let i = 0;
@@ -41,7 +79,7 @@ function getDataItem() {
             danhsach.forEach(function (value) {
                 var a = '../../Admin/Frontend/'+ value.HinhAnh;
                 var $item = $('<div>', {
-                    id: i++,
+                    id:'dt'+ i++,
                     class: 'item-product'
                 }).appendTo(list);
                 var $boxImg = $('<div>', {
@@ -55,12 +93,12 @@ function getDataItem() {
                    src :a
                 }).appendTo($a);
                 
-                var $sticker_percent = $('<div>', {
-                    class: 'item-product__sticker-percent'
-                }).appendTo($item);
-                var iconSticker = $('<p>', {
-                  text : '5%'
-                }).appendTo($sticker_percent);
+                // var $sticker_percent = $('<div>', {
+                //     class: 'item-product__sticker-percent'
+                // }).appendTo($item);
+                // var iconSticker = $('<p>', {
+                //   text : '5%'
+                // }).appendTo( $sticker_percent);
         
                 var $boxName =  $('<div>', {
                     class: 'item-product__box-name'
@@ -111,13 +149,17 @@ function getDataItem() {
                 // }).appendTo($boxprice);
 
              })
-            
+             randompPromotion.forEach((x,j) => {
+                var item = $('#dt'+j);
+               item.find('.promotion p').text(x.items);
+            });
         },
         fail: function () {
             alert('Kết nối thất bại');
         }
     });   
 }
+
 getDataItem();
 function getDataItemSale() {
     let i = 0;
@@ -136,7 +178,7 @@ function getDataItemSale() {
             danhsach.forEach(function (value) {
                 var a = '../../Admin/Frontend/'+ value.HinhAnh;
                 var $item = $('<div>', {
-                    id: i++,
+                    id: 'sales'+i++,
                     class: 'item-product'
                 }).appendTo(list);
                 var $boxImg = $('<div>', {
@@ -153,7 +195,7 @@ function getDataItemSale() {
                     class: 'item-product__sticker-percent'
                 }).appendTo($item);
                 var iconSticker = $('<p>', {
-                  
+                  text: '20%'
                 }).appendTo($sticker_percent);
         
                 var $boxName =  $('<div>', {
@@ -166,6 +208,7 @@ function getDataItemSale() {
                 }).appendTo($boxName);
         
                 var pName =  $('<p>', {
+                    text:''
                 }).appendTo($aName);
                 var $boxprice =  $('<div>', {
                     class: 'item-product__box-price'
@@ -175,13 +218,13 @@ function getDataItemSale() {
                     class : 'special-price',text: new Intl.NumberFormat().format(value.Gia)+'đ'
                 }).appendTo($boxprice);
         
-                var $boxPromotion =  $('<div>', {
-                    class: 'promotion'
-                }).appendTo($item);
+                // var $boxPromotion =  $('<div>', {
+                //     class: 'promotion'
+                // }).appendTo($item);
         
-                var pPromotion =  $('<p>',  {
-                    class : 'gift-cont',text: 'aa'
-                }).appendTo($boxPromotion);
+                // var pPromotion =  $('<p>',  {
+                //     class : 'gift-cont',text: 'aa'
+                // }).appendTo($boxPromotion);
                 var $boxprice =  $('<div>', {
                     class: 'item-product__box-raiting'
                 }).appendTo($item);
@@ -202,13 +245,21 @@ function getDataItemSale() {
                 }).appendTo($boxprice);
 
              })
-            
+             DanhsachGiaCu.forEach((x,j) => {
+                var items = $('#sales'+j).find('.item-product__box-price');
+             
+               let gCu = $('<p>',{
+                class:'special-price-Cu',
+                text : x.items
+            }).appendTo(items)
+            });
         },
         fail: function () {
             alert('Kết nối thất bại');
         }
     });   
 }
+randompPromotion.sort(() => Math.random() - Math.random()).slice(0, randompPromotion.length)
 getDataItemSale();
 function getDataItemPhuKien() {
     let i = 0;
@@ -226,7 +277,7 @@ function getDataItemPhuKien() {
             danhsachphukien.forEach(function (value) {
                 var a = '../../Admin/Frontend/'+ value.Hinhanh;
                 var $item = $('<div>', {
-                    id: i++,
+                    id:'pk'+ i++,
                     class: 'item-product size-item'
                 }).appendTo(list);
                 var $boxImg = $('<div>', {
@@ -239,12 +290,12 @@ function getDataItemPhuKien() {
                     id : 'size-img',
                    src :a
                 }).appendTo($a);
-                var $sticker_percent = $('<div>', {
-                    class: 'item-product__sticker-percent'
-                }).appendTo($item);
-                var iconSticker = $('<p>', {
+                // var $sticker_percent = $('<div>', {
+                //     class: 'item-product__sticker-percent'
+                // }).appendTo($item);
+                // var iconSticker = $('<p>', {
                   
-                }).appendTo($sticker_percent);
+                // }).appendTo($sticker_percent);
         
                 var $boxName =  $('<div>', {
                     class: 'item-product__box-name'
@@ -295,7 +346,10 @@ function getDataItemPhuKien() {
                 }).appendTo($boxprice);
 
              })
-            
+             randompPromotion.forEach((x,j) => {
+                var item = $('#pk'+j);
+               item.find('.promotion p').text(x.items);
+            });
         },
         fail: function () {
             alert('Kết nối thất bại');
@@ -303,6 +357,8 @@ function getDataItemPhuKien() {
     });   
 }
 getDataItemPhuKien();
+
+var j=0;
 function getDataIMGTinTuc() {
     let i = 0;
     var listIMG = $('.c-3');
@@ -319,7 +375,7 @@ function getDataIMGTinTuc() {
             DanhsachIMGTinTuc.forEach(function (value) {
                 var a = '../../Admin/Frontend/'+ value.HinhAnh;
                 var $item = $('<div>', {
-                    id: i++,
+                    id:'TT'+ i++,
                     class: 'slide__ads__wrapper tablet__disable'
                 }).appendTo(listIMG);
                 var $a = $('<a>', {
@@ -407,7 +463,7 @@ var FPrdoductList = document.querySelector('.list-product')
 var FPrdoductIem = document.querySelectorAll('.list-product')
 var Fl = 239;
 var Findex = 0
-var FPositionX = 0
+var FPositionX = 721
 $(document).on('click', '.flash__sale__next__btn', function (e) { 
 
     FHandle(1);
@@ -464,3 +520,5 @@ setInterval(function(){
     minutes.innerHTML = m < 10 ? '0'+ m : m
     seconds.innerHTML = s < 10 ? '0'+ s : s
 },1000)
+
+

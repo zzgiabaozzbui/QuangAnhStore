@@ -38,9 +38,9 @@
                         </form>
                     </div>
                     <form id="form-data" method="post">
-                    <div class="ct-button">
+                        <div class="ct-button">
                             <button type="button" id="btnThem">Thêm mới</button>
-                            <button type="button" id="btnXoa" disabled >Xóa</button>
+                            <button type="button" id="btnXoa" disabled>Xóa</button>
                         </div>
                     </form>
                 </div>
@@ -64,11 +64,22 @@
 
 
 
+
+
+            </div>
+
+            <div class="container-phantrang">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination" id="pagination">
+                       
+                    </ul>
+                </nav>
+
             </div>
         </div>
-       
-    
-    
+
+
+
 
 
     </div>
@@ -80,5 +91,9 @@
     <script rel="text/javascript" src="../Frontend/js/TinTuc.js"></script>
 
 </body>
+<footer>
+
+
+</footer>
 
 </html>

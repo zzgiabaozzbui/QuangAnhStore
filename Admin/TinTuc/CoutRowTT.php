@@ -1,16 +1,12 @@
 <?php
  $per_page = $_POST["per_page"];
- $index = $_POST["index"];
- $page = ($index - 1 )*$per_page;
- 
 header("Content-Type: application/json; charset=UTF-8");
 $conn = new mysqli("localhost", "root", "", "qldt", 3306);
-$qury = "SELECT t.MaTinTuc,t.HinhAnh,t.TieuDe,t.NgayDangTin,t.TomTat FROM tbltintuc t LIMIT ". $per_page ." OFFSET ". $page."";
-
-$stmt = $conn->prepare($qury);
+$stmt = $conn->prepare("SELECT Count(*) as Dem FROM tbltintuc t ");
 $stmt->execute();
 $result = $stmt->get_result();
 $outp = $result->fetch_all(MYSQLI_ASSOC);
+$pages = $outp[0]["Dem"]%$per_page==0?$outp[0]["Dem"]/$per_page:floor($outp[0]["Dem"]/$per_page)+1;
+echo json_encode($pages);
 
-echo json_encode($outp);
 ?>
