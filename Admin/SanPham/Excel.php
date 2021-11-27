@@ -70,7 +70,7 @@
         return;
     }
 ?>
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -83,4 +83,4 @@
         <button name="btnExcel" type="submit">Xuất excel</button>
     </form>
 </body>
-</html> -->
+</html>
