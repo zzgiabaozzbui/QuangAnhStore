@@ -1,6 +1,7 @@
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   
     $id = $_POST["ma"];
 
     $conn = new mysqli("localhost", "root", "", "qldt", 3306);

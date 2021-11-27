@@ -1,4 +1,5 @@
 <div class="container-top">
+
 <div class="ct-search">
         <form method="POST">
             <input type="text" name="txtSearch5" id="txtSearch5" onchange="layDuLieu()" placeholder="Tìm kiếm..." value="<?php echo isset($_POST['txtSearch5']) ? $_POST['txtSearch5'] : '' ?>">
@@ -10,6 +11,7 @@
 <div class="container-table duyet">
     <table id='customers'>
         <thead>
+        <th class='check-box-indexs'><input type='checkbox' id='' name='' value=''> </th>
         <th class='text-cencter'>Mã hóa đơn</th>
             <th>Tên khách hàng</th>
             <th class='text-cencter'>SDT</th>
@@ -26,4 +28,9 @@
         <tbody class="customer-hoanthanh"></tbody>
     </table>
   
+</div>
+<div class="export">
+<form id="form-data" method="post">
+<button type="button" id = "btnXuat" ><a href="export.php">Xuất excel</a></button>
+</form>
 </div>
