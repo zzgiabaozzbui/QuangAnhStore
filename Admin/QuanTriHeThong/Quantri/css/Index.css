@@ -3,11 +3,11 @@
 }
 .container-web{
     flex: 1;
-    height: 100vh;
+    height: 80vh;
 }
 
 h3{
-    font-size: 30px;
+    font-size: 30px; 
     margin: 10px auto 30px auto;
 }
 .divmain{
@@ -15,9 +15,8 @@ h3{
     /* border-radius: 2%; */
     max-width: 100%;
     max-height: 100%;
-    min-height: 92%;
     color: white;
-    margin: 5px;
+    margin: 0px;
     padding-top: 10px;
     position: relative;
 }

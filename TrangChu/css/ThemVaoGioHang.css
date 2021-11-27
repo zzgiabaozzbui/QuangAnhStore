@@ -17,17 +17,68 @@
     margin-top: 10px;
     
 }
+#Product-Total_money{
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    width: auto;
+}
+p{
+    margin-bottom: 0px !important;
+}
+#Product-Total_money input{
+    border: none;
+    width: 80px;
+    outline: none;
+}
 .Product_cart_info{
     padding: 0 10px;
+    
+}
+.Product_cart_info ul li,
+.Product_cart_info>p{
+    margin: 5px 0;
+}
+.Product_cart_info ul li{
+    font-size: 12px;
+    margin-left: 20px;
+}
+.header-sale
+{
+    font-size: 17px;
+}
+.Product_cart_info-img{
+    padding-right: 10px;
+}
+.Product_cart_info-img img
+{
+    width: 150px;
+    background-size: cover;
+}
+#Gia,
+.Product_cart_info .Tien{
+    display: inline-block;
+    color: red;
 }
 .Product_cart-number{
+    width: 100px;
+    margin-left: 83%;
+}
+
+.Product_cart-number .number-chooser{
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
 }
-.Product_cart-number div{
+/* .Product_cart-number form{
     padding: 4px 10px;
     border: 0.001px solid #ccc;
+} */
+.Product_cart-number .number-chooser input{
+    width: 33.333%;
+    text-align: center;
+    padding: 5px;
 }
 .Product_cart-number div:nth-child(1)
 {
@@ -41,3 +92,114 @@
     display: flex;
     justify-content: space-between;
 }
+.info-Customer{
+    margin-bottom: 50px;
+}
+.infor-Customer_detail{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.infor-Customer_numberPhone,
+.infor-Customer_name{
+    flex-basis: 45%;
+}
+.form input{
+    width: 100%;
+    padding: 7px;
+    margin: 10px 0 20px 0;
+}
+.infor-Customer_numberPhone,
+.infor-Customer_name{
+    margin-top: 10px;
+}
+.infor-Customer_address>textarea{
+    width: 100%;
+}
+#btnDirectly{
+    background-color: #277cea;
+    border: solid 1px #1d72e0;
+}
+#btnOnline{
+    background-color: #e72124;
+    border: solid 1px red;
+    text-align: center;
+}
+#btnOnline,
+#btnDirectly{
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;   
+    border-radius: 5px;
+    margin: 10px 0;
+    color: white;
+}
+#btnOnline:hover{
+    cursor: pointer;
+    background-color: white;
+    color: #e72124;
+}
+#btnDirectly:hover{
+    cursor: pointer;
+    background-color: white;
+    color: #277cea;
+}
+.Note{
+    font-size: 10px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+#modal-Cart{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+}
+.Cart-Online{
+    background-color: white;
+    height: 500px;
+    width: 700px;
+    animation: FadeIn_Modal ease .3s;
+}
+@keyframes FadeIn_Modal {
+    from{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.Cart-Online_title{
+    display: flex;
+    align-items: center;
+    background-color: #D70018;
+    color: white;
+    position: relative;
+    justify-content: space-between;
+    padding: 12px;
+    
+}
+.Cart-Online_content{
+    padding: 0 12px;
+}
+.Cart-Online_title i{
+    padding: 5px;
+}
+.Cart-Online_content h5{
+    margin: 15px 0 7px 0;
+}
+
+#Bank{
+    width: 100%;
+  
+    
+}
+

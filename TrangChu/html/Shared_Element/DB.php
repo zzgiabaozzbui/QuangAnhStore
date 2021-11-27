@@ -68,3 +68,30 @@ function ChangeData($query,$tilte)
     
     
 }
+function ChangeDataNoReturn($query,$tilte)
+{
+    $conn= mysqli_connect("localhost","root","",DATABASE);
+    $result= mysqli_query($conn,$query);
+    if($result==true)
+    {
+        
+        echo "<script>";
+        echo "alert('Bạn đã ".$tilte." thành công!');";
+        echo "</script>";  
+       
+    }
+    else{
+        echo "<script>";
+        echo "alert('Bạn đã ".$tilte." thất bại');";
+        echo  "</script>";
+    }
+    
+    
+}
+function ChangeDataNoTitle($query)
+{
+    $conn= mysqli_connect("localhost","root","",DATABASE);
+    $result= mysqli_query($conn,$query);
+    
+    
+}
