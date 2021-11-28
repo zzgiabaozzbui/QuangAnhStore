@@ -34,7 +34,7 @@
                 <div class="container-top">
                     <div class="ct-search">
                         <form method="POST">
-                            <input type="text" name="txtSearch1" id="txtSearch1" placeholder="Tìm kiếm..." value="<?php echo isset($_POST['txtSearch1']) ? $_POST['txtSearch1'] : '' ?>">
+                            <input type="text" name="txtSearch1" id="txtSearch1" placeholder="Tìm kiếm...">
                         </form>
                     </div>
                     <form id="form-data" method="post">

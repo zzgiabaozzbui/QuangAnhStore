@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../Frontend/css/navbar.css" />
     <link rel="stylesheet" type="text/css" href="../Frontend/font/fontawesome-free-5.15.4/fontawesome-free-5.15.4-web/css/all.css" />
     <link rel="stylesheet" type="text/css" href="../Frontend/css/DonHang.css" />
+    <link rel="stylesheet" type="text/css" href="../Frontend/css/jquery-ui.min.css" />
+
 
 </head>
 
@@ -46,7 +48,7 @@
                     $result = mysqli_query($conn, $query);
                     if (mysqli_num_rows($result) > 0) {
                         echo "<table id='customers'><thead>";
-                        echo "<th class='text-cencter'>Mã hóa đơn</th><th>Tên khách hàng</th><th class='text-cencter'>Số điện thoại</th><th class='text-cencter'>Email</th><th>Lưu ý</th><th class='text-cencter'>Ngày đặt hàng</th><th>Phương thức thanh toán</th><th>Địa chỉ</th><th class='text-cencter' >Thành tiền</th><th class='text-cencter' >Trạng thái</th><th class='text-cencter' >Xem</th>";
+                        echo "<th class='text-cencter'>Mã hóa đơn</th><th>Tên khách hàng</th><th class='text-cencter'>Số điện thoại</th><th class='text-cencter'>Email</th><th>Lưu ý</th><th class='text-cencter'>Ngày đặt hàng</th><th>Phương thức thanh toán</th><th>Địa chỉ</th><th class='text-cencter' >Thành tiền</th><th class='text-cencter' >Trạng thái</th>";
                         echo "</thead>";
                         while ($row = mysqli_fetch_assoc($result)) {
 
@@ -64,7 +66,7 @@
                             echo "<td>" . $row["Diachi"] . "</td>";
                             echo "<td>" . number_format($row["ThanhTien"]) . "đ</td>";
                             echo "<td>" . $row["Trangthai"] . "</td>";
-                            echo "<td class='text-cencter'> <ti class= 'ti-eye'> </ti> </td>";
+                        
                             echo "</tr>";
                         }
                         echo "</table>";
@@ -85,6 +87,7 @@
 
         <script rel="text/javascript" src="../Frontend/js/jquery-3.6.0.min.js"></script>
         <script rel="text/javascript" src="../Frontend/js/navbar.js"></script>
+        <script rel="text/javascript" src="../Frontend/js/jquery-ui.min.js"></script>
         
 </body>
 

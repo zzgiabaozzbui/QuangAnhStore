@@ -41,9 +41,9 @@ $(document).on('click', '.page-item-next', function (e) {
     }
     else {
         ++index;
-        getData(index, per_page);
-        
-       
+      getData(index, per_page);
+       let $item =  $('.page-item.active').next()
+       $item.hasClass('page-item') && $item.trigger('click')
 
     }
   
@@ -56,7 +56,8 @@ $(document).on('click', '.page-item-prev', function (e) {
     else {
         index-= 1;
     getData(index, per_page);
-
+    let $item =  $('.page-item.active').prev()
+    $item.hasClass('page-item') && $item.trigger('click')
     }
 
 })
@@ -455,6 +456,7 @@ $(document).on('change', '#fileUpload', function (e) {
     file = e.target.files[0]
 })
 //END
+
 
 $(document).ready(() => {
     var spanicon = $('.ui-icon').html('');

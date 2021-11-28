@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+    
     <?php 
          global $ID;
          $ID='dinhthang';

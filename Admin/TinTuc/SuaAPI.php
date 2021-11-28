@@ -21,9 +21,4 @@ $conn = new mysqli("localhost", "root", "", "qldt", 3306);
         echo "Kết nối thất bại!" . mysqli_connect_error();
     }
 
-
-
-
-
-
-
+?>

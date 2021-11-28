@@ -276,7 +276,7 @@ function getDataItemPhuKien() {
            
             danhsachphukien = data;
             danhsachphukien.forEach(function (value) {
-                var a = '../../../Admin/Frontend/'+ value.Hinhanh;
+                var a = '../../../Admin/PhuKien/Image/'+ value.Hinhanh;
                 var $item = $('<div>', {
                     id:'pk'+ i++,
                     class: 'item-product size-item'

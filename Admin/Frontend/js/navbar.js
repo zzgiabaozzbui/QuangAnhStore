@@ -1,4 +1,5 @@
 var danhsach = [];
+var danhsachH = [];
 var txtSearch = '';
 $(document).ready(() => {
 
@@ -566,12 +567,12 @@ $(document).ready(() => {
             data: {},
             headers: "application/json; charset=utf-8",
             success: function (data) {
-                danhsach = data;
+                danhsachH = data;
                 // load Table danh sach cho xac nhan
                 var tableBodyDOM = document.querySelector('.customer-home');
 
                 $(tableBodyDOM).html('');
-                danhsach.forEach(function (value) {
+                danhsachH.forEach(function (value) {
                     value.checked = false;
 
                     var tableRow = document.createElement('tr');
@@ -586,7 +587,7 @@ $(document).ready(() => {
                     <td>${value.Diachi}</td>
                     <td class='text-right'>${new Intl.NumberFormat().format(value.ThanhTien)}đ</td>
                     <td>${value.Trangthai}</td>
-                    <td>Xem</td>
+                    <td id='btnXem'>Xem</td>
                     `;
                     tableBodyDOM.appendChild(tableRow);
                 });
@@ -763,46 +764,79 @@ function chuyenData() {
 }
 
 
-// function darta() {
-//     var DS = danhsach.filter(x => x.checked);
-//     var ma = DS[0].Mahoadon;
-//     $.ajax({
-//         url: "export.php",
-//         method: "POST",
-//         datatype: 'text',
-//         data: {
-
-//             ma: ma
-//         },
-//         headers: "application/json; charset=utf-8",
-//         success: function (dataJson) {
-//             //Tạo ra file dựa từ base 64 server trả lên
-//             let file = new Blob([dataJson], {
-//                 type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-//             });
-//             //Gán file vào url để tải download 
-//             var url = URL.createObjectURL(file);
-//             // tạo thẻ link chứa url 
-//             let a = $('<a>')[0];
-//             //Gán url 
-//             a.href = url;
-//             //Tạo ra 1 tab mới
-//             a.target = '_blank';
-//             //append vào trang
-//             $('body').append(a);
-
-//             a.click();
-//             //Xóa link vừa tạo đi
-//             $('body').remove($(a));
-
-//         }
-//     });
-
-// }
 
 function hienThiId() {
     var DS = danhsach.filter(x => x.checked);
-    var ma = DS[0].Mahoadon;
+    if (DS.length != 0 ){
+        var ma = DS[0].Mahoadon;
+        document.getElementById('Form_excel').action = `export.php?Mahoadon=${ma}`;
+    }else {
+        alert ('Bạn phải chọn 1 khách hàng để xuất hóa đơn.');
+    }
+}
 
-    document.getElementById('Form_excel').action = `export.php?Mahoadon=${ma}`;
+$(document).on('click', '#btnXem', function (e) {
+    let $btn = $(e.currentTarget);
+    let row = $btn.closest('tr');
+    let index = row.index();
+    var ma = danhsachH[index].Mahoadon;
+
+    $.ajax({
+        url: "Xem.php",
+        method: "POST",
+        data: {},
+        headers: "application/json; charset=utf-8",
+        success: function (dataJson) {
+            $.when($(dataJson).dialog({
+                width: 1250,
+                height: 870,
+                modal: true,
+                close: function () {
+                    $(this).html('');
+                }      
+            })).then(dlg => {
+                getDataChiTiet(ma);
+            })
+        },
+        fail: function () {
+            alert('Kết nối thất bại');
+        }
+    });
+})
+function getDataChiTiet(ma) {
+    var a = new FormData();
+
+    $.ajax({
+        url: "XemAPI.php",
+        method: "POST",
+       
+        data: {
+            ma:ma,
+         
+        },
+        headers: "application/json; charset=utf-8",
+        success: function (data) {
+            danhsach = data;
+            // load Table danh sach cho dang giao
+            var tableBodyDOM = document.querySelector('.customer-DH');
+
+            danhsach.forEach(function (value) {
+                var TSP = value.Gia*value.SoLuong;
+                var tableRow = document.createElement('tr');
+                tableRow.innerHTML = `
+                <td class='text-cencter'>${value.Tenphukien}</td>
+                <td>${value.SoLuong}</td>
+                
+                
+                <td class='text-right size-td'>${new Intl.NumberFormat().format(value.Gia)}</td>
+                <td class='text-right size-td'>${new Intl.NumberFormat().format(TSP)}</td>
+                `;
+                tableBodyDOM.appendChild(tableRow);
+            });
+
+        },
+        fail: function () {
+            alert('Kết nối thất bại');
+        }
+    });
 }

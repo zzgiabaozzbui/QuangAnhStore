@@ -19,7 +19,7 @@
             <th class='text-cencter'>Lưu ý</th>
             <th class='text-cencter size-d'>Ngày đặt hàng</th>
             <th class='text-cencter'>Ngày vận chuyển</th>
-            <th class='text-cencter'>Ngày giao hàng</th>
+            <th class='text-cencter' id='size_ngayGH'>Ngày giao hàng</th>
             <th class='text-cencter'>Phương thức thanh toán</th>
             <th class='text-cencter'>Địa chỉ nhận hàng</th>
             <th class='text-cencter'>Thành tiền</th>
@@ -33,8 +33,8 @@
     <?php
     $a = 1;
     ?>
-    <form action="export.php?" method="post" id="Form_excel">
-        <button name="btnExcel" type="submit" onclick="hienThiId()">
+    <form action="export.php?" method="post" id="Form_excel " >
+        <button name="btnExcel" type="submit" id="btnExport" onclick="hienThiId()">
             <i class="far fa-file-excel"></i>
             Xuất excel
         </button>
