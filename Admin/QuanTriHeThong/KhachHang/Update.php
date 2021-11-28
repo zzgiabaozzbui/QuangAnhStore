@@ -44,7 +44,7 @@
                         </h4>
                     </div>
                     
-                    <form class="mainf" action="#" method="POST">
+                    <form class="mainf" action="#" method="POST" enctype="multipart/form-data">
                     <table class="tbl" >
                             <tr>
                                 <td class="lbl">Tài khoản:</td>
@@ -104,6 +104,10 @@
                                 <td class="lbl">Địa chỉ:</td>
                                 <td>
                                     <input class="inpu"  type="text" name="txtdc" id="txtdc" value="<?php echo $dc;?>" size="25" style="background-image: url(https://img.icons8.com/material-sharp/2x/ffffff/address.png); background-position: left;background-size: 25px;">
+                                </td>
+                                <td class="lbl">Hình ảnh:</td>
+                                <td >
+                                <input class="form-control" type="file" name="fileUpload" value="">
                                 </td>
                             </tr>
                             <tr></tr>

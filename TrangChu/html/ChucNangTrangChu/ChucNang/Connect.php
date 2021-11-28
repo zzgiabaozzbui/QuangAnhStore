@@ -12,7 +12,7 @@
         $host="localhost";
         $user="root";
         $pass="";
-        $database="qldt";
+        $database="BTL_Web";
         $conn=mysqli_connect($host,$user,$pass,$database);
         if($conn==true)
         {

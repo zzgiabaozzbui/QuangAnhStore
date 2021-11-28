@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../../Frontend/font/themify-icons/themify-icons.css">
         <link rel="stylesheet" href="./css/Index.css?version=1">
     </head>
-    <body >
+    <body > 
         
         <div class="main">
             
