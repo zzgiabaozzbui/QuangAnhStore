@@ -7,7 +7,7 @@
         $objExcel= new PHPExcel;
         $objExcel->setActiveSheetIndex(0);
         $sheet=$objExcel->getActiveSheet()->setTitle('Điện thoại');
-        $selectDT="SELECT * FROM `sanpham` sp INNER JOIN tbldongsanpham dsp on dsp.Madong =sp.maDong";
+        $selectDT="SELECT * FROM `sanpham` sp INNER JOIN tbldongsanpham dsp on dsp.Madong = sp.maDong";
         $result=selectListItems($selectDT);
 
 
@@ -70,7 +70,7 @@
         return;
     }
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -83,4 +83,4 @@
         <button name="btnExcel" type="submit">Xuất excel</button>
     </form>
 </body>
-</html>
+</html> -->

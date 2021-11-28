@@ -127,7 +127,7 @@ $(document).ready(() => {
             if (data.link == 'HoanThanh.php') {
                 document.getElementById('5').onclick = getDataChoHoanThanh(HoanThanhAPIs);
                 // document.getElementById('btnXuat').onclick = Export;
-                // document.getElementById('btnXuat').onclick = darta; 
+                // document.getElementById('btnXuat').onclick = darta;
             }
             if (data.link == 'Home.php') {
                 document.getElementById('0').onclick = getDataChoHome(HomeAPIs);
@@ -763,19 +763,46 @@ function chuyenData() {
 }
 
 
-function darta() {
+// function darta() {
+//     var DS = danhsach.filter(x => x.checked);
+//     var ma = DS[0].Mahoadon;
+//     $.ajax({
+//         url: "export.php",
+//         method: "POST",
+//         datatype: 'text',
+//         data: {
+
+//             ma: ma
+//         },
+//         headers: "application/json; charset=utf-8",
+//         success: function (dataJson) {
+//             //Tạo ra file dựa từ base 64 server trả lên
+//             let file = new Blob([dataJson], {
+//                 type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+//             });
+//             //Gán file vào url để tải download 
+//             var url = URL.createObjectURL(file);
+//             // tạo thẻ link chứa url 
+//             let a = $('<a>')[0];
+//             //Gán url 
+//             a.href = url;
+//             //Tạo ra 1 tab mới
+//             a.target = '_blank';
+//             //append vào trang
+//             $('body').append(a);
+
+//             a.click();
+//             //Xóa link vừa tạo đi
+//             $('body').remove($(a));
+
+//         }
+//     });
+
+// }
+
+function hienThiId() {
     var DS = danhsach.filter(x => x.checked);
     var ma = DS[0].Mahoadon;
-    $.ajax({
-        url: "export.php",
-        method: "POST",
-        data: {
-            ma: ma
-        },
-        headers: "application/json; charset=utf-8",
-        success: function (dataJson) {
-           
-        }
-    });
 
+    document.getElementById('Form_excel').action = `export.php?Mahoadon=${ma}`;
 }

@@ -98,9 +98,7 @@
                     if ($FindNameDSP != null) {
                         $tenDong = $FindNameDSP[0]['Tendong'];
                         $linkAnh = "../Frontend/img/Featured phone/" . $tenDong . "/";
-
                         if ($_FILES['fileUpload']['error'] > 0) {
-
                             echo "Bạn chưa chọn ảnh";
                         } else {
                             move_uploaded_file($_FILES['fileUpload']['tmp_name'], $linkAnh . $_FILES['fileUpload']['name']);
