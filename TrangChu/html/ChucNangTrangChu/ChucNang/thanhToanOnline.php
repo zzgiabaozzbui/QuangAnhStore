@@ -39,7 +39,7 @@
         </div>
         <div class="content__bill">
             <div class="content__bill__title">
-             <h1><i class="ti-receipt"></i>Hóa đơn</h1>
+             <h1><i class="ti-receipt"></i>Đơn hàng</h1>
             </div>
             <div class="content__bill__list">
                 <?php 

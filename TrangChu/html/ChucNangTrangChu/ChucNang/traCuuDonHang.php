@@ -26,7 +26,7 @@
                     <input type="text" class="search__input" name="txtPhone">
                 </div>
                 <div class="search__item">
-                    <label for="" class="labelInput__type">Mã hóa đơn :</label>
+                    <label for="" class="labelInput__type">Mã đơn hàng :</label>
                     <input type="text" class="search__input" name='txtID'>
                 </div>
                 <div class="search__item">
@@ -81,7 +81,7 @@
                         
                         echo" <div class='bill__element'>";
                         echo" <div class='bill__ID'>";
-                        echo"  <h3 class='ID'>Mã hóa đơn : ".$row['Mahoadon']."</h3>";
+                        echo"  <h3 class='ID'>Mã đơn hàng : ".$row['Mahoadon']."</h3>";
                         echo" </div>";
                         echo"<div class='bill__info'>";
                         echo"    <h4>Tên khách hàng : ".$row['Ten']."</h4>";
