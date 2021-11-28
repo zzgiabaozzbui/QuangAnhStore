@@ -17,7 +17,7 @@
     ?>
     <form action="" method="POST">
     <div class="header">
-        <?php require_once '../../Header.php'?>
+    <?php require_once '../../TrangchuDT/Header.php'?>
     </div>
     <div class="content">
         <div class="content__title">
@@ -127,7 +127,7 @@
         </div>
     </div>
     <div class="footer">
-    <?php require_once '../../Footer.php'?>
+    <?php require_once '../../TrangchuDT/Footer.php'?>
     </div>
     <script>
         var hide=document.querySelectorAll('.ortherques__element__rep');

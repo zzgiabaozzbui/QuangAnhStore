@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../themify-icons.css">
+    <link rel="stylesheet" href="../themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../Css/thanhToanOnline.css">
+    <link rel="stylesheet" href="../../../css/HeaderStyle.css">
+    <link rel="stylesheet" href="../../../css/FooterStyle.css">
     <title>Document</title>
 </head>
 <body>
@@ -28,7 +30,7 @@
     ?>
     <form action="">
     <div class="header">
-
+    <?php require_once '../../TrangchuDT/Header.php'?>
     </div>
     <div class="content">
         <div class="content__title">
@@ -64,7 +66,7 @@
                                     echo"  <div class='content__bill__item'>";
                                     echo"  <div class='content__bill__item__box'>";
                                     echo"     <div class='bill__item__img'>";
-                                    echo"          <img src='http://localhost/DAC/QuangAnhStore/Admin/PhuKien/Image/". $Anh."'  class='bill__img'>";
+                                    echo"          <img src='http://localhost/QuangAnhStore/Admin/PhuKien/Image/". $Anh."'  class='bill__img'>";
                                     echo"      </div>";
                                     echo"      <div class='bill__item__text'>";
                                     echo"          <h3 class='item__name'>".$TenSP."</h3>";
@@ -92,7 +94,7 @@
                                     echo"  <div class='content__bill__item'>";
                                     echo"  <div class='content__bill__item__box'>";
                                     echo"     <div class='bill__item__img'>";
-                                    echo"          <img src='http://localhost/DAC/QuangAnhStore/Admin/PhuKien/Image/". $Anh."'  class='bill__img'>";
+                                    echo"          <img src='http://localhost/QuangAnhStore/Admin/PhuKien/Image/". $Anh."'  class='bill__img'>";
                                     echo"      </div>";
                                     echo"      <div class='bill__item__text'>";
                                     echo"          <h3 class='item__name'>".$TenSP."</h3>";
@@ -136,7 +138,7 @@
                     <div class="payment--online__content__text ">
                         
                             <input type="radio" name="payment" id="bank" class="rdo--payment">
-                            <img src="http://localhost/DAC/QuangAnhStore/TrangChu/html/ChucNangTrangChu/Image/bank.png" alt="" class="img__icon">
+                            <img src="http://localhost/QuangAnhStore/TrangChu/html/ChucNangTrangChu/Image/bank.png" alt="" class="img__icon">
                         
                         <h3>Thanh toán qua chuyển khoản ngân hàng</h3>
                     </div>
@@ -153,7 +155,7 @@
                 <div class="payment--online__content">
                     <div class="payment--online__content__text ">
                         <input type="radio" name="payment" id="zalopay" class="rdo--payment">
-                       <img src="http://localhost/DAC/QuangAnhStore/TrangChu/html/ChucNangTrangChu/Image/zalopay.png" alt="" class="img__icon">
+                       <img src="http://localhost/QuangAnhStore/TrangChu/html/ChucNangTrangChu/Image/zalopay.png" alt="" class="img__icon">
                         <h3>Thanh toán qua ví điện tử ZALOPAY</h3>
                     </div>
                     <div class="payment--online__content__hide zalopay">
@@ -169,7 +171,7 @@
                 <div class="payment--online__content">
                     <div class="payment--online__content__text ">
                         <input type="radio" name="payment" id="shopeepay" class="rdo--payment">
-                        <img src="http://localhost/DAC/QuangAnhStore/TrangChu/html/ChucNangTrangChu/Image/shopeepay.png" alt="" class="img__icon">
+                        <img src="http://localhost/QuangAnhStore/TrangChu/html/ChucNangTrangChu/Image/shopeepay.png" alt="" class="img__icon">
                         <h3>Thanh toán qua ví điện tử ShopeePay</h3>
                     </div>
                     <div class="payment--online__content__hide shopeepay">
@@ -185,7 +187,7 @@
                 <div class="payment--online__content">
                     <div class="payment--online__content__text ">
                         <input type="radio" name="payment" id="momo" class="rdo--payment">
-                       <img src="http://localhost/DAC/QuangAnhStore/TrangChu/html/ChucNangTrangChu/Image/momo.png" alt="" class="img__icon">
+                       <img src="http://localhost/QuangAnhStore/TrangChu/html/ChucNangTrangChu/Image/momo.png" alt="" class="img__icon">
                         <h3>Thanh toán qua ví điện tử Momo</h3>
                     </div>
                     <div class="payment--online__content__hide momo">
@@ -303,7 +305,7 @@
             ?>
     </div>
     <div class="footer">
-
+    <?php require_once '../../TrangchuDT/Footer.php'?>  
     </div>
     </form>
 </body>

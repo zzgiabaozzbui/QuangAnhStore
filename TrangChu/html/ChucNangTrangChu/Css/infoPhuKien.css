@@ -17,6 +17,10 @@
     margin: auto;
     width: 1200px;
 }
+.content 
+{
+    margin-top: 80px;
+}
 .content__header
 {
     
@@ -251,7 +255,7 @@ a
 }
 .similar__item__name, .similar__item__cost
 {
-    width: 80%;
+    width: 100%;
     padding: 10px 20px;
     font-size: 18px;
     font-weight: bolder;

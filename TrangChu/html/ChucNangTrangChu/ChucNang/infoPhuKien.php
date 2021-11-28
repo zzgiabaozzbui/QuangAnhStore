@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../Css/infoPhuKien.css">
+    <link rel="stylesheet" href="../../../css/HeaderStyle.css">
+    <link rel="stylesheet" href="../../../css/FooterStyle.css">
     <title>Document</title>
 </head>
 <body>
@@ -23,7 +25,7 @@
         $Gia='';
         $NSX='';
         
-        include './connect.php';
+        include './Connect.php';
             $query="Select * from chitietphukien where Maphukien = '".$ID."'";
             $result=mysqli_query($conn,$query);
                     if(mysqli_num_rows($result)>0)    
@@ -49,7 +51,7 @@
     <form action="" method="POST">
     <div class="main">
         <div class="header">      
-                    
+        <?php require_once '../../TrangchuDT/Header.php'?>
         </div>
         <div class="content">
             <div class="content__header">
@@ -61,7 +63,7 @@
             <div class="content__body">
                 <div class="content__body__box">
                     <div class="box__image">
-                        <img src="http://localhost/DAC/QuangAnhStore/Admin/PhuKien/Image/<?php  echo $Anh?>" alt="" class="content__image">
+                        <img src="http://localhost/QuangAnhStore/Admin/PhuKien/Image/<?php  echo $Anh?>" alt="" class="content__image">
                     </div>
                     <div class="box__info__buy">
                         <div class="box__info__status1">
@@ -151,7 +153,7 @@
                        echo" <a href='infoPhukien.php?MaSp=".$rowsimilar['Maphukien']."' class='similar__item__link'>";
                        echo" <div class='similar__item__box'>";
                        echo"     <div class='similar__item__img'>";
-                       echo"     <img src='http://localhost/DAC/QuangAnhStore/Admin/PhuKien/Image/".$rowsimilar['Hinhanh']."'  class='similar__img'>";
+                       echo"     <img src='http://localhost/QuangAnhStore/Admin/PhuKien/Image/".$rowsimilar['Hinhanh']."'  class='similar__img'>";
                        echo"     </div>";
                        echo"     <div class='similar__item__name'>";
                        echo $rowsimilar['Tenphukien']    ;
@@ -171,7 +173,7 @@
             </div>
         </div>
         <div class="footer">
-
+        <?php require_once '../../TrangchuDT/Footer.php'?>  
         </div>
     </div>
     </form>

@@ -71,7 +71,7 @@
                     echo "<div class='cart__item'>";
                     echo "<div class='cart__item__content'>";
                     echo "<div class='cart__item__img'>";
-                    echo" <img src='../Image/". $Anh."'  class='cart__img'>";
+                    echo" <img src='http://localhost/QuangAnhStore/Admin/Phukien/Image/". $Anh."'  class='cart__img'>";
                     echo" </div>";
                     echo" <div class='cart__item__text'>";
                     echo" <h3 class='item__name'>".$TenSP."</h3>";
@@ -110,7 +110,7 @@
                     echo "<div class='cart__item'>";
                     echo "<div class='cart__item__content'>";
                     echo "<div class='cart__item__img'>";
-                    echo" <img src='../Image/". $Anh."'  class='cart__img'>";
+                    echo" <img src=''". $Anh."'  class='cart__img'>";
                     echo" </div>";
                     echo" <div class='cart__item__text'>";
                     echo" <h3 class='item__name'>".$TenSP."</h3>";
