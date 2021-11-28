@@ -7,11 +7,11 @@
     <!-- Header -->
     <link rel="stylesheet" href="../../font/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../../font/fontawesome-free-5.15.4-desktop/svgs"> 
-     <link rel="stylesheet" href="../../css/HeaderStyle.css">
+     -->
     <!-- Content-body -->
     <link rel="stylesheet" href="../../css/ChiTietDienThoai.css?version=1">
     <!-- Footer -->
-    <link rel="stylesheet" href="../../css/FooterStyle.css">
+
     <title>Thông tin chi tiết</title>
     <style>
        
@@ -19,7 +19,7 @@
 </head>
 <body>
     <?php
-        require_once "../Header.php";
+        require_once "../TrangChuDT/Header.php";
         require "../Shared_Element/DB.php";
         $maSP= $_GET['MaSP'];
         $selectSP="select sp.*,ctsp.* from sanpham sp INNER JOIN chitietsanpham ctsp on sp.MaSP=ctsp.Masanpham where sp.MaSP='".$maSP."'";
@@ -405,7 +405,7 @@
             
     </div>
     <?php
-        require_once "../Footer.php";
+        require_once "../TrangChuDT/Footer.php";
     ?>
     <script>
         const modalContainer= document.querySelector('.js_modal')
