@@ -7,6 +7,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 footer{
+    position: relative;
     box-shadow: 0 -5px 5px -5px rgba(199, 195, 195, 0.445);
 }
 footer a{
@@ -76,10 +77,10 @@ footer .footer--menu a:hover{
     background-color: rgba(199, 195, 195, 0.445);
     height: 170px;
 }
-.content{
+/* .content{
     height: 500px;
     background-color: white;
-}
+} */
 footer .footer--content{
     display: flex;
     justify-content: space-around;
@@ -111,8 +112,5 @@ footer .address-contact p
     font-size: 10px;
     opacity: 0.4;
    
-   
-}
-footer .address-contact{
    
 }

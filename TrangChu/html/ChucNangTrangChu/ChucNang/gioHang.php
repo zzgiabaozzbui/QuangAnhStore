@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../Css/gioHang.css">
+    <link rel="stylesheet" href="../../../css/FooterStyle.css">
     <title>Document</title>
 </head>
 <body>
@@ -220,7 +221,11 @@
     </div>
     <div class="footer">
     </div>
+    
     </form>
+    <?php
+        require "../../TrangChuDT/Footer.php";
+    ?>
     <?php 
 
         
@@ -376,5 +381,6 @@
 			    }
         }
     ?>
+    
 </body>
 </html>
