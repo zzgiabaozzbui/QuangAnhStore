@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../Css/gioHang.css">
+    <link rel="stylesheet" href="../../../css/HeaderStyle.css">
     <link rel="stylesheet" href="../../../css/FooterStyle.css">
     <title>Document</title>
 </head>
 <body>
     <?php 
          global $ID;
-         $ID='dinhthang';
+         $ID='manhhlunn';
         $TenSP="";
         $Anh="";
         $Gia="";
@@ -36,7 +37,7 @@
     ?>
     <form action="" method="POST">
     <div class="header">
-
+    <?php require_once '../../TrangchuDT/Header.php'?>
     </div>
     <div class="content">
         <div class="title">
@@ -70,7 +71,7 @@
                     echo "<div class='cart__item'>";
                     echo "<div class='cart__item__content'>";
                     echo "<div class='cart__item__img'>";
-                    echo" <img src='http://localhost/DAC/QuangAnhStore/Admin/PhuKien/Image/". $Anh."'  class='cart__img'>";
+                    echo" <img src='../Image/". $Anh."'  class='cart__img'>";
                     echo" </div>";
                     echo" <div class='cart__item__text'>";
                     echo" <h3 class='item__name'>".$TenSP."</h3>";
@@ -220,12 +221,9 @@
         </div>
     </div>
     <div class="footer">
+    <?php require_once '../../TrangchuDT/Footer.php'?>
     </div>
-    
     </form>
-    <?php
-        require "../../TrangChuDT/Footer.php";
-    ?>
     <?php 
 
         
@@ -263,7 +261,7 @@
             $Email=$_POST['txtEmail'];
             $Luuy=$_POST['txtLuuy'];
            
-            include '../QuanLyPhuKien/connect.php';
+            include './connect.php';
             if($_POST['select__content']==0)
             {
                 $query="INSERT INTO hoadon(Ten,SDT,Email,Luuy,Thanhtoan,Thanhtien) VALUES('".$TenKH."','".$SDT."','".$Email."','".$Luuy."','Khi nhận hàng','". $GLOBALS['Tong']."')";
@@ -311,7 +309,7 @@
                                
                             }
                         }
-                        echo"<script>window.location.replace('http://localhost/QuangAnhStore/Admin/PhuKien/TrangChuPhuKien/ThanhToanTrucTiep.php?MaHD=".$MHD."');</script>";
+                        echo"<script>window.location.replace('ThanhToanTrucTiep.php?MaHD=".$MHD."');</script>";
 			    }
 			    else
 			    {
@@ -327,7 +325,7 @@
             $Email=$_POST['txtEmail'];
             $Luuy=$_POST['txtLuuy'];
             
-            include '../QuanLyPhuKien/connect.php';
+            include './connect.php';
             if($_POST['select__content']==0)
             {
                 $query="INSERT INTO hoadon(Ten,SDT,Email,Luuy,Thanhtoan,Thanhtien) VALUES('".$TenKH."','".$SDT."','".$Email."','".$Luuy."','Online','".$GLOBALS['Tong']."')";
@@ -373,7 +371,7 @@
                                
                             }
                         }
-                        echo"<script>window.location.replace('http://localhost/QuangAnhStore/Admin/PhuKien/TrangChuPhuKien/ThanhToanOnline.php?MaHD=".$MHD."');</script>";
+                        echo"<script>window.location.replace('ThanhToanOnline.php?MaHD=".$MHD."');</script>";
 			    }
 			    else
 			    {
@@ -381,6 +379,5 @@
 			    }
         }
     ?>
-    
 </body>
 </html>
