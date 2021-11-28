@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Frontend//css/SanPham.css?version=0">
+    <link rel="stylesheet" href="../Frontend/css/SanPham.css?version=0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -25,10 +25,7 @@
             margin-left: 20px;
             margin-top: 10px;
         }
-        .form-control,
-        form input{
-            width: 90% !important;
-        }
+       
         .moRong{
             height: 20px;
         }
@@ -186,7 +183,7 @@
             <label for="usr">Mô tả:</label>
             <textarea id="MoTa"  name="txtMoTa"><?php echo $moTa; ?></textarea>
 </div>
-<button type="submit" name="btnCapNhat" class="btn btn-primary btn-success">Cập nhật</button>
+<button type="submit" name="btnCapNhat" class="btn btn-primary ">Cập nhật</button>
 <a href="index.php">Quay lại</a>
 <div class="moRong"></div>
         </form>

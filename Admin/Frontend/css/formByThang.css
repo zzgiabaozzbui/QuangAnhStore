@@ -11,6 +11,9 @@
 .container_Input a{
     margin-left: 270px;
 }
+table tr{
+    
+}
 table td{
     padding: 0 10px;
 }
@@ -19,14 +22,16 @@ table{
 }
 input{
     padding: 10px;
+    margin-top: 10px;
 }
 button{
-    padding: 7px;
+    padding: 8px;
     border-radius: 10px;
     color: white;
-    background-color: #28a745;
+    background-color: #0b7dda;
     margin-left: 40%;
     margin-top: 10px;
+    border: none;
 }
 .inputForm{
     padding-left: 8px;

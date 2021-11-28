@@ -19,7 +19,7 @@
 </head>
 <body>
     <?php 
-    require_once "../Header.php";
+    require_once "../TrangChuDT/Header.php";
     require_once "../Shared_Element/DB.php";
     $maSP=$_GET['MaSP'];
     $querySelect="select * from sanpham where masp='".$maSP."'";
@@ -186,7 +186,7 @@
         }
     ?>
     <?php 
-    require_once "../Footer.php";
+    require_once "../TrangChuDT/Footer.php";
     ?>
     <script>
         function formatNumber(num) {

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/HomeStyle.css">
+    <link rel="stylesheet" href="../../css/HomeStyle.css">
 
-    <link rel="stylesheet" href="../font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="../../font/themify-icons/themify-icons.css">
 
     <title>Nhóm 3 Điện thoại</title>
     <?php
-    require "../html/Header.php";
+    require "Header.php";
     ?>
 </head>
 
@@ -415,12 +415,12 @@
                             <!-- PC -->
                             <a href="">
                                 <div class="slider__top__wrapper">
-                                    <img src="../../Admin/Frontend/img/Slide/Slider/1.webp" alt="" class="slider__top__item">
-                                    <img src="../../Admin/Frontend/img/Slide/Slider/2.webp" alt="" class="slider__top__item">
-                                    <img src="../../Admin/Frontend/img/Slide/Slider/3.webp" alt="" class="slider__top__item">
-                                    <img src="../../Admin/Frontend/img/Slide/Slider/4.webp" alt="" class="slider__top__item">
-                                    <img src="../../Admin/Frontend/img/Slide/Slider/5.webp" alt="" class="slider__top__item">
-                                    <img src="../../Admin/Frontend/img/Slide/Slider/6.webp" alt="" class="slider__top__item">
+                                    <img src="../../../Admin/Frontend/img/Slide/Slider/1.webp" alt="" class="slider__top__item">
+                                    <img src="../../../Admin/Frontend/img/Slide/Slider/2.webp" alt="" class="slider__top__item">
+                                    <img src="../../../Admin/Frontend/img/Slide/Slider/3.webp" alt="" class="slider__top__item">
+                                    <img src="../../../Admin/Frontend/img/Slide/Slider/4.webp" alt="" class="slider__top__item">
+                                    <img src="../../../Admin/Frontend/img/Slide/Slider/5.webp" alt="" class="slider__top__item">
+                                    <img src="../../../Admin/Frontend/img/Slide/Slider/6.webp" alt="" class="slider__top__item">
                                 </div>
                             </a>
                             <!-- End PC -->
@@ -484,7 +484,7 @@
             <div class="row">
                 <div class="web__ads__box">
                     <a href="">
-                        <img src="../../Admin/Frontend/img/Web ads/1.webp" alt="" class="web__ads__box__pc__img">
+                        <img src="../../../Admin/Frontend/img/Web ads/1.webp" alt="" class="web__ads__box__pc__img">
                     </a>
                 </div>
             </div>
@@ -501,7 +501,7 @@
                 </button>
                 <div class="sale-herder">
                     <div class="flash__sale__box__left">
-                        <img src="../../Admin/Frontend/img/Flash Sale/1.PNG" alt="" class="img-hearder-sale">
+                        <img src="../../../Admin/Frontend/img/Flash Sale/1.PNG" alt="" class="img-hearder-sale">
 
                     </div>
                     <div class="flash__sale__box__tablet">
@@ -617,15 +617,15 @@
 
 
 
-    <script rel="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
-    <script rel="text/javascript" src="../js/Home.js"></script>
+    <script rel="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+    <script rel="text/javascript" src="../../js/Home.js"></script>
 </body>
 
 <footer>
     <div class="container-footer">
         <div class="content-footer">
             <?php
-            require './Footer.php';
+            require 'Footer.php';
             ?>
 
         </div>

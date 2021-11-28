@@ -96,7 +96,7 @@
                     </thead>
                     <tbody>
                         <?php
-                        $ProductNumber=10; // số sản phẩm trong 1 trang
+                        $ProductNumber=5; // số sản phẩm trong 1 trang
                         $current_page=1;
                         if(isset($_GET['page'])){
                             $current_page=$_GET['page'];
@@ -195,7 +195,7 @@
                         </tr>                
                     </thead>
                     <tbody>'; 
-                    $ProductNumber=1; // số sản phẩm trong 1 trang
+                    $ProductNumber=5; // số sản phẩm trong 1 trang
                         $current_page=1;
                         if(isset($_GET['page'])){
                             $current_page=$_GET['page'];

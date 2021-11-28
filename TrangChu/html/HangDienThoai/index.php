@@ -1,5 +1,7 @@
 <?php 
-        require_once "../../html/Header.php";
+    //setcookie('tk','thangyb27',time()+60,'/');
+
+        require_once "../TrangChuDT/Header.php";
         require_once "../Shared_Element/DB.php"
     ?>
 <!DOCTYPE html>
@@ -30,6 +32,7 @@
         </div>
         <div class="product_filter">
             <?php
+                
                 $maDong=$_GET['Madong'];
                 echo' <form action="./index.php" method="get">';
                 echo'<input type="hidden" name="Madong" value="'.$maDong.'" />';
@@ -106,7 +109,7 @@
             <div class="product-row">
                 <?php
                     
-                    $ProductNumber=1; // số sản phẩm trong 1 trang
+                    $ProductNumber=10; // số sản phẩm trong 1 trang
                     $current_page=1;
                     if(isset($_GET['page'])){
                         $current_page=$_GET['page'];
@@ -114,11 +117,18 @@
                     
                     $index=($current_page-1)*$ProductNumber;  
                     $querySelect = "select * from sanpham where madong='".$maDong."' limit ".$index.",".$ProductNumber;
-        
+                    
                     $resultSelect=selectListItems($querySelect);
                     foreach ($resultSelect as $product) {
                         $selectCTSP="select * from chitietsanpham where masanpham='".$product['MaSP']."'";
                         $info_SP=selectItem($selectCTSP);
+                        $selectNumberBuy="SELECT Sum(SoLuong) as 'number' FROM `chitiethoadon` where MaSp='".$product['MaSP']."' GROUP by MaSp ";
+                        $countBuy=selectItem($selectNumberBuy);
+                        $soLuongBan=0;
+                        if($countBuy!=null)
+                        {
+                            $soLuongBan=$countBuy[0]['number'];
+                        }
                     echo'<div class="product-col">
                     <div class="product-favourite">
                         <p>Yêu thích</p>
@@ -143,15 +153,15 @@
                         <div class="product-price">
                             <p>'.number_format($product['Gia']).' vnđ</p>
                             <div class="product-number_sell">                           
-                                <p>Đã bán 100</p>                         
+                                <p>Đã bán '.$soLuongBan.'</p>                         
                             </div>
                         </div>
                         <div class="product-star">
                             <i class="ti-star star-color"></i>
                             <i class="ti-star star-color"></i>
                             <i class="ti-star star-color"></i>
-                            <i class="ti-star"></i>
-                            <i class="ti-star"></i>
+                            <i class="ti-star star-color"></i>
+                            <i class="ti-star star-color"></i>
                         </div>
 
                     </div>
@@ -174,8 +184,7 @@
             }
             $pages= ceil($number/$ProductNumber);
             // page ví dụ lấy 2.5 thì ceil giúp làm tròn lên 3
-            if($number<$ProductNumber)
-            return;
+            
             if($current_page>2)
             {
                 $first_page=1;
@@ -361,8 +370,7 @@
         ?>
     <!-- Footer -->
     <?php 
-        
-        require_once "../Footer.php";
+        require_once "../TrangChuDT/Footer.php";
     ?>
 </body>
 </html>

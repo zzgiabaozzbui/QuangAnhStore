@@ -55,10 +55,10 @@
                     <a href="http://localhost:8080/QuangAnhStore/Admin/Home/">
                         <li ><i class="ti-home" style="color: #2196f3;" ></i><p>Trang chủ</p></li>
                     </a>
-                    <a href="http://localhost:8080/QuangAnhStore/Admin/SanPham/">
+                    <a href="http://localhost/QuangAnhStore/Admin/SanPham/">
                         <li><i class="ti-mobile"  style="color: black;"></i><p>Quản lý sản phẩm</p></li>
                     </a>
-                    <a href="http://localhost:8080/QuangAnhStore/Admin/DongSanPham/">
+                    <a href="http://localhost/QuangAnhStore/Admin/DongSanPham/">
                         <li><i class="ti-truck"  style="color: #f44336;"></i><p>Dòng sản phẩm</p></li>
                     </a>
                     <a href="http://localhost:8080/QuangAnhStore/Admin/PhuKien/">

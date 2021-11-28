@@ -38,9 +38,11 @@
         }
 
         .btnAdd {
-            background-color: #28a745;
+            background-color: #0b7dda;
+            border: none;
             color: white;
             padding: 4px 10px;
+            border-radius: 5px;
         }
     </style>
 </head>

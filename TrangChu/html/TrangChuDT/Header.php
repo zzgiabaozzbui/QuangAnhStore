@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../font/themify-icons/themify-icons.css">
    
    
-    <link rel="stylesheet" href="../css/HeaderStyle.css">
+    <link rel="stylesheet" href="../../css/HeaderStyle.css">
     <!-- <link rel="stylesheet" href="../css/tablet.css"> -->
     <title>Document</title>
 </head>
@@ -22,7 +22,9 @@
         <div class="header__background">
             <!-- Điện thoại -->
             <div class="smartphone__header__logo">
-                <a href=""><img src="../../Admin/Frontend/img/zalo suopprt/cellphones.png" alt=""></a>
+                <a href="">
+                    <img src="../HangDienThoai/1.png" alt="">
+            </a>
             </div>
 
 
@@ -87,7 +89,7 @@
                 </div>
                 <!-- Logo Image -->
                 <div class="header__logo__img">
-                    <a href=""><img src="../img/Desktop logo/1.png" alt=""></a>
+                    <a href="http://localhost/QuangAnhStore/TrangChu/html/TrangChuDT/trangchu.php"><img src="../HangDienThoai/1.png" alt=""></a>
                 </div>
     
                 

@@ -68,7 +68,7 @@ function getDataItem() {
     
 
     $.ajax({
-        url: "API/DataItemAPI.php",
+        url: "../API/DataItemAPI.php",
         method: "POST",
         data: {
         },
@@ -77,7 +77,8 @@ function getDataItem() {
            
             danhsach = data;
             danhsach.forEach(function (value) {
-                var a = '../../Admin/Frontend/'+ value.HinhAnh;
+                var a = '../../../Admin/Frontend/'+ value.HinhAnh;
+    
                 var $item = $('<div>', {
                     id:'dt'+ i++,
                     class: 'item-product'
@@ -167,7 +168,7 @@ function getDataItemSale() {
     
 
     $.ajax({
-        url: "API/DataItemSaleAPI.php",
+        url: "../API/DataItemSaleAPI.php",
         method: "POST",
         data: {
         },
@@ -176,7 +177,7 @@ function getDataItemSale() {
            
             danhsach = data;
             danhsach.forEach(function (value) {
-                var a = '../../Admin/Frontend/'+ value.HinhAnh;
+                var a = '../../../Admin/Frontend/'+ value.HinhAnh;
                 var $item = $('<div>', {
                     id: 'sales'+i++,
                     class: 'item-product'
@@ -266,7 +267,7 @@ function getDataItemPhuKien() {
     var list = $('.list-product-phukien');
 
     $.ajax({
-        url: "API/DataItemPhuKienAPI.php",
+        url: "../API/DataItemPhuKienAPI.php",
         method: "POST",
         data: {
         },
@@ -275,7 +276,7 @@ function getDataItemPhuKien() {
            
             danhsachphukien = data;
             danhsachphukien.forEach(function (value) {
-                var a = '../../Admin/Frontend/'+ value.Hinhanh;
+                var a = '../../../Admin/Frontend/'+ value.Hinhanh;
                 var $item = $('<div>', {
                     id:'pk'+ i++,
                     class: 'item-product size-item'
@@ -364,7 +365,7 @@ function getDataIMGTinTuc() {
     var listIMG = $('.c-3');
 
     $.ajax({
-        url: "API/DataIMGTinTucAPI.php",
+        url: "../API/DataIMGTinTucAPI.php",
         method: "POST",
         data: {
         },
@@ -373,7 +374,7 @@ function getDataIMGTinTuc() {
            
             DanhsachIMGTinTuc = data;
             DanhsachIMGTinTuc.forEach(function (value) {
-                var a = '../../Admin/Frontend/'+ value.HinhAnh;
+                var a = '../../../Admin/Frontend/'+ value.HinhAnh;
                 var $item = $('<div>', {
                     id:'TT'+ i++,
                     class: 'slide__ads__wrapper tablet__disable'

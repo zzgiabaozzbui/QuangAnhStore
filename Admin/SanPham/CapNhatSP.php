@@ -20,9 +20,11 @@
     overflow: hidden;
 }
 .btnUpdate{
-    background-color: #28a745;
+    background-color: #0b7dda;
     color: white;
     padding: 4px 10px;
+    border-radius: 5px;
+    border: none;
         }
 form{
     margin-left: 20px;
