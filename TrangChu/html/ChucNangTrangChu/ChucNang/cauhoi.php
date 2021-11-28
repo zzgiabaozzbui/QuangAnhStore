@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../Css/cauhoi.css">
+    <link rel="stylesheet" href="../../../css/HeaderStyle.css">
+    <link rel="stylesheet" href="../../../css/FooterStyle.css">
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +16,9 @@
     $Tentk='manhhlunn';
     ?>
     <form action="" method="POST">
-    <div class="header"></div>
+    <div class="header">
+        <?php require_once '../../Header.php'?>
+    </div>
     <div class="content">
         <div class="content__title">
             <h1>Hỏi đáp, bình luận</h1>
@@ -122,7 +126,9 @@
             </div>
         </div>
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+    <?php require_once '../../Footer.php'?>
+    </div>
     <script>
         var hide=document.querySelectorAll('.ortherques__element__rep');
         var btn=document.querySelectorAll('.element__body__rep');

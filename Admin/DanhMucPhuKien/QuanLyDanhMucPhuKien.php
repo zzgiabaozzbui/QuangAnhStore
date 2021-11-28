@@ -78,7 +78,7 @@
                     echo "<tr>";
                     echo "<td>" . $row["Maloai"] . "</td>";
                     echo "<td>" . $row["Tenloai"] . "</td>";
-                    echo "<td>" . "<img src='http://localhost/DAC/QuangAnhStore/Admin/DanhMucPhuKien/Image/". $row["Anhmota"] ."' alt=''>" . "</td>";
+                    echo "<td>" . "<img src='./Image/". $row["Anhmota"] ."' alt=''>" . "</td>";
                     echo "<td>" . $row["MoTa"] . "</td>";
                     echo "<td><a href='CapNhatDanhMuc.php?Maloai=".$row["Maloai"]."' class=''><i class='ti-pencil icon--update'></i></a></td>";
                     echo "<td><a href='XoaDanhMuc.php?Maloai=".$row["Maloai"]."' class='' onclick='return confirm(\"Are you sure you want to delete?\")'><i class='ti-trash icon--delete'></i></a></td>";

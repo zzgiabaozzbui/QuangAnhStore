@@ -70,7 +70,7 @@
                 <div class="body-right">
                     <div class="img">
                         <?php
-                    echo "<td>" . "<img class='img-info'src='http://localhost/DAC/QuangAnhStore/Admin/DanhMucPhuKien/Image/". $Anh ."' alt=''>" . "</td>";
+                    echo "<td>" . "<img class='img-info'src='./Image/". $Anh ."' alt=''>" . "</td>";
                         ?>
                     </div>
                     <div class="nav">

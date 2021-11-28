@@ -11,15 +11,12 @@ a
 {
     text-decoration: none;
 }
-.header
-{
-    height: 65px;
-    background-color: red;
-}
+
 .content
 {
+    
     width: 1200px;
-    margin: auto;
+    margin: 65px auto ;
 }
 .content__title
 {
