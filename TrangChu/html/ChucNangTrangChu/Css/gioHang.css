@@ -3,10 +3,9 @@
     margin: 0px;
     padding: 0px;
 }
-.header
+.content 
 {
-    background-color: red;
-    height: 64px;
+    margin-top: 90px;
 }
 .title
 {
@@ -85,8 +84,9 @@ h1
 .select-number
 {
     font-size: 18px;
-    width: 24px;
-    padding: 5px 5px 5px 16px;
+    width: 40px;
+    text-align: center;
+    
 }
 .cart__item--delete
 {

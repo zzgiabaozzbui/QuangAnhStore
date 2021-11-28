@@ -763,3 +763,12 @@ margin: 0 0 0 16px;
     opacity: 1;
     cursor: pointer;
 }
+.contact_zalo img{
+    position: fixed;
+    width: 50px;
+    border-radius: 50px;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+    cursor: pointer;
+}

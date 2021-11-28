@@ -61,10 +61,10 @@
                     <a href="http://localhost/QuangAnhStore/Admin/DongSanPham/">
                         <li><i class="ti-truck"  style="color: #f44336;"></i><p>Dòng sản phẩm</p></li>
                     </a>
-                    <a href="http://localhost:8080/QuangAnhStore/Admin/PhuKien/">
+                    <a href="http://localhost/QuangAnhStore/Admin/Phukien/QuanLyPhuKien.php">
                         <li><i class="ti-headphone" style="color: #00bcd4;"></i><p>Quản lý phụ kiện</p></li>
                     </a>
-                    <a href="http://localhost:8080/QuangAnhStore/Admin/PhuKien/">
+                    <a href="http://localhost/QuangAnhStore/Admin/DanhmucPhukien/QuanLyDanhMucPhuKien.php">
                         <li><i class="ti-settings"  style="color: #9c27b0;"></i><p>Danh mục phụ kiện</p></li>
                     </a>
                     <a href="http://localhost:8080/QuangAnhStore/Admin/DonHang/">

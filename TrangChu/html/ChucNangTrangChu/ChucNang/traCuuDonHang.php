@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Css/traCuuDonHang.css">
+    <link rel="stylesheet" href="../Css/traCuuDonHang.css">
+    <link rel="stylesheet" href="../../../css/HeaderStyle.css">
+    <link rel="stylesheet" href="../../../css/FooterStyle.css">
+    <link rel="stylesheet" href="../themify-icons/themify-icons.css">
     <title>Document</title>
 </head>
 <body>
     <form action="" method="POST">
-    <div class="header"></div>
+    <div class="header">
+    <?php require_once '../../TrangchuDT/Header.php'?>
+    </div>
     <div class="content">
         <div class="content__search">
             <div class="content__search__title">
@@ -21,7 +26,7 @@
                     <input type="text" class="search__input" name="txtPhone">
                 </div>
                 <div class="search__item">
-                    <label for="" class="labelInput__type">Mã hóa đơn :</label>
+                    <label for="" class="labelInput__type">Mã đơn hàng :</label>
                     <input type="text" class="search__input" name='txtID'>
                 </div>
                 <div class="search__item">
@@ -76,7 +81,7 @@
                         
                         echo" <div class='bill__element'>";
                         echo" <div class='bill__ID'>";
-                        echo"  <h3 class='ID'>Mã hóa đơn : ".$row['Mahoadon']."</h3>";
+                        echo"  <h3 class='ID'>Mã đơn hàng : ".$row['Mahoadon']."</h3>";
                         echo" </div>";
                         echo"<div class='bill__info'>";
                         echo"    <h4>Tên khách hàng : ".$row['Ten']."</h4>";
@@ -141,7 +146,7 @@
                                                 echo"    <div class='bill__item'>";
                                                 echo"       <div class='bill__item__info'>";
                                                 echo"           <div class='div__item__img'>";
-                                                echo"               <img src='http://localhost/DAC/QuangAnhStore/Admin/PhuKien/Image/". $row3['Hinhanh']."' class='item__img'>";
+                                                echo"               <img src='http://localhost/QuangAnhStore/Admin/PhuKien/Image/". $row3['Hinhanh']."' class='item__img'>";
                                                 echo"           </div>";
                                                 echo"           <div class='item__amount'>";
                                                 echo"     ".$row2['SoLuong']." x";
@@ -224,7 +229,9 @@
             
         </div>
     </div>
-    <vid class="footer"></vid>
+    <vid class="footer">
+    <?php require_once '../../TrangchuDT/Footer.php'?>  
+    </vid>
     </form>
 </body>
 </html>

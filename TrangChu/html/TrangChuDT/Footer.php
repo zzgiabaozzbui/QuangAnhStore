@@ -13,11 +13,11 @@
         <div class="footer--menu">
             <div class="row">
                 <div class="col padding--footer footer--menu--findStore">
-                    <h3>Tìm cửa hàng</h3>
+                    <!-- <h3>Tìm cửa hàng</h3>
                     
                     <a href="">Tìm cửa hàng gần nhất</a>
                     <a href="">Mua hàng từ xa</a>
-                    <a style="color: red;" href="">Gặp trực tiếp cửa hàng gần nhất (Zalo hoặc gọi)</a>
+                    <a style="color: red;" href="">Gặp trực tiếp cửa hàng gần nhất (Zalo hoặc gọi)</a> -->
                     <h3>Phương thức thanh toán</h3>
                     <div class=" footer--card">
                         <div >
@@ -37,23 +37,23 @@
                     
                 </div>
                 <div class="col padding--footer footer--menu--call">
-                    <p>Gọi mua hàng: <b>1800.2097</b> (8h00 - 22h00)</p>
+                     <p>Gọi mua hàng: <b>1800.2097</b> (8h00 - 22h00)</p>
                     <p>Gọi khiếu nại: <b>1800.2063</b> (8h00 - 21h30)</p>
-                    <p>Gọi bảo hành: <b>1800.2064</b> (8h00 - 21h00)</p>
+                    <!-- <p>Gọi bảo hành: <b>1800.2064</b> (8h00 - 21h00)</p>  -->
                     <h3>Đối tác dịch vụ bảo hành</h3>
-                    <p>Điện Thoại - Máy tính</p>
+                    <!-- <p>Điện Thoại - Máy tính</p> -->
                     <div class="partner">
                         <img src="https://blog.trginternational.com/hs-fs/hubfs/image-1486440340-tg-4.jpg?width=800&height=243&name=image-1486440340-tg-4.jpg" alt="">
                     </div>
                 </div>
                 <div class="col padding--footer footer--menu--Search">
                     <a href="">Mua hàng và thanh toán online</a>
-                    <a href="">Mua hàng trả góp online</a>
-                    <a href="">Tra thông tin bảo hành</a>
+                    <!-- <a href="">Mua hàng trả góp online</a> -->
+                    <!-- <a href="">Tra thông tin bảo hành</a> -->
                     <a href="">Tra cứu hóa đơn điện tử</a>
-                    <a href="">Trung tâm bảo hành chính hãng</a>
-                    <a href="">Quy định về việc sao lưu dữ liệu</a>
-                    <a href="">Dịch vụ bảo hành điện thoại</a>
+                    <!-- <a href="">Trung tâm bảo hành chính hãng</a>
+                    <a href="">Quy định về việc sao lưu dữ liệu</a> -->
+                    <!-- <a href="">Dịch vụ bảo hành điện thoại</a> -->
                 </div>
                 <div class="col padding--footer footer--menu--policy">
                     <a href="">Quy chế hoạt động</a>
