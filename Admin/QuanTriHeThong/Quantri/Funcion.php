@@ -1,4 +1,5 @@
 <?php
+    
     function show_sex($index){
         if ($index=="1") {
             $sex="Nam";
@@ -47,9 +48,13 @@
             return "<img src='../../Frontend/img/quantri/user.png' style='width: 50px; border-radius: 100%;'>";
 
         }else
-        return "<img src=".$link." style='width: 50px; border-radius: 100%;'>";
+        return "<img src='../$link' style='width: 50px; border-radius: 100%;'>";
     }
-    function Table1($result,$table_name){
+    function Table1($result,$table_name,$r){
+        if(isset($_POST["txtSearch"]))
+            $key=$_POST["txtSearch"];
+        else
+            $key ="";
         $table_name1 = "$table_name"."1";
         echo "<div id='".$table_name."' class='tbl-header ' >";
         echo "<table class='tb' cellpadding='0' cellspacing='0' border='0'>";
@@ -97,15 +102,59 @@
         echo "</tbody>";
         echo "</table>";
         echo "</div>";
+
+        //đóng các thẻ phân trang tồn tại trước đó
+        echo "<script type='text/javascript'>";
+        echo "if (document.getElementById('pt')) {var tbl_Main = document.getElementById('pt'); tbl_Main.parentNode.removeChild(tbl_Main);}";
+        echo "</script>";
+        echo "<div class=' tb' >";
+
+        echo "<table id='pt' class='tb' cellpadding='0' cellspacing='0' border='0'>";
+            echo "<tbody>";
+            //lấy trang hiện tai từ đừng link
+            $current_page=isset($_GET['page']) ? $_GET['page'] : 1;
+            //Tính và làm tròn tổng trang, mỗi trang 5 dòng
+            $total_page = ceil($r/5);
+            //Phân trang
+            
+                echo "<tr >";
+                    echo "<td style='border:none;'>";
+                        if ($current_page > 1 && $total_page > 1){
+                            echo '<a href="index.php?se='.($key).'&page='.($current_page-1).'">Prev</a> | ';
+                        }
+                        
+                        // Lặp khoảng giữa
+                        for ($i = 1; $i <= $total_page; $i++){
+                            // Nếu là trang hiện tại thì hiển thị thẻ span
+                            // ngược lại hiển thị thẻ a
+                            if ($i == $current_page){
+                                echo '<span>'.$i.'</span> | ';
+                            }
+                            else{
+                                echo '<a href="index.php?se='.($key).'&page='.$i.'">'.$i.'</a> | ';
+                            }
+                        }
+                    
+                        // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                        if ($current_page < $total_page && $total_page > 1){
+                            echo '<a href="index.php?se='.($key).'&page='.($current_page+1).'">Next</a> | ';
+                        }
+                    echo "</td >";
+                echo "</tr>"; 
+            echo "</tbody>";
+        echo "</table>";
+        echo "</div>";
+        
+        
     }
-    function conect($query,$table_name){
+    function conect($query,$table_name,$r){
         //Step1
         $conn = mysqli_connect("localhost","root","",DATABASE);
         if($conn == true){
             //Step3
             $result = mysqli_query($conn,$query);
             if(mysqli_num_rows($result)>0){
-                Table1($result,$table_name);
+                Table1($result,$table_name,$r);
             }
             else{
                 echo "Data is empty";
@@ -116,7 +165,7 @@
         }
     }
     function Bieudo(){
-        $query = "SELECT MaDong as Quyen , Gia AS size_status FROM sanpham WHERE 1 ";
+        $query = "SELECT Quyen as Quyen , doanhthu AS size_status,tienpk AS size_status2,tiendt AS size_status3 FROM vm_bd ";
         $conn = mysqli_connect("localhost","root","","qldt");
         if($conn == true){
             //Step3
@@ -134,13 +183,29 @@
         }    
     }
 
+    
 
+
+    function row($query){
+        $conn = mysqli_connect("localhost","root","","qldt");
+        if($conn == true){
+            //Step3
+            $result = mysqli_query($conn,$query);
+            if(mysqli_num_rows($result)>0){
+                $row = mysqli_num_rows($result);
+                return $row;
+            }
+            else{
+                echo "Data is empty";
+            }
+        }
+        else{
+            echo "Connect error:" . mysqli_connect_error();
+        }    
+    }
 
     function SelectAll($id){
-        $table_name = "tbl_Main";
-        // Lệnh chỉ lấy ngày tháng năm:
-        // $querySelectKey= "select ID,HoTen,GioiTinh,Date_format(NgaySinh,'%Y-%m-%d') as NgaySinh,
-        // QueQuan,TrinhDoHocVan from tblsinhvien ;
+        
         $query = "SELECT * FROM quantri where MaNV='".$id."'";
         $conn = mysqli_connect("localhost","root","","qldt");
         if($conn == true){
@@ -158,31 +223,71 @@
             echo "Connect error:" . mysqli_connect_error();
         }    
     }
-    function Select(){
-        $table_name = "tbl_Main";
-        $query = "SELECT MaNV, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt, Quyen, Trangthai,img FROM quantri ";
-        conect($query,$table_name);    
-    }
+    
     function SearchByName(){
-        $table_name ="tbl_search";
-        $key = $_POST['txtSearch'];
-        if($key==''){
-            $query = "SELECT MaNV, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt, Quyen, Trangthai,img FROM quantri";
+        if(isset($_POST["txtSearch"]))
+            $key=$_POST["txtSearch"];
+        else
+            $key ="";
+        $current_page=isset($_GET['page']) ? $_GET['page'] : 1;
+        //Hiện từ dòng $sta+1
+        $sta=($current_page-1)*5;
+
+        $table_name ="tbl_Main";
+        if($key==""){
+            $query = "SELECT MaNV, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt, Quyen, Trangthai,img FROM quantri ";
+            $r= row($query);
+            $query=$query."LIMIT ".$sta.", 5";
         }else{
             $query = "SELECT MaNV, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt, Quyen, Trangthai,img FROM quantri where fullname like N'%".$key."%'";
+            $r= row($query);
+            $query=$query."LIMIT ".$sta.", 5";
         }
         echo "<script type='text/javascript'>";
         echo " var txtSearch = document.getElementById('txtSearch'); txtSearch.value = '".$key."'";
         echo "</script>";
         
-        conect($query,$table_name);     
+        
+        conect($query,$table_name,$r);
         
     }
+    function SearchByNam($key){
+        $current_page=isset($_GET['page']) ? $_GET['page'] : 1;
+        //Hiện từ dòng $sta+1
+        $sta=($current_page-1)*5;
+
+        $table_name ="tbl_Main";
+        if($key==""){
+            $query = "SELECT MaNV, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt, Quyen, Trangthai,img FROM quantri ";
+            $r= row($query);
+            $query=$query."LIMIT ".$sta.", 5";
+        }else{
+            $query = "SELECT MaNV, Tendangnhap, Matkhau, fullname, Gioitinh, Sdt, Quyen, Trangthai,img FROM quantri where fullname like N'%".$key."%'";
+            $r= row($query);
+            $query=$query."LIMIT ".$sta.", 5";
+        }
+        echo "<script type='text/javascript'>";
+        echo " var txtSearch = document.getElementById('txtSearch'); txtSearch.value = '".$key."'";
+        echo "</script>";
+        
+        
+        conect($query,$table_name,$r);
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-
-
-
-
     function Update($id,$tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$quyen,$tt){
         $tit="";
         if ($tk=="") {
@@ -214,9 +319,9 @@
             $tit="Vui lòng chọn trạng thái của tài khoản!!!";
             md($tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$quyen,$tt);
         }else{
-            $linkAnh = "../../Frontend/img/quantri/";
+            $linkAnh = "../Frontend/img/quantri/";
             if ($_FILES['fileUpload']['error'] > 0) {
-                $link = "../../Frontend/img/quantri/user.png";
+                $link = "../Frontend/img/quantri/user.png";
             } else {
                 //Copy ảnh và lấy link tương đối
                 move_uploaded_file($_FILES['fileUpload']['tmp_name'], $linkAnh . $_FILES['fileUpload']['name']);
@@ -225,7 +330,7 @@
 
             $tit="";
             //Step1
-            $conn = mysqli_connect("localhost","root","",DATABASE);
+            $conn = mysqli_connect("localhost","root","","qldt");
             if($conn == true){
                 //step2
                 $query = "UPDATE quantri SET Tendangnhap= '".$tk."',Matkhau='".$mk."',fullname='".$name."',Gioitinh ='.$sex.',Email ='".$email."',Diachi='".$dc."',Ngaysinh='".$date."',Sdt='".$sdt."',Quyen='.$quyen.',Trangthai='.$tt.',img='".$link."' WHERE MaNV= ".$id."";
@@ -312,12 +417,12 @@
             $tit="Vui lòng chọn trạng thái của tài khoản!!!";
             md($tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$quyen,$tt);
         }else{
-            $linkAnh = "../../Frontend/img/quantri/";
+            $linkAnh = "../Frontend/img/quantri/";
             if ($_FILES['fileUpload']['error'] > 0) {
-                $link = "../../Frontend/img/quantri/user.png";
+                $link = "../Frontend/img/quantri/user.png";
             } else {
                 //Copy ảnh và lấy link tương đối
-                move_uploaded_file($_FILES['fileUpload']['tmp_name'], $linkAnh . $_FILES['fileUpload']['name']);
+                move_uploaded_file($_FILES['fileUpload']['tmp_name'],"../". $linkAnh . $_FILES['fileUpload']['name']);
                 $link = $linkAnh . $_FILES['fileUpload']['name'];
             }
 
@@ -326,7 +431,7 @@
             echo "alert('Một nhân viên mới sẽ được thêm vào !!!');";
             echo "</script>";
             //step2
-            $query = "INSERT INTO quantri VALUES( NULL,'".$tk."','".$mk."','".$name."','.$sex.','".$email."','".$dc."','".$date."','".$sdt."','.$quyen.','.$tt.','.$link.')";
+            $query = "INSERT INTO quantri VALUES( NULL,'".$tk."','".$mk."','".$name."','.$sex.','".$email."','".$dc."','".$date."','".$sdt."','.$quyen.','.$tt.','$link')";
             //Step1
             $conn = mysqli_connect("localhost","root","",DATABASE);
             if($conn == true){
