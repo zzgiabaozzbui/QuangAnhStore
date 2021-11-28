@@ -556,15 +556,15 @@
                         <h2>ĐIỆN THOẠI</h2>
                     </a>
                     <div class="box-list-item">
-                        <a href="#" class="item">Samsung</a>
-                        <a href="#" class="item">Apple</a>
-                        <a href="#" class="item">Xiaomi</a>
-                        <a href="#" class="item">OPPO</a>
+                        <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/?Madong=md001" class="item">Samsung</a>
+                        <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/?Madong=md002" class="item">Apple</a>
+                        <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/?Madong=md003" class="item">Xiaomi</a>
+                        <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/?Madong=md004" class="item">OPPO</a>
                         <a href="#" class="item">Vsmart</a>
                         <a href="#" class="item">Realmi</a>
                         <a href="#" class="item">Nokia</a>
                         <a href="#" class="item">ASUS</a>
-                        <a href="#" class="item">Vivo</a>
+                        <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/?Madong=md005" class="item">Vivo</a>
                         <a href="#" class="item">Xem tất cả</a>
                     </div>
                 </div>
