@@ -16,6 +16,11 @@
 </head>
 
 <body>
+    <div class="contact_zalo">
+        <a href="">
+            <img src="../../img/Desktop logo/logo-zalo.png" alt="">
+    </a>
+    </div>
     <div class="main">
         <div class="slide grid wide">
             <div class="row">
