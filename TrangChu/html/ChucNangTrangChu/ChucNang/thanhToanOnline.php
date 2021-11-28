@@ -114,7 +114,7 @@
             </div>
             <div class="billID">
                 <div class="billID__title">
-                    - Mã hóa đơn :
+                    - Mã đơn hàng :
                 </div>
                 <div class="billID__text">
                    <?php echo $MHD?>
@@ -144,7 +144,7 @@
                     </div>
                     <div class="payment--online__content__hide bank">
                         <div class="hide__title">
-                            <h3>Chuyển khoản với nội dung :ThanhToanHoaDon_Mã hóa đơn.</h3>
+                            <h3>Chuyển khoản với nội dung :ThanhToanHoaDon_Mã đơn hàng.</h3>
                         </div>
                         <div class="hide__text">
                             Số tài khoản : 0123456789 Ngân Hàng VIB chi nhánh ........ .....
@@ -160,7 +160,7 @@
                     </div>
                     <div class="payment--online__content__hide zalopay">
                         <div class="hide__title">
-                            <h3>Chuyển tiền với nội dung :ThanhToanHoaDon_Mã hóa đơn.</h3>
+                            <h3>Chuyển tiền với nội dung :ThanhToanHoaDon_Mã đơn hàng.</h3>
                         </div>
                         <div class="hide__text">
                             Số điện thoại : 0123456789 
@@ -176,7 +176,7 @@
                     </div>
                     <div class="payment--online__content__hide shopeepay">
                         <div class="hide__title">
-                            <h3>Chuyển tiền với nội dung :ThanhToanHoaDon_Mã hóa đơn.</h3>
+                            <h3>Chuyển tiền với nội dung :ThanhToanHoaDon_Mã đơn hàng.</h3>
                         </div>
                         <div class="hide__text">
                             Số điện thoại : 0123456789
@@ -192,7 +192,7 @@
                     </div>
                     <div class="payment--online__content__hide momo">
                         <div class="hide__title">
-                            <h3>Chuyển tiền với nội dung :ThanhToanHoaDon_Mã hóa đơn.</h3>
+                            <h3>Chuyển tiền với nội dung :ThanhToanHoaDon_Mã đơn hàng.</h3>
                         </div>
                         <div class="hide__text">
                             Số điện thoại : 0123456789
