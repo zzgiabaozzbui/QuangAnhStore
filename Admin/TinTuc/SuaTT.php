@@ -30,7 +30,7 @@
                 <input required class="form-control fileUpload" type="file" name="fileUpload" value="<?php echo isset($_FILES['fileUpload']) ? $_FILES['fileUpload'] : '' ?>" id="fileUpload">
             </div>
             <button type="button" id="btnLuu" name="btnLuu">Lưu</button>
-            <a href="index.php">Quay lại</a>
+            <a href="TinTucHome.php">Quay lại</a>
         </form>
     </div>
 </div>

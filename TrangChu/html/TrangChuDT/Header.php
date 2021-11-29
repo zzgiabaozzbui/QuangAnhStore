@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../font/themify-icons/themify-icons.css">
-   
-   
+    <link rel="stylesheet" href="http://localhost/QuangAnhStore/TrangChu/font/themify-icons/themify-icons.css">
+
+
     <link rel="stylesheet" href="../../css/HeaderStyle.css">
     <!-- <link rel="stylesheet" href="../css/tablet.css"> -->
     <title>Document</title>
@@ -24,7 +24,7 @@
             <div class="smartphone__header__logo">
                 <a href="">
                     <img src="../HangDienThoai/1.png" alt="">
-            </a>
+                </a>
             </div>
 
 
@@ -33,8 +33,8 @@
                 <input type="text" name="" id="" placeholder="Bạn cần tìm gì?">
             </div>
             <div class="smartphone__header__location">
-                
-                
+
+
                 <i class="fas ti-angle-down"></i>
             </div>
             <div class="smartphone__shopping__cart">
@@ -93,8 +93,8 @@
                         <img src="../../img/Desktop logo/logo_Design.png" alt="">
                     </a>
                 </div>
-    
-                
+
+
                 <!-- Submenu modal -->
                 <div class="header__location__submenu__modal"></div>
                 <!-- Search bar -->
@@ -114,17 +114,18 @@
                 <!-- Navbar list -->
                 <div class="header__navbar">
                     <ul class="header__navbar__list">
-                        <li class="header__navbar__item">
+                    <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper">
                                 <a href="" class="header__navbar__item__link">
-                                    <i class="fas ti-headphone-alt"></i>
+                                    <i class="ti-comment-alt"></i>
                                     <div class="header__navbar__item__link__desc__wrapper">
-                                        <p>Gọi mua hàng</p>
-                                        <p>1800.2097</p>
+                                        <p>Đặt câu hỏi</p>
+                                        <p>bình luận</p>
                                     </div>
                                 </a>
                             </div>
                         </li>
+
                         <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper">
                                 <a href="" class="header__navbar__item__link">
@@ -147,6 +148,7 @@
                                 </a>
                             </div>
                         </li>
+                       
                         <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper">
                                 <a href="" class="header__navbar__item__link">
@@ -165,11 +167,12 @@
                                         <i class="far ti-user"></i>
                                     </div>
                                     <div class="header__navbar__item__link__desc__wrapper">
-                                        <p>Smember</p>
+                                        <p>Đăng nhập</p>
                                     </div>
                                 </a>
                             </div>
                         </li>
+
                     </ul>
                 </div>
             </div>

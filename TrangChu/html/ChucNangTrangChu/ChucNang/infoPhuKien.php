@@ -101,8 +101,9 @@
                         <div class="box__buy">
                             <button class="btnBuy" name="btnBuy"><i class="ti-shopping-cart"></i> Thêm vào giỏ hàng</button>
                         </div>
-                        <div class="box__buy">
-                            <button class="btnBuyNow" name="btnBuyNow">Mua ngay</button>
+                        <div class="box__buynow">
+                            
+                            <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/ThemVaoGioHang.php?ID=<?php echo $ID;?>" class="btnBuyNow" name="btnBuyNow">Mua ngay</a>                      
                         </div>
                     </div>
                     <div class="box__des__gift">
@@ -228,5 +229,6 @@
         }
     
     ?>
+    
 </body>
 </html>

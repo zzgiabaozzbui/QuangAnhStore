@@ -93,7 +93,6 @@ function getData(index, per_page) {
         <td class='text-right size-td'>${value.TomTat}</td>
         <td class='tc'  id='btnUpdate'><a><i class='icon ti-pencil-alt'> </i></a></td>
         <td ><a id='btnDelete'><i class='icon ti-trash'> </i></a></td>
-        <td ><a><i class='icon ti-eye'> </i></a></td>
         `;
                 tableBodyDOM.appendChild(tableRow);
             });

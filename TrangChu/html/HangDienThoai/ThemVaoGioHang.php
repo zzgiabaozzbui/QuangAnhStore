@@ -21,10 +21,24 @@
     <?php 
     require_once "../TrangChuDT/Header.php";
     require_once "../Shared_Element/DB.php";
+    if(isset($_GET['MaSP']))
+    {
+        $maSP=$_GET['MaSP'];
+        $querySelect="select * from sanpham where masp='".$maSP."'";
+        $resultSelect=selectItem($querySelect);
+        $tenSP=$resultSelect[0]['TenSP'];
+        $Gia=number_format($resultSelect[0]['Gia']);
+        $linkImg="../../../Admin/Frontend/".$resultSelect[0]['HinhAnh'];
+    }
+    else{
+        $maSP=$_GET['ID'];
+        $querySelect="select * from chitietphukien where Maphukien='".$maSP."'";
+        $resultSelect=selectItem($querySelect);
+        $tenSP=$resultSelect[0]['Tenphukien'];
+        $Gia=number_format($resultSelect[0]['Gia']);
+        $linkImg="http://localhost/QuangAnhStore/Admin/PhuKien/Image/".$resultSelect[0]['Hinhanh'];
+    }
     
-    $maSP=$_GET['MaSP'];
-    $querySelect="select * from sanpham where masp='".$maSP."'";
-    $resultSelect=selectItem($querySelect);
 
     $maHD="";
     ?>
@@ -32,11 +46,11 @@
         <h2>Đặt hàng ngay</h2>
         <div class="Product_cart-header">
             <div class="Product_cart_info-img">
-                <img src="../../../Admin/Frontend/<?php echo $resultSelect[0]['HinhAnh'];?>" alt="">
+                <img src="<?php echo $linkImg;?>" alt="">
             </div>
             <div class="Product_cart_info">
-                <h3><?php echo $resultSelect[0]['TenSP'];?></h3>
-                <p id="Gia"><?php echo number_format($resultSelect[0]['Gia']);?> </p> 
+                <h3><?php echo $tenSP;?></h3>
+                <p id="Gia"><?php echo $Gia;?> </p> 
                 <p class="Tien"> vnđ</p> 
                 <div class="Product-promotion">
                 <p class="header-sale"><i class="ti-gift"></i> Chương trình khuyến mãi</p>
@@ -62,7 +76,7 @@
         <div class="Product-Total">
             <p>- Tổng tiền</p>
             <div id="Product-Total_money">
-                <input type="text" name="total" id="total" readonly value="<?php echo number_format($resultSelect[0]['Gia']);?>"> 
+                <input type="text" name="total" id="total" readonly value="<?php echo $Gia;?>"> 
                 <p> vnđ</p>
             </div>
         </div>
@@ -162,6 +176,7 @@
     </div> -->
 
     <?php
+        
         if($_SERVER["REQUEST_METHOD"]=== 'POST' and isset($_POST['btnDirectly']))
         {
             if(isset($_POST['txtHoTen']))
@@ -188,7 +203,7 @@
                 $resultSelectHD=selectItem($selectHD);
                 $queryInsertCTHD="insert into chitiethoadon values ('".$resultSelectHD[0]['Mahoadon']."','".$maSP."',".$soLuong.")";
                 $resuiltCTHD=ChangeDataNoTitle($queryInsertCTHD);
-                echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+                
             }       
         }
         if( isset($_POST['btnOnline']))
