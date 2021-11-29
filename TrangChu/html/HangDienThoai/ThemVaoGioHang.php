@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +19,7 @@
     <title>Shopping Cart</title>
 </head>
 <body>
-    <?php 
-   
+    <?php   
     require_once "../TrangChuDT/Header.php";
     require_once "../Shared_Element/DB.php";
     if(isset($_GET['MaSP']))
