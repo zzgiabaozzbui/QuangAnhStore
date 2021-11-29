@@ -39,14 +39,14 @@ body{
     width: 100%;
     align-items: center;
     text-align: center;
-    background-color: #eeeeee;
+    background-color: white;
     border-bottom:1px solid #d1d1d1 ;
 }
 .logo--name{
     font-size: 25px;
     display: block;
     margin-left: 60px;
-    color: rgb(255 87 34);
+    color: rgb(44 196 203);
     font-family: 'Times New Roman', Times, serif;
 }
 /* #sideBar ul{
@@ -92,7 +92,7 @@ ul .action-sideBar:hover{
     margin-left: 0 !important;
 }
 .logo{
-    background-image: url("../img/Avatar/logo_Design.png");
+    background-image: url("../img/Avatar/logo2.png");
     display: block;
     text-align: center;
     position: relative;
