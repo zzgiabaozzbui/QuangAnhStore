@@ -106,6 +106,17 @@
                 <!-- Navbar list -->
                 <div class="header__navbar">
                     <ul class="header__navbar__list">
+                    <li class="header__navbar__item">
+                            <div class="header__navbar__item__wrapper">
+                                <a href="http://localhost/QuangAnhStore/Login/KhachHang/Update.php" class="header__navbar__item__link">
+                                    <i class="ti-info-alt"></i>
+                                    <div class="header__navbar__item__link__desc__wrapper">
+                                        <p>Chi tiết</p>
+                                        <p>tài khoản</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
                         <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper">
                                 <a href="http://localhost/QuangAnhStore/TrangChu/html/Chucnangtrangchu/chucnang/cauhoi.php" class="header__navbar__item__link">
@@ -118,17 +129,7 @@
                             </div>
                         </li>
 
-                        <li class="header__navbar__item">
-                            <div class="header__navbar__item__wrapper">
-                                <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.google.com%2Fmaps%2Fdir%2F%3Fapi%3D1%26destination%3D21.05969%252C105.78244%26fbclid%3DIwAR25cNoBBAtW2TLJP7CR_LHd_Tur4y5yS2J8-5hxEh3Qu8DpdliSSPOvFeQ&h=AT06NY0G0xaY712LlMCMYNMD933ZD_qcqjkbQhmjrpQOcvhsY-A9U8AiQAhkdl6eQnP4QKoc3EB-TSsPsJLDjSIJi6c3CCGE9Z0GxZXC_ySjL_xRGESrsRsSAcYWbxiVhXMSXQ" class="header__navbar__item__link">
-                                    <i class="ti-location-pin"></i>
-                                    <div class="header__navbar__item__link__desc__wrapper">
-                                        <p>Địa chỉ</p>
-                                        <p>cửa hàng</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
+                     
                         <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper">
                                 <a href="http://localhost/QuangAnhStore/TrangChu/html/ChucNangtrangchu/chucnang/tracuudonhang.php" class="header__navbar__item__link">
