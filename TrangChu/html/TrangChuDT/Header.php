@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/QuangAnhStore/TrangChu/font/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="http://localhost/QuangAnhStore/TrangChu/css/HeaderStyle.css">
+    <link rel="stylesheet" href="http://localhost/QuangAnhStore/TrangChu/font/themify-icons/themify-icons.css">
 
 
     <!-- <link rel="stylesheet" href="../css/tablet.css"> -->
@@ -85,151 +85,7 @@
         <div class="header grid wide">
             <div class="row">
                 <!-- Logo Icon -->
-                <div class="header__logo__wrapper ">
-                    <div class="header__logo">
-                        <i class="ti-menu"></i>
-                        <div class="slidebar slidebar-menu">
-                            <ul class="slidebar__list">
-                                <li class="slidebar__item slidebar__item_menu">
-                                    <a href="" class="slidebar__item__link">
-                                        <div class="slidebar__item__link__text__wrapper">
-                                            <div class="slidebar__item__link__text__wrapper__icon__box">
-                                                <i class="fas fa-mobile-alt"></i>
-                                            </div>
-                                            <p>Điện thoại</p>
-                                        </div>
-                                        <div class="slidebar__item__link__icon__last__wrapper">
-                                            <i class="ti-angle-right"></i>
-                                        </div>
-                                    </a>
-                                    <!-- Subnav điện thoại -->
-                                    <div class="slidebar__item__submenu">
-                                        <ul class="slidebar__item__submenu__list">
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Apple</p>
-<<<<<<< Updated upstream
-
-                                                </a>
-                                                <!-- Subnav Second Điện thoại-->
-
-=======
-
-                                                </a>
-                                                <!-- Subnav Second Điện thoại-->
-
->>>>>>> Stashed changes
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Samsung</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Xiaomi</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>OPPO</p>
-                                                </a>
-                                            </li>
-
-
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Vivo</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>One Plus</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>POCO</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Nubia</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li class="slidebar__item">
-                                    <a href="" class="slidebar__item__link">
-                                        <div class="slidebar__item__link__text__wrapper">
-                                            <div class="slidebar__item__link__text__wrapper__icon__box">
-                                                <i class="fas fa-tablet-alt"></i>
-                                            </div>
-                                            <p>Phụ kiện</p>
-                                        </div>
-                                        <div class="slidebar__item__link__icon__last__wrapper">
-                                            <i class="ti-angle-right"></i>
-                                        </div>
-                                        <!-- Subnav Tablet-->
-                                        <div class="slidebar__item__submenu">
-                                            <ul class="slidebar__item__submenu__list">
-                                                <li class="slidebar__item__submenu__item">
-                                                    <a href="" class="slidebar__item__submenu__item__link">
-                                                        <p>Tai nghe không dây</p>
-                                                    </a>
-                                                </li>
-                                                <li class="slidebar__item__submenu__item">
-                                                    <a href="" class="slidebar__item__submenu__item__link">
-                                                        <p>Tai nghe có dây</p>
-                                                    </a>
-                                                </li>
-                                                <li class="slidebar__item__submenu__item">
-                                                    <a href="" class="slidebar__item__submenu__item__link">
-                                                        <p>Cáp sạc</p>
-                                                    </a>
-                                                </li>
-                                                <li class="slidebar__item__submenu__item">
-                                                    <a href="" class="slidebar__item__submenu__item__link">
-                                                        <p>Ốp lưng, bao da</p>
-                                                    </a>
-                                                </li>
-                                                <li class="slidebar__item__submenu__item">
-                                                    <a href="" class="slidebar__item__submenu__item__link">
-                                                        <p>Sạc dự phòng</p>
-                                                    </a>
-                                                </li>
-                                                <li class="slidebar__item__submenu__item">
-                                                    <a href="" class="slidebar__item__submenu__item__link">
-                                                        <p>Đông hồ thông minh</p>
-                                                    </a>
-                                                </li>
-                                                <li class="slidebar__item__submenu__item">
-                                                    <a href="" class="slidebar__item__submenu__item__link">
-                                                        <p>Thiết bị mạng</p>
-                                                    </a>
-                                                </li>
-                                                <li class="slidebar__item__submenu__item">
-                                                    <a href="" class="slidebar__item__submenu__item__link">
-                                                        <p>Kính dán cường lực</p>
-                                                    </a>
-                                                </li>
-                                                <li class="slidebar__item__submenu__item">
-                                                    <a href="" class="slidebar__item__submenu__item__link">
-                                                        <p>Loa</p>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </a>
-                                </li>
-
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+               
                 <!-- Logo Image -->
                 <div class="header__logo__img">
                     <a href="http://localhost/QuangAnhStore/TrangChu/html/TrangChuDT/trangchu.php">
