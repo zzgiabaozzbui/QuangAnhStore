@@ -390,7 +390,6 @@
 .main .container-content .product-Home-dienthoai {
     width: 1200px;
     display: flex;
-    align-items: center;
     flex-direction: column;
 }
 
@@ -491,7 +490,6 @@
 .main .container-content .product-Home-phukien {
     width: 1200px;
     display: flex;
-    align-items: center;
     flex-direction: column;
 }
 

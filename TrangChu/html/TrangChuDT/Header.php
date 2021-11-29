@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,15 +26,17 @@
             <!-- Điện thoại -->
             <div class="smartphone__header__logo">
                 <a href="">
+<<<<<<< Updated upstream
                     <img src="http://localhost/QuangAnhStore/TrangChu/img/Desktop%20logo/logo_Design.png" alt="">
+=======
+                    <img src="../HangDienThoai/1.png" alt="">
+
+>>>>>>> Stashed changes
                 </a>
             </div>
 
 
-            <div class="smartphone__header__search">
-                <i class="fas ti-search"></i>
-                <input type="text" name="" id="" placeholder="Bạn cần tìm gì?">
-            </div>
+
             <div class="smartphone__header__location">
 
 
@@ -41,9 +46,7 @@
                 <i class="ti-bag"></i>
                 <p>Giỏ hàng</p>
             </div>
-            <div class="smartphone__modal">
 
-            </div>
             <!-- End Điện thoại -->
         </div>
         <!-- Header Background Tablet -->
@@ -51,12 +54,15 @@
         <div class="tablet__header__background">
             <!-- Tablet -->
             <div class="tablet__header__top">
+<<<<<<< Updated upstream
                 <div class="tablet__header__logo">
                     <a href=""><img src="http://localhost/QuangAnhStore/TrangChu/img/Desktop%20logo/logo_Design.png" alt=""></a>
                 </div>
                 <div class="tablet__header__logo__scroll">
                     <a href=""><img src="../img/zalo suopprt/cellphones.png" alt=""></a>
                 </div>
+=======
+>>>>>>> Stashed changes
                 <div class="tablet__header__bottom__scroll">
                     <i class="fas fa-search"></i>
                     <input type="text" name="" id="" placeholder="Bạn cần tìm gì?">
@@ -81,11 +87,148 @@
                 <!-- Logo Icon -->
                 <div class="header__logo__wrapper ">
                     <div class="header__logo">
+                        <i class="ti-menu"></i>
+                        <div class="slidebar slidebar-menu">
+                            <ul class="slidebar__list">
+                                <li class="slidebar__item slidebar__item_menu">
+                                    <a href="" class="slidebar__item__link">
+                                        <div class="slidebar__item__link__text__wrapper">
+                                            <div class="slidebar__item__link__text__wrapper__icon__box">
+                                                <i class="fas fa-mobile-alt"></i>
+                                            </div>
+                                            <p>Điện thoại</p>
+                                        </div>
+                                        <div class="slidebar__item__link__icon__last__wrapper">
+                                            <i class="ti-angle-right"></i>
+                                        </div>
+                                    </a>
+                                    <!-- Subnav điện thoại -->
+                                    <div class="slidebar__item__submenu">
+                                        <ul class="slidebar__item__submenu__list">
+                                            <li class="slidebar__item__submenu__item">
+                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                    <p>Apple</p>
+<<<<<<< Updated upstream
 
+                                                </a>
+                                                <!-- Subnav Second Điện thoại-->
+
+=======
+
+                                                </a>
+                                                <!-- Subnav Second Điện thoại-->
+
+>>>>>>> Stashed changes
+                                            </li>
+                                            <li class="slidebar__item__submenu__item">
+                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                    <p>Samsung</p>
+                                                </a>
+                                            </li>
+                                            <li class="slidebar__item__submenu__item">
+                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                    <p>Xiaomi</p>
+                                                </a>
+                                            </li>
+                                            <li class="slidebar__item__submenu__item">
+                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                    <p>OPPO</p>
+                                                </a>
+                                            </li>
+
+
+                                            <li class="slidebar__item__submenu__item">
+                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                    <p>Vivo</p>
+                                                </a>
+                                            </li>
+                                            <li class="slidebar__item__submenu__item">
+                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                    <p>One Plus</p>
+                                                </a>
+                                            </li>
+                                            <li class="slidebar__item__submenu__item">
+                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                    <p>POCO</p>
+                                                </a>
+                                            </li>
+                                            <li class="slidebar__item__submenu__item">
+                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                    <p>Nubia</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li class="slidebar__item">
+                                    <a href="" class="slidebar__item__link">
+                                        <div class="slidebar__item__link__text__wrapper">
+                                            <div class="slidebar__item__link__text__wrapper__icon__box">
+                                                <i class="fas fa-tablet-alt"></i>
+                                            </div>
+                                            <p>Phụ kiện</p>
+                                        </div>
+                                        <div class="slidebar__item__link__icon__last__wrapper">
+                                            <i class="ti-angle-right"></i>
+                                        </div>
+                                        <!-- Subnav Tablet-->
+                                        <div class="slidebar__item__submenu">
+                                            <ul class="slidebar__item__submenu__list">
+                                                <li class="slidebar__item__submenu__item">
+                                                    <a href="" class="slidebar__item__submenu__item__link">
+                                                        <p>Tai nghe không dây</p>
+                                                    </a>
+                                                </li>
+                                                <li class="slidebar__item__submenu__item">
+                                                    <a href="" class="slidebar__item__submenu__item__link">
+                                                        <p>Tai nghe có dây</p>
+                                                    </a>
+                                                </li>
+                                                <li class="slidebar__item__submenu__item">
+                                                    <a href="" class="slidebar__item__submenu__item__link">
+                                                        <p>Cáp sạc</p>
+                                                    </a>
+                                                </li>
+                                                <li class="slidebar__item__submenu__item">
+                                                    <a href="" class="slidebar__item__submenu__item__link">
+                                                        <p>Ốp lưng, bao da</p>
+                                                    </a>
+                                                </li>
+                                                <li class="slidebar__item__submenu__item">
+                                                    <a href="" class="slidebar__item__submenu__item__link">
+                                                        <p>Sạc dự phòng</p>
+                                                    </a>
+                                                </li>
+                                                <li class="slidebar__item__submenu__item">
+                                                    <a href="" class="slidebar__item__submenu__item__link">
+                                                        <p>Đông hồ thông minh</p>
+                                                    </a>
+                                                </li>
+                                                <li class="slidebar__item__submenu__item">
+                                                    <a href="" class="slidebar__item__submenu__item__link">
+                                                        <p>Thiết bị mạng</p>
+                                                    </a>
+                                                </li>
+                                                <li class="slidebar__item__submenu__item">
+                                                    <a href="" class="slidebar__item__submenu__item__link">
+                                                        <p>Kính dán cường lực</p>
+                                                    </a>
+                                                </li>
+                                                <li class="slidebar__item__submenu__item">
+                                                    <a href="" class="slidebar__item__submenu__item__link">
+                                                        <p>Loa</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </div>
                     </div>
-                    <span class="header__logo__line__1st"></span>
-                    <span class="header__logo__line__2nd"></span>
-                    <span class="header__logo__line__3rd"></span>
                 </div>
                 <!-- Logo Image -->
                 <div class="header__logo__img">
@@ -103,7 +246,8 @@
                         <i class="fas ti-search"></i>
                     </div>
                     <div class="header__search__bar__input">
-                        <input type="text" placeholder="Bạn cần tìm gì?">
+                        <input type="text" name="txtSearch" id="txtSearch" placeholder="Bạn cần tìm gì?" value="<?php echo isset($_POST['txtSearch']) ? $_POST['txtSearch'] : '' ?>">
+
                     </div>
 
                     <div class="header__search__bar__modal">
@@ -114,7 +258,7 @@
                 <!-- Navbar list -->
                 <div class="header__navbar">
                     <ul class="header__navbar__list">
-                    <li class="header__navbar__item">
+                        <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper">
                                 <a href="http://localhost/QuangAnhStore/TrangChu/html/Chucnangtrangchu/chucnang/cauhoi.php" class="header__navbar__item__link">
                                     <i class="ti-comment-alt"></i>
@@ -148,7 +292,7 @@
                                 </a>
                             </div>
                         </li>
-                       
+
                         <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper">
                                 <a href="http://localhost/QuangAnhStore/TrangChu/html/Chucnangtrangchu/chucnang/gioHang.php" class="header__navbar__item__link">
@@ -166,8 +310,16 @@
                                     <div class="header__navbar__item__link__icon__wrapper__last">
                                         <i class="far ti-user"></i>
                                     </div>
+                                    <?php 
+                                        if(isset($_SESSION["us"]))
+                                        {
+                                            $tit = "Đăng xuất";
+                                        }else{
+                                            $tit = "Đăng nhập";
+                                        }
+                                    ?>
                                     <div class="header__navbar__item__link__desc__wrapper">
-                                        <p>Đăng nhập</p>
+                                        <p><?php echo $tit;?></p>
                                     </div>
                                 </a>
                             </div>
