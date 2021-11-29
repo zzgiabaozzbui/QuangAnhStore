@@ -76,12 +76,12 @@
                                     $img=$row2["img"];
                                 }
                                 if($img==NULL)
-                                    return "../Frontend/img/quantri/user.png";
+                                    return "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
                                 else
                                     return $img;
                             }
                             else{
-                                return "../Frontend/img/quantri/user.png";
+                                return "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
                             }
                         }
                         else{
