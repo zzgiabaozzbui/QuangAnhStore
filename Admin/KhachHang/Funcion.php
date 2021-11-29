@@ -22,10 +22,10 @@
 
     function im($link){
         if($link==NULL){
-            return "<img src='../../Frontend/img/khachhang/user.png' style='width: 50px; border-radius: 100%;'>";
+            return "<img src='http://localhost:8080/QuangAnhStore/Admin/Frontend/img/khachhang/user.png' style='width: 50px; border-radius: 100%;'>";
 
         }else
-        return "<img src='../$link' style='width: 50px; border-radius: 100%;'>";
+        return "<img src='http://localhost:8080/QuangAnhStore/Admin/$link' style='width: 50px; border-radius: 100%;'>";
     }
     function Table1($result,$table_name){
         $table_name1 = "$table_name"."1";
@@ -162,12 +162,12 @@
             $tit="Vui lòng chọn trạng thái của tài khoản!!!";
             md($tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$tt);
         }else{
-            $linkAnh = "../Frontend/img/khachhang/";
+            $linkAnh = "Frontend/img/khachhang/";
             if ($_FILES['fileUpload']['error'] > 0) {
-                $link = "../Frontend/img/khachhang/user.png";
+                $link = "Frontend/img/khachhang/user.png";
             } else {
                 //Copy ảnh và lấy link tương đối
-                move_uploaded_file($_FILES['fileUpload']['tmp_name'], "../".$linkAnh . $_FILES['fileUpload']['name']);
+                move_uploaded_file($_FILES['fileUpload']['tmp_name'], "../../".$linkAnh . $_FILES['fileUpload']['name']);
                 $link = $linkAnh . $_FILES['fileUpload']['name'];
             }
             $tit="";
@@ -256,12 +256,12 @@
             $tit="Vui lòng chọn trạng thái của tài khoản!!!";
             md($tk,$mk,$name,$sex,$email,$sdt,$dc,$date,$tt);
         }else{
-            $linkAnh = "../Frontend/img/khachhang/";
+            $linkAnh = "Frontend/img/khachhang/";
             if ($_FILES['fileUpload']['error'] > 0) {
-                $link = "../Frontend/img/khachhang/user.png";
+                $link = "Frontend/img/khachhang/user.png";
             } else {
                 //Copy ảnh và lấy link tương đối
-                move_uploaded_file($_FILES['fileUpload']['tmp_name'],"../". $linkAnh . $_FILES['fileUpload']['name']);
+                move_uploaded_file($_FILES['fileUpload']['tmp_name'],"../../". $linkAnh . $_FILES['fileUpload']['name']);
                 $link = $linkAnh . $_FILES['fileUpload']['name'];
             }
             $tit="";

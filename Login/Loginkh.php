@@ -134,7 +134,7 @@
                     <div >
                         <input  class="rp"  type="checkbox" name="cborp" id="cborp" value="remember">
                         <label class="lblcbo" for="remember">Remember password</label>
-                        <a class="forge" href="https://www.facebook.com/adminQLKS" style="font-size: 11px;">Forget password?</a>
+                        <a class="forge" href="http://localhost:8080/QuangAnhStore/Login/KhachHang/forget.php" style="font-size: 11px;">Forget password?</a>
                     </div>
                     
                     <button  type="submit" name="login__btnlogin" id="login__btnlogin" class="login__btnLogin"><b>Log In</b> </button>

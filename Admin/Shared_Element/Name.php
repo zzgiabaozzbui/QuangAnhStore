@@ -72,7 +72,7 @@
                             $result = mysqli_query($conn,$query);
                             if(mysqli_num_rows($result)>0){
                                 while ($row2=mysqli_fetch_assoc($result)) {
-                                    $img=$row2["img"];
+                                    $img='http://localhost:8080/QuangAnhStore/Admin/'.$row2["img"].'';
                                 }
                                 if($img==NULL)
                                     return "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
