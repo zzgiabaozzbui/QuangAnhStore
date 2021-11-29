@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 29, 2021 lúc 10:20 AM
+-- Thời gian đã tạo: Th10 29, 2021 lúc 04:12 PM
 -- Phiên bản máy phục vụ: 10.4.19-MariaDB
 -- Phiên bản PHP: 7.3.28
 
@@ -50,7 +50,8 @@ INSERT INTO `sanpham` (`MaSP`, `TenSP`, `MaDong`, `HinhAnh`, `Gia`) VALUES
 (15, 'Samsung Galaxy S20 Ultra', 'md001', '../Frontend/img/Featured phone/SamSung/Samsung Galaxy S20 Ultra.jpg', '16000000'),
 (16, 'Samsung Galaxy A02s', 'md001', '../Frontend/img/Featured phone/SamSung/Samsung Galaxy A02s.jfif', '3350000'),
 (17, 'Samsung Galaxy A01 Core', 'md001', '../Frontend/img/Featured phone/SamSung/Samsung Galaxy A01 Core.jpg', '1850000'),
-(18, 'Samsung Galaxy S20 FE 256GB (Fan Edition)', 'md001', '../Frontend/img/Featured phone/SamSung/Samsung Galaxy S20 FE 256GB (Fan Edition).jpg', '12750001');
+(18, 'Samsung Galaxy S20 FE 256GB (Fan Edition)', 'md001', '../Frontend/img/Featured phone/SamSung/Samsung Galaxy S20 FE 256GB (Fan Edition).jpg', '12750001'),
+(29, 'iPhone 12 64GB', 'md002', '../Frontend/img/Featured phone/Apple/iphone-12-blue-select-2020.png', '20400000');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -70,7 +71,7 @@ ALTER TABLE `sanpham`
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `MaSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `MaSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
