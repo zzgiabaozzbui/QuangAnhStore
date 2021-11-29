@@ -284,6 +284,13 @@
                         // $selectCTSP="select * from chitietsanpham ctsp inner join sanpham sp 
                         // on ctsp.masanpham=sp.MaSP where ctsp.masanpham='".$product['MaSP']."' ".$RamDT." ".$BoNhoDT." ".$KichThuocDT." ".$TinhTrangDT."";                                           
                         // $info_SP=selectItem($selectCTSP);
+                        $selectNumberBuy="SELECT Sum(SoLuong) as 'number' FROM `chitiethoadon` where MaSp='".$product['MaSP']."' GROUP by MaSp ";
+                        $countBuy=selectItem($selectNumberBuy);
+                        $soLuongBan=0;
+                        if($countBuy!=null)
+                        {
+                            $soLuongBan=$countBuy[0]['number'];
+                        }
                         if($product!=null)
                         {
                         
@@ -311,15 +318,15 @@
                         <div class="product-price">
                             <p>'.number_format($product['Gia']).' vnđ</p>
                             <div class="product-number_sell">                           
-                                <p>Đã bán 100</p>                         
+                                <p>Đã bán '.$soLuongBan.'</p>                         
                             </div>
                         </div>
                         <div class="product-star">
                             <i class="ti-star star-color"></i>
                             <i class="ti-star star-color"></i>
                             <i class="ti-star star-color"></i>
-                            <i class="ti-star"></i>
-                            <i class="ti-star"></i>
+                            <i class="ti-star star-color"></i>
+                            <i class="ti-star star-color"></i>
                         </div>
 
                     </div>

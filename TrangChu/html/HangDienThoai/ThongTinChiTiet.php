@@ -229,6 +229,13 @@
                     foreach ($resultSelect as $product) {
                         $selectCTSP="select * from chitietsanpham where masanpham='".$product['MaSP']."'";
                         $info_SP=selectItem($selectCTSP);
+                        $selectNumberBuy="SELECT Sum(SoLuong) as 'number' FROM `chitiethoadon` where MaSp='".$product['MaSP']."' GROUP by MaSp ";
+                        $countBuy=selectItem($selectNumberBuy);
+                        $soLuongBan=0;
+                        if($countBuy!=null)
+                        {
+                            $soLuongBan=$countBuy[0]['number'];
+                        }
                     echo'<div class="product-col">
                     <div class="product-favourite">
                         <p>Yêu thích</p>
@@ -253,15 +260,15 @@
                         <div class="product-price">
                             <p>'.number_format($product['Gia']).' vnđ</p>
                             <div class="product-number_sell">                           
-                                <p>Đã bán 100</p>                         
+                                <p>Đã bán '.$soLuongBan.'</p>                         
                             </div>
                         </div>
                         <div class="product-star">
                             <i class="ti-star star-color"></i>
                             <i class="ti-star star-color"></i>
                             <i class="ti-star star-color"></i>
-                            <i class="ti-star"></i>
-                            <i class="ti-star"></i>
+                            <i class="ti-star star-color"></i>
+                            <i class="ti-star star-color"></i>
                         </div>
 
                     </div>
@@ -274,6 +281,10 @@
         <?php
             if($_SERVER["REQUEST_METHOD"]=== 'POST' and isset($_POST['btnAdd_Cart']))
             {
+                if(!isset($_COOKIE['taikhoan'])){
+                    echo "<script>alert('Bạn chưa có tài khoản để thêm giỏ hàng')</script>";
+                    return;
+                }
                 $tenTK="dinhthang";
                 $queryInsertCart="insert into giohang values('".$tenTK."','".$maSP."',1,'".$Gia."')";
                 $resuiltInsertCart=ChangeDataNoReturn($queryInsertCart,"thêm giỏ hàng");
@@ -417,6 +428,7 @@
             show.style.height='auto'
             showIC.style.display='none'
         }
+        
         function OpenMoreConfig(){
             var showMore=document.getElementById('show-More__config')
             var modal=document.getElementById('modal');

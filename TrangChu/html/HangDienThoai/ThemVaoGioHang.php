@@ -21,6 +21,7 @@
     <?php 
     require_once "../TrangChuDT/Header.php";
     require_once "../Shared_Element/DB.php";
+    
     $maSP=$_GET['MaSP'];
     $querySelect="select * from sanpham where masp='".$maSP."'";
     $resultSelect=selectItem($querySelect);
@@ -178,7 +179,7 @@
                 // chitiethoadon:Mahoadon, MaSp, SoLuong
                 // hoadon: mahoadon,ten,sdt,email,luuy,ngaydat,thanhtoan,trangthai,diachi,thanhtien,ngayvanchuyen,ngaygiaohang 
                 $queryInsertHD="insert into hoadon values 
-                (' ',N'".$hoTen."','".$SDT."','".$Email."',N'".$LuuY."','".$ngayDat."',N'Trực tiếp',N'Chưa xác nhận',N'".$diaChi."',
+                (' ',N'".$hoTen."','".$SDT."','".$Email."',N'".$LuuY."','".$ngayDat."',N'Trực tiếp',N'Chờ xác nhận',N'".$diaChi."',
                 '".$tongTien."','".$ngayVanChuyen."','".$ngayGiao."')";
                 $selectHD="select * from hoadon where ten=N'".$hoTen."' and email='".$Email."'and ngaydat='".$ngayDat."' and sdt='".$SDT."' order by Mahoadon desc limit 1"; 
                
@@ -207,7 +208,7 @@
                 // chitiethoadon:Mahoadon, MaSp, SoLuong
                 // hoadon: mahoadon,ten,sdt,email,luuy,ngaydat,thanhtoan,trangthai,diachi,thanhtien,ngayvanchuyen,ngaygiaohang 
                 $queryInsertHD="insert into hoadon values 
-                (' ',N'".$hoTen."','".$SDT."','".$Email."',N'".$LuuY."','".$ngayDat."',N'Online',N'Chưa xác nhận',N'".$diaChi."',
+                (' ',N'".$hoTen."','".$SDT."','".$Email."',N'".$LuuY."','".$ngayDat."',N'Online',N'Chờ xác nhận',N'".$diaChi."',
                 '".$tongTien."','".$ngayVanChuyen."','".$ngayGiao."')";
                 $selectHD="select * from hoadon where ten=N'".$hoTen."' and email='".$Email."'and ngaydat='".$ngayDat."' and sdt='".$SDT."' order by Mahoadon desc limit 1"; 
                
