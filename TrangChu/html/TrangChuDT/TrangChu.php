@@ -1,13 +1,4 @@
-<?php
-    session_start();
-    if(!isset($_SESSION["uskh"]))
-    {
-        echo "<script type='text/javascript'>";
-        echo "alert('Bạn chưa đăng nhập!');";
-        echo "window.location.href='http://localhost/QuangAnhStore/Login/Loginkh.php';";
-        echo "</script>";
-    }
-?>  
+
 <!DOCTYPE html>
 <html lang="en">
 
