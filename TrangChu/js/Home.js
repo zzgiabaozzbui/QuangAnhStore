@@ -31,6 +31,7 @@ var randompPromotion = [{
     items : 'Mua Office Home & Student 2019 kèm Macbook chỉ còn 1,990,000'
 } ,
 ];
+
 var DanhsachGiaCu = [{
     items : '4.490.000 ₫'
 },{
@@ -103,12 +104,16 @@ function getDataItem() {
         success: function (data) {
            
             danhsach = data;
-            danhsach.forEach(function (value) {
+            danhsach.forEach(function (value, i) {
                 var a = '../../../Admin/Frontend/'+ value.HinhAnh;
     
                 var $item = $('<div>', {
                     id:'dt'+ i++,
-                    class: 'item-product'
+                    
+                    class: 'item-product item-product-dienthoai',
+                    data:{
+                        index: i
+                    }
                 }).appendTo(list);
                 var $boxImg = $('<div>', {
                     class: 'item-product__box-img'
@@ -120,14 +125,6 @@ function getDataItem() {
                     id : 'size-img',
                    src :a
                 }).appendTo($a);
-                
-                // var $sticker_percent = $('<div>', {
-                //     class: 'item-product__sticker-percent'
-                // }).appendTo($item);
-                // var iconSticker = $('<p>', {
-                //   text : '5%'
-                // }).appendTo( $sticker_percent);
-        
                 var $boxName =  $('<div>', {
                     class: 'item-product__box-name'
                 }).appendTo($item);
@@ -179,9 +176,8 @@ function getDataItem() {
                     let icon4 = $('<i>',{
                         class: 'icon_star ti-star'
                     }).appendTo($boxprice);
-
                 }
-                else if (i == 9 || i== 11 || i == 12) {
+                else if (i == 9 || i == 11 || i == 12) {
                     let icon1 = $('<i>',{
                         class: 'icon_star ti-star'
                     }).appendTo($boxprice);
@@ -197,8 +193,6 @@ function getDataItem() {
                     let icon5 = $('<i>',{
                         class: 'icon_star ti-star'
                     }).appendTo($boxprice);
-
-
                 }
                 else {
                     let icon1 = $('<i>',{
@@ -237,11 +231,15 @@ function getDataItemSale() {
         success: function (data) {
            
             danhsach = data;
-            danhsach.forEach(function (value) {
+            danhsach.forEach(function (value, i) {
                 var a = '../../../Admin/Frontend/'+ value.HinhAnh;
                 var $item = $('<div>', {
                     id: 'sales'+i++,
-                    class: 'item-product'
+                    class: 'item-product item-product-dienthoai',
+                    data:{
+                        index: i
+                    }
+                    
                 }).appendTo(list);
                 var $boxImg = $('<div>', {
                     class: 'item-product__box-img'
@@ -332,11 +330,15 @@ function getDataItemPhuKien() {
         success: function (data) {
            
             danhsachphukien = data;
-            danhsachphukien.forEach(function (value) {
+            danhsachphukien.forEach(function (value, i) {
                 var a = '../../../Admin/PhuKien/Image/'+ value.Hinhanh;
+                
                 var $item = $('<div>', {
                     id:'pk'+ i++,
-                    class: 'item-product size-item'
+                    class: 'item-product size-item item-product-phukien',
+                    data:{
+                        index: i
+                    }
                 }).appendTo(list);
                 var $boxImg = $('<div>', {
                     class: 'item-product__box-img'
@@ -377,9 +379,6 @@ function getDataItemPhuKien() {
                 var $boxprice =  $('<div>', {
                     class: 'item-product__box-raiting'
                 }).appendTo($item);
-                // var box_raiting = $ ('<div>',{
-                //     class: 'item-product__box-raiting'
-                // }).appendTo($item);
                 if(i == 1 || i== 3 || i== 5) {
                     let icon1 = $('<i>',{
                         class: 'icon_star ti-star'
@@ -459,6 +458,7 @@ function getDataIMGTinTuc() {
         url: "../API/DataIMGTinTucAPI.php",
         method: "POST",
         data: {
+           
         },
         headers: "application/json; charset=utf-8",
         success: function (data) {
@@ -636,14 +636,15 @@ $('.header__search__bar__input').on('keyup', '#txtSearch', function (e) {
                 var list = $('.list-product-dienthoai').html('');
                 let $pk = $('.list-product-phukien').html('');
 
-                danhsach = data;
-                danhsach.forEach(function (value) {
+                DanhSachSearch= data;
+                DanhSachSearch.forEach(function (value) {
                     var a = '../../../Admin/Frontend/' + value.HinhAnh;
                     let urlPk = '../../../Admin/PhuKien/Image/' + value.HinhAnh;
 
                     var $item = $('<div>', {
                         id: 'dt' + i++,
                         class: 'item-product'
+            
                     }).appendTo(value.Type == 1 ? list : $pk);
 
 
@@ -737,10 +738,6 @@ $('.header__search__bar__input').on('keyup', '#txtSearch', function (e) {
                         }).appendTo($boxprice);
                     }
                 })
-
-
-
-
                 randompPromotion.forEach((x, j) => {
                     var item = $('#dt' + j);
                     item.find('.promotion p').text(x.items);
@@ -750,10 +747,26 @@ $('.header__search__bar__input').on('keyup', '#txtSearch', function (e) {
                 alert('Kết nối thất bại');
             }
         });
-
-
     }, 500)
 
-})
+})  
+$(document).on('click', '.item-product-phukien', function (e) {
+    var h = $(e.currentTarget).data('index');
+     var idPhuKien =   danhsachphukien[h].Maphukien;
 
+     let url = '/../../QuangAnhStore/TrangChu/html/ChucNangTrangChu/ChucNang/infoPhuKien.php' ;
+     let param = new URLSearchParams();
+     param.append('idPhuKien', idPhuKien);
+     url += '?' + param.toString();
+     location.href = url;
+})
+$(document).on('click', '.item-product-dienthoai', function (e) {
+    var t = $(e.currentTarget).data('index');
+     var MaSP =   danhsach[t].MaSP;
+     let url = '/../../QuangAnhStore/TrangChu/html/HangDienThoai/ThongTinChiTiet.php' ;
+     let param = new URLSearchParams();
+     param.append('MaSP', MaSP);
+     url += '?' + param.toString();
+     location.href = url;
+})
 

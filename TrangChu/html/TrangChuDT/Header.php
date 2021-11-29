@@ -55,15 +55,6 @@
         <div class="tablet__header__background">
             <!-- Tablet -->
             <div class="tablet__header__top">
-<<<<<<< Updated upstream
-                <div class="tablet__header__logo">
-                    <a href=""><img src="http://localhost/QuangAnhStore/TrangChu/img/Desktop%20logo/logo_Design.png" alt=""></a>
-                </div>
-                <div class="tablet__header__logo__scroll">
-                    <a href=""><img src="../img/zalo suopprt/cellphones.png" alt=""></a>
-                </div>
-=======
->>>>>>> Stashed changes
                 <div class="tablet__header__bottom__scroll">
                     <i class="fas fa-search"></i>
                     <input type="text" name="" id="" placeholder="Bạn cần tìm gì?">
