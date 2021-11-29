@@ -9,20 +9,20 @@
         //Set sheet
         $objExcel->setActiveSheetIndex(0);
         //Set nhãn cho sheet
-        $sheet=$objExcel->getActiveSheet()->setTitle('Danh sách khách hàng');
-        $selectkh="SELECT * FROM khachhang ";
+        $sheet=$objExcel->getActiveSheet()->setTitle('Danh sách quản trị');
+        $selectkh="SELECT * FROM quantri ";
         $result=selectListItems($selectkh);
 
         //Set cột
-        $sheet->setCellValue('A1',"Danh sách khách hàng");
-        $sheet->setCellValue('A3',"Mã khách hàng");
+        $sheet->setCellValue('A1',"Danh sách quản trị");
+        $sheet->setCellValue('A3',"Mã nhân viên");
         $sheet->setCellValue('B3',"Tên đăng nhập");
         $sheet->setCellValue('C3',"Mật khẩu");
         $sheet->setCellValue('D3',"Họ và tên");
         $sheet->setCellValue('E3',"Email");
-        $sheet->setCellValue('F3',"Số điện thoại");
-        $sheet->setCellValue('G3',"Địa chỉ");
-        $sheet->setCellValue('H3',"Ngày sinh");
+        $sheet->setCellValue('F3',"Địa chỉ");
+        $sheet->setCellValue('G3',"Ngày sinh");
+        $sheet->setCellValue('H3',"Số điện thoại");
 
         //Hợp nhất ô
         $sheet->mergeCells('A1:H1');
@@ -50,14 +50,14 @@
 
         foreach ($result as $dt) {
             $row++;
-            $sheet->setCellValue('A'.$row,$dt['MaKH']);
+            $sheet->setCellValue('A'.$row,$dt['MaNV']);
             $sheet->setCellValue('B'.$row,$dt['Tendangnhap']);
             $sheet->setCellValue('C'.$row,$dt['Matkhau']);
             $sheet->setCellValue('D'.$row,$dt['fullname']);
             $sheet->setCellValue('E'.$row,$dt['Email']);
-            $sheet->setCellValue('F'.$row,$dt['sdt']);
-            $sheet->setCellValue('G'.$row,$dt['Diachi']);
-            $sheet->setCellValue('H'.$row,$dt['Ngaysinh']);
+            $sheet->setCellValue('F'.$row,$dt['Diachi']);
+            $sheet->setCellValue('G'.$row,$dt['Ngaysinh']);
+            $sheet->setCellValue('H'.$row,$dt['Sdt']);
         }
 
         //Set border
@@ -75,7 +75,7 @@
         //tạo obj PHPExcel_Writer_Excel2007
         $objWriter= new PHPExcel_Writer_Excel2007($objExcel);
         //đặt tên file
-        $fileName='khachhang.xlsx';
+        $fileName='nhanvien.xlsx';
 
         //Save file excel
         $objWriter->save($fileName);

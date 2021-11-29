@@ -67,10 +67,10 @@
                     <a href="http://localhost/QuangAnhStore/Admin/DanhmucPhukien/QuanLyDanhMucPhuKien.php">
                         <li><i class="ti-settings"  style="color: #9c27b0;"></i><p>Danh mục phụ kiện</p></li>
                     </a>
-                    <a href="http://localhost/QuangAnhStore/Admin/DonHang/">
+                    <a href="http://localhost/QuangAnhStore/Admin/DonHang/DonHangHome.php">
                         <li><i class="ti-write"  style="color: #f44336;"></i><p>Quản lý đơn hàng</p></li>
                     </a>
-                    <a href="http://localhost/QuangAnhStore/Admin/TinTuc/">
+                    <a href="http://localhost/QuangAnhStore/Admin/TinTuc/TInTucHome.php">
                         <li><i class="ti-file"  style="color: #00bcd4;"></i><p>Quản lý tin tức</p></li>
                     </a>
                     <a  onclick="open_hidden_qt()">

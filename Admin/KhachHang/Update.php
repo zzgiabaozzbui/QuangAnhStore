@@ -17,8 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update customer</title>
-    <link rel="stylesheet" href="../../Frontend/css/sideBar.css?version=1">
-    <link rel="stylesheet" href="../../Frontend/font/themify-icons/themify-icons.css">
+    
     <link rel="stylesheet" href="./css/Update.css">
         
     </head>
@@ -43,11 +42,11 @@
         <div class="main">
             
             <?php
-                require "../../Shared_Element/sideBar.php";
+                require "../Shared_Element/sideBar.php";
             ?>
             <div class="container-web">
                 <?php
-                    require "../../Shared_Element/Name.php";
+                    require "../Shared_Element/Name.php";
                 ?>
                 <div class="mainup">
                     <div class="tit">
