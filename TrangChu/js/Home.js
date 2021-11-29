@@ -60,7 +60,34 @@ var DanhsachGiaCu = [{
     items : '3.690.000 ₫'
 } ,
 ];
+var DanhsachSaleGiamGia = [{
+    items : '20%'
+},{
+    items : '10%'
+} ,{
+    items : '15%'
+},{
+    items:'20%'
+} 
 
+,{
+    items : '25%'
+} ,{
+    items : '30%'
+} ,{
+    items : '25%'
+},
+{
+    items:'20%'
+}  
+,{
+    items : '5%'
+} ,{
+    items : '20%'
+} ,{
+    items : '20%'
+} ,
+];
 
 function getDataItem() {
     let i = 0;
@@ -130,24 +157,58 @@ function getDataItem() {
                 var $boxprice =  $('<div>', {
                     class: 'item-product__box-raiting'
                 }).appendTo($item);
-                // var box_raiting = $ ('<div>',{
-                //     class: 'item-product__box-raiting'
-                // }).appendTo($item);
-                var icon1 = $('<i>',{
-                    class: 'icon_star ti-star'
-                }).appendTo($boxprice);
-                var icon2 = $('<i>',{
-                    class: 'icon_star ti-star'
-                }).appendTo($boxprice);
-                // var icon3 = $('<i>',{
-                //     class: 'icon_star ti-star'
-                // }).appendTo($boxprice);
-                // var icon4 = $('<i>',{
-                //     class: 'icon_star ti-star'
-                // }).appendTo($boxprice);
-                // var icon5 = $('<i>',{
-                //     class: 'icon_star ti-star'
-                // }).appendTo($boxprice);
+
+                if(i == 1 || i== 2 || i== 6) {
+                    let icon1 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon2 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+
+                }else if (i == 3 || i== 4 || i == 7) {
+                    let icon1 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon2 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon3 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon4 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+
+                }
+                else if (i == 9 || i== 11 || i == 12) {
+                    let icon1 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon2 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon3 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon4 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon5 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+
+
+                }
+                else {
+                    let icon1 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                }
+                
+                
+
+
 
              })
              randompPromotion.forEach((x,j) => {
@@ -195,10 +256,6 @@ function getDataItemSale() {
                 var $sticker_percent = $('<div>', {
                     class: 'item-product__sticker-percent'
                 }).appendTo($item);
-                var iconSticker = $('<p>', {
-                  text: '20%'
-                }).appendTo($sticker_percent);
-        
                 var $boxName =  $('<div>', {
                     class: 'item-product__box-name'
                 }).appendTo($item);
@@ -218,14 +275,6 @@ function getDataItemSale() {
                 var pPrice =  $('<p>',  {
                     class : 'special-price',text: new Intl.NumberFormat().format(value.Gia)+'đ'
                 }).appendTo($boxprice);
-        
-                // var $boxPromotion =  $('<div>', {
-                //     class: 'promotion'
-                // }).appendTo($item);
-        
-                // var pPromotion =  $('<p>',  {
-                //     class : 'gift-cont',text: 'aa'
-                // }).appendTo($boxPromotion);
                 var $boxprice =  $('<div>', {
                     class: 'item-product__box-raiting'
                 }).appendTo($item);
@@ -252,6 +301,14 @@ function getDataItemSale() {
                let gCu = $('<p>',{
                 class:'special-price-Cu',
                 text : x.items
+            }).appendTo(items)
+            });
+
+            DanhsachSaleGiamGia.forEach((x,j) => {
+                var items = $('#sales'+j).find('.item-product__sticker-percent');
+             
+               let gCu = $('<p>',{
+                 text: x.items
             }).appendTo(items)
             });
         },
@@ -291,13 +348,6 @@ function getDataItemPhuKien() {
                     id : 'size-img',
                    src :a
                 }).appendTo($a);
-                // var $sticker_percent = $('<div>', {
-                //     class: 'item-product__sticker-percent'
-                // }).appendTo($item);
-                // var iconSticker = $('<p>', {
-                  
-                // }).appendTo($sticker_percent);
-        
                 var $boxName =  $('<div>', {
                     class: 'item-product__box-name'
                 }).appendTo($item);
@@ -330,21 +380,62 @@ function getDataItemPhuKien() {
                 // var box_raiting = $ ('<div>',{
                 //     class: 'item-product__box-raiting'
                 // }).appendTo($item);
-                var icon1 = $('<i>',{
-                    class: 'icon_star ti-star'
-                }).appendTo($boxprice);
-                var icon2 = $('<i>',{
-                    class: 'icon_star ti-star'
-                }).appendTo($boxprice);
-                var icon3 = $('<i>',{
-                    class: 'icon_star ti-star'
-                }).appendTo($boxprice);
-                var icon4 = $('<i>',{
-                    class: 'icon_star ti-star'
-                }).appendTo($boxprice);
-                var icon5 = $('<i>',{
-                    class: 'icon_star ti-star'
-                }).appendTo($boxprice);
+                if(i == 1 || i== 3 || i== 5) {
+                    let icon1 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon2 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+
+                }else if (i == 2 || i== 4 || i == 7) {
+                    let icon1 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon2 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon3 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon4 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+
+                }
+                else if (i == 6 || i== 8 || i == 12) {
+                    let icon1 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon2 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon3 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon4 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon5 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+
+
+                }
+                else {
+                    let icon1 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon2 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon3 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                    let icon4 = $('<i>',{
+                        class: 'icon_star ti-star'
+                    }).appendTo($boxprice);
+                }
 
              })
              randompPromotion.forEach((x,j) => {
