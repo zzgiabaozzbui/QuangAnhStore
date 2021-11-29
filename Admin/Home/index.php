@@ -121,6 +121,7 @@
         <div class="container">
             <?php
             require_once "../Shared_Element/Name.php" ;
+            
             require("../QuanTriHeThong/Quantri/Funcion.php");
             $query = "SELECT SUM(doanhthu) AS doanhthu,SUM(tienpk) AS pk,SUM(tiendt) AS dt FROM vm_bd";
             $conn = mysqli_connect("localhost","root","","qldt");

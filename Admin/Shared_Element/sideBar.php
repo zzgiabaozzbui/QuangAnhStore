@@ -87,7 +87,7 @@
                     <a href="http://localhost:8080/QuangAnhStore/Admin/QuangCao/">
                         <li><i class="ti-notepad"  style="color: #009688;"></i><p>Quản lý quảng cáo</p></li>
                     </a>
-                    <a href="">
+                    <a href="http://localhost:8080/QuangAnhStore/Login/dangxuat.php">
                         <li><i class="ti-share-alt"  style="color: #343a40;"></i><p>Đăng xuất</p></li>
                     </a>
                 </ul>
