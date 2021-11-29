@@ -1,4 +1,6 @@
 <?php
+session_start();
+echo $_SESSION['us'];
  require "../Shared_Element/DB.php";
 ?>
 <!DOCTYPE html>
