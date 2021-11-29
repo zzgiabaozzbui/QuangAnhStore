@@ -37,6 +37,25 @@
             echo "Connect error:" . mysqli_connect_error();
         }    
     }
+    function SelectByTK($id){
+        
+        $query = "SELECT * FROM KhachHang where Tendangnhap='".$id."'";
+        $conn = mysqli_connect("localhost","root","","qldt");
+        if($conn == true){
+            //Step3
+            $result = mysqli_query($conn,$query);
+            if(mysqli_num_rows($result)>0){
+                $row = mysqli_fetch_assoc($result);
+                return $row["MaKH"];
+            }
+            else{
+                echo "Data is empty";
+            }
+        }
+        else{
+            echo "Connect error:" . mysqli_connect_error();
+        }    
+    }
 
     
     function Update($id,$tk,$mk,$name,$sex,$email,$sdt,$dc,$date,$tt){

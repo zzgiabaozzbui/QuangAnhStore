@@ -180,7 +180,7 @@
             
 
             $_SESSION['uskh'] = $_POST["txtus"];
-            login();
+            loginkh();
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['DK__btnDK']) ) {
             echo "<script type='text/javascript'>";
