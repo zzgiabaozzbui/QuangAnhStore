@@ -1,6 +1,14 @@
-<?
+<?php
     session_start();
-?>
+    if(!isset($_SESSION["us"]))
+    {
+        echo "<script type='text/javascript'>";
+        echo "alert('Bạn chưa đăng nhập!');";
+        echo "window.location.href='http://localhost:8080/QuangAnhStore/Login/Index.php';";
+        echo "</script>";
+    }
+
+?>  
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,11 +25,11 @@
         <div class="main">
             
             <?php
-                require "../../Shared_Element/sideBar.php";
+                require "../Shared_Element/sideBar.php";
             ?>
             <div class="container-web">
                 <?php
-                    require "../../Shared_Element/Name.php";
+                    require "../Shared_Element/Name.php";
                 ?>
                 <div class="divmain" align="Center">
                     <h3 >Danh sách khách hàng </h3>

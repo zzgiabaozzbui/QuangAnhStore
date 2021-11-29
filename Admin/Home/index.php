@@ -4,7 +4,7 @@
     {
         echo "<script type='text/javascript'>";
         echo "alert('Bạn chưa đăng nhập!');";
-        echo "window.location.href='../../Login';";
+        echo "window.location.href='http://localhost:8080/QuangAnhStore/Login/Index.php';";
         echo "</script>";
     }
 
@@ -122,7 +122,7 @@
             <?php
             require_once "../Shared_Element/Name.php" ;
             
-            require("../QuanTriHeThong/Quantri/Funcion.php");
+            require("../Quantri/Funcion.php");
             $query = "SELECT SUM(doanhthu) AS doanhthu,SUM(tienpk) AS pk,SUM(tiendt) AS dt FROM vm_bd";
             $conn = mysqli_connect("localhost","root","","qldt");
             if($conn == true){

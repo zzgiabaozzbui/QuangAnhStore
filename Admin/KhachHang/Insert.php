@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["us"]))
+    {
+        echo "<script type='text/javascript'>";
+        echo "alert('Bạn chưa đăng nhập!');";
+        echo "window.location.href='http://localhost:8080/QuangAnhStore/Login/Index.php';";
+        echo "</script>";
+    }
+
+?>  
 <!DOCTYPE html>
 <html lang="en">
 <head>

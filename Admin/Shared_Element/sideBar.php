@@ -76,10 +76,10 @@
                     <a  onclick="open_hidden_qt()">
                         <li ><i class="ti-id-badge"  style="color: #ff9800;" ></i><p>Quản trị hệ thống</p></li>
                         <div id="quantri" style="display: none;">
-                            <a class="item-quantri"  href="http://localhost:8080/QuangAnhStore/Admin/QuanTriHeThong/Quantri/">
+                            <a class="item-quantri"  href="http://localhost:8080/QuangAnhStore/Admin/Quantri/">
                             <i class="ti-user"  style="color:lightgreen; " ></i>Quản trị</a>
                             <br>
-                            <a class="item-quantri"  href="http://localhost:8080/QuangAnhStore/Admin/QuanTriHeThong/KhachHang/">
+                            <a class="item-quantri"  href="http://localhost:8080/QuangAnhStore/Admin/KhachHang/">
                             <i class="ti-comments-smiley"  style="color: rgb(255, 20, 147);" ></i>Khách hàng</a>
                         </div>
                     </a>
