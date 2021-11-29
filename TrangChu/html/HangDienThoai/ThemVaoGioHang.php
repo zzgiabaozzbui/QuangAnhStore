@@ -188,7 +188,7 @@
                 $resultSelectHD=selectItem($selectHD);
                 $queryInsertCTHD="insert into chitiethoadon values ('".$resultSelectHD[0]['Mahoadon']."','".$maSP."',".$soLuong.")";
                 $resuiltCTHD=ChangeDataNoTitle($queryInsertCTHD);
-                echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+                
             }       
         }
         if( isset($_POST['btnOnline']))

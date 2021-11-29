@@ -32,7 +32,8 @@
         </div>
         <div class="product_filter">
             <?php
-                
+                $maDong="";
+                if(isset($_GET['Madong']))
                 $maDong=$_GET['Madong'];
                 echo' <form action="./index.php" method="get">';
                 echo'<input type="hidden" name="Madong" value="'.$maDong.'" />';
@@ -96,6 +97,23 @@
                     <option <?= $TinhTrang == '2' ? 'selected' : '' ?> value="2">Sản phẩm cũ</option>
                                      
                 </select>
+    
+                <select name="Madong" id="" class="product_filter--select">
+                    <option value="">Mã dòng</option>
+                    <?php
+                        $querySelectMaDong="select * from tbldongsanpham";                   
+                        $resultSelectMaDong=selectListItems($querySelectMaDong);                      
+                        foreach ($resultSelectMaDong as $maDongDT) {
+                            $selected="";
+                            if($maDong==$maDongDT['Madong'])
+                                $selected="selected";                              
+                            echo '<option '.$selected.' value="'.$maDongDT['Madong'].'">'.$maDongDT['Tendong'].'</option>';
+                        }
+                        
+                    ?>
+                    
+                                     
+                </select>
                 <h3>Sắp xếp theo</h3>
                 <select name="SapXep" id="" class="product_filter--select">
                     <option <?= $SapXep == 'GiaCao' ? 'selected' : '' ?> value="GiaCao">Giá cao</option>
@@ -103,7 +121,7 @@
                 </select>
                 <button type="submit" name="TimKiem">TÌM KIẾM</button>
             </form>
-            
+        
         </div>
         <div class="product-list" id="productID">
             <div class="product-row">
@@ -116,7 +134,7 @@
                     }
                     
                     $index=($current_page-1)*$ProductNumber;  
-                    $querySelect = "select * from sanpham where madong='".$maDong."' limit ".$index.",".$ProductNumber;
+                    $querySelect = "select * from sanpham limit ".$index.",".$ProductNumber;
                     
                     $resultSelect=selectListItems($querySelect);
                     foreach ($resultSelect as $product) {
@@ -174,7 +192,7 @@
         
         <div class="pagination" id="phanTrang">
         <?php
-            $queryCount="Select count(MaSp) as number from sanpham where madong='".$maDong."'";
+            $queryCount="Select count(MaSp) as number from sanpham ";
             $resultCount=selectListItems($queryCount);
             $number=0;
             if($resultCount != null and count($resultCount)>0)
@@ -209,7 +227,7 @@
           </div>
     </div>
     <?php
-            if($_SERVER["REQUEST_METHOD"]=== 'GET' and isset($_GET['TimKiem']))
+            if(isset($_GET['TimKiem']))
             {
             
                 echo "<script type='text/javascript'> 
@@ -234,6 +252,7 @@
                     $RamDT="";
                     $BoNhoDT="";
                     $TinhTrangDT="";
+                    $maDongQuery="";
                     if($Gia!="")
                     {
                         $GiaDT=explode('-',$Gia);
@@ -267,9 +286,16 @@
                     }
                     if($TinhTrang!="")
                     {
-                            $TinhTrangDT="and Tinhtrang='".$TinhTrang."'";                     
+                            $TinhTrangDT= "and Tinhtrang='".$TinhTrang."'";                     
                     }
-                   
+                    if($maDong!="")
+                    {
+                        $maDongQuery=" and sp.Madong='".$maDong."'";
+                    }
+                    else if($maDong=="")
+                    {
+                        $maDongQuery="";
+                    }
                     
                     // ---------------------------Hết xử lý chuỗi-----------------
                     $index=($current_page-1)*$ProductNumber;  
@@ -277,9 +303,10 @@
                     // $resultSelectTenDong=selectItem($querySelectTenDong);
                     // $resultSelectTenDong[0]['Tendong'];
                     $querySelect = "select * from sanpham sp INNER JOIN chitietsanpham ctsp
-                     on sp.MaSP=ctsp.Masanpham WHERE sp.MaDong='".$maDong."'
-                     and (Gia between ".$GiaDT[0]." and ".$GiaDT[1].") ".$RamDT." ".$BoNhoDT." ".$KichThuocDT." ".$TinhTrangDT." ".$SapXepDT." limit ".$index.",".$ProductNumber;                    
-                    $resultSelect=selectListItems($querySelect);
+                     on sp.MaSP=ctsp.Masanpham WHERE
+                      (Gia between ".$GiaDT[0]." and ".$GiaDT[1].") ".$RamDT." ".$BoNhoDT." ".$KichThuocDT." ".$TinhTrangDT."".$maDongQuery." ".$SapXepDT." limit ".$index.",".$ProductNumber;                    
+             
+                     $resultSelect=selectListItems($querySelect);
                     foreach ($resultSelect as $product) {                        
                         // $selectCTSP="select * from chitietsanpham ctsp inner join sanpham sp 
                         // on ctsp.masanpham=sp.MaSP where ctsp.masanpham='".$product['MaSP']."' ".$RamDT." ".$BoNhoDT." ".$KichThuocDT." ".$TinhTrangDT."";                                           
