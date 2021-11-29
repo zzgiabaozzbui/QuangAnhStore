@@ -222,7 +222,7 @@
             }
             else
             {
-                $query2="insert into  giohang values('manhhlunn','".$GLOBALS['ID']."','1','".$GLOBALS['Gia']."')";
+                $query2="insert into  giohang values('".$username."','".$GLOBALS['ID']."','1','".$GLOBALS['Gia']."')";
             }
             echo $query2;
             $result2=mysqli_query($conn,$query2);
