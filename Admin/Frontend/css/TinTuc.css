@@ -126,6 +126,15 @@ height: auto;
     border-radius: 4px;
     margin: 8px 52px 0 0px;
 }
+#btnLuu {
+    width: 70px;
+    height: 34px;
+    margin:0 54px 0 0 ;
+    background-color: #0066ff;
+    color: #fff;
+    border-radius: 4px;
+    margin: 8px 20px 0 0px;
+}
 
 .container-top .ct-button #btnXoa:disabled {
     background-color: #ccc;

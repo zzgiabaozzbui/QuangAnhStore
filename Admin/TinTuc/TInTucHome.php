@@ -60,7 +60,6 @@ session_start();
                             <th class='text-cencter'>Tóm tắt</th>
                             <th class='text-cencter'></th>
                             <th class='text-cencter'></th>
-                            <th class='text-cencter'></th>
                         </thead>
                         <tbody class="customer-tintuc"></tbody>
                     </table>
