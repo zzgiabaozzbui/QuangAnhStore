@@ -8,9 +8,7 @@
     list-style: none;
     text-decoration: none;
 }
-.main {
-   
-}
+
 .main .container-content {
     display: flex;
     flex-direction: column;
