@@ -58,7 +58,8 @@
                 </div>
                 <div class="col padding--footer footer--menu--policy">
                     <a href="https://www.facebook.com/nguyentuanit90.vn">Fanpage Facebook</a>
-                    <a href="https://www.google.com/maps/dir/20.9659108,107.0893801/21.05969,105.78244/@20.9131044,105.8735557,9z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0">Địa chỉ cửa hàng</a>
+                    <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.google.com%2Fmaps%2Fdir%2F%3Fapi%3D1%26destination%3D21.05969%252C105.78244%26fbclid%3DIwAR25cNoBBAtW2TLJP7CR_LHd_Tur4y5yS2J8-5hxEh3Qu8DpdliSSPOvFeQ&h=AT06NY0G0xaY712LlMCMYNMD933ZD_qcqjkbQhmjrpQOcvhsY-A9U8AiQAhkdl6eQnP4QKoc3EB-TSsPsJLDjSIJi6c3CCGE9Z0GxZXC_ySjL_xRGESrsRsSAcYWbxiVhXMSXQ">
+                        Địa chỉ cửa hàng</a>
                 </div>
             </div>
         </div>
@@ -69,9 +70,9 @@
                 <h3><a href="">ĐIỆN THOẠI HOT</a></h3>
             </div>
             <div class="introduce_phone introduce_phone--border">
-                <a href="">Điện thoại iPhone 11</a>
-                <a href="">Điện thoại iPhone 12</a>
-                <a href="">Điện thoại iPhone 13</a>
+                <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/ThongTinChiTiet.php?MaSP=13">Điện thoại iPhone 11</a>
+                <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/ThongTinChiTiet.php?MaSP=1">Điện thoại iPhone 12</a>
+                <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/ThongTinChiTiet.php?MaSP=1">Điện thoại iPhone 13</a>
             </div>
             <div class="introduce_phone">
                 <a href="">Điện thoại SamSung galaxy Z Fold 3</a>
@@ -86,14 +87,14 @@
             </div>
             <div class="introduce_phone introduce_phone--border">
                 
-                <a href="">Điện thoại iPhone</a>
-                <a href="">Điện thoại Samsung</a>
-                <a href="">Điện thoại Oppo</a>
+                <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/index.php?Madong=md002&TimKiem=">Điện thoại iPhone</a>
+                <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/index.php?Madong=md001&TimKiem=">Điện thoại Samsung</a>
+                <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/index.php?Madong=md004&TimKiem=">Điện thoại Oppo</a>
             </div>
             <div class="introduce_phone introduce_phone--border">
                 
-                <a href="">Điện thoại Xiaomi</a>
-                <a href="">Điện thoại Vivo</a>
+                <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/index.php?Madong=md003&TimKiem=">Điện thoại Xiaomi</a>
+                <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/index.php?Madong=md005&TimKiem=">Điện thoại Vivo</a>
                 <a href="">Điện thoại OnePlus</a>
             </div>
         </div>

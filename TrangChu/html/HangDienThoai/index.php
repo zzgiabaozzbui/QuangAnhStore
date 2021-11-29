@@ -1,5 +1,5 @@
 <?php 
-    //setcookie('tk','thangyb27',time()+60,'/');
+        setcookie('tk','thangyb27',time()+60,'/');
 
         require_once "../TrangChuDT/Header.php";
         require_once "../Shared_Element/DB.php"
