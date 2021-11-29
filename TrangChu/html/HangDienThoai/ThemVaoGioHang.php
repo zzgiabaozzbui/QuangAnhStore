@@ -19,6 +19,7 @@
 </head>
 <body>
     <?php 
+   
     require_once "../TrangChuDT/Header.php";
     require_once "../Shared_Element/DB.php";
     if(isset($_GET['MaSP']))
@@ -39,7 +40,7 @@
         $linkImg="http://localhost/QuangAnhStore/Admin/PhuKien/Image/".$resultSelect[0]['Hinhanh'];
     }
     
-
+   
     $maHD="";
     ?>
     <div class="Product_cart">

@@ -19,6 +19,7 @@
 </head>
 <body>
     <?php
+        
         require_once "../TrangChuDT/Header.php";
         require "../Shared_Element/DB.php";
         $maSP= $_GET['MaSP'];
