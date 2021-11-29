@@ -285,7 +285,7 @@ session_start();
         <?php
             if($_SERVER["REQUEST_METHOD"]=== 'POST' and isset($_POST['btnAdd_Cart']))
             {   
-                session_start();
+             
                 if(!isset($_SESSION['uskh'])){
                     echo "<script>alert('Bạn chưa có tài khoản để thêm giỏ hàng')</script>";
                     return;
