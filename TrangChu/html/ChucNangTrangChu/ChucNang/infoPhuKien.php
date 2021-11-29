@@ -199,7 +199,18 @@
         }
         function addToCart()
         {
-            $username='manhhlunn';
+            
+            session_start();
+            if(!isset($_SESSION["uskh"]))
+            {
+            echo "<script type='text/javascript'>";
+            echo "alert('Bạn chưa đăng nhập!');";
+            echo "window.location.href='http://localhost:8080/QuangAnhStore/Login/Loginkh.php';";
+            echo "</script>";
+            }
+            else
+            {
+                $username=$_SESSION["uskh"];
             include './connect.php';
             $query="select * from giohang where Tentaikhoan='".$username."' and MaSp='".$GLOBALS['ID']."'";
             $result=mysqli_query($conn,$query);
@@ -225,6 +236,9 @@
             {
                 echo "<script type='text/javascript'> alert('Thất bại !!');</script>";
             }
+            }
+
+            
 
         }
     
