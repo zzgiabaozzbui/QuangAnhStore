@@ -58,7 +58,7 @@ h1
 .content__bill__item__box
 {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;   
 }
 .bill__item__text
