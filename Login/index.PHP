@@ -1,6 +1,4 @@
-<?php
-    session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +57,7 @@
             $result = mysqli_query($conn,$query);
             if(mysqli_num_rows($result)>0){
                 while ($row2=mysqli_fetch_assoc($result)) {
-                    $img=$row2["img"];
+                    $img='http://localhost:8080/QuangAnhStore/Admin/'.$row2["img"];
                     $name=$row2["fullname"];
                 }
                 if($img==NULL)

@@ -1,3 +1,4 @@
+ 
 <?php
     function show_sex($index){
         if ($index=="1") {

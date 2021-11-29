@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["uskh"]))
+    {
+        echo "<script type='text/javascript'>";
+        echo "alert('Bạn chưa đăng nhập!');";
+        echo "window.location.href='http://localhost:8080/QuangAnhStore/Login/Loginkh.php';";
+        echo "</script>";
+    }
+
+?>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +25,8 @@
     
     <?php 
          global $ID;
-         $ID='dinhthang';
+         $ID=$_SESSION["uskh"];
+         echo $ID;
         $TenSP="";
         $Anh="";
         $Gia="";
