@@ -59,42 +59,18 @@ a {
     height: 53px;
 }
 
-/* .main-app .container-content .tab-content .container-top .ct-ngay .ngay {
-    display: flex;
-    align-items: baseline;
-    font-weight: 600;
-}
-
-.main-app .container-content .tab-content .container-top .ct-ngay .ngay-left {
-    margin-right: 17px;
-}
-
-.main-app .container-content .tab-content .container-top .ct-ngay .ngay-left input {
-    width: 144px;
-    height: 34px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    padding-left: 10px;
-    padding-right: 6px;
-    margin-left: 6px;
-}
-
-.main-app .container-content .tab-content .container-top .ct-ngay .ngay-right input {
-    width: 144px;
-    height: 34px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    padding-left: 10px;
-    padding-right: 6px;
-    margin-left: 6px;   
-} */
 
 #chk-index {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
+.duyet #customers .check-box-indexs {
+    height: 79px;
+}
+#size_ngayGH {
+    width: 100px;
+}
 #customers .check-box-indexs {
     display: flex;
     align-items: center;
@@ -170,6 +146,15 @@ input[type=text] {
 .container-top .ct-button {
 
     
+}
+ #btnExport {
+    width: 96px;
+    height: 30px;
+    margin: 0 54px 0 0;
+    background-color: #0066ff;
+    color: #fff;
+    border-radius: 4px;
+    margin: 14px 0 0 0;
 }
 
 .container-top .ct-button #btnCheck {

@@ -8,5 +8,4 @@ $result = $stmt->get_result();
 $outp = $result->fetch_all(MYSQLI_ASSOC);
 $pages = $outp[0]["Dem"]%$per_page==0?$outp[0]["Dem"]/$per_page:floor($outp[0]["Dem"]/$per_page)+1;
 echo json_encode($pages);
-
 ?>

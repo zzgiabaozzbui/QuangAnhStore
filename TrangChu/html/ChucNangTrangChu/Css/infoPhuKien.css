@@ -17,6 +17,10 @@
     margin: auto;
     width: 1200px;
 }
+.content 
+{
+    margin-top: 80px;
+}
 .content__header
 {
     
@@ -75,7 +79,7 @@ p
     color: red;
     border: 1px solid red;
     padding: 10px;
-    width: 100px;
+    width: 150px;
     text-align: center;
     border-radius: 50px;
     background-color:bisque;
@@ -251,7 +255,7 @@ a
 }
 .similar__item__name, .similar__item__cost
 {
-    width: 80%;
+    width: 100%;
     padding: 10px 20px;
     font-size: 18px;
     font-weight: bolder;

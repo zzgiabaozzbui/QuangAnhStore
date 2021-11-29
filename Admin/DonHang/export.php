@@ -31,7 +31,8 @@
             $sheet->setCellValue('I3',"Số lượng đặt");
             $sheet->setCellValue('J3',"Giá sản phẩm");
             $sheet->setCellValue('K3',"Thành tiền");
-            $sheet->mergeCells('A1:K2');
+            $sheet->setCellValue('I2',"Ngày lập HD:");
+            $sheet->mergeCells('A1:K1');
             $sheet->getColumnDimension("A")->setAutoSize(true);// set auto kich cp
             $sheet->getColumnDimension("B")->setAutoSize(true);// set auto kich cp
             $sheet->getColumnDimension("C")->setAutoSize(true);// set auto kich cp
@@ -83,7 +84,8 @@
             $sheet->setCellValue('F4',date("d-m-Y", strtotime($dt['NgayGiaoHang'])));
             $sheet->setCellValue('K'.($row+1),"=SUM(K4:K$row)");
             $sheet->setCellValue('J'.($row+1),"Tổng tiền:");
-            // $sheet->setCellValue('L2',date("d-m-Y", strtotime()));
+            $ngayDat=date("Y-m-d");
+             $sheet->setCellValue('J2',date("d-m-Y", strtotime($ngayDat)));
             $sheet->getStyle('K'.($row+1))->getFill()->setFillType(\PHPExcel_Style_Fill:: FILL_SOLID)
             ->getStartColor()->setARGB('00ffff00');
             $styleArray=array(

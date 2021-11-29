@@ -1,4 +1,15 @@
 <?php
+    session_start();
+    if(!isset($_SESSION["us"]))
+    {
+        echo "<script type='text/javascript'>";
+        echo "alert('Bạn chưa đăng nhập!');";
+        echo "window.location.href='../../Login';";
+        echo "</script>";
+    }
+
+?>  
+<?php
  require "../Shared_Element/DB.php";
 ?>
 <!DOCTYPE html>
@@ -17,78 +28,7 @@
     <script>
         
 
-//Biểu đồ thống kê
 
-$(document).ready(function () {
-    show();
-});
-
-function show(){
-
-    $.post("data.php",
-        function (data){
-            console.log(data);
-            //Tên cột
-            var formStatusVar = [];
-            //Chiều cao cột
-            var total = []; 
-            var total2 = []; 
-
-            for (var i in data) {
-                formStatusVar.push(data[i].Quyen);
-                total.push(data[i].size_status);
-                total2.push(data[i].size_status);
-            }
-
-            var options = {
-                legend: {
-                    //Ẩn nhãn biểu đồ thì dùng false
-                    display: true
-                },
-                scales: {
-                    xAxes: [{
-                        //chiều rộng cột
-                        barPercentage: 0.5,
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                },
-                
-            };
-
-            var myChart = {
-                labels: formStatusVar,
-                datasets: [
-                    {
-                        label: 'Thống kê điện thoại',
-                        backgroundColor: '#17cbd1',
-                        borderColor: '#46d5f1',
-                        hoverBackgroundColor: '#0ec2b6',
-                        hoverBorderColor: '#42f5ef',
-                        data: total
-                    },
-                    {
-                        label: 'Thống kê phụ kiện',
-                        backgroundColor: '#FE0066',
-                        borderColor: '#FE0066',
-                        hoverBackgroundColor: '#FE0098',
-                        hoverBorderColor: '#FE0098',
-                        data: total2
-                    }
-                ]
-            };
-
-            var bar = $("#graph"); 
-            var barGraph = new Chart(bar, {
-                type: 'bar',
-                data: myChart,
-                options: options
-            });
-        });
-}
     </script>
 
 
@@ -152,6 +92,8 @@ function show(){
         #text1{
             color: white;
             text-align: left;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+            font-size: 20px;
         }
         .img--navone{
             background-image: "https://img.icons8.com/ios-filled/2x/ffffff/visible.png";
@@ -160,10 +102,13 @@ function show(){
             color: white;
             text-align: center;
             font-weight: bold;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
             font-size: 30px;
-            position: relative;
-
-            bottom: 25px;
+        }
+        .icon-money{
+            position: absolute;
+            top: 50px;
+            margin-left: 20px;
         }
     </style>
     
@@ -176,7 +121,28 @@ function show(){
         <div class="container">
             <?php
             require_once "../Shared_Element/Name.php" ;
+            require("../QuanTriHeThong/Quantri/Funcion.php");
+            $query = "SELECT SUM(doanhthu) AS doanhthu,SUM(tienpk) AS pk,SUM(tiendt) AS dt FROM vm_bd";
+            $conn = mysqli_connect("localhost","root","","qldt");
+            if($conn == true){
+                //Step3
+                $result = mysqli_query($conn,$query);
+                if(mysqli_num_rows($result)>0){
+                    while ($row2=mysqli_fetch_assoc($result)) {
+                        $doanhthu=$row2["doanhthu"]==NULL ? 0 : $row2["doanhthu"];
+                        $pk=$row2["pk"]==NULL ? 0 : $row2["pk"];
+                        $dt=$row2["dt"]==NULL ? 0 : $row2["dt"];
+                    }
+                }
+                else{
+                    echo "Data is empty";
+                }
+            }
+            else{
+                echo "Connect error:" . mysqli_connect_error();
+            }    
             ?>
+            
             <div class="container__header--home">
                 <a id="1" class="item--nav">
                     <div class="nav--left">
@@ -184,8 +150,10 @@ function show(){
                     </div>
                     
                     <div class="nav--right">
-                        <canvas id="myCanvas" width="70px" height="70px"></canvas>
-                        <b class="textmoney">70M</b>
+                        <!-- <canvas id="myCanvas" width="70px" height="70px"></canvas> -->
+                        <b class="textmoney"><?php echo $dt;?> </b>
+                        <img class="icon-money" width="45px" src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/2x/external-money-banking-and-finance-kiranshastry-lineal-color-kiranshastry-10.png" alt="">
+                        
                         
                     </div>
                 </a>
@@ -195,8 +163,9 @@ function show(){
                     </div>
                     
                     <div class="nav--right">
-                        <canvas id="myCanvas2" width="70px" height="70px"></canvas>
-                        <b class="textmoney">70M</b>
+                        <!-- <canvas id="myCanvas2" width="70px" height="70px"></canvas> -->
+                        <b class="textmoney"><?php echo $pk;?> </b>
+                        <img class="icon-money" width="45px" src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/2x/external-money-banking-and-finance-kiranshastry-lineal-color-kiranshastry-10.png" alt="">
                         
                     </div>
                 </a>
@@ -206,8 +175,10 @@ function show(){
                     </div>
                     
                     <div class="nav--right">
-                        <canvas id="myCanvas3" width="70px" height="70px"></canvas>
-                        <b class="textmoney">70M</b>
+                        <!-- <canvas id="myCanvas3" width="70px" height="70px"></canvas> -->
+                        <b class="textmoney"><?php echo $doanhthu;?> </b>
+                        <img class="icon-money" width="45px" src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/2x/external-money-banking-and-finance-kiranshastry-lineal-color-kiranshastry-10.png" alt="">
+
                         
                     </div>
                 </a>
@@ -225,76 +196,76 @@ function show(){
     </div>
 </body>
 <script>
-    //Canvas tròn của a1
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
+    // //Canvas tròn của a1
+    // var c = document.getElementById("myCanvas");
+    // var ctx = c.getContext("2d");
     
     
-    ctx.beginPath();
-    ctx.strokeStyle = 'rgba(255,255,255,0.5)';//Đặt màu đường
-    ctx.lineWidth = 7; //Độ rộng
-    ctx.arc(35,35,25,0,2*Math.PI);
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.strokeStyle = 'rgba(255,255,255,0.5)';//Đặt màu đường
+    // ctx.lineWidth = 7; //Độ rộng
+    // ctx.arc(35,35,25,0,2*Math.PI);
+    // ctx.stroke();
 
-    ctx.beginPath();
-    ctx.strokeStyle = 'rgb(255,255,255)';//Đặt màu đường
-    ctx.lineWidth = 6; //Độ rộng
-    ctx.arc(35,35,25,1.5*Math.PI,0.3*2*Math.PI);
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.strokeStyle = 'rgb(255,255,255)';//Đặt màu đường
+    // ctx.lineWidth = 6; //Độ rộng
+    // ctx.arc(35,35,25,1.5*Math.PI,0.3*2*Math.PI);
+    // ctx.stroke();
 
-    //Chữ trong canvas
-    ctx.font = '18px bold Arial';
+    // //Chữ trong canvas
+    // ctx.font = '18px bold Arial';
     
-    ctx.fillStyle = 'White';
-    ctx.fillText('60%', 20, 40);
+    // ctx.fillStyle = 'White';
+    // ctx.fillText('60%', 20, 40);
 
 
-    //Canvas tròn của a2
-    var c = document.getElementById("myCanvas2");
-    var ctx = c.getContext("2d");
-    
-    
-    ctx.beginPath();
-    ctx.strokeStyle = 'rgba(255,255,255,0.5)';//Đặt màu đường
-    ctx.lineWidth = 7; //Độ rộng
-    ctx.arc(35,35,25,0,2*Math.PI);
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.strokeStyle = 'rgb(255,255,255)';//Đặt màu đường
-    ctx.lineWidth = 6; //Độ rộng
-    ctx.arc(35,35,25,1.5*Math.PI,0.3*2*Math.PI);
-    ctx.stroke();
-
-    //Chữ trong canvas
-    ctx.font = '18px bold Arial';
-
-    ctx.fillStyle = 'White';
-    ctx.fillText('60%', 20, 40);
-
-
-    //Canvas tròn của a3
-    var c = document.getElementById("myCanvas3");
-    var ctx = c.getContext("2d");
+    // //Canvas tròn của a2
+    // var c = document.getElementById("myCanvas2");
+    // var ctx = c.getContext("2d");
     
     
-    ctx.beginPath();
-    ctx.strokeStyle = 'rgba(255,255,255,0.5)';//Đặt màu đường
-    ctx.lineWidth = 7; //Độ rộng
-    ctx.arc(35,35,25,0,2*Math.PI);
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.strokeStyle = 'rgba(255,255,255,0.5)';//Đặt màu đường
+    // ctx.lineWidth = 7; //Độ rộng
+    // ctx.arc(35,35,25,0,2*Math.PI);
+    // ctx.stroke();
 
-    ctx.beginPath();
-    ctx.strokeStyle = 'rgb(255,255,255)';//Đặt màu đường
-    ctx.lineWidth = 6; //Độ rộng
-    ctx.arc(35,35,25,1.5*Math.PI,0.3*2*Math.PI);
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.strokeStyle = 'rgb(255,255,255)';//Đặt màu đường
+    // ctx.lineWidth = 6; //Độ rộng
+    // ctx.arc(35,35,25,1.5*Math.PI,0.3*2*Math.PI);
+    // ctx.stroke();
 
-    //Chữ trong canvas
-    ctx.font = '18px bold Arial';
+    // //Chữ trong canvas
+    // ctx.font = '18px bold Arial';
 
-    ctx.fillStyle = 'White';
-    ctx.fillText('60%', 20, 40);
+    // ctx.fillStyle = 'White';
+    // ctx.fillText('60%', 20, 40);
+
+
+    // //Canvas tròn của a3
+    // var c = document.getElementById("myCanvas3");
+    // var ctx = c.getContext("2d");
+    
+    
+    // ctx.beginPath();
+    // ctx.strokeStyle = 'rgba(255,255,255,0.5)';//Đặt màu đường
+    // ctx.lineWidth = 7; //Độ rộng
+    // ctx.arc(35,35,25,0,2*Math.PI);
+    // ctx.stroke();
+
+    // ctx.beginPath();
+    // ctx.strokeStyle = 'rgb(255,255,255)';//Đặt màu đường
+    // ctx.lineWidth = 6; //Độ rộng
+    // ctx.arc(35,35,25,1.5*Math.PI,0.3*2*Math.PI);
+    // ctx.stroke();
+
+    // //Chữ trong canvas
+    // ctx.font = '18px bold Arial';
+
+    // ctx.fillStyle = 'White';
+    // ctx.fillText('60%', 20, 40);
 
 </script>
 </html>

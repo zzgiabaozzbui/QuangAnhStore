@@ -7,4 +7,5 @@
         $data[] = $value;
     }
     echo json_encode($data);
+    
 ?>

@@ -64,7 +64,33 @@
 
         </div>
         <div class="avatar-user">
-                <img src="../Frontend/img/Avatar/115930872_972291409888076_2432106018067168137_n.jpg" alt="">
+                <?php 
+                    function avata(){
+                        $query = "SELECT img  FROM quantri WHERE Tendangnhap = '".$_SESSION["us"]."' ";
+                        $conn = mysqli_connect("localhost","root","","qldt");
+                        if($conn == true){
+                            //Step3
+                            $result = mysqli_query($conn,$query);
+                            if(mysqli_num_rows($result)>0){
+                                while ($row2=mysqli_fetch_assoc($result)) {
+                                    $img=$row2["img"];
+                                }
+                                if($img==NULL)
+                                    return "../Frontend/img/quantri/user.png";
+                                else
+                                    return $img;
+                            }
+                            else{
+                                return "../Frontend/img/quantri/user.png";
+                            }
+                        }
+                        else{
+                            echo "Connect error:" . mysqli_connect_error();
+                        }    
+                    }
+                    
+                ?>
+                <img src="<?php echo avata();?>" alt="">
                 <p>Phạm Thị Đình Thắng</p>
         </div>
     </div>

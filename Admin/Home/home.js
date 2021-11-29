@@ -1,12 +1,10 @@
-
-
 //Biểu đồ thống kê
 
 $(document).ready(function () {
     show();
 });
 
-function show(){
+function show(){ 
 
     $.post("data.php",
         function (data){
@@ -16,11 +14,13 @@ function show(){
             //Chiều cao cột
             var total = []; 
             var total2 = []; 
+            var total3 = []; 
 
             for (var i in data) {
                 formStatusVar.push(data[i].Quyen);
                 total.push(data[i].size_status);
-                total2.push(data[i].size_status);
+                total2.push(data[i].size_status2);
+                total3.push(data[i].size_status3);
             }
 
             var options = {
@@ -46,7 +46,7 @@ function show(){
                 labels: formStatusVar,
                 datasets: [
                     {
-                        label: 'Thống kê điện thoại',
+                        label: 'Tổng doanh thu',
                         backgroundColor: '#17cbd1',
                         borderColor: '#46d5f1',
                         hoverBackgroundColor: '#0ec2b6',
@@ -60,6 +60,14 @@ function show(){
                         hoverBackgroundColor: '#FE0098',
                         hoverBorderColor: '#FE0098',
                         data: total2
+                    },
+                    {
+                        label: 'Thống kê điện thoại',
+                        backgroundColor: '#f4791f',
+                        borderColor: '#f4791f',
+                        hoverBackgroundColor: '#f12711',
+                        hoverBorderColor: '#f12711',
+                        data: total3
                     }
                 ]
             };

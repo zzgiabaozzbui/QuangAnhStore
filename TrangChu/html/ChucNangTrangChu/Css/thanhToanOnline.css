@@ -8,6 +8,10 @@
     background-color: red;
     height: 64px;
 }
+.content 
+{
+    margin-top: 80px;
+}
 i
 {
     font-size: 24px;
@@ -174,6 +178,7 @@ h3
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
+    z-index: 4;
     
 }
 .mess--close
@@ -181,7 +186,7 @@ h3
     position: absolute;
     right: 0;
     top: 0;
-    padding: 8px 0px 6px 12px;
+    padding: 8px 10px 8px 18px;
     background-color: red;
     color: white;
     border-top-right-radius: 20px;

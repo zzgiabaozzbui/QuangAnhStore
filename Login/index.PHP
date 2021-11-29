@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,6 +92,11 @@
         
         require_once("datbase.php");
         if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['login__btnlogin']) ) {
+            setcookie("us",$_POST["txtus"], time() + 3000);
+            $_SESSION['us'] = $_COOKIE['us'];
+            // $_COOKIE['us'];
+            setcookie("ps", $_POST["txtps"], time() + 3000);
+            // $_COOKIE['ps'];
             login();
         }
         
