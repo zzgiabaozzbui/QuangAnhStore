@@ -54,7 +54,7 @@
     </div>
     <div class="content">
         <div class="title">
-            <a href="" class="back"> <i class="ti-home"></i>  Quay lại trang chủ</a>
+            <a href="http://localhost/QuangAnhStore/TrangChu/html/TrangChuDT/trangchu.php" class="back"> <i class="ti-home"></i>  Quay lại trang chủ</a>
             <h1>Giỏ hàng của bạn</h1>
         </div>
         <div class="cart__list">

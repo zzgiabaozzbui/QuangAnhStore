@@ -48,10 +48,10 @@
                     </div>
                 </div>
                 <div class="col padding--footer footer--menu--Search">
-                    <a href="">Đặt câu hỏi hoặc bình luận</a>
+                    <a href="http://localhost/QuangAnhStore/TrangChu/html/Chucnangtrangchu/chucnang/cauhoi.php">Đặt câu hỏi hoặc bình luận</a>
                     <!-- <a href="">Mua hàng trả góp online</a> -->
                     <!-- <a href="">Tra thông tin bảo hành</a> -->
-                    <a href="">Tra cứu đơn hàng</a>
+                    <a href="http://localhost/QuangAnhStore/TrangChu/html/Chucnangtrangchu/chucnang/tracuudonhang.php">Tra cứu đơn hàng</a>
                     <!-- <a href="">Trung tâm bảo hành chính hãng</a>
                     <a href="">Quy định về việc sao lưu dữ liệu</a> -->
                     <!-- <a href="">Dịch vụ bảo hành điện thoại</a> -->
@@ -100,21 +100,21 @@
         </div>
         <div class="col hot_phone padding--footer">
             <div class="header_textPhone">
-                <h3><a href="">Phụ kiện</a></h3>             
+                <h3><a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php">Phụ kiện</a></h3>             
             </div>
             <div class="introduce_phone introduce_phone--border">
-                <p><a href="">Tai nghe không dây Samsung Galaxy Buds 2</a></p>
-                <a href="">Tai nghe Bluetooth Apple AirPods Pro VN/A</a>
+                <p><a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/infoPhuKien.php?MaSp=PK011">Tai nghe không dây Samsung Galaxy Buds 2</a></p>
+                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/infoPhuKien.php?MaSp=PK002">Tai nghe Bluetooth Apple AirPods Pro VN/A</a>
             </div>
             <div class="introduce_phone">
-                <a href="">Apple Watch Series 7 41mm (GPS) Viền nhôm dây cao su | Chính hãng VN/A</a>
+                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/infoPhuKien.php?MaSp=PK007">Apple Watch Series 7 41mm (GPS) Viền nhôm dây cao su | Chính hãng VN/A</a>
                 <p></p>  
-                <a href="">Apple Watch Series 3 42mm (GPS) viền nhôm dây cao su | chính hãng VN/A</a>
+                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/infoPhukien.php?MaSp=PK008">Apple Watch Series 3 42mm (GPS) viền nhôm dây cao su | chính hãng VN/A</a>
                
             </div>
             <div class="introduce_phone introduce_phone--border">
-                <a href="">Củ sạc nhanh Mophie 20w PD Type C</a>
-                <a href="">Sạc nhanh Anker Powerport III Nano 20W A2633</a>
+                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/infoPhuKien.php?MaSp=PK003">Củ sạc nhanh Mophie 20w PD Type C</a>
+                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/infoPhukien.php?MaSp=PK004">Sạc nhanh Anker Powerport III Nano 20W A2633</a>
                
             </div>
         </div>
