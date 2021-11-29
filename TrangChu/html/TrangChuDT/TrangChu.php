@@ -24,6 +24,7 @@
     <?php
     require "Header.php";
     ?>
+    
 </head>
 
 <body>
@@ -76,8 +77,6 @@
                                                 <p>OPPO</p>
                                             </a>
                                         </li>
-
-
 
 
                                         <li class="slidebar__item__submenu__item">

@@ -23,15 +23,17 @@
             <!-- Điện thoại -->
             <div class="smartphone__header__logo">
                 <a href="">
+<<<<<<< Updated upstream
                     <img src="http://localhost/QuangAnhStore/TrangChu/img/Desktop%20logo/logo_Design.png" alt="">
+=======
+                    <img src="../HangDienThoai/1.png" alt="">
+
+>>>>>>> Stashed changes
                 </a>
             </div>
 
 
-            <div class="smartphone__header__search">
-                <i class="fas ti-search"></i>
-                <input type="text" name="" id="" placeholder="Bạn cần tìm gì?">
-            </div>
+
             <div class="smartphone__header__location">
 
 
@@ -41,9 +43,7 @@
                 <i class="ti-bag"></i>
                 <p>Giỏ hàng</p>
             </div>
-            <div class="smartphone__modal">
 
-            </div>
             <!-- End Điện thoại -->
         </div>
         <!-- Header Background Tablet -->
@@ -51,12 +51,15 @@
         <div class="tablet__header__background">
             <!-- Tablet -->
             <div class="tablet__header__top">
+<<<<<<< Updated upstream
                 <div class="tablet__header__logo">
                     <a href=""><img src="http://localhost/QuangAnhStore/TrangChu/img/Desktop%20logo/logo_Design.png" alt=""></a>
                 </div>
                 <div class="tablet__header__logo__scroll">
                     <a href=""><img src="../img/zalo suopprt/cellphones.png" alt=""></a>
                 </div>
+=======
+>>>>>>> Stashed changes
                 <div class="tablet__header__bottom__scroll">
                     <i class="fas fa-search"></i>
                     <input type="text" name="" id="" placeholder="Bạn cần tìm gì?">
@@ -102,10 +105,17 @@
                                             <li class="slidebar__item__submenu__item">
                                                 <a href="" class="slidebar__item__submenu__item__link">
                                                     <p>Apple</p>
+<<<<<<< Updated upstream
 
                                                 </a>
                                                 <!-- Subnav Second Điện thoại-->
 
+=======
+
+                                                </a>
+                                                <!-- Subnav Second Điện thoại-->
+
+>>>>>>> Stashed changes
                                             </li>
                                             <li class="slidebar__item__submenu__item">
                                                 <a href="" class="slidebar__item__submenu__item__link">
@@ -233,7 +243,11 @@
                         <i class="fas ti-search"></i>
                     </div>
                     <div class="header__search__bar__input">
+<<<<<<< Updated upstream
                     <input type="text" name="txtSearch" id="txtSearch" placeholder="Bạn cần tìm gì?" value="<?php echo isset($_POST['txtSearch']) ? $_POST['txtSearch'] : '' ?>">
+=======
+                        <input type="text" name="txtSearch" id="txtSearch" placeholder="Bạn cần tìm gì?" value="<?php echo isset($_POST['txtSearch']) ? $_POST['txtSearch'] : '' ?>">
+>>>>>>> Stashed changes
                     </div>
 
                     <div class="header__search__bar__modal">
