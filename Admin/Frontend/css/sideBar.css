@@ -39,6 +39,7 @@ body{
     width: 100%;
     align-items: center;
     text-align: center;
+    background-color: #eeeeee;
     border-bottom:1px solid #d1d1d1 ;
 }
 .logo--name{

@@ -21,6 +21,7 @@
             height: 80px;
             padding: 10px;
         }
+        
     </style>
     <script>
         function open_hidden_qt()

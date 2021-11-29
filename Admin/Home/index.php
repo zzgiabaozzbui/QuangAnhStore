@@ -107,8 +107,8 @@
         }
         .icon-money{
             position: absolute;
-            top: 50px;
-            margin-left: 20px;
+            top: 55px;
+            margin-left: 10px;
         }
     </style>
     
@@ -152,8 +152,8 @@
                     
                     <div class="nav--right">
                         <!-- <canvas id="myCanvas" width="70px" height="70px"></canvas> -->
-                        <b class="textmoney"><?php echo $dt;?> </b>
-                        <img class="icon-money" width="45px" src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/2x/external-money-banking-and-finance-kiranshastry-lineal-color-kiranshastry-10.png" alt="">
+                        <b class="textmoney"><?php echo number_format($dt);?> </b>
+                        <img class="icon-money" width="35px" src="http://localhost/QuangAnhStore/Admin/Frontend/img/quantri/money.png" alt="">
                         
                         
                     </div>
@@ -165,8 +165,8 @@
                     
                     <div class="nav--right">
                         <!-- <canvas id="myCanvas2" width="70px" height="70px"></canvas> -->
-                        <b class="textmoney"><?php echo $pk;?> </b>
-                        <img class="icon-money" width="45px" src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/2x/external-money-banking-and-finance-kiranshastry-lineal-color-kiranshastry-10.png" alt="">
+                        <b class="textmoney"><?php echo number_format($pk);?> </b>
+                        <img class="icon-money" width="35px" src="http://localhost/QuangAnhStore/Admin/Frontend/img/quantri/money.png" alt="">
                         
                     </div>
                 </a>
@@ -177,8 +177,8 @@
                     
                     <div class="nav--right">
                         <!-- <canvas id="myCanvas3" width="70px" height="70px"></canvas> -->
-                        <b class="textmoney"><?php echo $doanhthu;?> </b>
-                        <img class="icon-money" width="45px" src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/2x/external-money-banking-and-finance-kiranshastry-lineal-color-kiranshastry-10.png" alt="">
+                        <b class="textmoney"><?php echo number_format($doanhthu);?> </b>
+                        <img class="icon-money" width="35px" src="http://localhost/QuangAnhStore/Admin/Frontend/img/quantri/money.png" alt="">
 
                         
                     </div>
