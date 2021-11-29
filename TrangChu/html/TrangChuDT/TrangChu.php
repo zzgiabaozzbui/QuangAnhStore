@@ -19,7 +19,7 @@
     <div class="contact_zalo">
         <a href="">
             <img src="../../img/Desktop logo/logo-zalo.png" alt="">
-    </a>
+        </a>
     </div>
     <div class="main">
         <div class="slide grid wide">
@@ -45,38 +45,10 @@
                                         <li class="slidebar__item__submenu__item">
                                             <a href="" class="slidebar__item__submenu__item__link">
                                                 <p>Apple</p>
-                                                <i class="ti-angle-right"></i>
+
                                             </a>
                                             <!-- Subnav Second Điện thoại-->
-                                            <div class="slidebar__item__submenu__second">
-                                                <ul class="slidebar__item__submenu__list">
-                                                    <li class="slidebar__item__submenu__item">
-                                                        <a href="" class="slidebar__item__submenu__item__link">
-                                                            <p>iPhone 12 Series</p>
-                                                        </a>
-                                                    </li>
-                                                    <li class="slidebar__item__submenu__item">
-                                                        <a href="" class="slidebar__item__submenu__item__link">
-                                                            <p>iPhone 11 Series</p>
-                                                        </a>
-                                                    </li>
-                                                    <li class="slidebar__item__submenu__item">
-                                                        <a href="" class="slidebar__item__submenu__item__link">
-                                                            <p>iPhone X | XR</p>
-                                                        </a>
-                                                    </li>
-                                                    <li class="slidebar__item__submenu__item">
-                                                        <a href="" class="slidebar__item__submenu__item__link">
-                                                            <p>iPhone SE 2020</p>
-                                                        </a>
-                                                    </li>
-                                                    <li class="slidebar__item__submenu__item">
-                                                        <a href="" class="slidebar__item__submenu__item__link">
-                                                            <p>iPhone 13 Series</p>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+
                                         </li>
                                         <li class="slidebar__item__submenu__item">
                                             <a href="" class="slidebar__item__submenu__item__link">
@@ -93,26 +65,10 @@
                                                 <p>OPPO</p>
                                             </a>
                                         </li>
-                                        <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                <p>Nokia</p>
-                                            </a>
-                                        </li>
-                                        <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                <p>Realme</p>
-                                            </a>
-                                        </li>
-                                        <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                <p>Vsmart</p>
-                                            </a>
-                                        </li>
-                                        <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                <p>ASUS</p>
-                                            </a>
-                                        </li>
+
+
+
+
                                         <li class="slidebar__item__submenu__item">
                                             <a href="" class="slidebar__item__submenu__item__link">
                                                 <p>Vivo</p>
@@ -133,40 +89,17 @@
                                                 <p>Nubia</p>
                                             </a>
                                         </li>
-                                        <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                <p>Điện thoại phổ thông
-                                            </a>
-                                        </li>
-                                        <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                <p>Tin đồn - Mới ra
-                                            </a>
-                                        </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="slidebar__item">
-                                <a href="" class="slidebar__item__link">
-                                    <div class="slidebar__item__link__text__wrapper">
-                                        <div class="slidebar__item__link__text__wrapper__icon__box">
-                                            <i class="fas fa-laptop"></i>
-                                        </div>
-                                        <p>Laptop,PC,Màn hình</p>
-                                    </div>
-                                    <div class="slidebar__item__link__icon__last__wrapper">
-                                        <i class="ti-angle-right"></i>
-                                    </div>
 
-
-                            </li>
                             <li class="slidebar__item">
                                 <a href="" class="slidebar__item__link">
                                     <div class="slidebar__item__link__text__wrapper">
                                         <div class="slidebar__item__link__text__wrapper__icon__box">
                                             <i class="fas fa-tablet-alt"></i>
                                         </div>
-                                        <p>Tablet</p>
+                                        <p>Phụ kiện</p>
                                     </div>
                                     <div class="slidebar__item__link__icon__last__wrapper">
                                         <i class="ti-angle-right"></i>
@@ -176,180 +109,47 @@
                                         <ul class="slidebar__item__submenu__list">
                                             <li class="slidebar__item__submenu__item">
                                                 <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>iPad Pro</p>
+                                                    <p>Tai nghe không dây</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
                                                 <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>iPad 10.2</p>
+                                                    <p>Tai nghe có dây</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
                                                 <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>iPad Air</p>
+                                                    <p>Cáp sạc</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
                                                 <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>iPad mini</p>
+                                                    <p>Ốp lưng, bao da</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
                                                 <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Samsung</p>
+                                                    <p>Sạc dự phòng</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
                                                 <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Lenovo</p>
+                                                    <p>Đông hồ thông minh</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
                                                 <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Xiaomi</p>
+                                                    <p>Thiết bị mạng</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
                                                 <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Kindle</p>
+                                                    <p>Kính dán cường lực</p>
                                                 </a>
                                             </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Máy đọc sách</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="slidebar__item">
-                                <a href="" class="slidebar__item__link">
-                                    <div class="slidebar__item__link__text__wrapper">
-                                        <div class="slidebar__item__link__text__wrapper__icon__box">
-                                            <i class="fas fa-headphones-alt"></i>
-                                        </div>
-                                        <p>Âm thanh</p>
-                                    </div>
-                                    <div class="slidebar__item__link__icon__last__wrapper">
-                                        <i class="ti-angle-right"></i>
-                                    </div>
-                                    <!-- Subnav Âm thanh-->
-                                    <div class="slidebar__item__submenu">
-                                        <ul class="slidebar__item__submenu__list">
                                             <li class="slidebar__item__submenu__item">
                                                 <a href="" class="slidebar__item__submenu__item__link">
                                                     <p>Loa</p>
-                                                    <i class="ti-angle-right"></i>
-                                                </a>
-                                                <!-- Subnav Second Âm thanh-->
-                                                <div class="slidebar__item__submenu__second">
-                                                    <ul class="slidebar__item__submenu__list">
-                                                        <li class="slidebar__item__submenu__item">
-                                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                                <p>Loa Bluetooth</p>
-                                                            </a>
-                                                        </li>
-                                                        <li class="slidebar__item__submenu__item">
-                                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                                <p>Loa Tivi | Soundbar</p>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Tai nghe</p>
-                                                    <i class="ti-angle-right"></i>
-                                                </a>
-                                                <!-- Subnav Second Âm thanh-->
-                                                <div class="slidebar__item__submenu__second">
-                                                    <ul class="slidebar__item__submenu__list">
-                                                        <li class="slidebar__item__submenu__item">
-                                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                                <p>Tai nghe Bluetooth</p>
-                                                            </a>
-                                                        </li>
-                                                        <li class="slidebar__item__submenu__item">
-                                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                                <p>Tai nghe nhét tai</p>
-                                                            </a>
-                                                        </li>
-                                                        <li class="slidebar__item__submenu__item">
-                                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                                <p>Tai nghe chụp tai</p>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="slidebar__item">
-                                <a href="" class="slidebar__item__link">
-                                    <div class="slidebar__item__link__text__wrapper">
-                                        <div class="slidebar__item__link__text__wrapper__icon__box">
-                                            <i class="far fa-clock"></i>
-                                        </div>
-                                        <p>Đồng hồ</p>
-                                    </div>
-                                    <div class="slidebar__item__link__icon__last__wrapper">
-                                        <i class="ti-angle-right"></i>
-                                    </div>
-                                    <!-- Subnav Đồng hồ-->
-                                    <div class="slidebar__item__submenu">
-                                        <ul class="slidebar__item__submenu__list">
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Apple Watch</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Samsung</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Garmin</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Xiaomi</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Amazfit</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Huawei</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>OPPO</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Hãng khác</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Vòng tay thông minh</p>
-                                                </a>
-                                            </li>
-                                            <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
-                                                    <p>Đồng hồ định vị trẻ em</p>
                                                 </a>
                                             </li>
                                         </ul>
@@ -357,54 +157,7 @@
                                 </a>
                             </li>
 
-                            <li class="slidebar__item">
-                                <a href="" class="slidebar__item__link">
-                                    <div class="slidebar__item__link__text__wrapper">
-                                        <div class="slidebar__item__link__text__wrapper__icon__box">
-                                            <i class="far fa-keyboard"></i>
-                                        </div>
-                                        <p>Phụ kiện</p>
-                                    </div>
-                                    <div class="slidebar__item__link__icon__last__wrapper">
-                                        <i class="ti-angle-right"></i>
-                                    </div>
-                                </a>
-                            </li>
 
-
-                            <li class="slidebar__item">
-                                <a href="" class="slidebar__item__link">
-                                    <div class="slidebar__item__link__text__wrapper">
-                                        <div class="slidebar__item__link__text__wrapper__icon__box">
-                                            <i class="fas fa-sim-card"></i>
-                                        </div>
-                                        <p>Sim thẻ</p>
-                                    </div>
-                                    <div class="slidebar__item__link__icon__last__wrapper">
-                                        <i class="ti-angle-right"></i>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="slidebar__item">
-                                <a href="" class="slidebar__item__link">
-                                    <div class="slidebar__item__link__text__wrapper">
-                                        <div class="slidebar__item__link__text__wrapper__icon__box">
-                                            <i class="far fa-newspaper"></i>
-                                        </div>
-                                        <p>Tin công nghệ</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="slidebar__item">
-                                <a href="" class="slidebar__item__link">
-                                    <div class="slidebar__item__link__text__wrapper">
-                                        <div class="slidebar__item__link__text__wrapper__icon__box">
-                                            <i class="fas fa-bullhorn"></i>
-                                        </div>
-                                        <p>Khuyến mãi</p>
-                                    </div>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -498,7 +251,7 @@
 
         <div class="container-content">
             <div class="container-sale">
-            <button class="flash__sale__next__btn">
+                <button class="flash__sale__next__btn">
                     <i class="fas ti-angle-right"></i>
                 </button>
                 <button class="flash__sale__prev__btn">
@@ -534,7 +287,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row flash__sale__product__list__wrapper">
                     <div class="box-products">
                         <div class="list-product list-product-Sale">
@@ -585,12 +338,13 @@
                         <h2>Phụ kiện</h2>
                     </a>
                     <div class="box-list-item">
-                        <a href="#" class="item">Loa Tivi | Soundbar
-                        </a>
-                        <a href="#" class="item">Loa Bluetooth</a>
-                        <a href="#" class="item">Tai nghe</a>
-                        <a href="#" class="item">Tai nghe chụp tai</a>
                         <a href="#" class="item">Tai nghe không dây</a>
+                        <a href="#" class="item">Tai nghe có dây</a>
+                        <a href="#" class="item">Cáp sạc</a>
+                       
+                        <a href="#" class="item">Sạc dự phòng</a>
+                        <a href="#" class="item">Đồng hồ thông minh</a>
+                        <a href="#" class="item">Loa</a>
                         <a href="#" class="item">Xem tất cả</a>
                     </div>
                 </div>
