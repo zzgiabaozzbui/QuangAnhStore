@@ -118,7 +118,7 @@
                     echo "<div class='cart__item'>";
                     echo "<div class='cart__item__content'>";
                     echo "<div class='cart__item__img'>";
-                    echo" <img src='http://localhost/QuangAnhStore/'". $Anh."'  class='cart__img'>";
+                    echo" <img src='../../../../Admin/Phukien/". $Anh."'  class='cart__img'>";
                     echo" </div>";
                     echo" <div class='cart__item__text'>";
                     echo" <h3 class='item__name'>".$TenSP."</h3>";
