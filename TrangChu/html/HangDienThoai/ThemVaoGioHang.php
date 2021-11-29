@@ -24,6 +24,8 @@
     $maSP=$_GET['MaSP'];
     $querySelect="select * from sanpham where masp='".$maSP."'";
     $resultSelect=selectItem($querySelect);
+
+    $maHD="";
     ?>
     <div class="Product_cart">
         <h2>Đặt hàng ngay</h2>
@@ -103,13 +105,15 @@
                 </div>
                 
             </form>
-            <div onclick="OpenModal()" id="btnOnline" name="btnOnline">
+      
+                <button onclick="" id="btnOnline" name="btnOnline">       
             <i class="fas fa-wallet"></i>
              Thanh toán online
-        </div>
+        </button>
+   
         </div>
     </div>
-    <div id="modal-Cart">
+    <!-- <div id="modal-Cart">
         <div class="Cart-Online js_modal">
         <div class="Cart-Online_title">
                 <h3>Cú pháp thanh toán online</h3>
@@ -154,7 +158,8 @@
         </div>
         </div>
         
-    </div>
+    </div> -->
+
     <?php
         if($_SERVER["REQUEST_METHOD"]=== 'POST' and isset($_POST['btnDirectly']))
         {
@@ -176,12 +181,43 @@
                 (' ',N'".$hoTen."','".$SDT."','".$Email."',N'".$LuuY."','".$ngayDat."',N'Trực tiếp',N'Chưa xác nhận',N'".$diaChi."',
                 '".$tongTien."','".$ngayVanChuyen."','".$ngayGiao."')";
                 $selectHD="select * from hoadon where ten=N'".$hoTen."' and email='".$Email."'and ngaydat='".$ngayDat."' and sdt='".$SDT."' order by Mahoadon desc limit 1"; 
-
+               
                 
                 $resuiltHD=ChangeDataNoReturn($queryInsertHD,'đặt hàng');
                 $resultSelectHD=selectItem($selectHD);
                 $queryInsertCTHD="insert into chitiethoadon values ('".$resultSelectHD[0]['Mahoadon']."','".$maSP."',".$soLuong.")";
                 $resuiltCTHD=ChangeDataNoTitle($queryInsertCTHD);
+                echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            }       
+        }
+        if( isset($_POST['btnOnline']))
+        {
+            if(isset($_POST['txtHoTen']))
+            {
+                $hoTen=$_POST['txtHoTen'];
+                $soLuong=$_POST['txtSoLuong'];
+                $tongTien=str_replace(',','',$_POST['total']);
+                $SDT=$_POST['txtSDT'];
+                $Email=$_POST['txtEmail'];
+                $diaChi=$_POST['txtDiaChi'];
+                $LuuY=$_POST['txtLuuY'];
+                $ngayDat=date("Y-m-d");
+                $ngayVanChuyen=date('Y-m-d',strtotime($ngayDat.' + 1 days'));
+                $ngayGiao=date('Y-m-d',strtotime($ngayDat.' + 7 days'));
+                // chitiethoadon:Mahoadon, MaSp, SoLuong
+                // hoadon: mahoadon,ten,sdt,email,luuy,ngaydat,thanhtoan,trangthai,diachi,thanhtien,ngayvanchuyen,ngaygiaohang 
+                $queryInsertHD="insert into hoadon values 
+                (' ',N'".$hoTen."','".$SDT."','".$Email."',N'".$LuuY."','".$ngayDat."',N'Online',N'Chưa xác nhận',N'".$diaChi."',
+                '".$tongTien."','".$ngayVanChuyen."','".$ngayGiao."')";
+                $selectHD="select * from hoadon where ten=N'".$hoTen."' and email='".$Email."'and ngaydat='".$ngayDat."' and sdt='".$SDT."' order by Mahoadon desc limit 1"; 
+               
+                
+                $resuiltHD=ChangeDataNoTitle($queryInsertHD,'đặt hàng');
+                $resultSelectHD=selectItem($selectHD);
+                $queryInsertCTHD="insert into chitiethoadon values ('".$resultSelectHD[0]['Mahoadon']."','".$maSP."',".$soLuong.")";
+                $resuiltCTHD=ChangeDataNoTitle($queryInsertCTHD);
+                $maHD=$resultSelectHD[0]['Mahoadon'];
+                echo"<script>window.location.replace('../ChucNangTrangChu/ChucNang/ThanhToanOnline.php?MaHD=".$maHD."');</script>";
             }       
         }
     ?>
@@ -192,6 +228,7 @@
         function formatNumber(num) {
         return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
+
 function replace_number(num)
 {
     return num.toString().replaceAll(",","")
@@ -225,7 +262,7 @@ function replace_number(num)
             }
         }
     </script>
-    <script>
+    <!-- <script>
         const modalContainer= document.querySelector('.js_modal')
         const modal=document.querySelector('#modal-Cart');
         
@@ -244,6 +281,6 @@ function replace_number(num)
         })
         modal.addEventListener('click',closeModal)
         
-    </script>
+    </script> -->
 </body>
 </html>

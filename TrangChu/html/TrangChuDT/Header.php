@@ -89,7 +89,9 @@
                 </div>
                 <!-- Logo Image -->
                 <div class="header__logo__img">
-                    <a href="http://localhost/QuangAnhStore/TrangChu/html/TrangChuDT/trangchu.php"><img src="../../img/Desktop logo/logo_Design.png" alt=""></a>
+                    <a href="http://localhost/QuangAnhStore/TrangChu/html/TrangChuDT/trangchu.php">
+                        <img src="../../img/Desktop logo/logo_Design.png" alt="">
+                    </a>
                 </div>
     
                 
