@@ -82,14 +82,21 @@
                     echo" <div class='cart__item__footer'>";
                     echo"    <a href='XoaGioHang.php?TenTaiKhoan=".$ID."&MaSP=".$MaSP."' class='cart__item--delete'>Xóa khỏi giỏ</a>";
                     echo"  <div class='cart__item--selectnumber'>";
-                    
-                    echo"   <div class='div__update hide'> <a href='GiamGioHang.php?TenTaiKhoan=".$ID."&MaSP=".$MaSP."&Gia=".$Gia."' class='update-number'>-</a> </div>";
+                    if($SoLuong<=1)
+                    {
+                        echo"   <div class='div__update hide'> <a href='GiamGioHang.php?TenTaiKhoan=".$ID."&MaSP=".$MaSP."&Gia=".$Gia."' class='update-number'>-</a> </div>";
+                    }
+                    else
+                    {
+                        echo"   <div class='div__update '> <a href='GiamGioHang.php?TenTaiKhoan=".$ID."&MaSP=".$MaSP."&Gia=".$Gia."' class='update-number'>-</a> </div>";
+                    }
+                   
                     echo"       <input type='text' readonly class='select-number' value=".$SoLuong.">";
                     echo"    <div class='div__update'> <a href='TangGioHang.php?TenTaiKhoan=".$ID."&MaSP=".$MaSP."&Gia=".$Gia."' class='update-number'>+</a> </div>";           
                     echo"    </div>";
                     echo"  </div>";
                     echo"   </div>";
-
+                  
                     }
                     }
                 } 
@@ -111,7 +118,7 @@
                     echo "<div class='cart__item'>";
                     echo "<div class='cart__item__content'>";
                     echo "<div class='cart__item__img'>";
-                    echo" <img src=''". $Anh."'  class='cart__img'>";
+                    echo" <img src='http://localhost/QuangAnhStore/'". $Anh."'  class='cart__img'>";
                     echo" </div>";
                     echo" <div class='cart__item__text'>";
                     echo" <h3 class='item__name'>".$TenSP."</h3>";
@@ -121,22 +128,25 @@
                     echo" <div class='cart__item__footer'>";
                     echo"    <a href='XoaGioHang.php?TenTaiKhoan=".$ID."&MaSP=".$MaSP."' class='cart__item--delete'>Xóa khỏi giỏ</a>";
                     echo"  <div class='cart__item--selectnumber'>";
+                    if($SoLuong<=1)
+                    {
+                        echo"   <div class='div__update hide'> <a href='GiamGioHang.php?TenTaiKhoan=".$ID."&MaSP=".$MaSP."&Gia=".$Gia."' class='update-number'>-</a> </div>";
+                    }
+                    else
+                    {
+                        echo"   <div class='div__update'> <a href='GiamGioHang.php?TenTaiKhoan=".$ID."&MaSP=".$MaSP."&Gia=".$Gia."' class='update-number'>-</a> </div>";
+                    }
                     
-                    echo"   <div class='div__update hide'> <a href='GiamGioHang.php?TenTaiKhoan=".$ID."&MaSP=".$MaSP."&Gia=".$Gia."' class='update-number'>-</a> </div>";
                     echo"       <input type='text' readonly class='select-number' value=".$SoLuong.">";
                     echo"    <div class='div__update'> <a href='TangGioHang.php?TenTaiKhoan=".$ID."&MaSP=".$MaSP."&Gia=".$Gia."' class='update-number'>+</a> </div>";           
                     echo"    </div>";
                     echo"  </div>";
                     echo"   </div>";
+                   
                     }
-                }
+                    }
                 }   
-                if($SoLuong==1)
-                {
-                    echo "<script type='text/javascript'> var hide=document.querySelector('.hide');
-                        hide.style.display='none';
-                    </script>";
-                }
+                
             }
             }
             ?>   
