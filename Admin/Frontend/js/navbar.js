@@ -767,8 +767,8 @@ function chuyenData() {
 
 function hienThiId() {
     var DS = danhsach.filter(x => x.checked);
+    var ma = DS[0].Mahoadon;
     if (DS.length != 0 ){
-        var ma = DS[0].Mahoadon;
         document.getElementById('Form_excel').action = `export.php?Mahoadon=${ma}`;
     }else {
         alert ('Bạn phải chọn 1 khách hàng để xuất hóa đơn.');

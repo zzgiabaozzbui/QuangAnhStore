@@ -33,7 +33,7 @@
     <?php
     $a = 1;
     ?>
-    <form action="export.php?" method="post" id="Form_excel " >
+    <form action="export.php?" method="post" id="Form_excel" >
         <button name="btnExcel" type="submit" id="btnExport" onclick="hienThiId()">
             <i class="far fa-file-excel"></i>
             Xuất excel
