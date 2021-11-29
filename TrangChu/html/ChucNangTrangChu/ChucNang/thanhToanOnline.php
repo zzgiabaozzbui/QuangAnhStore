@@ -94,7 +94,7 @@
                                     echo"  <div class='content__bill__item'>";
                                     echo"  <div class='content__bill__item__box'>";
                                     echo"     <div class='bill__item__img'>";
-                                    echo"          <img src='../../../../Admin/Frontend/". $Anh."'  class='bill__img'>";
+                                    echo"          <img src='../../../../Admin/Phukien/". $Anh."'  class='bill__img'>";
                                     echo"      </div>";
                                     echo"      <div class='bill__item__text'>";
                                     echo"          <h3 class='item__name'>".$TenSP."</h3>";

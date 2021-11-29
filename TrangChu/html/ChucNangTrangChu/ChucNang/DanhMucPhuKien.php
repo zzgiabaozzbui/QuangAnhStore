@@ -87,7 +87,7 @@
                         <p>Yêu thích</p>
                     </div>
                     <div class="product_img">                        
-                        <a href="infoPhuKien.php?MaSp='.$product['MaPhuKien'].'"><img src="../Image/'.$product['Anhmota'].'" alt=""></a>  
+                        <a href="infoPhuKien.php?MaSp='.$product['MaPhuKien'].'"><img src="http://localhost/QuangAnhStore/Admin/Phukien/Image/'.$product['Hinhanh'].'" alt=""></a>  
                     </div>
                     <div class="product-info">
                         <div class="product-name">                        
@@ -217,7 +217,7 @@
                         <p>Yêu thích</p>
                     </div>
                     <div class="product_img">                        
-                        <a href="infoPhuKien.php?MaSp='.$product['MaPhuKien'].'"><img src="../Image/'.$product['Anhmota'].'" alt=""></a>  
+                        <a href="infoPhuKien.php?MaSp='.$product['MaPhuKien'].'"><img src="http://localhost/QuangAnhStore/Admin/Phukien/Image/'.$product['Hinhanh'].'" alt=""></a>  
                     </div>
                     <div class="product-info">
                         <div class="product-name">                        
