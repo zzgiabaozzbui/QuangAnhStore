@@ -72,15 +72,15 @@
                             $result = mysqli_query($conn,$query);
                             if(mysqli_num_rows($result)>0){
                                 while ($row2=mysqli_fetch_assoc($result)) {
-                                    $img='http://localhost:8080/QuangAnhStore/Admin/'.$row2["img"].'';
+                                    $img='http://localhost/QuangAnhStore/Admin/'.$row2["img"].'';
                                 }
                                 if($img==NULL)
-                                    return "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
+                                    return "http://localhost/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
                                 else
                                     return $img;
                             }
                             else{
-                                return "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
+                                return "http://localhost/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
                             }
                         }
                         else{

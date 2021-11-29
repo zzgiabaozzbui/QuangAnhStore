@@ -4,7 +4,7 @@
     {
         echo "<script type='text/javascript'>";
         echo "alert('Bạn chưa đăng nhập!');";
-        echo "window.location.href='http://localhost:8080/QuangAnhStore/Login/Index.php';";
+        echo "window.location.href='http://localhost/QuangAnhStore/Login/Index.php';";
         echo "</script>";
     }
 
@@ -16,8 +16,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert staff</title>
-    <link rel="stylesheet" href="../../Frontend/css/sideBar.css">
-    <link rel="stylesheet" href="../../Frontend/font/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="./css/insert.css">
         
     </head>

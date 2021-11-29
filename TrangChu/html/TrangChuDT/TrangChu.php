@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,7 +95,7 @@
                             </li>
 
                             <li class="slidebar__item">
-                                <a href="" class="slidebar__item__link">
+                                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php" class="slidebar__item__link">
                                     <div class="slidebar__item__link__text__wrapper">
                                         <div class="slidebar__item__link__text__wrapper__icon__box">
                                             <i class="fas fa-tablet-alt"></i>
@@ -108,47 +109,47 @@
                                     <div class="slidebar__item__submenu">
                                         <ul class="slidebar__item__submenu__list">
                                             <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=&Gia=&MaLoai=L01&SapXep=GiaCao&TimKiem=" class="slidebar__item__submenu__item__link">
                                                     <p>Tai nghe không dây</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L01&Gia=&MaLoai=L02&SapXep=GiaCao&TimKiem=" class="slidebar__item__submenu__item__link">
                                                     <p>Tai nghe có dây</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L02&Gia=&MaLoai=L03&SapXep=GiaCao&TimKiem=" class="slidebar__item__submenu__item__link">
                                                     <p>Cáp sạc</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L03&Gia=&MaLoai=L04&SapXep=GiaCao&TimKiem=" class="slidebar__item__submenu__item__link">
                                                     <p>Ốp lưng, bao da</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L04&Gia=&MaLoai=L05&SapXep=GiaCao&TimKiem=" class="slidebar__item__submenu__item__link">
                                                     <p>Sạc dự phòng</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L05&Gia=&MaLoai=L06&SapXep=GiaCao&TimKiem=" class="slidebar__item__submenu__item__link">
                                                     <p>Đông hồ thông minh</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L06&Gia=&MaLoai=L07&SapXep=GiaCao&TimKiem=" class="slidebar__item__submenu__item__link">
                                                     <p>Thiết bị mạng</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L07&Gia=&MaLoai=L08&SapXep=GiaCao&TimKiem=" class="slidebar__item__submenu__item__link">
                                                     <p>Kính dán cường lực</p>
                                                 </a>
                                             </li>
                                             <li class="slidebar__item__submenu__item">
-                                                <a href="" class="slidebar__item__submenu__item__link">
+                                                <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L08&Gia=&MaLoai=L09&SapXep=GiaCao&TimKiem=" class="slidebar__item__submenu__item__link">
                                                     <p>Loa</p>
                                                 </a>
                                             </li>
@@ -338,14 +339,14 @@
                         <h2>Phụ kiện</h2>
                     </a>
                     <div class="box-list-item">
-                        <a href="#" class="item">Tai nghe không dây</a>
-                        <a href="#" class="item">Tai nghe có dây</a>
-                        <a href="#" class="item">Cáp sạc</a>
+                        <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=&Gia=&MaLoai=L01&SapXep=GiaCao&TimKiem=" class="item">Tai nghe không dây</a>
+                        <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L01&Gia=&MaLoai=L02&SapXep=GiaCao&TimKiem=" class="item">Tai nghe có dây</a>
+                        <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L02&Gia=&MaLoai=L03&SapXep=GiaCao&TimKiem=" class="item">Cáp sạc</a>
                        
-                        <a href="#" class="item">Sạc dự phòng</a>
-                        <a href="#" class="item">Đồng hồ thông minh</a>
-                        <a href="#" class="item">Loa</a>
-                        <a href="#" class="item">Xem tất cả</a>
+                        <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L03&Gia=&MaLoai=L05&SapXep=GiaCao&TimKiem=" class="item">Sạc dự phòng</a>
+                        <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L05&Gia=&MaLoai=L06&SapXep=GiaCao&TimKiem=" class="item">Đồng hồ thông minh</a>
+                        <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L06&Gia=&MaLoai=L09&SapXep=GiaCao&TimKiem=" class="item">Loa</a>
+                        <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php" class="item">Xem tất cả</a>
                     </div>
                 </div>
                 <div class="box-products">

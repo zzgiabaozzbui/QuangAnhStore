@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2021 at 05:31 AM
+-- Generation Time: Nov 29, 2021 at 12:30 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.19
 
@@ -46,7 +46,7 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`MaKH`, `Tendangnhap`, `Matkhau`, `fullname`, `Gioitinh`, `Email`, `sdt`, `Diachi`, `Ngaysinh`, `Trangthai`, `img`) VALUES
-(1, 'a', '1', 'Nguyễn Quang Bảo', 1, 'zzgiabaozzbui@gmail.com', '0399645778', 'Thái Bình', '2021-11-02', 1, '../Frontend/img/khachhang/71089849_952558758417428_8367291828201848832_n.jpg'),
+(1, 'a', '1', 'Nguyễn Quang Bảo', 1, 'zzgiabaozzbui@gmail.com', '0399645778', 'Thái Bình', '2021-11-02', 1, 'Frontend/img/khachhang/71089849_952558758417428_8367291828201848832_n.jpg'),
 (2, 'dinhcong', '1', 'Vũ ĐÌnh Công', 1, 'zzgiabao2zzbui@gmail.com', '0399645231', 'Thái Bình', '2021-11-09', 1, NULL),
 (3, 'dinhthang', '1', 'Phạm Đình Thắng', 1, 'zzgiabao3zzbui@gmail.com', '0396512402', 'Thái Bình', '2021-11-02', 1, NULL),
 (4, 'nn01', '1', 'Nguyễn Quang Minh', 1, 'zzgiabao21345zzbui@gmail.com', '0395786231', 'Thái Bình', '2021-11-01', 1, NULL),

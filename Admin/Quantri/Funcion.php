@@ -45,10 +45,10 @@
 
     function im($link){
         if($link==NULL){
-            return "<img src='http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/user.png' style='width: 50px; border-radius: 100%;'>";
+            return "<img src='http://localhost/QuangAnhStore/Admin/Frontend/img/quantri/user.png' style='width: 50px; border-radius: 100%;'>";
 
         }else
-        return "<img src='http://localhost:8080/QuangAnhStore/Admin/$link' style='width: 50px; border-radius: 100%;'>";
+        return "<img src='http://localhost/QuangAnhStore/Admin/$link' style='width: 50px; border-radius: 100%;'>";
     }
     function Table1($result,$table_name,$r){
         if(isset($_POST["txtSearch"]))

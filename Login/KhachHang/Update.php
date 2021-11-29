@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["uskh"]))
+    {
+        echo "<script type='text/javascript'>";
+        echo "alert('Bạn chưa đăng nhập!');";
+        echo "window.location.href='http://localhost/QuangAnhStore/Login/Loginkh.php';";
+        echo "</script>";
+    }
+?>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +23,7 @@
     <body >
         <?php
             require('Funcionkh.php');
-            $id= $_GET["ID"];
+            $id= SelectByTK($_SESSION["uskh"]);
             $row=SelectAll($id);
             $tk=$row["Tendangnhap"];
             $mk=$row["Matkhau"];
@@ -115,7 +125,7 @@
                         </div>
                         
                         <div>
-                        <a href="http://localhost:8080/QuangAnhStore/Login/Loginkh.php" style="color: lavenderblush;">Quay lại</a></td>
+                        <a href="http://localhost/QuangAnhStore/Login/Loginkh.php" style="color: lavenderblush;">Quay lại</a></td>
                         
                         </div>
                         
@@ -135,7 +145,7 @@
             
 
             
-            $id= $_GET["ID"];
+            $id= SelectByTK($_SESSION["uskh"]);
             if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnSave'])){
                 $tk=$_POST["txtTk"];
                 $mk=$_POST["mk"];

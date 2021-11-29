@@ -15,7 +15,18 @@
 .login__txttk{
     margin-left: 0px;
 }
-
+.login__btnLogin{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;;
+    font-size: 20px;
+    border: none;
+    background-image: linear-gradient(to right,#f0465f94,#3aabf1a8);;
+    margin-top: 40px;
+    margin-right: 5px;
+    padding: 10px;
+    width: 40%;
+    border-radius: 10px;
+}
 .login__txttk{
     color: white;
     width: 100%;

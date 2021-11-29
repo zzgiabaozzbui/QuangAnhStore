@@ -85,7 +85,7 @@
                     $name=$row2["fullname"];
                 }
                 if($img==NULL)
-                    $img= "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
+                    $img= "http://localhost/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
                 else if($name==NULL)
                     $name= "LOGIN";
                 else
@@ -101,7 +101,7 @@
         }   
     }
     else{
-        $img= "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
+        $img= "http://localhost/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
         $name= "LOGIN";
     }
     ?>
@@ -112,7 +112,7 @@
             <div class="login--admin" align="center">
                 <form method="post">
                     <div class="login__title" >
-                        <img class="login__i" src="http://localhost:8080/QuangAnhStore/Admin/Frontend/img/khachhang/71089849_952558758417428_8367291828201848832_n.jpg" alt="userlogin">
+                        <img class="login__i" src="http://localhost/QuangAnhStore/Admin/Frontend/img/khachhang/71089849_952558758417428_8367291828201848832_n.jpg" alt="userlogin">
                         <br>
                         <b class="login__title"><?php echo $name;?></b> 
                     </div>
@@ -134,7 +134,7 @@
                     <div >
                         <input  class="rp"  type="checkbox" name="cborp" id="cborp" value="remember">
                         <label class="lblcbo" for="remember">Remember password</label>
-                        <a class="forge" href="http://localhost:8080/QuangAnhStore/Login/KhachHang/forget.php" style="font-size: 11px;">Forget password?</a>
+                        <a class="forge" href="http://localhost/QuangAnhStore/Login/KhachHang/forget.php" style="font-size: 11px;">Forget password?</a>
                     </div>
                     
                     <button  type="submit" name="login__btnlogin" id="login__btnlogin" class="login__btnLogin"><b>Log In</b> </button>
@@ -165,22 +165,22 @@
         require_once("datbase.php");
         if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['login__btnlogin']) ) {
             if(isset($_POST['cborp'])){
-                setcookie("uskh",$_POST["txtus"], time() + 3000);
+                setcookie("uskh",$_POST["txtus"], time() + 3000,'/');
                 // $_COOKIE['uskh'];
-                setcookie("pskh", $_POST["txtps"], time() + 3000);
+                setcookie("pskh", $_POST["txtps"], time() + 3000,'/');
                 // $_COOKIE['pskh'];
             }
             else{
-                setcookie("uskh",$_POST["txtus"], time() - 30000);
+                setcookie("uskh",$_POST["txtus"], time() - 30000,'/');
                 // $_COOKIE['uskh'];
-                setcookie("pskh", $_POST["txtps"], time() - 30000);
+                setcookie("pskh", $_POST["txtps"], time() - 30000,'/');
                 // $_COOKIE['pskh'];
             }
             
             
 
             $_SESSION['uskh'] = $_POST["txtus"];
-            login();
+            loginkh();
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['DK__btnDK']) ) {
             echo "<script type='text/javascript'>";

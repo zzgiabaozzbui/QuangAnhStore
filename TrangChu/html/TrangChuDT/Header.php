@@ -23,7 +23,7 @@
             <!-- Điện thoại -->
             <div class="smartphone__header__logo">
                 <a href="">
-                    <img src="../HangDienThoai/1.png" alt="">
+                    <img src="http://localhost/QuangAnhStore/TrangChu/img/Desktop%20logo/logo_Design.png" alt="">
                 </a>
             </div>
 
@@ -52,7 +52,7 @@
             <!-- Tablet -->
             <div class="tablet__header__top">
                 <div class="tablet__header__logo">
-                    <a href=""><img src="../img/Desktop logo/1.png" alt=""></a>
+                    <a href=""><img src="http://localhost/QuangAnhStore/TrangChu/img/Desktop%20logo/logo_Design.png" alt=""></a>
                 </div>
                 <div class="tablet__header__logo__scroll">
                     <a href=""><img src="../img/zalo suopprt/cellphones.png" alt=""></a>
@@ -90,7 +90,7 @@
                 <!-- Logo Image -->
                 <div class="header__logo__img">
                     <a href="http://localhost/QuangAnhStore/TrangChu/html/TrangChuDT/trangchu.php">
-                        <img src="../../img/Desktop logo/logo_Design.png" alt="">
+                        <img src="http://localhost/QuangAnhStore/TrangChu/img/Desktop%20logo/logo_Design.png" alt="">
                     </a>
                 </div>
 
@@ -116,7 +116,7 @@
                     <ul class="header__navbar__list">
                     <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper">
-                                <a href="" class="header__navbar__item__link">
+                                <a href="http://localhost/QuangAnhStore/TrangChu/html/Chucnangtrangchu/chucnang/cauhoi.php" class="header__navbar__item__link">
                                     <i class="ti-comment-alt"></i>
                                     <div class="header__navbar__item__link__desc__wrapper">
                                         <p>Đặt câu hỏi</p>
@@ -128,10 +128,10 @@
 
                         <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper">
-                                <a href="" class="header__navbar__item__link">
+                                <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.google.com%2Fmaps%2Fdir%2F%3Fapi%3D1%26destination%3D21.05969%252C105.78244%26fbclid%3DIwAR25cNoBBAtW2TLJP7CR_LHd_Tur4y5yS2J8-5hxEh3Qu8DpdliSSPOvFeQ&h=AT06NY0G0xaY712LlMCMYNMD933ZD_qcqjkbQhmjrpQOcvhsY-A9U8AiQAhkdl6eQnP4QKoc3EB-TSsPsJLDjSIJi6c3CCGE9Z0GxZXC_ySjL_xRGESrsRsSAcYWbxiVhXMSXQ" class="header__navbar__item__link">
                                     <i class="ti-location-pin"></i>
                                     <div class="header__navbar__item__link__desc__wrapper">
-                                        <p>Thông tin</p>
+                                        <p>Địa chỉ</p>
                                         <p>cửa hàng</p>
                                     </div>
                                 </a>
@@ -139,7 +139,7 @@
                         </li>
                         <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper">
-                                <a href="" class="header__navbar__item__link">
+                                <a href="http://localhost/QuangAnhStore/TrangChu/html/ChucNangtrangchu/chucnang/tracuudonhang.php" class="header__navbar__item__link">
                                     <i class="fas ti-shopping-cart"></i>
                                     <div class="header__navbar__item__link__desc__wrapper">
                                         <p>Tra cứu</p>
@@ -151,7 +151,7 @@
                        
                         <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper">
-                                <a href="" class="header__navbar__item__link">
+                                <a href="http://localhost/QuangAnhStore/TrangChu/html/Chucnangtrangchu/chucnang/gioHang.php" class="header__navbar__item__link">
                                     <i class="ti-bag"></i>
                                     <div class="header__navbar__item__link__desc__wrapper">
                                         <p>Giỏ</p>
@@ -162,7 +162,7 @@
                         </li>
                         <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper__last">
-                                <a href="" class="header__navbar__item__link">
+                                <a href="http://localhost/QuangAnhStore/Login/Loginkh.php" class="header__navbar__item__link">
                                     <div class="header__navbar__item__link__icon__wrapper__last">
                                         <i class="far ti-user"></i>
                                     </div>

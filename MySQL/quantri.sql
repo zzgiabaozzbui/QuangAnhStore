@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2021 at 05:30 AM
+-- Generation Time: Nov 29, 2021 at 12:29 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.19
 
@@ -47,9 +47,9 @@ CREATE TABLE `quantri` (
 --
 
 INSERT INTO `quantri` (`MaNV`, `Tendangnhap`, `Matkhau`, `fullname`, `Gioitinh`, `Email`, `Diachi`, `Ngaysinh`, `Sdt`, `Quyen`, `Trangthai`, `img`) VALUES
-(1, 'a', '1', 'Nguyễn Quang Bảo', 1, 'zzgiabaozzbui@gmail.com', 'Nam Định', '2001-09-24', '0399645778', 0, 1, 'http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/71089849_952558758417428_8367291828201848832_n.jpg'),
-(2, 'dinhthang', '1', 'Phạm Đình Thắng', 1, 'zzgiabaozzbui@gmail.com', 'Nam Định', '2001-09-24', '0399654875', 0, 1, '../Frontend/img/quantri/user.png'),
-(3, 'ngianinh', '1', 'Nguyễn Nghĩa Ninh', 1, 'zzgiabaozzbui@gmail.com', 'Nam Định', '2001-09-24', '0399652453', 0, 1, NULL),
+(1, 'a', '1', 'Nguyễn Quang Bảo', 1, 'zzgiabaozzbui@gmail.com', 'Nam Định', '2001-09-24', '0399645778', 0, 1, 'Frontend/img/quantri/71089849_952558758417428_8367291828201848832_n.jpg'),
+(2, 'dinhthang', '1', 'Phạm Đình Thắng', 1, 'zzgiabaozzbui@gmail.com', 'Nam Định', '2001-09-24', '0399654875', 0, 1, 'Frontend/img/quantri/172516133_1430120237327942_564562867679366401_n.jpg'),
+(3, 'ngianinh', '1', 'Nguyễn Nghĩa Ninh', 1, 'zzgiabaozzbui@gmail.com', 'Nam Định', '2001-09-24', '0399652453', 0, 1, 'Frontend/img/quantri/user.png'),
 (4, 'ducmanh', '1', 'Đinh Đức Mạnh', 1, 'zzgiabaozzbui@gmail.com', 'Nam Định', '2001-09-24', '0395421375', 0, 1, NULL),
 (5, 'phamhieu', '1', 'Phạm Quang Hiếu', 1, 'phamhieu@gmail.com', 'Ninh Bình', '2002-09-21', '0395421325', 0, 1, NULL),
 (6, 'duyennguyen', '1', 'Nguyễn Thị Duyên', 0, 'duyennguyen@gmail.com', 'Hải Phòng', '2001-08-12', '0396542785', 0, 1, NULL),
@@ -72,22 +72,22 @@ INSERT INTO `quantri` (`MaNV`, `Tendangnhap`, `Matkhau`, `fullname`, `Gioitinh`,
 (24, 'quangminh', '1', 'Vũ Quang Minh', 1, 'quangminh@gmail.com', 'Hà Nội', '2001-11-07', '0312545325', 1, 0, NULL),
 (25, 'buiminh', '1', 'Bùi Văn Minh', 1, 'buiminh@gmail.com', 'Yên Bái', '2003-11-07', '0396452310', 1, 1, NULL),
 (26, 'quocnam', '1', 'Vũ Quốc Nam', 1, 'quocnam@gmail.com', 'Thái Bình', '2001-05-01', '0396458125', 1, 1, NULL),
-(27, 'b', '1', 'Phan Đình Giót', 3, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(28, 'b', '1', 'Nguyễn Quang Lưu', 3, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(29, 'b', '1', 'Phan Đình Phùng', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(30, 'b', '1', 'Phan Anh', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(31, 'b', '1', 'Lưu Bá', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 0, 1, NULL),
-(32, 'b', '1', 'Lại Văn Sâm', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 0, 0, NULL),
-(33, 'b', '1', 'Nguyễn Quang Bảo', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(34, 'b', '1', 'Nguyễn Quang Bảo', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(35, 'b', '1', 'Nguyễn Quang Bảo', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(36, 'b', '1', 'Nguyễn Quang Bảo', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(37, 'b', '1', 'Nguyễn Quang Bảo', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(38, 'b', '1', 'Nguyễn Quang Bảo', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(39, 'b', '1', 'Nguyễn Quang Bảo', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(40, 'b', '1', 'Nguyễn Quang Bảo', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(41, 'b', '1', 'Nguyễn Quang Bảo', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
-(43, 'abc123', '1', 'Nguyễn Quang Bảo', 1, 'zzgiabao2zzbui@gmail.com', 'Thái Bình', '2021-11-01', '0399645778', 1, 0, '../Frontend/img/quantri/1.png');
+(27, 'phamdinh', '1', 'Phan Đình Giót', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0395424700', 1, 1, NULL),
+(28, 'Nguyenluu', '1', 'Nguyễn Quang Lưu', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0395782345', 1, 1, NULL),
+(29, 'phungphan', '1', 'Phan Đình Phùng', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0391235724', 1, 1, NULL),
+(30, 'anhphan', '1', 'Phan Anh', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0394562758', 1, 1, NULL),
+(31, 'baluu', '1', 'Lưu Bá', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 0, 1, NULL),
+(32, 'samlam', '1', 'Lại Văn Sâm', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 0, 0, NULL),
+(33, 'quangnguyenhuu', '1', 'Nguyễn Hữu Quang', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(34, 'longdinh', '1', 'Đinh Long', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(35, 'vanlam', '1', 'Nguyễn Văn Lâm', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(36, 'minhnguyenvan', '1', 'Nguyễn Văn Minh', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(37, 'onnguyen', '1', 'Nguyễn Văn Ôn', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(38, 'buiduc', '1', 'Bùi Hông Đức', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(39, 'manhtran', '1', 'Trần Mạnh Hùng', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(40, 'phandung', '1', 'Phạm Hùng Dũng', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(41, 'dinha', '1', 'Đinh Văn Đức', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(43, 'tranb', '1', 'Trần Hữu Đức', 1, 'zzgiabao2zzbui@gmail.com', 'Thái Bình', '2021-11-01', '0399645778', 1, 0, 'Frontend/img/quantri/1.png');
 
 --
 -- Indexes for dumped tables

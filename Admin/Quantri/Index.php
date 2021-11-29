@@ -4,7 +4,7 @@
     {
         echo "<script type='text/javascript'>";
         echo "alert('Bạn chưa đăng nhập!');";
-        echo "window.location.href='http://localhost:8080/QuangAnhStore/Login/Index.php';";
+        echo "window.location.href='http://localhost/QuangAnhStore/Login/Index.php';";
         echo "</script>";
     }
 
@@ -23,20 +23,34 @@
     </head>
     <style>
         .container-web{
-    flex: 1;
-    height: 100vh;
-}
+            flex: 1;
+            height: 100vh;
+        }
         .divmain{
-    background: linear-gradient( -45deg, #23a6d5,#23d5ab);
-    /* border-radius: 2%; */
-    max-width: 100%;
-    max-height: 92%;
-    height: 100vh;
-    color: white;
-    margin: 0px;
-    padding-top: 10px;
-    position: relative;
-}
+            background: linear-gradient( -45deg, #23a6d5,#23d5ab);
+            /* border-radius: 2%; */
+            max-width: 100%;
+            max-height: 92%;
+            height: 100vh;
+            color: white;
+            margin: 0px;
+            padding-top: 10px;
+            position: relative;
+        }
+    
+        .btnexcel{
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            text-align-last: center;
+            font-size: 17px;
+            padding: 4px 20px 5px 20px;
+            margin-left: 10px;
+            background-color: rgba(233,30,99, 0.9);
+            border: none;
+            color: white;
+            position: absolute;
+            right: 5px;
+        }
     </style>
     <body >
         
@@ -51,6 +65,9 @@
                 ?>
                 <div class="divmain" align="Center">
                     <h3 >Danh sách quản trị viên</h3>
+                    <form action="excel.php" method="post" id="Form_excel">
+                        <button name="btnexcel" class="btnexcel">Xuất excel</button>
+                    </form>
                     <form method="POST" >
                         <div class="sear" align="left">
                             <input type="text" class="txtSearch" name="txtSearch" id="txtSearch"  placeholder="Nhập từ khóa cần tìm kiếm" >
