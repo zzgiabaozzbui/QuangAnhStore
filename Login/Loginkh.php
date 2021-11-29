@@ -45,14 +45,36 @@
             box-shadow: 50px 50px 70px #333;
             
         }
-        
-        
+        .DK__btnDK{
+            color: white;
+            font-family: 'Times New Roman', Times, serif;;
+            font-size: 20px;
+            border: none;
+            background-image: linear-gradient(to right,#f0465f94,#3aabf1a8);;
+            margin-top: 40px;
+            margin-left: 5px;
+            padding: 10px;
+            width: 40%;
+            border-radius: 10px;
+        }
+        .login__btnLogin{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;;
+    font-size: 20px;
+    border: none;
+    background-image: linear-gradient(to right,#f0465f94,#3aabf1a8);;
+    margin-top: 40px;
+    margin-right: 5px;
+    padding: 10px;
+    width: 40%;
+    border-radius: 10px;
+}
     </style>
     <?php
-    if(isset($_COOKIE['us']) and isset($_COOKIE['ps'])){
-        $key =  $_COOKIE['us'];
-        $key2 = $_COOKIE['ps'];
-        $query = "SELECT img,fullname  FROM quantri WHERE Tendangnhap = '".$key."' ";
+    if(isset($_COOKIE['uskh']) and isset($_COOKIE['pskh'])){
+        $key =  $_COOKIE['uskh'];
+        $key2 = $_COOKIE['pskh'];
+        $query = "SELECT img,fullname  FROM khachhang WHERE Tendangnhap = '".$key."' ";
         $conn = mysqli_connect("localhost","root","","qldt");
         if($conn == true){
             //Step3
@@ -90,7 +112,7 @@
             <div class="login--admin" align="center">
                 <form method="post">
                     <div class="login__title" >
-                        <img class="login__i" src="<?php echo $img;?>" alt="userlogin">
+                        <img class="login__i" src="http://localhost:8080/QuangAnhStore/Admin/Frontend/img/khachhang/71089849_952558758417428_8367291828201848832_n.jpg" alt="userlogin">
                         <br>
                         <b class="login__title"><?php echo $name;?></b> 
                     </div>
@@ -116,16 +138,16 @@
                     </div>
                     
                     <button  type="submit" name="login__btnlogin" id="login__btnlogin" class="login__btnLogin"><b>Log In</b> </button>
-                    
+                    <button  type="submit" name="DK__btnDK" id="DK__btnDK" class="DK__btnDK"><b>Register</b> </button>
                 </form>
             </div>
         </section>
     
     </main>
     <?php
-    if(isset($_COOKIE['us']) and isset($_COOKIE['ps'])){
-        $key =  $_COOKIE['us'];
-        $key2 = $_COOKIE['ps'];
+    if(isset($_COOKIE['uskh']) and isset($_COOKIE['pskh'])){
+        $key =  $_COOKIE['uskh'];
+        $key2 = $_COOKIE['pskh'];
         echo "<script type='text/javascript'>";
         echo " var txtus = document.getElementById('txtus'); txtus.value = '".$key."';";
         echo " var txtps = document.getElementById('txtps'); txtps.value = '".$key2."';";
@@ -143,22 +165,27 @@
         require_once("datbase.php");
         if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['login__btnlogin']) ) {
             if(isset($_POST['cborp'])){
-                setcookie("us",$_POST["txtus"], time() + 3000);
-                // $_COOKIE['us'];
-                setcookie("ps", $_POST["txtps"], time() + 3000);
-                // $_COOKIE['ps'];
+                setcookie("uskh",$_POST["txtus"], time() + 3000);
+                // $_COOKIE['uskh'];
+                setcookie("pskh", $_POST["txtps"], time() + 3000);
+                // $_COOKIE['pskh'];
             }
             else{
-                setcookie("us",$_POST["txtus"], time() - 30000);
-                // $_COOKIE['us'];
-                setcookie("ps", $_POST["txtps"], time() - 30000);
-                // $_COOKIE['ps'];
+                setcookie("uskh",$_POST["txtus"], time() - 30000);
+                // $_COOKIE['uskh'];
+                setcookie("pskh", $_POST["txtps"], time() - 30000);
+                // $_COOKIE['pskh'];
             }
             
             
 
-            $_SESSION['us'] = $_POST["txtus"];
+            $_SESSION['uskh'] = $_POST["txtus"];
             login();
+        }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['DK__btnDK']) ) {
+            echo "<script type='text/javascript'>";
+            echo "window.location.href='./KhachHang/Insert.php';";
+            echo "</script>";
         }
         
     ?>

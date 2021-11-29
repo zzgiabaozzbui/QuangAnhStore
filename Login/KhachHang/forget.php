@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insert customer</title>
+    <title>Forget</title>
     <link rel="stylesheet" href="./css/insert.css">
     <style>
         .mainup{
@@ -21,7 +21,7 @@
         <div class="mainup">
             <div class="tit">
                 <h4 class="hin" >
-                    ĐĂNG KÝ TÀI KHOẢN
+                    LẤY LẠI MẬT KHẨU
                 </h4>
             </div>
             
@@ -43,21 +43,7 @@
                         </td>
                     </tr>
                     
-                    <tr>
-                        <td  class="lbl" >Mật khẩu:</td>
-                        <td>
-                            <input class="inpu" type="text" name="mk" id="mk" placeholder="Vui lòng điền mật khẩu" size="25" style="background-image: url(https://img.icons8.com/material-sharp/2x/ffffff/key.png); background-position: left;background-size: 18px;">
-                        </td>
-                        <td class="lbl">Trạng thái:  </td>
-                        <td>
-                            <select  class="inpu" name="tt" id="tt" style="width: 170px;background-image: url(https://img.icons8.com/material-sharp/2x/ffffff/lock.png); background-position: left;background-size: 18px;">
-                                <option  hidden>Trạng thái</option>
-                                <option value="0">Khóa</option>
-                                <option  value="1">Mở</option>
-                                
-                            </select>
-                        </td>
-                    </tr>
+                    
                     <tr>
                         <td class="lbl">Họ và tên:</td>
                         <td>
@@ -86,18 +72,15 @@
                         <td>
                             <input class="inpu"  type="text" name="txtdc" id="txtdc" placeholder="Nhập địa chỉ" size="25" style="background-image: url(https://img.icons8.com/material-sharp/2x/ffffff/address.png); background-position: left;background-size: 25px;">
                         </td>
-                        <td class="lbl">Hình ảnh:</td>
-                        <td >
-                        <input class="form-control" type="file" name="fileUpload" value="">
-                        </td>
+                        
                     </tr>
                     <tr></tr>
                 </table>
                 <div class="div--bton">
                     <div>
-                        <button onclick="return confirm('Bạn có chắc muốn đăng ký tài khoản không ?')" class="btnA" name="btnAdd" type="submit" >
+                        <button  class="btnA" name="btnAdd" type="submit" >
                                     
-                            <b> Thêm</b>
+                            <b> Lấy lại mật khẩu</b>
                         </button>
                     </div>
                     
@@ -122,7 +105,7 @@
         <?php
             require("Funcionkh.php");
             if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnAdd'])){
-                Insert();
+                forge();
             }
             
             
