@@ -243,11 +243,8 @@
                         <i class="fas ti-search"></i>
                     </div>
                     <div class="header__search__bar__input">
-<<<<<<< Updated upstream
-                    <input type="text" name="txtSearch" id="txtSearch" placeholder="Bạn cần tìm gì?" value="<?php echo isset($_POST['txtSearch']) ? $_POST['txtSearch'] : '' ?>">
-=======
                         <input type="text" name="txtSearch" id="txtSearch" placeholder="Bạn cần tìm gì?" value="<?php echo isset($_POST['txtSearch']) ? $_POST['txtSearch'] : '' ?>">
->>>>>>> Stashed changes
+
                     </div>
 
                     <div class="header__search__bar__modal">
