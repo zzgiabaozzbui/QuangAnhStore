@@ -165,15 +165,15 @@
         require_once("datbase.php");
         if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['login__btnlogin']) ) {
             if(isset($_POST['cborp'])){
-                setcookie("uskh",$_POST["txtus"], time() + 3000,'/');
+                setcookie("uskh",$_POST["txtus"], time() + 30000,'/');
                 // $_COOKIE['uskh'];
-                setcookie("pskh", $_POST["txtps"], time() + 3000,'/');
+                setcookie("pskh", $_POST["txtps"], time() + 30000,'/');
                 // $_COOKIE['pskh'];
             }
             else{
-                setcookie("uskh",$_POST["txtus"], time() - 30000,'/');
+                setcookie("uskh",$_POST["txtus"], time() - 300000,'/');
                 // $_COOKIE['uskh'];
-                setcookie("pskh", $_POST["txtps"], time() - 30000,'/');
+                setcookie("pskh", $_POST["txtps"], time() - 300000,'/');
                 // $_COOKIE['pskh'];
             }
             
