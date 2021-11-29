@@ -35,7 +35,6 @@
         
         }
         .avatar-user p{
-                margin-top: 10px;
                 display: inline-block;
                 margin-left:10px ;
                 margin-right:10px ;
@@ -73,15 +72,35 @@
                             $result = mysqli_query($conn,$query);
                             if(mysqli_num_rows($result)>0){
                                 while ($row2=mysqli_fetch_assoc($result)) {
-                                    $img=$row2["img"];
+                                    $img='http://localhost:8080/QuangAnhStore/Admin/'.$row2["img"].'';
                                 }
                                 if($img==NULL)
-                                    return "../Frontend/img/quantri/user.png";
+                                    return "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
                                 else
                                     return $img;
                             }
                             else{
-                                return "../Frontend/img/quantri/user.png";
+                                return "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
+                            }
+                        }
+                        else{
+                            echo "Connect error:" . mysqli_connect_error();
+                        }    
+                    }
+                    function name(){
+                        $query = "SELECT fullname  FROM quantri WHERE Tendangnhap = '".$_SESSION["us"]."' ";
+                        $conn = mysqli_connect("localhost","root","","qldt");
+                        if($conn == true){
+                            //Step3
+                            $result = mysqli_query($conn,$query);
+                            if(mysqli_num_rows($result)>0){
+                                while ($row2=mysqli_fetch_assoc($result)) {
+                                    $img=$row2["fullname"];
+                                }
+                                return $img;
+                            }
+                            else{
+                                return "quản trị";
                             }
                         }
                         else{
@@ -91,7 +110,7 @@
                     
                 ?>
                 <img src="<?php echo avata();?>" alt="">
-                <p>Phạm Thị Đình Thắng</p>
+                <p ><?php echo name();?></p>
         </div>
     </div>
     <script>

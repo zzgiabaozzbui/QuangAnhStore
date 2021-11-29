@@ -175,7 +175,7 @@
                                                 echo"    <div class='bill__item'>";
                                                 echo"       <div class='bill__item__info'>";
                                                 echo"           <div class='div__item__img'>";
-                                                echo"               <img src='../Image/". $row3['HinhAnh']."' class='item__img'>";
+                                                echo"               <img src='../../../../Admin/Phukien/". $row3['HinhAnh']."' class='item__img'>";
                                                 echo"           </div>";
                                                 echo"           <div class='item__amount'>";
                                                 echo"     ".$row2['SoLuong']." x";

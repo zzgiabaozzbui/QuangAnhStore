@@ -3,6 +3,10 @@
     margin: 0px;
     padding: 0px;
 }
+.hide 
+{
+    display: none;
+}
 .content 
 {
     margin-top: 90px;
