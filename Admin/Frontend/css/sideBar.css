@@ -45,7 +45,7 @@ body{
     font-size: 25px;
     display: block;
     margin-left: 60px;
-    color: rgb(38, 217, 248);
+    color: rgb(255 87 34);
     font-family: 'Times New Roman', Times, serif;
 }
 /* #sideBar ul{
@@ -91,7 +91,7 @@ ul .action-sideBar:hover{
     margin-left: 0 !important;
 }
 .logo{
-    background-image: url("../img/Avatar/logo2.png");
+    background-image: url("../img/Avatar/logo_Design.png");
     display: block;
     text-align: center;
     position: relative;

@@ -61,13 +61,15 @@
         {
             $KeySearch=$_GET['TimKiem'];
         }
+        else
+        $KeySearch="";
         ?>
         <div class="container-web">
             <?php
             require_once "../Shared_Element/Name.php";
             ?>
             <form class="example" action="./index.php" method="get" style="margin:auto;max-width:300px">
-                <input type="text" placeholder="Search.." name="TimKiem">
+                <input type="text" placeholder="Search.." name="TimKiem" value="<?php echo $KeySearch;?>">
                 <button type="submit" value="btnSearch" ><i class="fa fa-search"></i></button>
 </form>
             <div class="btnAdd">
