@@ -5,7 +5,7 @@ WHERE ct.MaSp LIKE 'PK%'
 GROUP BY ct.Mahoadon;
 --Bước 2
 CREATE VIEW vw_tienDT AS
-SELECT ct.Mahoadon,ct.MaSp,ct.SoLuong,SUM((SELECT Gia FROM chitietphukien WHERE Maphukien = ct.MaSp)*SoLuong) AS tien FROM chitiethoadon ct
+SELECT ct.Mahoadon,ct.MaSp,ct.SoLuong,SUM((SELECT Gia FROM sanpham WHERE MaSP = ct.MaSp)*SoLuong) AS tien FROM chitiethoadon ct
 WHERE ct.MaSp NOT LIKE 'PK%'
 GROUP BY ct.Mahoadon;
 --Bước 3
@@ -13,7 +13,7 @@ CREATE VIEW vw_tientheothang AS
 SELECT DATE_FORMAT(NgayGiaoHang, ' %m - %Y') AS Quyen, hd.Mahoadon,
 (SELECT SUM(tien) FROM vw_tienpk as p WHERE p.Mahoadon = p.Mahoadon) AS tienpk,
 (SELECT SUM(tien) FROM vw_tiendt as p WHERE p.Mahoadon = p.Mahoadon) AS tiendt
-FROM hoadon hd 
+FROM hoadon hd WHERE NgayGiaoHang!= NULL
 LIMIT 0,6;
 --Bước 4
 CREATE VIEW vm_bd AS
