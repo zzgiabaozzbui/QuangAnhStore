@@ -612,5 +612,148 @@ setInterval(function(){
     minutes.innerHTML = m < 10 ? '0'+ m : m
     seconds.innerHTML = s < 10 ? '0'+ s : s
 },1000)
+// Tìm kiếm 
+var DanhSachSearch = [];
+$('.header__search__bar__input').on('keyup', '#txtSearch', function (e) {
+    let i = 0;
+    var list = $('.list-product-dienthoai');
+
+    var counts = setTimeout(function () {
+
+        clearTimeout(counts);
+        var searchname = $("#txtSearch").val();
+        $.ajax({
+            url: "../API/SearchAPI.php",
+            method: "post",
+            data: {
+                action: "text",
+                searchname: searchname
+            },
+            success: function (data) {
+
+
+
+                var list = $('.list-product-dienthoai').html('');
+                let $pk = $('.list-product-phukien').html('');
+
+                danhsach = data;
+                danhsach.forEach(function (value) {
+                    var a = '../../../Admin/Frontend/' + value.HinhAnh;
+                    let urlPk = '../../../Admin/PhuKien/Image/' + value.HinhAnh;
+
+                    var $item = $('<div>', {
+                        id: 'dt' + i++,
+                        class: 'item-product'
+                    }).appendTo(value.Type == 1 ? list : $pk);
+
+
+                    var $boxImg = $('<div>', {
+                        class: 'item-product__box-img'
+                    }).appendTo($item);
+                    var $a = $('<a>', {
+                        href: '#'
+                    }).appendTo($boxImg);
+                    var $Aimg1 = $('<img>', {
+                        id: 'size-img',
+                        src: value.Type == 1 ? a : urlPk
+                    }).appendTo($a);
+                    var $boxName = $('<div>', {
+                        class: 'item-product__box-name'
+                    }).appendTo($item);
+
+                    var $aName = $('<a>', {
+                        class: 'lblTenSP',
+                        href: '#',
+                        text: value.TenSP
+                    }).appendTo($boxName);
+
+                    var pName = $('<p>', {}).appendTo($aName);
+                    var $boxprice = $('<div>', {
+                        class: 'item-product__box-price'
+                    }).appendTo($item);
+
+                    var pPrice = $('<p>', {
+                        class: 'special-price',
+                        text: new Intl.NumberFormat().format(value.Gia) + 'đ'
+                    }).appendTo($boxprice);
+
+                    var $boxPromotion = $('<div>', {
+                        class: 'promotion'
+                    }).appendTo($item);
+
+                    var pPromotion = $('<p>', {
+                        class: 'gift-cont',
+                        text: ''
+                    }).appendTo($boxPromotion);
+                    var $boxprice = $('<div>', {
+                        class: 'item-product__box-raiting'
+                    }).appendTo($item);
+
+
+
+                    if (i == 1 || i == 2 || i == 6) {
+                        let icon1 = $('<i>', {
+                            class: 'icon_star ti-star'
+                        }).appendTo($boxprice);
+                        let icon2 = $('<i>', {
+                            class: 'icon_star ti-star'
+                        }).appendTo($boxprice);
+
+                    } else if (i == 3 || i == 4 || i == 7) {
+                        let icon1 = $('<i>', {
+                            class: 'icon_star ti-star'
+                        }).appendTo($boxprice);
+                        let icon2 = $('<i>', {
+                            class: 'icon_star ti-star'
+                        }).appendTo($boxprice);
+                        let icon3 = $('<i>', {
+                            class: 'icon_star ti-star'
+                        }).appendTo($boxprice);
+                        let icon4 = $('<i>', {
+                            class: 'icon_star ti-star'
+                        }).appendTo($boxprice);
+
+                    } else if (i == 9 || i == 11 || i == 12) {
+                        let icon1 = $('<i>', {
+                            class: 'icon_star ti-star'
+                        }).appendTo($boxprice);
+                        let icon2 = $('<i>', {
+                            class: 'icon_star ti-star'
+                        }).appendTo($boxprice);
+                        let icon3 = $('<i>', {
+                            class: 'icon_star ti-star'
+                        }).appendTo($boxprice);
+                        let icon4 = $('<i>', {
+                            class: 'icon_star ti-star'
+                        }).appendTo($boxprice);
+                        let icon5 = $('<i>', {
+                            class: 'icon_star ti-star'
+                        }).appendTo($boxprice);
+
+
+                    } else {
+                        let icon1 = $('<i>', {
+                            class: 'icon_star ti-star'
+                        }).appendTo($boxprice);
+                    }
+                })
+
+
+
+
+                randompPromotion.forEach((x, j) => {
+                    var item = $('#dt' + j);
+                    item.find('.promotion p').text(x.items);
+                });
+            },
+            fail: function () {
+                alert('Kết nối thất bại');
+            }
+        });
+
+
+    }, 500)
+
+})
 
 
