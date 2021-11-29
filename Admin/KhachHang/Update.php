@@ -51,7 +51,7 @@
                 <div class="mainup">
                     <div class="tit">
                         <h4 class="hupdate" >
-                            CHI TIẾT ̀KHÁCH HÀNG
+                            CHI TIẾT KHÁCH HÀNG
                         </h4>
                     </div>
                     
@@ -60,7 +60,7 @@
                             <tr>
                                 <td class="lbl">Tài khoản:</td>
                                 <td>
-                                    <input class="inpu" type="text" name="txtTk" id="txtTk" value="<?php echo $tk;?>" size="25" style="background-image: url(https://img.icons8.com/fluency-systems-filled/2x/ffffff/user.png); background-position: left;background-size: 25px;">
+                                    <input disabled class="inpu" type="text" name="txtTk" id="txtTk" value="<?php echo $tk;?>" size="25" style="background-image: url(https://img.icons8.com/fluency-systems-filled/2x/ffffff/user.png); background-position: left;background-size: 25px;">
                                 </td>
                                 <td class="lbl">Giới tính:</td>
                                 <td style="padding-bottom: 16px;background-image: url(https://img.icons8.com/windows/2x/ffffff/transgender.png);background-repeat: no-repeat; background-position: left 5px;background-size: 30px;">

@@ -61,7 +61,7 @@
                             <tr>
                                 <td class="lbl">Tài khoản:</td>
                                 <td>
-                                    <input class="inpu" type="text" name="txtTk" id="txtTk" value="<?php echo $tk;?>" size="25" style="background-image: url(https://img.icons8.com/fluency-systems-filled/2x/ffffff/user.png); background-position: left;background-size: 25px;">
+                                    <input disabled class="inpu" type="text" name="txtTk" id="txtTk" value="<?php echo $tk;?>" size="25" style="background-image: url(https://img.icons8.com/fluency-systems-filled/2x/ffffff/user.png); background-position: left;background-size: 25px;">
                                 </td>
                                 <td class="lbl">Quyền:  </td>
                                 <td>

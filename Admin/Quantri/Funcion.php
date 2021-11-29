@@ -203,7 +203,23 @@
             echo "Connect error:" . mysqli_connect_error();
         }    
     }
-
+    function checktk($id){
+        $query = "SELECT * FROM quantri where Tendangnhap='".$id."'";
+        $conn = mysqli_connect("localhost","root","","qldt");
+        if($conn == true){
+            //Step3
+            $result = mysqli_query($conn,$query);
+            if(mysqli_num_rows($result)>0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            echo "Connect error:" . mysqli_connect_error();
+        }    
+    }
     function SelectAll($id){
         
         $query = "SELECT * FROM quantri where MaNV='".$id."'";
@@ -391,6 +407,9 @@
         $tt=$_POST["tt"];
         if ($tk=="") {
             $tit="Vui lòng không để trống số tài khoản của nhân viên!!!";
+            md($tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$quyen,$tt);
+        }else if(Checktk($tk)==true) {
+            $tit = "Tài khoản đã tồn tại!!!";
             md($tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$quyen,$tt);
         } else if($name=="") {
             $tit = "Vui lòng không để trống họ và tên của nhân viên!!!";

@@ -93,10 +93,6 @@
         }
     }
     function SelectAll($id){
-        $table_name = "tbl_Main";
-        // Lệnh chỉ lấy ngày tháng năm:
-        // $querySelectKey= "select ID,HoTen,GioiTinh,Date_format(NgaySinh,'%Y-%m-%d') as NgaySinh,
-        // QueQuan,TrinhDoHocVan from tblsinhvien ;
         $query = "SELECT * FROM khachhang where MaKH='".$id."'";
         $conn = mysqli_connect("localhost","root","","qldt");
         if($conn == true){
@@ -108,6 +104,40 @@
             }
             else{
                 echo "Data is empty";
+            }
+        }
+        else{
+            echo "Connect error:" . mysqli_connect_error();
+        }    
+    }
+    function checkma($id){
+        $query = "SELECT * FROM khachhang where MaKH='".$id."'";
+        $conn = mysqli_connect("localhost","root","","qldt");
+        if($conn == true){
+            //Step3
+            $result = mysqli_query($conn,$query);
+            if(mysqli_num_rows($result)>0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            echo "Connect error:" . mysqli_connect_error();
+        }    
+    }
+    function checktk($id){
+        $query = "SELECT * FROM khachhang where Tendangnhap='".$id."'";
+        $conn = mysqli_connect("localhost","root","","qldt");
+        if($conn == true){
+            //Step3
+            $result = mysqli_query($conn,$query);
+            if(mysqli_num_rows($result)>0){
+                return true;
+            }
+            else{
+                return false;
             }
         }
         else{
@@ -232,6 +262,9 @@
         $tt=$_POST["tt"];
         if ($tk=="") {
             $tit="Vui lòng không để trống số tài khoản của khách hàng!!!";
+            md($tk,$mk,$name,$sex,$email,$sdt,$dc,$date,$tt);
+        }else if(checktk($tk)==true) {
+            $tit = "Tài khoản đã tồn tại";
             md($tk,$mk,$name,$sex,$email,$sdt,$dc,$date,$tt);
         } else if($name=="") {
             $tit = "Vui lòng không để trống họ và tên của khách hàng!!!";
