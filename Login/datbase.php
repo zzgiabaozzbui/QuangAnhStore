@@ -12,7 +12,7 @@
             if (mysqli_num_rows($result)>0) {
                 echo "<script>";
                 echo "alert('Bạn đã đăng nhập thành công');";
-                echo "window.location.href='http://localhost/QuangAnhStore/Admin/Home/';";
+                echo "window.location.href='http://localhost/QuangAnhStore/TrangChu/html/TrangChuDT/trangchu.php';";
                 echo  "</script>";
             } else {
                 echo "<script>";
