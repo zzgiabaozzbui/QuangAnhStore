@@ -1,4 +1,7 @@
+<?php
+    session_start();
 
+?>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +46,18 @@
             box-shadow: 50px 50px 70px #333;
             
         }
-        
+        .login__btnLogin{
+            color: white;
+            font-family: 'Times New Roman', Times, serif;;
+            font-size: 20px;
+            border: none;
+            background-image: linear-gradient(to right,#f0465f94,#3aabf1a8);;
+            margin-top: 40px;
+            margin-right: 5px;
+            padding: 10px;
+            width: 40%;
+            border-radius: 40px;
+        }
         
     </style>
     <?php
@@ -57,11 +71,11 @@
             $result = mysqli_query($conn,$query);
             if(mysqli_num_rows($result)>0){
                 while ($row2=mysqli_fetch_assoc($result)) {
-                    $img='http://localhost:8080/QuangAnhStore/Admin/'.$row2["img"];
+                    $img='http://localhost/QuangAnhStore/Admin/'.$row2["img"];
                     $name=$row2["fullname"];
                 }
                 if($img==NULL)
-                    $img= "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
+                    $img= "http://localhost/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
                 else if($name==NULL)
                     $name= "LOGIN";
                 else
@@ -77,7 +91,7 @@
         }   
     }
     else{
-        $img= "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
+        $img= "http://localhost/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
         $name= "LOGIN";
     }
     ?>
@@ -156,6 +170,7 @@
             
 
             $_SESSION['us'] = $_POST["txtus"];
+            //echo $_SESSION['us'];
             login();
         }
         

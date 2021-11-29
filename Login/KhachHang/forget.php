@@ -85,7 +85,7 @@
                     </div>
                     
                     <div>
-                    <a href="http://localhost:8080/QuangAnhStore/Login/Loginkh.php" style="color: lavenderblush;">Quay lại</a></td>
+                    <a href="http://localhost/QuangAnhStore/Login/Loginkh.php" style="color: lavenderblush;">Quay lại</a></td>
                     
                     </div>
                     

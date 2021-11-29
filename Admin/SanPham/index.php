@@ -1,6 +1,15 @@
 <?php
-session_start();
-echo $_SESSION['us'];
+    session_start();
+    if(!isset($_SESSION["us"]))
+    {
+        echo "<script type='text/javascript'>";
+        echo "alert('Bạn chưa đăng nhập!');";
+        echo "window.location.href='http://localhost/QuangAnhStore/Login/Index.php';";
+        echo "</script>";
+    }
+
+?>  
+<?php
  require "../Shared_Element/DB.php";
 ?>
 <!DOCTYPE html>
