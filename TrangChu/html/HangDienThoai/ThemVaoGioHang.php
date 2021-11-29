@@ -190,8 +190,8 @@
                 $diaChi=$_POST['txtDiaChi'];
                 $LuuY=$_POST['txtLuuY'];
                 $ngayDat=date("Y-m-d");
-                $ngayVanChuyen=date('Y-m-d',strtotime($ngayDat.' + 1 days'));
-                $ngayGiao=date('Y-m-d',strtotime($ngayDat.' + 7 days'));
+                $ngayVanChuyen="";
+                $ngayGiao="";
                 // chitiethoadon:Mahoadon, MaSp, SoLuong
                 // hoadon: mahoadon,ten,sdt,email,luuy,ngaydat,thanhtoan,trangthai,diachi,thanhtien,ngayvanchuyen,ngaygiaohang 
                 $queryInsertHD="insert into hoadon values 
@@ -219,8 +219,8 @@
                 $diaChi=$_POST['txtDiaChi'];
                 $LuuY=$_POST['txtLuuY'];
                 $ngayDat=date("Y-m-d");
-                $ngayVanChuyen=date('Y-m-d',strtotime($ngayDat.' + 1 days'));
-                $ngayGiao=date('Y-m-d',strtotime($ngayDat.' + 7 days'));
+                $ngayVanChuyen="";
+                $ngayGiao="";
                 // chitiethoadon:Mahoadon, MaSp, SoLuong
                 // hoadon: mahoadon,ten,sdt,email,luuy,ngaydat,thanhtoan,trangthai,diachi,thanhtien,ngayvanchuyen,ngaygiaohang 
                 $queryInsertHD="insert into hoadon values 
