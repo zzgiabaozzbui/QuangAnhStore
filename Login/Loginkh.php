@@ -71,6 +71,35 @@
 }
     </style>
     <?php
+        
+        require_once("datbase.php");
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['login__btnlogin']) ) {
+            if(isset($_POST['cborp'])){
+                setcookie("uskh",$_POST["txtus"], time() + 30000,'/');
+                // $_COOKIE['uskh'];
+                setcookie("pskh", $_POST["txtps"], time() + 30000,'/');
+                // $_COOKIE['pskh'];
+            }
+            else{
+                setcookie("uskh",$_POST["txtus"], time() - 300000,'/');
+                // $_COOKIE['uskh'];
+                setcookie("pskh", $_POST["txtps"], time() - 300000,'/');
+                // $_COOKIE['pskh'];
+            }
+            
+            
+
+            $_SESSION['uskh'] = $_POST["txtus"];
+            loginkh();
+        }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['DK__btnDK']) ) {
+            echo "<script type='text/javascript'>";
+            echo "window.location.href='./KhachHang/Insert.php';";
+            echo "</script>";
+        }
+        
+    ?>
+    <?php
     if(isset($_COOKIE['uskh']) and isset($_COOKIE['pskh'])){
         $key =  $_COOKIE['uskh'];
         $key2 = $_COOKIE['pskh'];
@@ -81,16 +110,14 @@
             $result = mysqli_query($conn,$query);
             if(mysqli_num_rows($result)>0){
                 while ($row2=mysqli_fetch_assoc($result)) {
-                    $img=$row2["img"];
+                    $img='http://localhost/QuangAnhStore/Admin/'.$row2["img"];
                     $name=$row2["fullname"];
+                    
                 }
                 if($img==NULL)
                     $img= "http://localhost/QuangAnhStore/Admin/Frontend/img/quantri/user.png";
                 else if($name==NULL)
                     $name= "LOGIN";
-                else
-                    $img = $img;
-                    $name= $name;
             }
             else{
                 $name= "LOGIN";
@@ -106,13 +133,13 @@
     }
     ?>
 </head>
-<body >
+<body > 
     <main>
         <section class="main">
             <div class="login--admin" align="center">
                 <form method="post">
                     <div class="login__title" >
-                        <img class="login__i" src="http://localhost/QuangAnhStore/Admin/Frontend/img/khachhang/71089849_952558758417428_8367291828201848832_n.jpg" alt="userlogin">
+                        <img class="login__i" src="<?php echo $img;?>" alt="userlogin">
                         <br>
                         <b class="login__title"><?php echo $name;?></b> 
                     </div>
@@ -145,49 +172,21 @@
     
     </main>
     <?php
-    if(isset($_COOKIE['uskh']) and isset($_COOKIE['pskh'])){
-        $key =  $_COOKIE['uskh'];
-        $key2 = $_COOKIE['pskh'];
-        echo "<script type='text/javascript'>";
-        echo " var txtus = document.getElementById('txtus'); txtus.value = '".$key."';";
-        echo " var txtps = document.getElementById('txtps'); txtps.value = '".$key2."';";
-        echo " var txtps = document.getElementById('cborp').checked = true;";
-        echo "</script>";
-    }else{
-        echo "<script type='text/javascript'>";
-        echo " var txtps = document.getElementById('cborp').checked = false;";
-        echo "</script>";
-    }
-        
-    ?>
-    <?php
-        
-        require_once("datbase.php");
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['login__btnlogin']) ) {
-            if(isset($_POST['cborp'])){
-                setcookie("uskh",$_POST["txtus"], time() + 30000,'/');
-                // $_COOKIE['uskh'];
-                setcookie("pskh", $_POST["txtps"], time() + 30000,'/');
-                // $_COOKIE['pskh'];
-            }
-            else{
-                setcookie("uskh",$_POST["txtus"], time() - 300000,'/');
-                // $_COOKIE['uskh'];
-                setcookie("pskh", $_POST["txtps"], time() - 300000,'/');
-                // $_COOKIE['pskh'];
-            }
-            
-            
-
-            $_SESSION['uskh'] = $_POST["txtus"];
-            loginkh();
-        }
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['DK__btnDK']) ) {
+        if(isset($_COOKIE['uskh']) and isset($_COOKIE['pskh'])){
+            $keykh =  $_COOKIE['uskh'];
+            $key2kh = $_COOKIE['pskh'];
             echo "<script type='text/javascript'>";
-            echo "window.location.href='./KhachHang/Insert.php';";
+            echo " var txtus = document.getElementById('txtus'); txtus.value = '".$keykh."';";
+            echo " var txtps = document.getElementById('txtps'); txtps.value = '".$key2kh."';";
+            echo " var txtps = document.getElementById('cborp').checked = true;";
+            echo "</script>";
+        }else{
+            echo "<script type='text/javascript'>";
+            echo " var txtps = document.getElementById('cborp').checked = false;";
             echo "</script>";
         }
         
     ?>
+    
 </body>
 </html>

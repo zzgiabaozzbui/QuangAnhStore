@@ -12,7 +12,6 @@ session_start();
             
             unset($_SESSION["us"]);
             echo "<script type='text/javascript'>";
-            echo "alert('Đăng xuất thành công');";
             echo "window.location.href='Index.php';";
             echo "</script>";
             

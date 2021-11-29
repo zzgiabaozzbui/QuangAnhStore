@@ -14,6 +14,7 @@
 
     <!-- <link rel="stylesheet" href="../css/tablet.css"> -->
     <title>Document</title>
+    
 </head>
 
 <body>
@@ -161,23 +162,26 @@
                             </div>
                         </li>
                         <li class="header__navbar__item">
-                            <div class="header__navbar__item__wrapper__last">
-                                <a href="http://localhost/QuangAnhStore/Login/Loginkh.php" class="header__navbar__item__link">
-                                    <div class="header__navbar__item__link__icon__wrapper__last">
-                                        <i class="far ti-user"></i>
-                                    </div>
-                                    <?php 
-                                        if(isset($_SESSION["us"]))
-                                        {
-                                            $tit = "Đăng xuất";
-                                        }else{
-                                            $tit = "Đăng nhập";
-                                        }
-                                    ?>
-                                    <div class="header__navbar__item__link__desc__wrapper">
-                                        <p><?php echo $tit;?></p>
-                                    </div>
-                                </a>
+                            <div class="header__navbar__item__wrapper__last" >
+                                <form action="" method="POST" >
+                                    <button  class="header__navbar__item__link" name="btndx" type="submit" style="background: none; border: none;">
+                                        <div class="header__navbar__item__link__icon__wrapper__last">
+                                            <i class="far ti-user"></i>
+                                        </div>
+                                        <?php 
+                                            if(isset($_SESSION["uskh"]))
+                                            {
+                                                $tit = "Đăng xuất";
+                                            }else if(!isset($_SESSION["uskh"])){
+                                                $tit = "Đăng nhập";
+                                            }
+                                        ?>
+                                        <div class="header__navbar__item__link__desc__wrapper">
+                                            <p><?php echo $tit;?></p>
+                                        </div>
+                                    </button>
+                                </form>
+                                
                             </div>
                         </li>
 
@@ -189,7 +193,14 @@
         </div>
 
     </div>
-
+    <?php
+        if(isset($_POST['btndx'])){
+            unset($_SESSION["uskh"]);
+            echo "<script type='text/javascript'>";
+            echo "window.location.href='http://localhost/QuangAnhStore/Login/Loginkh.php';";
+            echo "</script>";
+        }
+    ?>
 
 </body>
 
