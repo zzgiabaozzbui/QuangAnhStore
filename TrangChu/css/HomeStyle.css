@@ -522,7 +522,6 @@
     border-radius: 5px;
 }
 .content-footer {
-    display: flex;
     align-items: center;
     justify-content: center;
 }
