@@ -5,17 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert customer</title>
-    <link rel="stylesheet" href="./css/insert.css">
-    <style>
-        .mainup{
-    background: linear-gradient( -45deg, #23a6d5,#23d5ab);
-    /* border-radius: 2%; */
-    color: white;
-    position: relative;
-    height: 100vh;
+    <link rel="stylesheet" href="../KhachHang/css/insert.css">
     
-}
-    </style>   
     </head>
     <body >
         <div class="mainup">

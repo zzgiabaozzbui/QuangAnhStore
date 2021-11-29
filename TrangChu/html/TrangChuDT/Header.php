@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -307,8 +310,16 @@
                                     <div class="header__navbar__item__link__icon__wrapper__last">
                                         <i class="far ti-user"></i>
                                     </div>
+                                    <?php 
+                                        if(isset($_SESSION["us"]))
+                                        {
+                                            $tit = "Đăng xuất";
+                                        }else{
+                                            $tit = "Đăng nhập";
+                                        }
+                                    ?>
                                     <div class="header__navbar__item__link__desc__wrapper">
-                                        <p>Đăng nhập</p>
+                                        <p><?php echo $tit;?></p>
                                     </div>
                                 </a>
                             </div>

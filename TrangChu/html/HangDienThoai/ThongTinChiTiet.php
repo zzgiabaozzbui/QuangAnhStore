@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -281,12 +284,13 @@
         </div>
         <?php
             if($_SERVER["REQUEST_METHOD"]=== 'POST' and isset($_POST['btnAdd_Cart']))
-            {
-                if(!isset($_COOKIE['tk'])){
+            {   
+                session_start();
+                if(!isset($_SESSION['uskh'])){
                     echo "<script>alert('Bạn chưa có tài khoản để thêm giỏ hàng')</script>";
                     return;
                 }
-                $tenTK="dinhthang";
+                $tenTK=$_SESSION['uskh'];
                 $queryInsertCart="insert into giohang values('".$tenTK."','".$maSP."',1,'".$Gia."')";
                 $resuiltInsertCart=ChangeDataNoReturn($queryInsertCart,"thêm giỏ hàng");
                              
