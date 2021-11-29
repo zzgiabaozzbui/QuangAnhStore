@@ -4,7 +4,7 @@
     {
         echo "<script type='text/javascript'>";
         echo "alert('Bạn chưa đăng nhập!');";
-        echo "window.location.href='http://localhost:8080/QuangAnhStore/Login/Index.php';";
+        echo "window.location.href='http://localhost/QuangAnhStore/Login/Index.php';";
         echo "</script>";
     }
 

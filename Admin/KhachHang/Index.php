@@ -4,7 +4,7 @@
     {
         echo "<script type='text/javascript'>";
         echo "alert('Bạn chưa đăng nhập!');";
-        echo "window.location.href='http://localhost:8080/QuangAnhStore/Login/Index.php';";
+        echo "window.location.href='http://localhost/QuangAnhStore/Login/Index.php';";
         echo "</script>";
     }
 
@@ -19,6 +19,21 @@
         <link rel="stylesheet" href="../../Frontend/css/sideBar.css?version=1">
         <link rel="stylesheet" href="../../Frontend/font/themify-icons/themify-icons.css">
         <link rel="stylesheet" href="./css/Index.css?version=1">
+        <style>
+            .btnexcel{
+                font-weight: bold;
+                font-family: 'Times New Roman', Times, serif;
+                text-align-last: center;
+                font-size: 17px;
+                padding: 4px 20px 5px 20px;
+                margin-left: 10px;
+                background-color: rgba(233,30,99, 0.9);
+                border: none;
+                color: white;
+                position: absolute;
+                right: 5px;
+            }
+        </style>
     </head>
     <body > 
         
@@ -31,13 +46,18 @@
                 <?php
                     require "../Shared_Element/Name.php";
                 ?>
+                
+                
                 <div class="divmain" align="Center">
                     <h3 >Danh sách khách hàng </h3>
+                    <form action="excel.php" method="post" id="Form_excel">
+                        <button name="btnexcel" class="btnexcel">Xuất excel</button>
+                    </form>
+                    
                     <form method="POST" >
                         <div class="sear" align="left">
                             <input type="text" class="txtSearch" name="txtSearch" id="txtSearch"  placeholder="Nhập từ khóa cần tìm kiếm"  >
                             <button name="btnSearch" class="btnSearch">Tìm</button>
-                            
                         </div>
                     
                         <?php
@@ -74,6 +94,7 @@
         
             </div>
         </div>
+        
         
     </body>
 </html>

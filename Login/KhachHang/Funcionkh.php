@@ -67,9 +67,9 @@
             $tit="Vui lòng chọn trạng thái của tài khoản!!!";
             md($tk,$mk,$name,$sex,$email,$dc,$date,$sdt,$tt);
         }else{
-            $linkAnh = "http://localhost:8080/QuangAnhStore/AdminFrontend/img/khachhang/";
+            $linkAnh = "http://localhost/QuangAnhStore/AdminFrontend/img/khachhang/";
             if ($_FILES['fileUpload']['error'] > 0) {
-                $link = "http://localhost:8080/QuangAnhStore/AdminFrontend/img/khachhang/user.png";
+                $link = "http://localhost/QuangAnhStore/AdminFrontend/img/khachhang/user.png";
             } else {
                 //Copy ảnh và lấy link tương đối
                 move_uploaded_file($_FILES['fileUpload']['tmp_name'], $linkAnh . $_FILES['fileUpload']['name']);
@@ -160,9 +160,9 @@
             $tit="Vui lòng chọn trạng thái của tài khoản!!!";
             md($tk,$mk,$name,$sex,$email,$sdt,$dc,$date,$tt);
         }else{
-            $linkAnh = "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/khachhang/";
+            $linkAnh = "http://localhost/QuangAnhStore/Admin/Frontend/img/khachhang/";
             if ($_FILES['fileUpload']['error'] > 0) {
-                $link = "http://localhost:8080/QuangAnhStore/Admin/Frontend/img/khachhang/user.png";
+                $link = "http://localhost/QuangAnhStore/Admin/Frontend/img/khachhang/user.png";
             } else {
                 //Copy ảnh và lấy link tương đối
                 move_uploaded_file($_FILES['fileUpload']['tmp_name'], $linkAnh . $_FILES['fileUpload']['name']);
