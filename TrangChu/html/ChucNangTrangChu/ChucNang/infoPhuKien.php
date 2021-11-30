@@ -15,7 +15,7 @@
         global $ID;
         global $Gia;
         global$Trangthai;
-        $ID=$_GET['idPhuKien'];
+        $ID=$_GET['MaSp'];
         $Ten='';
         $Mota='';
         $Baohanh='';
