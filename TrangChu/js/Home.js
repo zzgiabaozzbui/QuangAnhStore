@@ -24,41 +24,56 @@ var randompPromotion = [{
 }  
 
 ,{
-    items : 'Ưu đãi 15% khi mua kèm điện thoại/Máy tính bảng Samsung từ 6 triệu trở lên'
+    items : 'Ưu đãi 15% khi mua kèm điện thoại từ 6 triệu trở lên'
 } ,{
     items : '[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 300.000đ'
 } ,{
     items : 'Mua Office Home & Student 2019 kèm Macbook chỉ còn 1,990,000'
 } ,
+,{
+    items : 'Mua kèm dịch vụ bảo hành Apple Care giá tốt'
+},
+{
+    items : 'Nhận gói 6 tháng Apple Music miễn phí'
+},
+{
+    items : 'Nhận gói 6 tháng Apple Music miễn phí và 1 km khác'
+},
+{
+    items : 'Mua kèm dịch vụ bảo hành Apple Care giá tốt'
+},
+{
+    items : 'Mua kèm dịch vụ bảo hành Apple Care giá tốt'
+},
 ];
 
 var DanhsachGiaCu = [{
-    items : '4.490.000 ₫'
+    items : '34.800.000 ₫'
 },{
-    items : '650.000 ₫'
+    items : '14.300.000 ₫'
 } ,{
-    items : '3.690.000 ₫'
+    items : '10.235.000 ₫'
 },{
-    items:'3.690.000 ₫'
+    items:'11.880.000 ₫'
 } 
 
 ,{
-    items : '4.690.000 ₫'
+    items : '8.375.000 ₫'
 } ,{
-    items : '9.690.000 ₫'
+    items : '21.970.000 ₫'
 } ,{
-    items : '43.690.000 ₫'
+    items : '24.200.000 ₫'
 },
 {
-    items:'5.690.000 ₫'
+    items:'18.400.000 ₫'
 }  
 
 ,{
-    items : '6.690.000 ₫'
+    items : '3.517.500 ₫'
 } ,{
-    items : '2.690.000 ₫'
+    items : '1.942.500 ₫'
 } ,{
-    items : '3.690.000 ₫'
+    items : '14.025.000 ₫'
 } ,
 ];
 var DanhsachSaleGiamGia = [{
@@ -76,17 +91,17 @@ var DanhsachSaleGiamGia = [{
 } ,{
     items : '30%'
 } ,{
-    items : '25%'
+    items : '10%'
 },
 {
-    items:'20%'
+    items:'15%'
 }  
 ,{
     items : '5%'
 } ,{
-    items : '20%'
+    items : '5%'
 } ,{
-    items : '20%'
+    items : '10%'
 } ,
 ];
 
@@ -374,7 +389,7 @@ function getDataItemPhuKien() {
                 }).appendTo($item);
         
                 var pPromotion =  $('<p>',  {
-                    class : 'gift-cont',text: 'aa'
+                    class : 'gift-cont'
                 }).appendTo($boxPromotion);
                 var $boxprice =  $('<div>', {
                     class: 'item-product__box-raiting'
@@ -640,11 +655,14 @@ $('.header__search__bar__input').on('keyup', '#txtSearch', function (e) {
                 DanhSachSearch.forEach(function (value) {
                     var a = '../../../Admin/Frontend/' + value.HinhAnh;
                     let urlPk = '../../../Admin/PhuKien/Image/' + value.HinhAnh;
+                    let clitem = value.Type == 1 ? ' item-product-dienthoai' : ' item-product-phukien';
 
                     var $item = $('<div>', {
                         id: 'dt' + i++,
-                        class: 'item-product'
-            
+                        class: 'item-product ' + clitem,
+                        data:{
+                            index: i
+                        }
                     }).appendTo(value.Type == 1 ? list : $pk);
 
 
