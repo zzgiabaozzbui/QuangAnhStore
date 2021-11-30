@@ -56,7 +56,7 @@
                 <?php 
 
                 include './Connect.php';
-                $query='Select * from cauhoi order by MaCH asc';
+                $query='Select * from cauhoi order by MaCH desc';
                 $result=mysqli_query($conn,$query);
                 if(mysqli_num_rows($result)>0)
                 {
@@ -200,8 +200,9 @@
                     echo "<script type='text/javascript'> alert('Thành công !!'); </script>";
                     echo"<script>window.location.replace('cauhoi.php');</script>";
                     }
-                else
+                    else
                     {
+                    echo "<script type='text/javascript'> alert('".$query."');</script>";
                     echo "<script type='text/javascript'> alert('Thất bại !!');</script>";
                     }
                 }
