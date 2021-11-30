@@ -229,9 +229,9 @@
             
         </div>
     </div>
-    <vid class="footer">
+    <div class="footer">
     <?php require_once '../../TrangchuDT/Footer.php'?>  
-    </vid>
+    </div>
     </form>
 </body>
 </html>
