@@ -56,7 +56,7 @@
                 <?php 
 
                 include './Connect.php';
-                $query='Select * from cauhoi order by MaCH desc';
+                $query='Select * from cauhoi order by MaCH asc';
                 $result=mysqli_query($conn,$query);
                 if(mysqli_num_rows($result)>0)
                 {
