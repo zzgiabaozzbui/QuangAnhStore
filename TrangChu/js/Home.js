@@ -7,7 +7,7 @@ var randompPromotion = [{
 },{
     items : 'Giảm 1 triệu khi thanh toán qua ví Moca, thẻ tín dụng ACB, mPos, VIB, BIDV, Shinhan, Standard Charter'
 } ,{
-    items : '[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ và 1 km khác'
+    items : '[HOT]Thủ tục nhanh - Trợ giá lên tới 1.000.000đ và 1 km khác'
 },{
     items:'Nhận gói 6 tháng Apple Music miễn phí và 1 km khác'
 } 
