@@ -44,7 +44,7 @@
                                 <div class="slidebar__item__submenu">
                                     <ul class="slidebar__item__submenu__list">
                                         <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
+                                            <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/?Madong=md002&TimKiem=" class="slidebar__item__submenu__item__link">
                                                 <p>Apple</p>
 
                                             </a>
@@ -52,24 +52,24 @@
 
                                         </li>
                                         <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
+                                            <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/?Madong=md001&TimKiem=" class="slidebar__item__submenu__item__link">
                                                 <p>Samsung</p>
                                             </a>
                                         </li>
                                         <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
+                                            <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/?Madong=md003&TimKiem=" class="slidebar__item__submenu__item__link">
                                                 <p>Xiaomi</p>
                                             </a>
                                         </li>
                                         <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
+                                            <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/?Madong=md004&TimKiem=" class="slidebar__item__submenu__item__link">
                                                 <p>OPPO</p>
                                             </a>
                                         </li>
 
 
                                         <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
+                                            <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/?Madong=md005&TimKiem=" class="slidebar__item__submenu__item__link">
                                                 <p>Vivo</p>
                                             </a>
                                         </li>
@@ -303,7 +303,7 @@
                         <a href="#" class="item">Nokia</a>
                         <a href="#" class="item">ASUS</a>
                         <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/?Madong=md005&TimKiem=" class="item">Vivo</a>
-                        <a href="#" class="item">Xem tất cả</a>
+                        <a href="http://localhost/QuangAnhStore/TrangChu/html/HangDienThoai/" class="item">Xem tất cả</a>
                     </div>
                 </div>
 
