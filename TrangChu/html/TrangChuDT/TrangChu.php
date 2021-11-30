@@ -73,21 +73,7 @@
                                                 <p>Vivo</p>
                                             </a>
                                         </li>
-                                        <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                <p>One Plus</p>
-                                            </a>
-                                        </li>
-                                        <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                <p>POCO</p>
-                                            </a>
-                                        </li>
-                                        <li class="slidebar__item__submenu__item">
-                                            <a href="" class="slidebar__item__submenu__item__link">
-                                                <p>Nubia</p>
-                                            </a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </li>
