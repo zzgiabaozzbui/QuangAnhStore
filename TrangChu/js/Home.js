@@ -47,6 +47,7 @@ var randompPromotion = [{
 },
 ];
 
+
 var DanhsachGiaCu = [{
     items : '34.800.000 ₫'
 },{
@@ -104,12 +105,20 @@ var DanhsachSaleGiamGia = [{
     items : '10%'
 } ,
 ];
+var danhsachLink = [{
+    items : 'https://cellphones.com.vn/sforum/black-friday-diem-mat-loat-deal-dien-thoai-laptop-dong-ho-tai-nghe-phu-kien-giam-gia-cuc-soc-tai-cellphones'
+},{
+    items : 'https://cellphones.com.vn/sforum/tong-hop-deal-giam-gia-ngat-ngay-black-friday-ngay-28-11-tai-cellphones'
+} ,{
+    items : 'https://luachonthongminh.net/coupletx-khuyen-mai/'
+}
+];
+
+
 
 function getDataItem() {
     let i = 0;
     var list = $('.list-product-dienthoai');
-    
-
     $.ajax({
         url: "../API/DataItemAPI.php",
         method: "POST",
@@ -245,12 +254,12 @@ function getDataItemSale() {
         headers: "application/json; charset=utf-8",
         success: function (data) {
            
-            danhsach = data;
-            danhsach.forEach(function (value, i) {
+            DanhsachSale = data;
+            DanhsachSale.forEach(function (value, i) {
                 var a = '../../../Admin/Frontend/'+ value.HinhAnh;
                 var $item = $('<div>', {
                     id: 'sales'+i++,
-                    class: 'item-product item-product-dienthoai',
+                    class: 'item-product item-product-dienthoai-Sale',
                     data:{
                         index: i
                     }
@@ -492,8 +501,12 @@ function getDataIMGTinTuc() {
                      src :a
                 }).appendTo($a);
              })
-            
-        },
+             danhsachLink.forEach((x,j) => {
+                var item = $('#TT'+j);
+               item.find('a').attr('href',x.items);
+            });
+        }
+       ,
         fail: function () {
             alert('Kết nối thất bại');
         }
@@ -770,17 +783,28 @@ $('.header__search__bar__input').on('keyup', '#txtSearch', function (e) {
 })  
 $(document).on('click', '.item-product-phukien', function (e) {
     var h = $(e.currentTarget).data('index');
-     var idPhuKien =   danhsachphukien[h].Maphukien;
-
+    h=h-1;
+     var MaSp =   danhsachphukien[h].Maphukien;
      let url = '/../../QuangAnhStore/TrangChu/html/ChucNangTrangChu/ChucNang/infoPhuKien.php' ;
      let param = new URLSearchParams();
-     param.append('idPhuKien', idPhuKien);
+     param.append('MaSp', MaSp);
      url += '?' + param.toString();
      location.href = url;
 })
 $(document).on('click', '.item-product-dienthoai', function (e) {
     var t = $(e.currentTarget).data('index');
+    t=t-1;
      var MaSP =   danhsach[t].MaSP;
+     let url = '/../../QuangAnhStore/TrangChu/html/HangDienThoai/ThongTinChiTiet.php' ;
+     let param = new URLSearchParams();
+     param.append('MaSP', MaSP);
+     url += '?' + param.toString();
+     location.href = url;
+})
+$(document).on('click', '.item-product-dienthoai-Sale', function (e) {
+    var u = $(e.currentTarget).data('index');
+    u=u-1;
+     var MaSP =   DanhsachSale[u].MaSP;
      let url = '/../../QuangAnhStore/TrangChu/html/HangDienThoai/ThongTinChiTiet.php' ;
      let param = new URLSearchParams();
      param.append('MaSP', MaSP);
