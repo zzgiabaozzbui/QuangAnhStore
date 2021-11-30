@@ -26,10 +26,11 @@
     global $Tentk;
     $Tentk=$_SESSION["uskh"];
     ?>
-    <form action="" method="POST">
+    
     <div class="header">
     <?php require_once '../../TrangchuDT/Header.php'?>
     </div>
+    <form action="" method="POST">
     <div class="content">
         <div class="content__title">
             <h1>Hỏi đáp, bình luận</h1>
@@ -137,6 +138,7 @@
             </div>
         </div>
     </div>
+    </form>
     <div class="footer">
     <?php require_once '../../TrangchuDT/Footer.php'?>
     </div>
@@ -233,6 +235,6 @@
      }
 
 ?>
-</form>
+
 </body>
 </html>

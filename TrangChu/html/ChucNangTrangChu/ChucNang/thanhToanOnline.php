@@ -28,10 +28,11 @@
         $GiaFm=number_format($TongTien);
 
     ?>
-    <form action="">
+   
     <div class="header">
     <?php require_once '../../TrangchuDT/Header.php'?>
     </div>
+    <form action="">
     <div class="content">
         <div class="content__title">
             <a href="http://localhost/QuangAnhStore/TrangChu/html/TrangChuDT/trangchu.php" class="back"> <i class="ti-home"></i>  Quay lại trang chủ</a>
@@ -304,9 +305,10 @@
             </script>;";
             ?>
     </div>
+    </form>
     <div class="footer">
     <?php require_once '../../TrangchuDT/Footer.php'?>  
     </div>
-    </form>
+    
 </body>
 </html>

@@ -230,9 +230,10 @@
             
         </div>
     </div>
+    </form>
     <div class="footer">
     <?php require_once '../../TrangchuDT/Footer.php'?>  
     </div>
-    </form>
+   
 </body>
 </html>

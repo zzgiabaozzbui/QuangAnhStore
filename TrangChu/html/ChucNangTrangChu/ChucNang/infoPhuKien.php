@@ -48,11 +48,12 @@
 
 
     ?>
-    <form action="" method="POST">
+    
     <div class="main">
         <div class="header">      
         <?php require_once '../../TrangchuDT/Header.php'?>
         </div>
+        <form action="" method="POST">
         <div class="content">
             <div class="content__header">
                 <div class="content__header__name">
@@ -173,11 +174,12 @@
                 </div>
             </div>
         </div>
+        </form>
         <div class="footer">
         <?php require_once '../../TrangchuDT/Footer.php'?>  
         </div>
     </div>
-    </form>
+    
     
     <?php 
         if($GLOBALS['TrangThai']!=='Còn hàng')

@@ -48,10 +48,11 @@
          global $Tong;
          $Tong=$TongTien;
     ?>
-    <form action="" method="POST">
+    
     <div class="header">
     <?php require_once '../../TrangchuDT/Header.php'?>
     </div>
+    <form action="" method="POST">
     <div class="content">
         <div class="title">
             <a href="http://localhost/QuangAnhStore/TrangChu/html/TrangChuDT/trangchu.php" class="back"> <i class="ti-home"></i>  Quay lại trang chủ</a>
@@ -243,10 +244,11 @@
             </div>
         </div>
     </div>
+    </form>
     <div class="footer">
     <?php require_once '../../TrangchuDT/Footer.php'?>
     </div>
-    </form>
+    
     <?php 
 
         
