@@ -155,7 +155,7 @@
                         </li>
                         <li class="header__navbar__item">
                             <div class="header__navbar__item__wrapper__last" >
-                                <form action="" method="POST" >
+                                <form action="" name="login" method="POST" >
                                     <button  class="header__navbar__item__link" name="btndx" type="submit" style="background: none; border: none;">
                                         <div class="header__navbar__item__link__icon__wrapper__last">
                                             <i class="far ti-user"></i>
@@ -186,7 +186,7 @@
 
     </div>
     <?php
-        if(isset($_POST['btndx'])){
+        if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['btndx'])){
             unset($_SESSION["uskh"]);
             echo "<script type='text/javascript'>";
             echo "window.location.href='http://localhost/QuangAnhStore/Login/Loginkh.php';";
