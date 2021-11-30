@@ -11,10 +11,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="POST">
+    
     <div class="header">
     <?php require_once '../../TrangchuDT/Header.php'?>
     </div>
+    <form action="" method="POST">
     <div class="content">
         <div class="content__search">
             <div class="content__search__title">
@@ -229,9 +230,9 @@
             
         </div>
     </div>
-    <vid class="footer">
+    <div class="footer">
     <?php require_once '../../TrangchuDT/Footer.php'?>  
-    </vid>
+    </div>
     </form>
 </body>
 </html>
