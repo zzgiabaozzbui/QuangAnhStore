@@ -501,10 +501,10 @@ function getDataIMGTinTuc() {
                      src :a
                 }).appendTo($a);
              })
-             danhsachLink.forEach((x,j) => {
-                var item = $('#TT'+j);
-               item.find('a').attr('href',x.items);
-            });
+            //  danhsachLink.forEach((x,j) => {
+            //     var item = $('#TT'+j);
+            //    item.find('a').attr('href',x.items);
+            // });
         }
        ,
         fail: function () {
