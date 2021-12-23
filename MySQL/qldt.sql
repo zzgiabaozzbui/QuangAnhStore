@@ -2,10 +2,10 @@
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 29, 2021 lúc 04:12 PM
--- Phiên bản máy phục vụ: 10.4.19-MariaDB
--- Phiên bản PHP: 7.3.28
+-- Host: 127.0.0.1
+-- Generation Time: Dec 23, 2021 at 12:43 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,171 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `qldt`
+-- Database: `qldt`
 --
+
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_Get_DemDonHang` ()  BEGIN
+
+  DECLARE $Tong int;
+  DECLARE $Check int;
+  DECLARE $Daxacnhan int;
+  DECLARE $Dachuanbi int;
+  DECLARE $DangGiao int;
+  DECLARE $HoanThanh int;
+
+  SELECT
+    COUNT(*) INTO $Tong
+  FROM hoadon h;
+  SELECT
+    COUNT(*) INTO $Check
+  FROM hoadon h
+  WHERE h.Trangthai LIKE '%Chờ xác nhận%';
+  SELECT COUNT(*) INTO $Daxacnhan FROM hoadon h WHERE h.Trangthai LIKE '%Đã xác nhận%';
+    SELECT COUNT(*) INTO $Dachuanbi FROM hoadon h WHERE h.Trangthai LIKE '%Đã chuẩn bị%';
+
+
+  SELECT
+    COUNT(*) INTO $DangGiao
+ FROM hoadon h
+  WHERE h.Trangthai LIKE '%Đang giao%';
+  SELECT
+    COUNT(*) INTO $HoanThanh
+  FROM hoadon h
+  WHERE h.Trangthai LIKE '%Giao hàng thành công%';
+
+  SELECT
+    $Tong AS Tong,
+    $Check AS Checks,
+    $Daxacnhan AS Daxacnhan,
+    $Dachuanbi AS Dachuanbi,
+    $DangGiao AS DangGiao,
+    $HoanThanh AS HoanThanh;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_UpdateTrangThaiDonHang` (IN `$MaDH` NVARCHAR(15))  BEGIN
+  DECLARE $Diachi nvarchar(100);
+  DECLARE $Trangthai nvarchar(100);
+
+SELECT h.Diachi INTO $Diachi  FROM hoadon h WHERE h.Mahoadon = $MaDH;
+SELECT h.Trangthai INTO $Trangthai  FROM hoadon h WHERE h.Mahoadon = $MaDH;
+IF  $Trangthai = 'Chờ xác nhận' THEN 
+UPDATE hoadon h SET h.Trangthai = 'Đã xác nhận' WHERE h.Mahoadon = $MaDH;
+ELSEIF $Diachi = 'Nhận tại cửa hàng' AND $Trangthai = 'Đã xác nhận' THEN 
+UPDATE hoadon h SET h.Trangthai = 'Đã chuẩn bị' WHERE h.Mahoadon = $MaDH;
+ELSEIF $Diachi = 'Nhận tại cửa hàng' AND $Trangthai = 'Đã chuẩn bị' THEN 
+UPDATE hoadon h SET h.Trangthai = 'Giao hàng thành công',h.NgayGiaoHang = CURDATE(),h.NgayVanChuyen = CURDATE() WHERE h.Mahoadon = $MaDH;
+ELSEIF $Trangthai = 'Đã xác nhận' AND  $Diachi != 'Nhận tại cửa hàng' THEN 
+UPDATE hoadon h SET h.Trangthai = 'Đang Giao' ,h.NgayVanChuyen = CURDATE() WHERE h.Mahoadon = $MaDH;
+ELSEIF $Trangthai = 'Đang Giao'  THEN 
+UPDATE hoadon h SET h.Trangthai = 'Giao hàng thành công',h.NgayGiaoHang = CURDATE() WHERE h.Mahoadon = $MaDH;
+END IF;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `chitietsanpham`
+-- Table structure for table `cauhoi`
+--
+
+CREATE TABLE `cauhoi` (
+  `MaCH` int(11) NOT NULL,
+  `Tentaikhoan` varchar(100) NOT NULL,
+  `Cauhoi` varchar(1000) NOT NULL,
+  `ThoiGian` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cauhoi`
+--
+
+INSERT INTO `cauhoi` (`MaCH`, `Tentaikhoan`, `Cauhoi`, `ThoiGian`) VALUES
+(1, 'manhhlunn', 'Ad e muốn huỷ đơn vừa đặt thì làm cách nào ạ?', '2021-11-27 22:07:26'),
+(2, 'manhhlunn', 'Mình có nhận cuộc gọi vào chiều nay là ship hàng cho mình. Mình bảo lại là ship vào khung giờ 5-6 giờ tối nhưng chắc quên rồi\r\n\r\nBạn kiểm tra lại giúp mình và mai ship cho mình nhé', '2021-11-27 22:07:26'),
+(4, 'manhhlunn', 'Tra cứu hóa đơn mã 40', '2021-11-27 23:01:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chitiethoadon`
+--
+
+CREATE TABLE `chitiethoadon` (
+  `Mahoadon` varchar(100) NOT NULL,
+  `MaSp` varchar(100) NOT NULL,
+  `SoLuong` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chitiethoadon`
+--
+
+INSERT INTO `chitiethoadon` (`Mahoadon`, `MaSp`, `SoLuong`) VALUES
+('59', 'PK011', 3),
+('60', '13', 1),
+('61', 'PK008', 2),
+('62', 'PK003', 2),
+('63', 'PK008', 2),
+('64', '1', 1),
+('64', 'PK004', 4),
+('64', 'PK011', 2),
+('65', '11', 1),
+('65', '13', 2),
+('65', 'PK002', 1),
+('65', 'PK003', 2),
+('66', '14', 1),
+('67', '17', 10),
+('68', '17', 1),
+('69', '3', 2),
+('70', '3', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chitietphukien`
+--
+
+CREATE TABLE `chitietphukien` (
+  `Tenphukien` varchar(255) NOT NULL,
+  `Maphukien` varchar(50) NOT NULL,
+  `Mota` longtext NOT NULL,
+  `Baohanh` varchar(100) NOT NULL,
+  `Tinhtrang` varchar(50) NOT NULL,
+  `Trangthai` varchar(50) NOT NULL,
+  `Hinhanh` varchar(255) NOT NULL,
+  `Gia` float DEFAULT NULL,
+  `HangSanXuat` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chitietphukien`
+--
+
+INSERT INTO `chitietphukien` (`Tenphukien`, `Maphukien`, `Mota`, `Baohanh`, `Tinhtrang`, `Trangthai`, `Hinhanh`, `Gia`, `HangSanXuat`) VALUES
+('Tai nghe Bluetooth Apple AirPods 2 VN/A', 'PK001', 'Tai nghe Apple AirPods 2 – Thiết kế tối giản, chất lượng âm thanh tuyệt vời.\r\nVừa qua, Apple đã chính thức cho ra mắt chiếc tai nghe Airpods 2. Thế hệ thứ 2 lần này không có nhiều sự khác biệt so với thế hệ đầu về ngoại hình, trừ một số chi tiết về đèn báo hiệu cũng như ra mắt thêm phiên bản sạc không dây và sạc thường (sạc có dây). Ngoài ra, bạn có thể tham khảo thêm Apple Airpods Pro, sắp được ra mắt trong thời gian tới.', 'Bảo hành 12 tháng chính hãng 1 đổi 1 trong 15 ngày', 'Mới, đầy đủ phụ kiện từ nhà sản xuất', 'Hết hàng', 'airpods-2_6.jpg', 3450000, 'Apple Chính hãng'),
+('Tai nghe Bluetooth Apple AirPods Pro VN/A', 'PK002', 'Airpods Pro – Tai nghe bluetooth với chất âm rõ cùng khả năng chống nước IPX4\r\nMẫu AirPods xuất hiện lần đầu vào năm 2016, sau nhiều nâng cấp về thiết kế vào cấu hình, mẫu tai nghe bluetooth chính hãng ngày càng được hoàn thiện. Mới đây, Apple đã công bố mẫu tai nghe AirPods mới nhất – tai nghe bluetooth Apple Airpods Pro – với thiết kế mới cùng nhiều tính năng mới.', 'Bảo hành 12 tháng chính hãng 1 đổi 1 trong 15 ngày nếu có lỗi phần cứng từ NSX.', 'Mới 100% , chính hãng Apple Việt Nam.', 'Còn hàng', 'airpods-pro_5.jpg', 5450000, 'Apple Chính hãng'),
+('Củ sạc nhanh Mophie 20w PD Type C', 'PK003', 'Củ sạc Mophie 20w PD Type C – Tiết kiệm thời gian sạc tối đa\r\nMophie là thương hiệu có độ tin cậy cao chuyên sản xuất các phụ kiện dành cho điện thoại di động. Củ sạc nhanh Mophie 20w PD Type-C hoàn toàn tương thích với để sạc nhanh tối đa với những chiếc điện thoại thông minh. Ngoài khả năng sạc nhanh, Mophie còn có hệ thống nào tân tiến.', 'Bảo hành 1 đổi 1 24 tháng bao gồm cả lỗi đứt, gãy.', 'Nguyên hộp, đầy đủ phụ kiện từ nhà sản xuất.', 'Còn hàng', 'cu-sac-nhanh-mophie-20w-pd-type-c_1_1.jpg\r\n', 250000, 'Mophie'),
+('Sạc nhanh Anker Powerport III Nano 20W A2633', 'PK004', 'Sạc Anker PowerPort III Nano PD 20W A2633 - Công nghệ sạc nhanh với công xuất 20W mạnh mẽ\r\nBạn là người thường xuyên sử dụng các thiết bị điện tử cả ngày dài. Vấn đề mà bạn đang gặp phải là tình trạng hay hết pin nhưng khi sạc thời gian rất lâu. Vì vậy hàng sản xuất Anker đã cho ra đời sản phẩm sạc Anker PowerPort III Nano PD 20W A2633 phù hợp nhu cầu của bạn.', 'Bảo hành 18 tháng chính hãng.', 'Mới', 'Còn hàng', 'cu-sac-nhanh-anker-powerport-iii-nano-20w-pd-a2633_1.jpg\r\n', 285000, 'Anker'),
+('Tai nghe Bluetooth Samsung Galaxy Buds Live', 'PK005', 'Samsung Galaxy Buds Live thiết kế hạt đậu vừa tai cùng khả năng khử tiếng ồn\r\nViệc sử dụng tai nghe từ lâu đã trở thành một thói quen của nhiều người bởi sự tiện lợi mà thiết bị này mang lại. Nhưng ngày nay, người dùng đòi hỏi ngày càng cao hơn đối với một chiếc tai nghe không chỉ ở thiết kế mà cả sự cải thiện về tính năng. Đáp ứng điều đó, Samsung đã cho ra mắt Samsung Galaxy Buds Live giúp trải nghiệm sử dụng tai nghe của người dùng trở nên tuyệt vời hơn.', 'Bảo hành 12 tháng chính hãng 1 đổi 1 trong 15 ngày nếu có lỗi phần cứng từ NSX. ', 'Nguyên hộp, đầy đủ phụ kiện từ nhà sản xuất.', 'Còn hàng', 'buds-live_1.jpg', 1690000, 'Samsung Chính hãng'),
+('Tai nghe Bluetooth Samsung Galaxy Buds Pro', 'PK006', 'Tai nghe Samsung Galaxy Buds Pro - Thiết kế tinh tế cùng chất âm đột phá\r\nTai nghe True Wireless Samsung Galaxy Buds Pro là dòng sản phẩm tai nghe không dây thế hệ mới nhất từ Samsung. Với phiên bản lần này được lột xác hoàn toàn về thiết kế cũng như chất âm xứng đáng là lựa chọn hàng đầu cho người dùng đang mong muốn tìm cho mình một chiếc tai nghe không dây cao cấp để đồng hành cùng mình trong công việc và giải trí.', 'Bảo hành 12 tháng chính hãng 1 đổi 1 trong 15 ngày nếu có lỗi phần cứng từ NSX.', 'Mới, đầy đủ phụ kiện từ nhà sản xuất', 'Còn hàng', 'buds-pro_1.jpg', 2990000, 'Samsung Chính hãng'),
+('Apple Watch Series 7 41mm (GPS) Viền nhôm dây cao su | Chính hãng VN/A', 'PK007', 'Ra mắt cùng thời diểm ra mắt iPhone 2021, đồng hồ thông minh Apple Watch Series 7 có nhiều thay đổi về thiết kế so với các dòng Apple Watch trước đó. Cụ thể so với Series 6, thế hệ Series 7 này có sự thay đổi về kích thước với phiên bản màn hình lớn nhất gọi tên Apple Series 7 41mm 4g. Bên cạnh đó, Apple Watch Seri 7 41mm là phiên bản màn hình nhỏ nhất, nhỉnh hơn một chút so với phiên bản 40mm thế hệ trước, rất thích hợp với người dùng cổ tay nhỏ.', 'Bảo hành 12 tháng chính hãng 1 đổi 1 trong 15 ngày nếu có lỗi phần cứng từ NSX. ', 'Mới, đầy đủ phụ kiện từ nhà sản xuất.', 'Còn hàng', 'series_7-thumb_2.jpg', 11990000, 'Apple Chính hãng'),
+('Apple Watch Series 3 42mm (GPS) viền nhôm dây cao su | chính hãng VN/A', 'PK008', 'Apple Watch Series 3 42mm GPS viền nhôm dây cao su - Dây đeo êm ái cho cảm giác sang trọng trên tay\r\nLà món phụ kiện cao cấp không thể thiếu của các tín đồ công nghệ, Apple Watch Series 3 42mm GPS viền nhôm dây cao su trang bị đầy đủ cảm biến đo sức khỏe hữu ích, thiết kế sang trọng với viền nhôm & dây đeo cao su êm ái sẽ mang đến trải nghiệm tốt nhất khi đeo trên tay.', 'Bảo hành chính hãng 12 tháng, 1 ĐỔI 1 trong 30 ngày đầu.', 'Mới, đầy đủ phụ kiện từ nhà sản xuất', 'Còn hàng', 'watch-3-42mm.jpg', 5400000, 'Apple Chính hãng'),
+('Loa Bluetooth JBL Charge 4', 'PK009', 'Loa JBL Charge 4 – Chống nước IPX7, âm thanh sống động\r\nLoa JBL Charge 4 là chiếc loa bluetooth thế hệ thứ tư thuộc dòng JBL Charge. Bạn sẽ có một bữa tiệc BBQ ngoài trời, hồ bơi hay bãi biển, ngập tràn âm thanh sống động, thỏa sức chơi đùa cùng với bạn bè.', 'Bảo hành 12 tháng chính hãng 1 đổi 1 trong 15 ngày nếu có lỗi phần cứng từ NSX.', 'Mới, đầy đủ phụ kiện từ nhà sản xuất.', 'Còn hàng', 'jbl-charge-4.jpg', 2590000, 'JBL'),
+('Loa Bluetooth JBL PartyBox 310', 'PK010', 'Loa JBL PartyBox 310 - Loa bluetooth âm thanh ấn tượng, đèn LED nhiều màu\r\nJBL PartyBox 310 là một sản phẩm đến từ thương hiệu JBL chất lượng với chất âm mạnh mẽ, hiệu ứng ánh sáng độc đáo. JBL PartyBox 310 hứa hẹn mang đến cho người dùng trải nghiệm âm thanh tuyệt vời.', 'Bảo hành 12 tháng chính hãng 1 đổi 1 trong 15 ngày nếu có lỗi phần cứng từ NSX.', 'Nguyên hộp, đầy đủ phụ kiện từ nhà sản xuất', 'Còn hàng', 'jbl-partybox-310.jpg', 15900000, 'JBL'),
+('Tai nghe không dây Samsung Galaxy Buds 2', 'PK011', 'Tai nghe Samsung Galaxy Buds2 –  Màu đầy cá tính và tính năng chống tiếng ồn vượt trội\r\nTiếp nối sự thành công đến từ chiếc tai nghe Samsung Galaxy Buds thì có lẽ việc Samsung bắt tay vào thực hiện sản phẩm tiếp theo là điều gần như được chắc chắn. Trên thị trường hiện nay thì các loại tai nghe không dây không hề thiếu, tuy nhiên để đảm bảo về mặt chất lượng của sản phẩm cũng như thương hiệu đáng tin cậy thì tai nghe bluetooth không dây Samsung Galaxy Buds 2 sẽ là một sự lựa chọn hoàn hảo.', 'Bảo hành 12 tháng chính hãng 1 đổi 1 trong 15 ngày nếu có lỗi phần cứng từ NSX.', 'Nguyên hộp, đầy đủ phụ kiện từ nhà sản xuất', 'Còn hàng', 'template_tai_nghe_galaxy_buds_2.jpg', 2990000, 'Samsung Chính hãng'),
+('Sạc nhanh Samsung 1 cổng USB-C 25W', 'PK012', 'Củ sạc nhanh Samsung 25W USB-C 1 cổng - Phụ kiện thiết yếu cho người dùng Samsung\r\nCủ sạc của Samsung luôn được biết đến với chất lượng tốt cùng tốc độ sạc nhanh chóng. Nếu bạn đang cần một củ sạc mới cho điện thoại Samsung hoặc bất kỳ thiết bị smartphone nào, hãy mua ngay sản phẩm củ sạc Samsung 25W 1 cổng.', 'Bảo hành 1 ĐỔI 1 12 tháng tại trung tâm bảo hành chính hãng. ', 'Mới, đầy đủ phụ kiện từ nhà sản xuất', 'Còn hàng', 'cu-sac-nhanh-samsung-25w-1-cong-type-c_2.jpg', 420000, 'Samsung Chính hãng'),
+('Tai nghe không dây chống ồn Sony WF-1000XM3', 'PK013', 'Sony WF-1000XM3 - Tai nghe sở hữu công nghệ không dây đích thực\r\nVới công nghệ không dây bluetooth và thiết kế tiện dụng vừa vặn mang lại sự thoải mái cả ngày dài, tai nghe chống ồn Sony WF-1000XM3 cho bạn sự tự do đích thực của công nghệ không dây.', 'Bảo hành 12 tháng chính hãng 1 đổi 1 trong 15 ngày nếu có lỗi phần cứng từ NSX.', 'Mới, đầy đủ phụ kiện từ nhà sản xuất.', 'Còn hàng', 'wf1000xm3_1_2.jpg', 3290000, 'Sony'),
+('Pin sạc dự phòng Xiaomi Redmi 20000mah sạc nhanh 18W', 'PK014', 'Pin dự phòng Xiaomi Redmi 20000mAh – Phụ kiện pin sạc an toàn, hiệu suất cao\r\nXiaomi là thương hiệu vốn nổi tiếng với nhiều người tiêu dùng không chỉ bởi những chiếc điện thoại chất lượng, cấu hình cao giá rẻ mà còn những phụ kiện pin dự phòng cũng được nhiều người tin dùng. Dung lượng 20000mAh, cùng với khả năng sạc nhanh 18W thì pin sạc dự phòng Xiaomi Redmi 20000mAh sạc nhanh 18W là một lựa chọn hợp lý và hấp dẫn.', 'Bảo hành 1 ĐỔI 1 chính hãng 6 tháng.', 'Nguyên hộp, đầy đủ phụ kiện từ nhà sản xuất', 'Còn hàng', 'pin-sac-du-phong-xiaomi-redmi-20000mah-sac-nhanh-18w-ts.jpg', 450000, 'Xiaomi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chitietsanpham`
 --
 
 CREATE TABLE `chitietsanpham` (
@@ -52,7 +210,7 @@ CREATE TABLE `chitietsanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `chitietsanpham`
+-- Dumping data for table `chitietsanpham`
 --
 
 INSERT INTO `chitietsanpham` (`Masanpham`, `Manhinh`, `RomRam`, `Bonhotrong`, `CPU`, `Hedieuhanh`, `Kichthuoc`, `Trongluong`, `Camera`, `Thenho`, `Wifi`, `Pin`, `BaoHanh`, `GPS`, `Mang`, `NgaySX`, `Bluetooth`, `Audio`, `Video`, `Tinhtrang`, `Mota`) VALUES
@@ -69,18 +227,528 @@ INSERT INTO `chitietsanpham` (`Masanpham`, `Manhinh`, `RomRam`, `Bonhotrong`, `C
 (16, '720 x 1600 pixel', '4GB', '64GB', '8 nhân Cortex-A53 tốc độ 1.8GHz', ' ', '6.5', '196 g', '720p@30fps', 'MicroSD, hỗ trợ lên đến 1TB', 'Wi-Fi 802.11 b/g/n, Wi-Fi Direct, hotspot', 'Li-Po 5000 mAh', '3 tháng sau khi mua sản phẩm', 'Có, hỗ trợ A-GPS, GLONASS, GALILEO, BDS', '4G,5G', '2020-05-02', '4.2, A2DP', 'Mới nhất hiện nay', '1080p@30fps', '1', '<h2 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; font-weight: 700; line-height: 1.2; color: rgb(10, 38, 60); font-size: 21px;\">Điện thoại <strong>Samsung Galaxy A02s – Pin khủng 5.000mAh, cấu hình ổn định</strong></h2><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\"><strong>Samsung A02s</strong> thuộc dòng smartphone giá rẻ của nhà Samsung và là chiếc smartphone kế nhiệm của chiếc Galaxy A01. Máy có thiết kế đơn giản nhưng vẫn chinh phục người dùng nhờ cấu hình ổn định trong tầm giá cùng viên pin dung lượng 5000mAh siêu trâu để bạn thoải sử dụng smartphone với cường độ cao.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Ngoài ra, bạn cũng có thể tham khảo thêm <a href=\"https://cellphones.com.vn/samsung-galaxy-a03s.html\" style=\"color: rgb(215, 0, 24);\">điện thoại Samsung Galaxy A03s</a> với nhiều nâng cấp hơn.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem;\"><strong>Thiết kế đơn giản nhưng tinh tế và màn hình giọt nước 6.5 inch HD+</strong></h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Điện thoại Galaxy A02s có thiết kế đơn giản và cũng mang ngôn ngữ thiết kế tương tự với các phiên bản giá rẻ trước như như Samsung Galaxy A01.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Sở hữu màn hình kích thước 6.5 inch với notch giọt nước phù hợp với xu hướng hiện nay mang đến Galaxy A02s cái nhìn trẻ trung và tinh tế hơn. Bên cạnh đó màn hình còn có độ phân giải HD+ mang đến khung hình sắc nét và màu sắc sống động.</p><p style=\"text-align: center; font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\"><img src=\"https://cdn.cellphones.com.vn/media/wysiwyg/mobile/samsung/samsung-galaxy-a02s-1_1.jpg\" style=\"width: 840px;\"></p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Mặc dù màn hình chỉ có kích thước 6.5 inch nhưng với công nghệ tràn viền 2 cạnh bên, smartphone vẫn mang đến hình ảnh đủ lớn trong một kích thước vừa tay, cầm nắm thoải mái.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem;\"><strong>Cụm 3 camera hình chữ nhật với cảm biến 13MP và 2MP - 2mp, camera trước 5MP</strong></h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Samsung Galaxy A02s có cụm camera hình chữ nhật độc đáo và hiện đại như các thiết kế của dòng smartphone cao cấp nhà Samsung.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Cụm ba camera với camera chính 13MP và camera đo độ sâu 2MP, camera macro 2MP cho khả năng chụp ảnh sắc nét và cho màu sắc sống động. Ngoài ra smartphone cũng hỗ trợ đầy đủ các tính năng chụp ảnh thông minh như xóa phông, panorama, HDR,….</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Camera selfie với độ cảm biến 5MP và hỗ trợ làm đẹp Beautify mang đến cho bạn những bức ảnh selfie đẹp nhất. Ngoài ra với độ cảm biến cao nên bạn có thể tận hưởng các cuộc gọi video với chất lượng HD sắc nét.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem;\"><strong>Cấu hình ổn định trong tầm giá với chip Snapdragon 450 và RAM 4GB</strong></h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Mặc dù là smartphone thuộc phân khúc giá rẻ nhưng Samsung vẫn trang bị cho <strong>Galaxy A02s</strong> cấu hình khá tốt và ổn định so với tầm giá.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Sử dụng chip Qualcomm Snapdragon 450 tám nhân với vi xử lý GPU Adreno 506 cho hiệu năng ấn tượng, xử lý tốt và mượt mà các thao tác tác vụ, chơi tốt các game hot trên thị trường.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem;\"><strong>Kết nối WiFi chuẩn 802.11 b/g/n đầy đủ tính năng, hỗ trợ kết nối Bluetooth v4.2</strong></h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Samsung A02s vẫn hỗ trợ đầy đủ các kết nối không dây như kết nối WiFi chuẩn 802.11 b/g/n với đầy đủ các chức năng như WiFi Direct, WiFi hotspot,…nên bạn cũng có thể thiết lập smartphone như một thiết bị phát WiFi di động, chia sẻ mạng với các thiết bị khác.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Kết nối Bluetooth v4.2 ổn định và mạnh mẽ, chia sẻ dữ liệu với các thiết bị khác thông qua Bluetooth một cách nhanh chóng và hiệu quả. Bên cạnh đó kết nối Bluetooth còn giúp bạn kết nối với các phụ kiện không dây như tai nghe, loa,…để mang đến trải nghiệm tốt hơn.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem;\"><strong>Pin dung lượng khủng 5000mAh đáp ứng thời lượng sử dụng cường độ cao</strong></h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Một điểm cộng được nhiều người dùng yêu thích chính là dung lượng pin của smartphone. Với mức dung lượng khủng đến 5000mAh, Samsung Galaxy A02s dư sức mang đến thời lượng sử dụng suốt cả một ngày.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Bên cạnh đó, Samsung cũng trang bị công nghệ sạc nhanh 15W tiêu chuẩn để bạn có thể nạp pin cho thiết bị nhanh chóng khi hết pin.</p>'),
 (17, '720 x 1480 pixels', '1GB', '16GB', 'Quad-core 1.5 GHz Cortex-A53', 'Android', '5.3', '150 g (5.29 oz)', '1080p@30fps', 'microSDXC', 'Wi-Fi 802.11 b/g/n, Wi-Fi Direct, hotspot', 'Li-Ion 3000 mAh battery', '1 tháng sau khi mua sản phẩm', 'A-GPS', 'Hỗ trợ 4G,5G', '2020-11-01', '5.0, A2DP, LE', 'Có (microphone chuyên dụng chống ồn)', '1080p@30fps', '2', '<h2 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; font-weight: 700; line-height: 1.2; color: rgb(10, 38, 60); font-size: 21px;\"><strong>Điện thoại Samsung Galaxy A01 Core – Thiết kế truyền thống 1 camera sau</strong></h2><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Hiện nay, những dòng smartphone hiện đại trên thị trường đều đi theo xu hướng thiết kế với hệ thống camera kép, ba camera, bốn camera,… để người dùng thỏa sức ghi lại những khoảnh khắc đáng nhớ. Chính vì thế, Samsung đã mang đến sự khác biệt khi cho ra mắt chiếc smartphone thuộc dòng Samsung Galaxy A có thiết kế truyền thống chỉ 1 camera sau và cấu hình ổn định, mang đến trải nghiệm tuyệt vời trong một mức giá vô cùng phải chăng với tên gọi&nbsp;<strong>Samsung Galaxy A01 Core</strong>.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem;\"><strong>Thiết kế đơn giản với vỏ ngoài bằng nhựa cao cấp, mặt lưng họa tiết vân sọc ngang</strong></h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Vì là dòng smartphone giá rẻ nên Samsung A01 Core có thiết kế cũng khá đơn giản nhưng vẫn rất tinh tế với các góc cạnh bo tròn và các đường nét thanh lịch.&nbsp;<a href=\"https://cellphones.com.vn/samsung-galaxy-a01.html\" style=\"color: rgb(215, 0, 24);\">Điện thoại Samsung A01</a>&nbsp;Core có vỏ ngoài và khung máy được làm bằng nhựa cứng cao cấp giúp máy có trọng lượng nhẹ nhưng vẫn có độ bền cao. Mặt sau của máy được thiết kế với họa tiết vân sọc ngang để tạo cảm giác cầm chắc chắn hơn cũng như tạo điểm nhấn cho mặt lưng.</p><p style=\"text-align: center; font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\"><img src=\"data:image/jpeg;base64,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\" style=\"width: 50%;\"></p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Chiếc smartphone giá rẻ Galaxy A01 Core sẽ có ba phiên bản màu là Đen, Đỏ và Xanh dương để người dùng có thể tìm được phiên bản màu sắc yêu thích. Ngoài ra, bề mặt điện thoại được sơn nhám để giúp thiết bị có khả năng chống trầy tốt hơn, hạn chế bám dấu vân tay.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem;\"><strong>Màn hình LCD 5.14 inch với độ phân giải HD 720 x 1480 pixels hiển thị rõ nét</strong></h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Galaxy A01 Core được trang bị màn hình có kích thước 5.14 inch, không quá to nhưng cũng không quá nhỏ, giúp smartphone có kích thước vừa tay người dùng hơn nhưng vẫn mang đến không gian hiển thị tốt. Màn hình A01 Core tích hợp cảm ứng đa điểm, màn hình 16 triệu màu cho khả năng cảm ứng mượt và nhạy cùng hình ảnh hiển thị có màu sắc sống động.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Màn hình vẫn đạt độ phân giải HD 720 x 1480 pixels, tỉ lệ màn hình 18.5:9 và 320ppi để mang đến không gian hiển thị sắc nét, mang đến cho người dùng những trải nghiệm tuyệt vời với hình ảnh tươi sáng. Với Galaxy A01 Core, bạn có thể thoải mái tận hưởng những bộ phim hay, lướt web, chơi game,....</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem;\"><strong>Chip MediaTek MT6739WW, RAM 1GB, bộ nhớ trong 8GB hỗ trợ thẻ nhớ microSDXC thỏa sức lưu trữ</strong></h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Để mang đến hiệu năng ổn định với mức giá phải chăng, Samsung đã trang bị cho mẫu smartphone bình dân của mình con chip MediaTek MT6739WW 4 nhân với tốc độ xử lý lên đến 1.5GHz. Con chip được xây dựng trên tiến trình 28nm nên vẫn mang đến sức mạnh ổn định trong một thiết kế mỏng nhẹ.</p><div><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Ngoài ra, Samsung Galaxy A01 Core cũng được trang bị RAM có dung lượng vừa đủ dùng 1GB giúp máy có thể xử lý mượt mà các thao tác tác vụ, chạy đa nhiệm ổn định và chơi tốt các tựa game đồ họa trung bình. Máy có bộ nhớ trong 8GB nên bạn có thể lưu trữ được nhiều tập tin hình ảnh, âm thanh, video,…và cài đặt được nhiều ứng dụng. Bên cạnh đó, máy vẫn hỗ trợ thẻ nhớ ngoài microSDXC để người dùng có thể nâng cao khả năng lưu trữ của máy, giúp bạn lưu trữ được nhiều hơn.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem;\"><strong>Kiểu dáng truyền thống với 1 camera 8MP và camera 5MP chụp ảnh sắc nét</strong></h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\">Khác với những mẫu smartphone đa camera trên thị trường,&nbsp;<strong>Samsung A01 Core</strong>&nbsp;chỉ sở hữu 1 camera sau duy nhất với độ cảm biến 8MP có hỗ trợ LED Flash giúp bạn ghi lại những khoảnh khắc đáng nhớ. Ngoài ra, camera cũng hỗ trợ tính năng lấy nét tự động để mang đến ảnh chụp có chất lượng tốt hơn.</p></div>'),
 (18, 'Super AMOLED', '16GB', '128GB', '8 nhân (1x2.84 GHz Kryo 585 & 3x2.42 GHz Kryo 585 & 4x1', 'Android', '6.5', '190 g', 'Camera chính: 12 MP, f/1.8 Camera tele: 8 MP, f/2.0, zo', 'MicroSD, hỗ trợ lên đến 1TB', 'Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, Wi-Fi Direct, hot', 'Li-Po 4500 mAh, sạc nhanh 25W, sạc không dây cho các th', '3 tháng sau khi mua sản phẩm', 'A-GPS, GLONASS, BDS, GALILEO', 'Hỗ trợ 4G,5G', '2021-02-11', '5.0, A2DP, LE', 'Mới nhất hiện nay', 'Trước: 4K, 1080p Sau: 8K, 4K, 1080p, gyro-EIS', '1', '<h2 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; font-weight: 700; line-height: 1.2; color: rgb(10, 38, 60); font-size: 21px; text-align: justify;\">Điện thoại Samsung Galaxy S20 FE - Phiên bản đặc biệt dành cho fan Samsung</h2><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\"><strong>Samsung S20 FE</strong>&nbsp;là chiếc điện thoại sắp được ra mắt từ Samsung, với chữ FE đằng sau tên gọi của máy có nghĩa là Fan Edition. Đây là dòng điện thoại ra mắt như để gửi lời tri ân đến các fan trung thành đã và đang sử dụng các sản phẩm của Samsung. Với số lượng sản phẩm được giới hạn và chỉ mở bán trong thời gian ngắn.&nbsp;&nbsp;</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem; text-align: justify;\">Màn hình Super Amoled 6.5 inch, FullHD, công nghệ HDR10+, tần số quét 120Hz</h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Được định hướng vẫn là sản phẩm ở phân khúc cao cấp, Galaxy S20&nbsp;Fan Edition&nbsp;được trang bị tấm nền Super Amoled cao cấp, kích thước màn hình lớn lên đến 6.5 inches, màn hình độ phân giải FullHD giúp hình ảnh hiển thị trên chiếc điện thoại này là vô cùng sắc nét và rực rỡ.</p><p style=\"text-align: center; font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\"><img src=\"https://cdn.cellphones.com.vn/media/wysiwyg/mobile/samsung/samsung-galaxy-s20-fe-1_1.jpg\" style=\"width: 840px;\"></p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Không bỏ lỡ trào lưu tần số quét cao, điện thoại được trang bị một màn hình với tần số quét 120Hz, công nghệ hình ảnh HDR10+ tăng độ tương phản, giúp bạn có những phút giây giải trí hoàn hảo dù là chơi game hay xem phim.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem; text-align: justify;\">Hiệu năng mạnh mẽ với chip Snapdragon 865, chuẩn bộ nhớ UFS 3.1</h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Trái tim của Galaxy S20 FE chính là bộ vi xử lý&nbsp;Snapdragon 865 8 nhân giúp máy hoạt động mạnh mẽ, nhưng vẫn tiết kiệm được pin nhờ áp dụng tiến trình sản xuất nhỏ hơn.</p><div><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Ngoài ra chuẩn bộ nhớ UFS 3.1 mới nhất cho tốc độ đọc ghi lần lượt là 2100Mb/s, 1200Mb/s. Ấn tượng nhất trong phân khúc các điện thoại đầu bảng hiện này, giúp Samsung Galaxy S20 Fan Edition có thể load các ứng dụng hay trao đổi file trên máy tính nhanh chóng hơn.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem; text-align: justify;\">Camera 12MP hỗ trợ quay phim 8K, zoom quang 3X</h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\"><strong>Galaxy S20 FE</strong>&nbsp;thừa hưởng cụm camera từ người đàn anh Samsung Galaxy S20 với cụm 3 camera với camera chính 12MP hỗ trợ quay phim lên đến 8K kèm khả năng chống rung quang OIS kết hợp với chống rung điện tử EIS.</p></div><div><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Điểm đặc biệt tiếp theo là hỗ trợ mạng 4G, cho phép Samsung Galaxy S20 FE đón đầu xu hướng, khi mà tại Việt Nam các nhà mạng đã cho phép thử nghiệm băng tần mạng thế hệ mới này.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem; text-align: justify;\">Sạc nhanh 25W, viên pin dung lượng&nbsp;lớn&nbsp;4500mAh</h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\"><strong>S20 FE</strong>&nbsp;sở hữu viên pin dung lượng lớn 4500mAh, màn hình AMOLED tiết kiệm điện giúp máy có thể sử dụng cả ngày dài mà không lo lắng về vấn đề hết pin trên chiếc điện thoại này.</p></div>'),
-(25, 'Màn hình super Retina XDR, OLED, 460 ppi, HDR display, ', ' ', ' ', '', ' ', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', ''),
-(29, 'Màn hình super Retina XDR, OLED, 460 ppi, HDR display, ', '64GB', '128GB', 'Octa-core (2x2.73 GHz Mongoose M5 & 2x2.50 GHz Cortex-A', 'IOS', '5.9', '194 g', 'Camera góc rộng: 12MP, f/1.6 Camera góc siêu rộng: 12MP', 'MicroSD, hỗ trợ lên đến 1TB', 'Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, Wi-Fi Direct, hot', '3110 mAh', '3 tháng sau khi mua sản phẩm', 'GPS/GNSS', 'Hỗ trợ 4G,5G', '2021-11-29', '5.0, A2DP, LE, aptX', 'Mới nhất hiện nay', '4K 2160p@30fps FullHD 1080p@30fps FullHD 1080p@60fps HD', '1', '<p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Dù Apple vừa giới thiệu dòng&nbsp;<a href=\"https://cellphones.com.vn/mobile/apple/iphone-13.html\" style=\"color: rgb(215, 0, 24);\">điện thoại iPhone 13</a>&nbsp;series tuy nhiên&nbsp;<strong>iPhone 12</strong>&nbsp;vẫn đang là một trong những sự lựa chọn hàng đầu ở thời điểm hiện tại. Chiếc flagship năm 2020 của \"Táo khuyết\" đang nhận được rất nhiều sự quan tâm của người dùng bởi mức giá dễ tiếp cận hơn so với thời điểm ra mắt, đồng thời được trang bị cấu hình, màn hình, camera ấn tượng trong tầm giá.</p><h2 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; font-weight: 700; line-height: 1.2; color: rgb(10, 38, 60); font-size: 21px; text-align: justify;\"><strong>Đánh giá iPhone 12 - Siêu phẩm khẳng định đẳng cấp</strong></h2><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Phiên bản iPhone 12 thường sở hữu nhiều điểm mới đặc biệt là về thiết kế và cấu hình so với các thế hệ trước đó.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem; text-align: justify;\"><strong>Thiết kế&nbsp;</strong></h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Điện thoại iPhone 12 gây ấn tượng với người dùng bởi thiết kế vuông vức quen thuộc, đây là thiết kế đã từng xuất hiện trên thế hệ iPhone 5 trước đó. Điện thoại được hoàn thiện mỏng hơn với cụm camera lớn hơn.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Đặc biệt, máy được trang bị một khung viền thép không gỉ. Mặt lưng iPhone 12 được trang bị một mặt kính Ceramic Shield bóng bẩy, gây được sự chú ý của người đối diện.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Về kích thước cụ thể, điện thoại iPhone 12 với thông số từng cạnh lần lượt là 146.7 x 71.5 x 7.4 mm cùng cân nặng khoảng 164g. Tổng thể, máy khá mỏng nhẹ thích hợp với cả người dùng nam và nữ cũng như thích hợp với nhiều kích thước tay khác nhau.</p><p style=\"text-align: center; font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif;\"><img src=\"data:image/jpeg;base64,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\" style=\"width: 50%;\"><br></p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem; text-align: justify;\"><strong>Màn hình&nbsp;</strong></h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Màn hình là một điểm nhấn trên iPhone 12. Máy được trang bị tấm nền Super Retina XDR OLED, thay vì IPS LCD như thế hệ trước đó nhờ vậy người dùng sẽ cảm nhận được khả năng hiển thị sinh động, màu sắc đậm đà cũng như độ tương phản cao.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Bên cạnh đó, điện thoại được trang bị một màn hình kích thước khá lớn, tới 6.1 inch. Cùng với đó là độ phân giải 1.170 x 2.532 pixels nhờ đó mang lại khả năng hiển thị với hình ảnh đẹp mắt. Màn hình với tần số quét 60Hz mang lại trải nghiệm mượt mà, từ xem phim đến chơi game.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Phần viền màn hình trên thế hệ iPhone 12 cũng nhỏ và mỏng hơn rất nhiều so với các thế thệ trước. Nhờ đó người dùng có không giản trải nghiệm rộng hơn, màn hình hiển thị được nhiều chi tiết hơn.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Ngoài ra, màn hình trên thiết bị cũng được trang bị công nghệ True Tone giúp tự động điều chỉnh độ sáng màn hình theo độ sáng của môi trường giúp con mắt của người dùng thoải mái hơn khi sử dụng.</p><h3 style=\"margin-top: 0px; margin-bottom: 0.5rem; font-family: sans-serif; line-height: 1.2; color: rgb(10, 38, 60); font-size: 1.75rem; text-align: justify;\"><strong>Cấu hình&nbsp;</strong></h3><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Ngoài nhiều nâng cấp về thiết kế, cấu hình cũng là một điểm nâng cấp lớn. Cấu hình này giúp iPhone 12 trở thành là một trong những chiếc điện thoại mạnh mẽ nhất thời điểm ra mắt.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Cụ thể, máy được trang bị con chip Apple A14 Bionic cùng dung lượng RAM 4GB cùng bộ nhớ trong 64GB (Bản tiêu chuẩn). Con chip A14 mới này được sản xuất trên tiến trình 5nm với hơn 11 tỷ bóng bán dẫn mang lại hiệu năng CPU tăng 40% và 30% GPU so với thế hệ trước.</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Cấu hình vượt trội này giúp thiết bị chiến tốt các tựa game hot trên thị trường như Liên Minh Huyền Thoại, Liên Quân Mobile, PUBG Mobile, Call Of Duty Mobile, Genshin Impact Mobile,…</p><p style=\"font-size: 15px; line-height: 1.5; color: rgb(68, 68, 68); font-family: sans-serif; text-align: justify;\">Ở các phần mềm chấm điểm hiệu năng, iPhone 12 cho điểm số khá ấn tượng. Cụ thể, điện thoại cho 592.383 điểm AnTuTu trong đó điểm CPU lên tới 182.690 điểm và GPU là 248.724 điểm.</p>');
+(25, 'Màn hình super Retina XDR, OLED, 460 ppi, HDR display, ', ' ', ' ', '', ' ', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '');
+
+-- --------------------------------------------------------
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Table structure for table `giohang`
+--
+
+CREATE TABLE `giohang` (
+  `Tentaikhoan` varchar(100) NOT NULL,
+  `MaSp` varchar(100) NOT NULL,
+  `SoLuong` int(11) NOT NULL,
+  `ThanhTien` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `giohang`
+--
+
+INSERT INTO `giohang` (`Tentaikhoan`, `MaSp`, `SoLuong`, `ThanhTien`) VALUES
+('dinhthang', '14', 19, 418000000),
+('dinhthang', '15', -1, -16000000),
+('dinhthang', '16', 0, 0),
+('dinhthang', '3', 1, 13000000),
+('manhhlunn', 'PK001', 4, 13800000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hoadon`
+--
+
+CREATE TABLE `hoadon` (
+  `Mahoadon` int(11) NOT NULL,
+  `Ten` varchar(100) NOT NULL,
+  `SDT` varchar(100) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Luuy` varchar(500) NOT NULL,
+  `Ngaydat` datetime NOT NULL DEFAULT current_timestamp(),
+  `Thanhtoan` varchar(100) NOT NULL,
+  `Trangthai` varchar(100) NOT NULL DEFAULT 'Chờ xác nhận',
+  `Diachi` varchar(200) NOT NULL DEFAULT 'Nhận tại cửa hàng',
+  `ThanhTien` double NOT NULL,
+  `NgayVanChuyen` date DEFAULT NULL,
+  `NgayGiaoHang` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `hoadon`
+--
+
+INSERT INTO `hoadon` (`Mahoadon`, `Ten`, `SDT`, `Email`, `Luuy`, `Ngaydat`, `Thanhtoan`, `Trangthai`, `Diachi`, `ThanhTien`, `NgayVanChuyen`, `NgayGiaoHang`) VALUES
+(59, 'Phan Anh Tú ', '0979605611', 'manhhlunn@gmail.com', '', '2021-05-11 21:48:05', 'Khi nhận hàng', 'Giao hàng thành công', 'Đống Đa - Hà Nội', 8970000, '2021-05-15', '2021-05-15'),
+(60, 'Đinh Đức Mạnh', '0979605612', 'quocanh3012@gmail.com', '', '2021-06-10 21:49:14', 'Online', 'Giao hàng thành công', 'Hạ long - Quảng Ninh', 16900000, '2021-06-20', '2021-06-21'),
+(61, 'Nguyễn Nghĩa Ninh', '0123456789', '', '', '2021-07-20 00:00:00', 'Trực tiếp', 'Giao hàng thành công', 'Thái Bình', 10800000, '2021-07-25', '2021-07-27'),
+(62, 'Nguyễn Quang Bảo', '0123456', 'manhhlunn@gmail.com', '', '2021-08-15 00:00:00', 'Online', 'Giao hàng thành công', 'Tuần Châu', 500000, '2021-08-17', '2021-08-18'),
+(63, 'Nguyễn Nghĩa Ninh', '0979605611', '', '', '2021-09-22 21:55:29', 'Khi nhận hàng', 'Giao hàng thành công', 'Đống Đa - Hà Nội', 10800000, '2021-09-24', '2021-09-24'),
+(64, 'Nguyễn Nghĩa Ninh', '0979606123', '', '', '2021-10-26 21:59:20', 'Khi nhận hàng', 'Giao hàng thành công', 'Nhận tại cửa hàng', 36120000, '2021-10-27', '2021-10-27'),
+(65, 'Đinh Đức Mạnh', '0979605611', '', '', '2021-11-09 22:01:58', 'Khi nhận hàng', 'Giao hàng thành công', 'Nhận tại cửa hàng', 46450000, '2021-11-15', '2021-11-15'),
+(66, 'Phạm Đình Thắng', '0123781924', 'Thangyb2706@gmail.com', 'Cẩn thận', '2021-11-29 00:00:00', 'Trực tiếp', 'Chờ xác nhận', 'Yên Bái', 22000000, NULL, NULL),
+(67, 'Nguyễn Văn A', '0234892412', 'a@gmail.com', 'Gửi tránh vào giờ văn phòng', '2021-11-29 00:00:00', 'Online', 'Chờ xác nhận', 'Thanh Xuân - Hà Nội', 18500000, NULL, NULL),
+(68, 'Trần Thị Hà', '012486283', 'HaTran@gmail.com', 'Gửi tránh vào giờ văn phòng', '2021-11-29 00:00:00', 'Trực tiếp', 'Chờ xác nhận', 'Nhổn - Hà Nội', 1850000, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `khachhang`
+--
+
+CREATE TABLE `khachhang` (
+  `MaKH` int(11) NOT NULL,
+  `Tendangnhap` varchar(25) NOT NULL,
+  `Matkhau` varchar(25) DEFAULT NULL,
+  `fullname` varchar(55) DEFAULT NULL,
+  `Gioitinh` int(2) DEFAULT NULL,
+  `Email` varchar(255) DEFAULT NULL,
+  `sdt` varchar(20) DEFAULT NULL,
+  `Diachi` varchar(255) DEFAULT NULL,
+  `Ngaysinh` date DEFAULT NULL,
+  `Trangthai` int(11) DEFAULT NULL,
+  `img` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `khachhang`
+--
+
+INSERT INTO `khachhang` (`MaKH`, `Tendangnhap`, `Matkhau`, `fullname`, `Gioitinh`, `Email`, `sdt`, `Diachi`, `Ngaysinh`, `Trangthai`, `img`) VALUES
+(1, 'a', '1', 'Nguyễn Quang Bảo', 1, 'zzgiabaozzbui@gmail.com', '0399645778', 'Thái Bình', '2021-11-02', 1, 'Frontend/img/khachhang/71089849_952558758417428_8367291828201848832_n.jpg'),
+(2, 'dinhcong', '1', 'Vũ ĐÌnh Công', 1, 'zzgiabao2zzbui@gmail.com', '0399645231', 'Thái Bình', '2021-11-09', 1, NULL),
+(3, 'dinhthang', '1', 'Phạm Đình Thắng', 1, 'zzgiabao3zzbui@gmail.com', '0396512402', 'Thái Bình', '2021-11-02', 1, NULL),
+(4, 'nn01', '1', 'Nguyễn Quang Minh', 1, 'zzgiabao21345zzbui@gmail.com', '0395786231', 'Thái Bình', '2021-11-01', 1, NULL),
+(5, 'qb02', '1', 'Nguyễn Nghĩa Ninh', 1, 'zzgiabao21345zzbui@gmail.com', '0398723457', 'Thái Bình', '2021-11-03', 1, NULL),
+(6, 'acc05', '1', 'Đinh Thị Thơm', 0, 'zzgiabaozzbui@gmail.com', '0396213579', 'Thái Bình', '2021-11-03', 0, NULL),
+(7, 'quocninh', '1', 'Hoàng Thị Nhung', 0, 'zzgiabaozzbui@gmail.com', '0167539460', 'Thái Bình', '2021-11-03', 0, NULL),
+(8, 'ducmanh', '1', 'Nguyễn Thị Thảo', 0, 'zzgiabaozzbui@gmail.com', '0399658329', 'Thái Bình', '2021-11-03', 0, NULL),
+(10, 'gb231', '1', 'Đinh Đức Mạnh', 1, 'zzgiabao21345zzbui@gmail.com', '0391278656', 'Thái Bình', '2021-11-03', 1, NULL),
+(11, 'cvb14', '1', 'Nguyễn Quang Huy', 1, 'zzgiabao21345zzbui@gmail.com', '0395423876', 'Thái Bình', '2021-11-03', 1, NULL),
+(12, 'nininin', '1', 'Lại Quang Nam', 1, 'zzgiabao21345zzbui@gmail.com', '0342586413', 'Thái Bình', '2021-11-03', 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loaiphukien`
+--
+
+CREATE TABLE `loaiphukien` (
+  `Maloai` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `Tenloai` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `Anhmota` varchar(200) NOT NULL,
+  `MoTa` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `loaiphukien`
+--
+
+INSERT INTO `loaiphukien` (`Maloai`, `Tenloai`, `Anhmota`, `MoTa`) VALUES
+('L01', 'Tai nghe không dây', 'th.jpg', ' Tai nghe không dây : là tai nghe kết nối với nguồn phát thông qua sóng vô tuyến không dây. Trên tai nghe không dây vẫn có thể xuất hiện dây dẫn để truyền tín hiệu từ bảng mạch tới 2 bên tai. '),
+('L02', 'Tai nghe có dây', 'OIP.jpg', 'Tai nghe có dây : là tai nghe kết nối trực tiếp với nguồn phát thông qua dây và giắc cắm. '),
+('L03', 'Cáp sạc', 'OIP2.jpg', 'Cáp, sạc là 2 phụ kiện giúp kết nối các thiết bị điện tử (Điện thoại, Tablet, ...) với nguồn điện mục đích sạc pin cho các thiết bị điện tử được kết nối.'),
+('L04', 'Ốp lưng, bao da', 'OIP3.jpg', 'Ốp lưng, bao da là phụ kiện bảo vệ các thiết bị điện tử (Điện thoại, Tablet ,...) trước những tác nhân bên ngoài ảnh hưởng xấu đến thiết bị của bạn.'),
+('L05', 'Sạc dự phòng', 'OIP4.jpg', 'Pin dự phòng là một phụ kiện được sản xuất để phục vụ đối tượng khách hàng dùng điện thoại, máy tính bảng, công dụng của nó là lưu trữ điện năng để sạc cho điện thoại, máy tính bảng ở bất cứ nơi đâu mà không cần ổ cắm điện.'),
+('L06', 'Đồng hồ thông minh', 'OIP5.jpg', 'Đồng hồ thông minh là một thiết bị đeo tay có các tính năng của một chiếc đồng hồ bình thường với những tính năng: xem giờ, hẹn giờ, báo thức,... Điểm khác biệt của nó là có thêm những tính năng thông minh hiện đại như: Chăm sóc sức khỏe, đo nhịp tim, bước đi,...'),
+('L07', 'Thiết bị mạng', 'OIP6.jpg', 'Thiết bị mạng là các thiết bị phục vụ cho nhu cầu sử dụng mạng của mọi người.'),
+('L08', 'Kính dán cường lực', 'OIP7.jpg', 'Kính dán cường lực là phụ kiện bảo vệ các thiết bị điện tử (Điện thoại, Tablet ,...) trước những tác nhân bên ngoài ảnh hưởng xấu đến màn hình thiết bị của bạn.'),
+('L09', 'Loa', 'OIP8.jpg', 'Loa là thiết bị phát âm thanh, giúp cung cấp trải nghiệm âm thanh cho người dùng trong phạm vi lớn.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phukhien`
+--
+
+CREATE TABLE `phukhien` (
+  `MaPhuKien` varchar(50) NOT NULL,
+  `MaLoai` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `phukhien`
+--
+
+INSERT INTO `phukhien` (`MaPhuKien`, `MaLoai`) VALUES
+('PK001', 'L01'),
+('PK002', 'L01'),
+('PK003', 'L03'),
+('PK004', 'L03'),
+('PK005', 'L01'),
+('PK006', 'L01'),
+('PK007', 'L06'),
+('PK008', 'L06'),
+('PK009', 'L09'),
+('PK010', 'L09'),
+('PK011', 'L01'),
+('PK012', 'L03'),
+('PK013', 'L01'),
+('PK014', 'L05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quantri`
+--
+
+CREATE TABLE `quantri` (
+  `MaNV` int(11) NOT NULL,
+  `Tendangnhap` varchar(255) NOT NULL,
+  `Matkhau` varchar(255) NOT NULL,
+  `fullname` varchar(55) NOT NULL,
+  `Gioitinh` int(2) NOT NULL,
+  `Email` varchar(55) NOT NULL,
+  `Diachi` varchar(100) NOT NULL,
+  `Ngaysinh` date NOT NULL,
+  `Sdt` varchar(25) NOT NULL,
+  `Quyen` int(2) NOT NULL,
+  `Trangthai` int(2) NOT NULL,
+  `img` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `quantri`
+--
+
+INSERT INTO `quantri` (`MaNV`, `Tendangnhap`, `Matkhau`, `fullname`, `Gioitinh`, `Email`, `Diachi`, `Ngaysinh`, `Sdt`, `Quyen`, `Trangthai`, `img`) VALUES
+(1, 'a', '1', 'Nguyễn Quang Bảo', 1, 'zzgiabaozzbui@gmail.com', 'Nam Định', '2001-09-24', '0399645778', 0, 1, 'Frontend/img/quantri/71089849_952558758417428_8367291828201848832_n.jpg'),
+(2, 'dinhthang', '1', 'Phạm Đình Thắng', 1, 'zzgiabaozzbui@gmail.com', 'Nam Định', '2001-09-24', '0399654875', 0, 1, 'Frontend/img/quantri/172516133_1430120237327942_564562867679366401_n.jpg'),
+(3, 'ngianinh', '1', 'Nguyễn Nghĩa Ninh', 1, 'zzgiabaozzbui@gmail.com', 'Nam Định', '2001-09-24', '0399652453', 0, 1, 'Frontend/img/quantri/user.png'),
+(4, 'ducmanh', '1', 'Đinh Đức Mạnh', 1, 'zzgiabaozzbui@gmail.com', 'Nam Định', '2001-09-24', '0395421375', 0, 1, NULL),
+(5, 'phamhieu', '1', 'Phạm Quang Hiếu', 1, 'phamhieu@gmail.com', 'Ninh Bình', '2002-09-21', '0395421325', 0, 1, NULL),
+(6, 'duyennguyen', '1', 'Nguyễn Thị Duyên', 0, 'duyennguyen@gmail.com', 'Hải Phòng', '2001-08-12', '0396542785', 0, 1, NULL),
+(7, 'quochieu', '1', 'Nguyễn Quốc Hiếu', 1, 'duyennguyen@gmail.com', 'Hà Nội', '2001-05-23', '0396524822', 2, 1, NULL),
+(8, 'thompham', '1', 'Phạm Thị Thơm', 0, 'thompham@gmail.com', 'Thái Bình', '2000-03-03', '0645242251', 2, 1, NULL),
+(9, 'hoangnhung', '1', 'Hoàng Thị Nhung', 0, 'hoangnhung@gmail.com', 'Hà Nội', '2001-05-20', '0396452187', 0, 1, NULL),
+(10, 'nguyenhieu', '1', 'Nguyễn Hiếu Minh', 1, 'nguyenhieu@gmail.com', 'Yên Bái', '2001-12-24', '0167523421', 1, 1, NULL),
+(11, 'quangnam', '1', 'Lại Quang Nam', 1, 'quangnam@gmail.com', 'Yên Bái', '2001-03-22', '0399654222', 0, 1, NULL),
+(12, 'buithuy', '1', 'Bùi Thị Thúy', 0, 'buithuy@gmail.com', 'tp.HCM', '2001-09-24', '0123456789', 2, 1, NULL),
+(13, 'hieupham', '1', 'Phạm Hiếu', 1, 'hieupham@gmail.com', 'Lào Cai', '2001-09-24', '0312458623', 0, 1, NULL),
+(14, 'minhvo', '1', 'Vũ Võ Minh', 1, 'minhvo@gmail.com', 'Hải Dương', '2001-09-24', '0321547865', 0, 1, NULL),
+(16, 'quangtran', '1', 'Trần ĐÌnh Quang', 1, 'quangtran@gmail.com', 'Huế', '2001-09-10', '0324561302', 0, 0, NULL),
+(17, 'minhquang', '1', 'Nguyễn Quang Minh', 1, 'minhquang@gmail.com', 'Quảng Ninh', '2002-11-01', '0321532142', 1, 1, NULL),
+(18, 'baonguyen', '1', 'Nguyễn Quang Bảo', 1, 'baonguyen@gmail.com', 'Nam Định', '2012-11-07', '0354621575', 1, 1, NULL),
+(19, 'tuoitran', '1', 'Tràn Thị Tươi', 0, 'tuoitran@gmail.com', 'Thái Bình', '2003-11-07', '0231542354', 1, 0, NULL),
+(20, 'hieutran', '1', 'Trần Hữu Hiếu', 1, 'hieutran@gmail.com', 'Huế', '2000-11-07', '0396452315', 1, 0, NULL),
+(21, 'maivu', '1', 'Vũ Thì Mai', 0, 'maivu@gmail.com', 'Thái Bình', '2001-08-07', '0396425584', 1, 0, NULL),
+(22, 'congthang', '1', 'Nguyễn Công Thắng', 1, 'congthang@gmail.com', 'Nam Định', '2001-12-03', '0396452321', 1, 0, NULL),
+(23, 'dinhvan', '1', 'Phạm Đình Văn', 1, 'dinhvan@gmail.com', 'Hà Nội', '2002-03-12', '0396513321', 0, 1, NULL),
+(24, 'quangminh', '1', 'Vũ Quang Minh', 1, 'quangminh@gmail.com', 'Hà Nội', '2001-11-07', '0312545325', 1, 0, NULL),
+(25, 'buiminh', '1', 'Bùi Văn Minh', 1, 'buiminh@gmail.com', 'Yên Bái', '2003-11-07', '0396452310', 1, 1, NULL),
+(26, 'quocnam', '1', 'Vũ Quốc Nam', 1, 'quocnam@gmail.com', 'Thái Bình', '2001-05-01', '0396458125', 1, 1, NULL),
+(27, 'phamdinh', '1', 'Phan Đình Giót', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0395424700', 1, 1, NULL),
+(28, 'Nguyenluu', '1', 'Nguyễn Quang Lưu', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0395782345', 1, 1, NULL),
+(29, 'phungphan', '1', 'Phan Đình Phùng', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0391235724', 1, 1, NULL),
+(30, 'anhphan', '1', 'Phan Anh', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0394562758', 1, 1, NULL),
+(31, 'baluu', '1', 'Lưu Bá', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 0, 1, NULL),
+(32, 'samlam', '1', 'Lại Văn Sâm', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 0, 0, NULL),
+(33, 'quangnguyenhuu', '1', 'Nguyễn Hữu Quang', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(34, 'longdinh', '1', 'Đinh Long', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(35, 'vanlam', '1', 'Nguyễn Văn Lâm', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(36, 'minhnguyenvan', '1', 'Nguyễn Văn Minh', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(37, 'onnguyen', '1', 'Nguyễn Văn Ôn', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(38, 'buiduc', '1', 'Bùi Hông Đức', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(39, 'manhtran', '1', 'Trần Mạnh Hùng', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(40, 'phandung', '1', 'Phạm Hùng Dũng', 1, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(41, 'dinha', '1', 'Đinh Văn Đức', 0, 'zzgiabao21345zzbui@gmail.com', 'Thái Bình', '2021-11-07', '0399645778', 1, 1, NULL),
+(43, 'tranb', '1', 'Trần Hữu Đức', 1, 'zzgiabao2zzbui@gmail.com', 'Thái Bình', '2021-11-01', '0399645778', 1, 0, 'Frontend/img/quantri/1.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sanpham`
+--
+
+CREATE TABLE `sanpham` (
+  `MaSP` int(11) NOT NULL,
+  `TenSP` varchar(55) NOT NULL,
+  `MaDong` varchar(25) NOT NULL,
+  `HinhAnh` longtext NOT NULL,
+  `Gia` decimal(55,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sanpham`
+--
+
+INSERT INTO `sanpham` (`MaSP`, `TenSP`, `MaDong`, `HinhAnh`, `Gia`) VALUES
+(1, 'IPhone13', 'md002', '../Frontend/img/Featured phone/Apple/2.jpg', '29000000'),
+(3, 'SamSung A71', 'md001', '../Frontend/img/Featured phone/SamSung/SamSungA71.jpg', '13000000'),
+(9, 'Mi11', 'md003', '../Frontend/img/Featured phone/Xiaomi/Mi11.jpg', '8900000'),
+(10, 'Vivo Z6', 'md005', '../Frontend/img/Featured phone/Vivo/VivoZ6.jfif', '9900000'),
+(11, 'Xiaomi Redmi Note 10 Pro 6GB', 'md003', '../Frontend/img/Featured phone/Xiaomi/xiaomi-redmi-note-10-pro-thumb-vang-dong.jpg', '6700000'),
+(13, 'Iphone11', 'md002', '../Frontend/img/Featured phone/Apple/iphone11.jpg', '16900000'),
+(14, 'Samsung Galaxy Note 20 Ultra 5G', 'md001', '../Frontend/img/Featured phone/SamSung/Samsung Galaxy Note 20 Ultra 5G.webp', '22000000'),
+(15, 'Samsung Galaxy S20 Ultra', 'md001', '../Frontend/img/Featured phone/SamSung/Samsung Galaxy S20 Ultra.jpg', '16000000'),
+(16, 'Samsung Galaxy A02s', 'md001', '../Frontend/img/Featured phone/SamSung/Samsung Galaxy A02s.jfif', '3350000'),
+(17, 'Samsung Galaxy A01 Core', 'md001', '../Frontend/img/Featured phone/SamSung/Samsung Galaxy A01 Core.jpg', '1850000'),
+(18, 'Samsung Galaxy S20 FE 256GB (Fan Edition)', 'md001', '../Frontend/img/Featured phone/SamSung/Samsung Galaxy S20 FE 256GB (Fan Edition).jpg', '12750001');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbldongsanpham`
+--
+
+CREATE TABLE `tbldongsanpham` (
+  `Madong` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `Tendong` varchar(255) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbldongsanpham`
+--
+
+INSERT INTO `tbldongsanpham` (`Madong`, `Tendong`) VALUES
+('md001', 'SamSung'),
+('md002', 'Apple'),
+('md003', 'Xiaomi'),
+('md004', 'Oppo'),
+('md005', 'Vivo');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbltintuc`
+--
+
+CREATE TABLE `tbltintuc` (
+  `MaTinTuc` int(11) NOT NULL,
+  `TieuDe` longtext CHARACTER SET utf8 DEFAULT NULL,
+  `TomTat` longtext CHARACTER SET utf8 DEFAULT NULL,
+  `NoiDung` longtext CHARACTER SET utf8 DEFAULT NULL,
+  `NgayDangTin` date DEFAULT NULL,
+  `TacGia` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `HinhAnh` varchar(255) CHARACTER SET utf8 DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbltintuc`
+--
+
+INSERT INTO `tbltintuc` (`MaTinTuc`, `TieuDe`, `TomTat`, `NoiDung`, `NgayDangTin`, `TacGia`, `HinhAnh`) VALUES
+(115, '[Black Friday] Điểm mặt loạt deal điện thoại, laptop, đồng hồ, tai nghe, phụ kiện… giảm giá cực sốc tại Shop', 'Lâu lâu lại đến dịp khuyến mãi Black Friday và có thể nói đây là thời điểm mà người người mua hàng, nhà nhà mua hàng bởi các sản phẩm trong dịp này đều được giảm giá rất mạnh mẽ', ' 1. Xiaomi Mi Note 10\nGiảm giá 31%, từ 12.99 triệu xuống chỉ còn 8.99 triệu đồng. Máy có thiết kế hết sức ấn tượng với màn hình cong 2 bên đẹp mắt, đây là loại màn hình Super AMOLED 6.47 inch độ phân giải Full HD+, ở phía viển trên là một notch kiểu giọt nước nhỏ gọn để chứa camera selfie 32MP.\n2. Vivo V19\nGiảm giá 28% trong dịp Black Friday, hạ từ 8.99 triệu xuống chỉ còn 6.49 triệu đồng. Vivo V19 có thiết kế hiện đại với màn hình tràn viền, camera selfie kép nằm ở lỗ khoét hình viên thuốc góc trên bên phải màn hình, bộ camera này chứa 2 cảm biến 32MP + 8MP.\n3. Đồng hồ thông minh Huami Amazfit Bip\nVới mức giảm 40%, mẫu đồng hồ chính hãng này được giảm từ 2.09 triệu xuống chỉ còn 1.25 triệu đồng.\n4. Tai nghe Bluetooth Soundpeats True Capsule Smart Touch\nĐược giảm giá tới 63%, mẫu tai nghe này hạ từ 1.2 triệu xuống chỉ còn 450 ngàn đồng, quá hấp dẫn phải không nào?', '2021-11-29', 'Nguyễn Quang Bảo', '../Frontend/img/TinTuc/TT4.jpg'),
+(116, 'Tổng hợp deal giảm giá NGẤT NGAY Black Friday ngày 1/12 tại QuângnhStore', 'Deal giảm giá Black Friday cực sốc ngày 28/11 tại CellphoneS', ' Tai nghe chụp tai Gaming Havit HV-H2232D:Tai nghe chụp tai Gaming Havit HV-H2232D sẽ có giá khuyến mãi là 300,000đ trong ngày 28/11 thuộc tuần lễ Black Friday tại CellphoneS.\nXiaomi Mi 11 Lite 5G\nĐiện thoại Xiaomi Mi 11 Lite 5G là sản phẩm độc quyền tại CellphoneS, sở hữu công nghệ 5G tiên tiến. Xiaomi Mi 11 Lite 5G sở hữu màn hình tràn viền lớn 6.5 inches kết hợp với camera trước đục lỗ và tần số quét màn hình lên đến 90Hz, giúp tăng diện tích hiển thị cho thiết bị cũng như đem lại hình ảnh chân thật, sắc nét và chuyển động mượt mà.', '2021-12-01', 'Phạm Đình Thắng', '../Frontend/img/TinTuc/TT1.jpg'),
+(117, 'Giảm giá 30% ốp lưng dán màn hình .', 'Giảm giá 30% ốp cho các điện thoại màn mình chỉ có tại shop chúng tôi ', 'Ốp SamSung, IPhone,Xiaomi, Relemi....', '2021-11-30', 'Đinh Đức Mạnh', '../Frontend/img/TinTuc/TT2.jpg'),
+(118, 'Giảm giá 50% tất cả phụ kiện', 'Giảm 50% các loại phụ kiện tai nghe ...', ' Tai nghe không dây,bluetooth...', '2021-11-29', 'Nguyễn Nghĩa Ninh', '../Frontend/img/TinTuc/TT5.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `traloicauhoi`
+--
+
+CREATE TABLE `traloicauhoi` (
+  `IDcauhoi` int(11) NOT NULL,
+  `Tentaikhoan` varchar(100) NOT NULL,
+  `Cautraloi` varchar(1000) NOT NULL,
+  `ThoiGian` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vm_bd`
+-- (See below for the actual view)
+--
+CREATE TABLE `vm_bd` (
+`Quyen` varchar(10)
+,`doanhthu` double
+,`tienpk` double
+,`tiendt` decimal(65,0)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vw_tiendt`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_tiendt` (
+`Mahoadon` varchar(100)
+,`MaSp` varchar(100)
+,`SoLuong` int(11)
+,`tien` decimal(65,0)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vw_tienpk`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_tienpk` (
+`Mahoadon` varchar(100)
+,`MaSp` varchar(100)
+,`SoLuong` int(11)
+,`tien` double
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vw_tientheothang`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_tientheothang` (
+`Quyen` varchar(10)
+,`Mahoadon` int(11)
+,`tienpk` double
+,`tiendt` decimal(65,0)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vm_bd`
+--
+DROP TABLE IF EXISTS `vm_bd`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vm_bd`  AS SELECT `vw_tientheothang`.`Quyen` AS `Quyen`, (select sum(`hoadon`.`ThanhTien`) from `hoadon` where date_format(`hoadon`.`NgayGiaoHang`,' %m - %Y') = `vw_tientheothang`.`Quyen`) AS `doanhthu`, sum(`vw_tientheothang`.`tienpk`) AS `tienpk`, sum(`vw_tientheothang`.`tiendt`) AS `tiendt` FROM `vw_tientheothang` GROUP BY `vw_tientheothang`.`Quyen` ORDER BY `vw_tientheothang`.`Quyen` DESC ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_tiendt`
+--
+DROP TABLE IF EXISTS `vw_tiendt`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_tiendt`  AS SELECT `ct`.`Mahoadon` AS `Mahoadon`, `ct`.`MaSp` AS `MaSp`, `ct`.`SoLuong` AS `SoLuong`, sum((select `sanpham`.`Gia` from `sanpham` where `sanpham`.`MaSP` = `ct`.`MaSp`) * `ct`.`SoLuong`) AS `tien` FROM `chitiethoadon` AS `ct` WHERE `ct`.`MaSp` not like 'PK%' GROUP BY `ct`.`Mahoadon` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_tienpk`
+--
+DROP TABLE IF EXISTS `vw_tienpk`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_tienpk`  AS SELECT `ct`.`Mahoadon` AS `Mahoadon`, `ct`.`MaSp` AS `MaSp`, `ct`.`SoLuong` AS `SoLuong`, sum((select `chitietphukien`.`Gia` from `chitietphukien` where `chitietphukien`.`Maphukien` = `ct`.`MaSp`) * `ct`.`SoLuong`) AS `tien` FROM `chitiethoadon` AS `ct` WHERE `ct`.`MaSp` like 'PK%' GROUP BY `ct`.`Mahoadon` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_tientheothang`
+--
+DROP TABLE IF EXISTS `vw_tientheothang`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_tientheothang`  AS SELECT date_format(`hd`.`NgayGiaoHang`,' %m - %Y') AS `Quyen`, `hd`.`Mahoadon` AS `Mahoadon`, (select sum(`p`.`tien`) from `vw_tienpk` `p` where `p`.`Mahoadon` = `hd`.`Mahoadon`) AS `tienpk`, (select sum(`p`.`tien`) from `vw_tiendt` `p` where `p`.`Mahoadon` = `hd`.`Mahoadon`) AS `tiendt` FROM `hoadon` AS `hd` WHERE `hd`.`NgayGiaoHang` is not null ;
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `chitietsanpham`
+-- Indexes for table `cauhoi`
+--
+ALTER TABLE `cauhoi`
+  ADD PRIMARY KEY (`MaCH`);
+
+--
+-- Indexes for table `chitietphukien`
+--
+ALTER TABLE `chitietphukien`
+  ADD PRIMARY KEY (`Maphukien`);
+
+--
+-- Indexes for table `chitietsanpham`
 --
 ALTER TABLE `chitietsanpham`
   ADD PRIMARY KEY (`Masanpham`);
+
+--
+-- Indexes for table `giohang`
+--
+ALTER TABLE `giohang`
+  ADD PRIMARY KEY (`Tentaikhoan`,`MaSp`);
+
+--
+-- Indexes for table `hoadon`
+--
+ALTER TABLE `hoadon`
+  ADD PRIMARY KEY (`Mahoadon`);
+
+--
+-- Indexes for table `khachhang`
+--
+ALTER TABLE `khachhang`
+  ADD PRIMARY KEY (`MaKH`,`Tendangnhap`);
+
+--
+-- Indexes for table `loaiphukien`
+--
+ALTER TABLE `loaiphukien`
+  ADD PRIMARY KEY (`Maloai`);
+
+--
+-- Indexes for table `phukhien`
+--
+ALTER TABLE `phukhien`
+  ADD PRIMARY KEY (`MaPhuKien`,`MaLoai`);
+
+--
+-- Indexes for table `quantri`
+--
+ALTER TABLE `quantri`
+  ADD PRIMARY KEY (`MaNV`);
+
+--
+-- Indexes for table `sanpham`
+--
+ALTER TABLE `sanpham`
+  ADD PRIMARY KEY (`MaSP`);
+
+--
+-- Indexes for table `tbldongsanpham`
+--
+ALTER TABLE `tbldongsanpham`
+  ADD PRIMARY KEY (`Madong`);
+
+--
+-- Indexes for table `tbltintuc`
+--
+ALTER TABLE `tbltintuc`
+  ADD PRIMARY KEY (`MaTinTuc`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cauhoi`
+--
+ALTER TABLE `cauhoi`
+  MODIFY `MaCH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `hoadon`
+--
+ALTER TABLE `hoadon`
+  MODIFY `Mahoadon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+
+--
+-- AUTO_INCREMENT for table `khachhang`
+--
+ALTER TABLE `khachhang`
+  MODIFY `MaKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `quantri`
+--
+ALTER TABLE `quantri`
+  MODIFY `MaNV` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
+-- AUTO_INCREMENT for table `sanpham`
+--
+ALTER TABLE `sanpham`
+  MODIFY `MaSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `tbltintuc`
+--
+ALTER TABLE `tbltintuc`
+  MODIFY `MaTinTuc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
