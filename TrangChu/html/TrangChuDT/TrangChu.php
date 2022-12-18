@@ -13,7 +13,7 @@
     <?php
     require "Header.php";
     ?>
-    
+
 </head>
 
 <body>
@@ -73,7 +73,7 @@
                                                 <p>Vivo</p>
                                             </a>
                                         </li>
-                                        
+
                                     </ul>
                                 </div>
                             </li>
@@ -326,7 +326,7 @@
                         <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=&Gia=&MaLoai=L01&SapXep=GiaCao&TimKiem=" class="item">Tai nghe không dây</a>
                         <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L01&Gia=&MaLoai=L02&SapXep=GiaCao&TimKiem=" class="item">Tai nghe có dây</a>
                         <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L02&Gia=&MaLoai=L03&SapXep=GiaCao&TimKiem=" class="item">Cáp sạc</a>
-                       
+
                         <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L03&Gia=&MaLoai=L05&SapXep=GiaCao&TimKiem=" class="item">Sạc dự phòng</a>
                         <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L05&Gia=&MaLoai=L06&SapXep=GiaCao&TimKiem=" class="item">Đồng hồ thông minh</a>
                         <a href="http://localhost/QuangAnhStore/Trangchu/html/Chucnangtrangchu/Chucnang/DanhMucPhuKien.php?MaLoai=L06&Gia=&MaLoai=L09&SapXep=GiaCao&TimKiem=" class="item">Loa</a>
@@ -369,7 +369,7 @@
     <div class="container-footer">
         <div class="content-footer">
             <?php
-            require 'Footer.php';
+            require './Footer.php';
             ?>
 
         </div>

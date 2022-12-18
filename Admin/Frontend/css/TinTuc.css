@@ -177,10 +177,10 @@ form .txtTieuDe {
     height: 44px;
 }
 form .txtTomTat {
-    height: 84px;
+    height: 44px;
 }
 form .txtNoiDung {
-    height: 134px;
+    height: 44px;
     width: 1170px;
 }
 form .fileUpload {
@@ -211,3 +211,6 @@ form {
     padding: 4px 10px !important;
 }
 /* ENDdialog */
+.error_message{
+    display: none;
+}

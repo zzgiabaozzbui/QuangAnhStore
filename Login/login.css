@@ -1,13 +1,27 @@
+body {
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+}
+
+
 .login__tk{
     color: aliceblue;
     margin: auto 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 .login__title{
     color: rgb(255, 253, 253);
     font-size: 25px;
-    margin: 10px auto;
+    font-weight: bold;
 }
+
 .login__i{
+    padding: 5px;
     width: 60px;
     height: 60px ;
     border-radius: 100%;
@@ -20,11 +34,9 @@
     font-family: 'Times New Roman', Times, serif;;
     font-size: 20px;
     border: none;
-    background-image: linear-gradient(to right,#f0465f94,#3aabf1a8);;
     margin-top: 40px;
     margin-right: 5px;
     padding: 10px;
-    width: 40%;
     border-radius: 10px;
 }
 .login__txttk{
@@ -35,7 +47,6 @@
     border-left: none;
     border-top: none;
     font-size: 12px;
-    background-repeat: no-repeat;
     padding: 5px 10px 5px 8px;
     outline: none;
     background: none;
@@ -63,4 +74,15 @@
     padding-left: 0px;
     padding-right: 30%;
     padding-bottom: 5px;
+}
+
+
+
+.mess-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    background-image: url("http://localhost/QuangAnhStore/Login/KhachHang/img/error.png");
+    background-repeat: no-repeat;
+
 }
