@@ -85,7 +85,6 @@
                         <?php
                         $ProductNumber=10; // số sản phẩm trong 1 trang
                         $current_page=1;
-                        
                        
                         if(isset($_GET['page'])){
                             $current_page=$_GET['page'];
@@ -105,7 +104,6 @@
                             echo '<td><a  onclick="'.$jsCheck.'" href="XoaDSP.php?MaDong='.$dongSanPham["Madong"].'">Xóa</a></td>';
                             echo "</tr>";
                         }
-
                         ?>
                     </tbody>
                 </table>
