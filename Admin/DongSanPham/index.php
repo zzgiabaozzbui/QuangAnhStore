@@ -75,7 +75,7 @@
                     <thead>
                         <tr>
                             <th>Mã dòng sản phẩm</th>
-                            <th>Dòng SP</th>
+                            <th>Dòng sản phẩm</th>
                             <th></th>
                             <th></th>
                             
